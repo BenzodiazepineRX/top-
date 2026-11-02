@@ -2,7 +2,7 @@
 
 Use this path for every song. The point is to decide what *this* song needs, then write those decisions down so the next agent can follow them.
 
-The checklist in `checklist.md` is a list of questions, not a fixed chain of plugins. Also read:
+The checklist in `checklist.md` is a list of questions, not a fixed chain of plugins. Before mixing, read `../agents/music_engineer.md`. It is the base playbook. The song brief still wins. Also read:
 
 - `engineering-standards.md` — the level of craft expected on every song
 - `effects-guide.md` — creative effects on one track or the whole mix, and how to turn BPM into delay times
@@ -41,7 +41,7 @@ If a fact is unknown, write "unknown" and the question to ask. Do not leave a bl
 
 ### 3. Mix
 
-Read `brief.md`, then work through `checklist.md`.
+Read `brief.md`, then `../agents/music_engineer.md`, then work through `checklist.md`. The playbook is the starting craft. The brief is the plan for this song.
 
 Answer the questions for this song. Genre, references, and arrangement decide the settings. Write the choices in `mix-notes.md` as you go, including what you tried and what you rejected.
 

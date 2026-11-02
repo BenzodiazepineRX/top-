@@ -13,6 +13,7 @@ The job right now is music mixing and mastering. Every song is different, so eve
 
 ```text
 README.md                      what this workspace is, and the rules
+agents/music_engineer.md       base playbook for mixing and mastering agents
 music/README.md                the steps for taking a song from brief to master
 music/checklist.md             questions to answer while mixing and mastering
 music/effects-guide.md         creative effects on one track or the whole mix
@@ -28,6 +29,7 @@ When a real song starts, copy `_template` to a new folder such as `music/songs/s
 ## Rules for agents
 
 - Read the relevant song brief before doing anything on that song.
+- Before mixing, read `agents/music_engineer.md`. It is the base playbook for any mixing or mastering agent. It never overrides that song's brief. Loudness numbers in the playbook are starting targets, chosen for this song and checked against its reference track.
 - Work to the standard in `music/engineering-standards.md`: a top-tier professional mix and mastering engineer for world-famous artists. The craft is at that level. The choices still come from this song's brief.
 - Adapt every decision to that song's genre, reference tracks, and arrangement. A setting that worked on the last song is a clue, not a preset to paste in.
 - Read the **Creative effects requests** in that brief. They can be on one track or on the whole mix (the mix bus or master). Acknowledge each one in the song's notes, then build it at the exact spot the owner named, automated across the bars they named. If a plugin is named and it runs on the Linux machine, use it. If it does not, build the same effect with the tools in `music/daw-setup.md` and write both names in the notes. Do not skip a request, swap the effect itself, or move it unless the owner changes the brief.
