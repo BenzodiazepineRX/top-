@@ -8,6 +8,20 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-08 — v6-master (real stutters, delay through the whole outro)
+
+- **Files:** `Pushing_the_Interstate_master_v6_24bit.wav`, `Pushing_the_Interstate_master_v6.mp3` (2:53), `Outro_preview_v6.mp3` (2:08 to end). Audio delivered in chat, not committed.
+- **What changed (outro only; verses as v5):**
+  - *Owner's correction on v5:* the stutters wanted are "where the first half part of a syllable or word repeats 3-4 times before the whole things gets said", not repeats after a word; and the outro delay should play "as the bars play… after what's being said", perfectly timed, not only in a few spots.
+  - *Layout:* four lines, A, B, A, B, each moved by whole bars (56, 57, 62 and 63 bars) so every line keeps its original pickup beat, with about one bar (2 s) of space before each. Back-to-back lines (v4/v5) left no room for 3-4 repeats on the beat. Ends on line B.
+  - *Stutters:* the first 75 ms of each line's first syllable ("si", "I"), repeated 4 times on 16th notes (116.28 ms apart) right before the whole word, rising −1.5 to 0 dB.
+  - *Delay:* all four lines sent through a pitched (+3 semitones) quarter-note ping-pong delay with light ducking: 8–9 dB under each line, 10–12 dB under it in the open bars, lag 465.42 ms by cross-correlation. Stutters stay dry.
+  - *Ending:* half-note ring-out on the last "interstate" (feedback 0.76), pitched up, about 7.5 s past the beat's hard stop; ending check passes (largest sudden drop 18.7 dB).
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.5 dBTP (MP3), loudness range 7.9 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v6.json`, `reports/v6.md`: ⚠️ close, 59 passed, 4 to check, 0 failed (mids from the phone outro, intended; old FX stem; outro line words to confirm).
+- **Listening check:** pending owner on v6.
+- **Next:** owner listens; if approved, the sign-off moves to v6.
+
 ### 2026-11-08 — v5-master (echo timing fix, pitched outro echoes, stutters)
 
 - **Files:** `Pushing_the_Interstate_master_v5_24bit.wav`, `Pushing_the_Interstate_master_v5.mp3` (2:51), `Outro_preview_v5.mp3`, `v4_vs_v5_echoes_0m33.mp3`, `v4_vs_v5_echoes_1m14.mp3`. Audio delivered in chat, not committed.
@@ -110,7 +124,7 @@ The owner approved the master as finished. The unchecked boxes are recorded as n
 
 **Master version:** v4 (`Pushing_the_Interstate_master_v4_24bit.wav`, 129 BPM build)
 
-> v5 (verse echo timing fix, pitched outro echoes, stutters) was made after this sign-off at the owner's request and is awaiting the owner's approval. Until then, v4 is the approved master.
+> v5 and v6 (verse echo timing fix, pitched outro delay, stutters) were made after this sign-off at the owner's request; v6 is awaiting the owner's approval. Until then, v4 is the approved master.
 **Date:** 2026-11-08
 **Owner:** Chex
 **Owner's words:** "My boy….. it's beautiful" — then, asked whether that counts as final approval: "Yessss sirrrrr"
