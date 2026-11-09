@@ -100,46 +100,6 @@ def detect_tempo(x):
             "alternatives": alts[:4]}
 
 
-def refine_tempo(path, coarse, span=1.5):
-    """Exact tempo from the drums' grid, to 0.001 BPM.
-
-    The coarse detector works on 11.6 ms frames, which cannot tell 129 from 128.71 BPM; a beat exported with a
-    small sample-rate mismatch drifts a quarter second off a 129 grid within a minute. This decodes at full rate,
-    takes snare/clap (1-5 kHz) and hi-hat (7-16 kHz) hits at 1 ms resolution, and finds the BPM whose 16th-note
-    grid they lock to across the whole song. Returns None when the drums are too sparse to lock."""
-    from scipy.signal import butter, find_peaks, sosfiltfilt
-    sr = 44100
-    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-map", "a:0", "-ac", "1", "-ar", str(sr),
-                          "-f", "f32le", "-"], capture_output=True)
-    if raw.returncode != 0 or not raw.stdout:
-        return None
-    m = np.frombuffer(raw.stdout, dtype="<f4").astype(np.float64)
-    hits = []
-    for btype, band in (("band", [1000, 5000]), ("high", 7000)):
-        y = sosfiltfilt(butter(4, band, btype, fs=sr, output="sos"), m)
-        n = sr // 1000
-        k = len(y) // n
-        if k < 2000:
-            return None
-        e = np.sqrt((y[:k * n] ** 2).reshape(k, n).mean(axis=1))
-        fl = np.diff(np.log(e + 1e-5))
-        fl[fl < 0] = 0
-        pk, _ = find_peaks(fl, height=np.percentile(fl, 99), distance=90)
-        hits.append(pk * 0.001)
-    t = np.concatenate(hits)
-    if len(t) < 64:
-        return None
-
-    def lock(b):
-        return float(abs(np.exp(2j * np.pi * t / (60.0 / b / 4)).mean()))
-
-    grid = np.arange(coarse - span, coarse + span, 0.001)
-    locks = np.array([lock(b) for b in grid])
-    best = float(grid[int(np.argmax(locks))])
-    return {"bpm": round(best, 3), "lock": round(float(locks.max()), 3),
-            "lock_at_rounded": round(lock(round(coarse)), 3), "hits": int(len(t))}
-
-
 def detect_key(x):
     n_fft, hop = 8192, 2048
     freqs, _, Z = stft(x, fs=SR, nperseg=n_fft, noverlap=n_fft - hop, boundary=None, padded=False)
@@ -214,14 +174,6 @@ def main():
             out["tempo"] = t
             print(f"Tempo    {t['bpm']:.2f} BPM (likely {t['bpm_rounded']}), confidence {t['confidence']}"
                   f"; also possible: {', '.join(str(v) for v in t['alternatives'])}")
-            r = refine_tempo(a.song, t["bpm"])
-            if r and r["lock"] >= 0.3 and r["lock"] > r["lock_at_rounded"] + 0.02:
-                t["refined_bpm"] = r["bpm"]
-                t["refine"] = r
-                print(f"Exact    {r['bpm']:.3f} BPM from the drum grid ({r['hits']} snare/hat hits, lock {r['lock']}; "
-                      f"a {t['bpm_rounded']} BPM grid locks only {r['lock_at_rounded']}). Delay times use the exact tempo.")
-            elif r:
-                print(f"Exact    the drum grid confirms {t['bpm_rounded']} BPM (lock {r['lock_at_rounded']}).")
         k = detect_key(x)
         out["key"] = k
         print(f"Key      {k['key']} (score {k['score']}, confidence {k['confidence']})"
@@ -231,12 +183,9 @@ def main():
                   "resolves to decides which one it is.")
         print(f"Tuning   A4 = {k['tuning_a4_hz']} Hz ({k['tuning_cents']:+.1f} cents from 440)")
 
-    bpm = a.bpm or round(out["tempo"].get("refined_bpm", out["tempo"]["bpm_rounded"]), 2)
+    bpm = a.bpm or out["tempo"]["bpm_rounded"]
     if not a.bpm and a.song:
-        if "refined_bpm" in out["tempo"]:
-            note = "exact tempo from the drum grid"
-        else:
-            note = "rounded detected tempo" if abs(out["tempo"]["bpm"] - bpm) < 0.3 else "nearest whole BPM; check it"
+        note = "rounded detected tempo" if abs(out["tempo"]["bpm"] - bpm) < 0.3 else "nearest whole BPM; check it"
         print(f"\nDelay times at {bpm} BPM ({note}):")
     else:
         print(f"\nDelay times at {bpm:g} BPM:")
