@@ -43,8 +43,13 @@ SETTINGS = {
     "v4": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-2.0, responses_vs_beat=4.0, lead_plate_db=-15.0,
                adlib_file="a_8.wav", background_vs_beat=1.0, riser=True, peak_catch_db={"adlib_responses": 9.0, "background": 11.0},
                match_repeats=True),
+    # v5 (owner on v4): the repeats (adlib track, 1:20, 1:24, 1:26 ...) are background vocals OF the background
+    # vocals, so they sit under them (4 dB under each line they repeat), and the background vocals come up slightly
+    "v5": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-2.0, responses_vs_beat=4.0, lead_plate_db=-15.0,
+               adlib_file="a_8.wav", background_vs_beat=2.0, riser=True, peak_catch_db={"adlib_responses": 9.0, "background": 11.0},
+               match_repeats=True, repeat_vs_main_db=-4.0),
 }
-SET = SETTINGS.get(TAG, SETTINGS["v4"])
+SET = SETTINGS.get(TAG, SETTINGS["v5"])
 sr = 44100
 G0, Q = 0.03837, 0.4
 BAR = 1.6
@@ -181,7 +186,7 @@ def main():
         for k, (a, b) in enumerate(RESP):
             Lm = loud(bgv * G["background"], b - 3.2, b)
             Lr = loud(adl_b * G["adlib_responses"], a, b)
-            c = min(0.0, Lm - Lr)
+            c = min(0.0, Lm + SET.get("repeat_vs_main_db", 0.0) - Lr)
             lo = a - 0.15 if k == 0 else RESP[k][0] - 0.12
             hi = RESP[k + 1][0] - 0.12 if k + 1 < len(RESP) else n / sr
             rep_curve[(t >= lo) & (t < hi)] = c

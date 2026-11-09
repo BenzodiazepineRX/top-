@@ -8,6 +8,17 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v5-master (repeats under the background vocals, background vocals up slightly)
+
+- **Files:** `Driftin_Away_master_v5_24bit.wav`, `Driftin_Away_master_v5.mp3`, `Driftin_Away_v4_vs_v5_1m16.mp3` (v4 then v5, same loudness, 1:16.5–1:29.5). Audio delivered in chat, not committed.
+- **Owner on v4:** "The repeat at 1:20, 1:24, 1:26 and the others need to be lower than the BACKGROUND VOCALS because it's a repeat of the background vocals ... the background vocals can be turned up slightly because they are background vocals of the LEAD MAIN ones ... the background vocals have background vocals which need to be lower."
+- **The order this song follows (record it for every future version):** lead (main) > background vocals (the "background vocals" file; the main voice of 1:18–2:18) > their repeats (the adlib track's answers every 2 bars in 1:18–2:18), which are background vocals of the background vocals and always sit under the line they repeat.
+- **What changed:** each repeat (and its echoes) 4 dB under the line it repeats: −3.3 to −6.0 dB from v4; measured after: −4.0 dB on all 16. Background vocals 1 dB up (2 dB over the beat; 1.3 dB over the verse lead's level). Nothing else changed.
+- **Result:** −11.5 LUFS, −0.7 dBTP (WAV) / −0.6 dBTP (MP3), worst limiter dip −2.9 dB. Verse and second half within 0.8 dB. Timing unchanged.
+- **Effects log and review report:** `effects/v5.json`, `reports/v5.md`: ⚠️ close, 72 passed, 2 to check (upper-mid and air about 3 dB over the raw stems summed, because the vocals now sit well over the beat), 0 failed.
+- **Check for every version:** `check_repeats.py` must show every second-half repeat under its line (v5: −4.0 dB on all 16).
+- **Listening check:** pending owner, headphones. Spots: 1:18–1:30 and every 2 bars to 2:18.
+
 ### 2026-11-09 — v4-master (every repeat matches its main line)
 
 - **Files:** `Driftin_Away_master_v4_24bit.wav`, `Driftin_Away_master_v4.mp3`, `Driftin_Away_v3_vs_v4_1m16.mp3` (v3 then v4, same loudness, 1:16.5–1:29.5). Audio delivered in chat, not committed.

@@ -4,7 +4,7 @@ import sys
 sys.argv = sys.argv[:1] + ["v4"]; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_mix as bm
 TAG = sys.argv[1] if len(sys.argv) > 1 else "v4"
-for tag in ("v4",):
+for tag in ("v4", "v5"):
     try:
         r, _ = bm.dt.read(f"stem_{tag}_responses.wav"); b, _ = bm.dt.read(f"stem_{tag}_background.wav")
     except Exception:
