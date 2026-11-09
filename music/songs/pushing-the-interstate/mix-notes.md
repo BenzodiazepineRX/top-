@@ -8,6 +8,43 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v17 (the near-miss, with the echoes you can actually hear)
+
+v16 was close. v17 keeps that mix and only changes the echoes he pointed at.
+
+The adlib echoes are a little louder, about 3 dB, and each one blooms in a short plate (1.2 seconds, lows and highs trimmed) so they repeat and fade instead of stopping. The phone voice is pulled down so it sits with the verses: it was 8 dB hotter than the verse against the beat, and a 4 dB cut would still have left it 4 dB hot, so it came down 8 dB. It was +1.2 dB against the beat; it is now −5.6 dB, next to the verse vocal at −7.0 dB. Behind those lines is a higher phone echo, one beat later (465.12 ms), about 12 dB under the line, three repeats fading out. The stutters are longer: at least an eighth note (233 ms), most of the first word, on the beat, and the real word has not moved. Lead echoes now repeat about three times (feedback 0.5) instead of dying after one, the copied words are kept under one beat so the repeats do not pile up, and the endings fade instead of cutting off.
+
+- **Files:** `Pushing_the_Interstate_master_v17_24bit.wav`, `Pushing_the_Interstate_master_v17.mp3`, `Outro_preview_v17.mp3` (from 2:08), `Pushing_the_Interstate_v17_effects_bus_24bit.wav`.
+- **Loudness:** −11.7 LUFS, true peak −0.9 dBTP on the WAV.
+- **Checked and fixed:** the second repeat of the 1:17.7 echo was ending in a cut around 1:19, and an adlib echo cut off at 2:14.7. Both now fade. The copies at 1:28.1 and 1:58.1 were longer than a beat, so every lead copy over 0.42 s was trimmed to the last 0.42 s with a fade.
+- **Grid:** lead echoes, the verse throw and the stutters land within 3 ms of an eighth-note line at 129 BPM. Two of those eighths (the 1:28 echo and the verse-1 throw) are the off-beat eighth, about 231 ms from a downbeat. Moving them onto the downbeat would shift the echo by more than a fifth of a second, so they stay on that eighth and are flagged below. The phone echo is exactly 465.12 ms after each line. Those lines were not put on a downbeat in v4, so the echo sits 19 ms or 99 ms off the nearest eighth. That is the line's own placement, not a wrong delay time.
+
+| What | Source (s) | First tap (s) | Lag (ms) | Off 1/8 (ms) | Off 1/4 (ms) | Note |
+| --- | --- | --- | --- | --- | --- | --- |
+| Lead, 0:34.0 | 34.030 | 34.419 | 389 | +0.6 | +0.6 | nudged onto the beat |
+| Lead, 0:37.8 | 37.760 | 38.140 | 380 | +0.7 | +0.7 | nudged onto the beat |
+| Lead, 0:41.5 | 41.480 | 41.861 | 381 | +0.8 | +0.8 | nudged onto the beat |
+| Lead, 1:15.8 | 75.830 | 76.280 | 450 | +1.4 | +1.4 | nudged onto the beat |
+| Lead, 1:17.7 | 77.710 | 78.141 | 431 | +1.4 | +1.4 | fade, three repeats |
+| Lead, 1:27.8 | 87.760 | 88.141 | 381 | +1.6 | −231.0 | on the eighth, flagged |
+| Lead, 1:45.6 | 105.580 | 106.048 | 468 | +1.9 | +1.9 | on the beat |
+| Lead, 1:47.5 | 107.460 | 107.909 | 449 | +2.0 | +2.0 | on the beat |
+| Lead, 1:57.7 | 117.740 | 118.142 | 402 | +2.1 | +2.1 | trimmed under a beat |
+| Verse-1 throw | 60.160 | 61.164 | 1004 | +1.1 | −231.5 | on the eighth, flagged |
+| Adlib delay | phrase | +348.84 ms | 348.8 | follows the phrase | same | +3 dB, short plate on the repeats only |
+| Phone block 1 A | 135.136 | 135.601 | 465.1 | +19.4 | −213.1 | exact one beat; line is not on a downbeat |
+| Phone block 1 B | 138.971 | 139.436 | 465.1 | −98.9 | −98.9 | exact one beat |
+| Phone block 2 A | 142.578 | 143.043 | 465.1 | +19.4 | −213.1 | exact one beat |
+| Phone block 2 B | 146.413 | 146.878 | 465.1 | −98.9 | −98.9 | exact one beat |
+| Phone block 3 A | 150.019 | 150.485 | 465.1 | +19.4 | −213.1 | exact one beat |
+| Phone block 3 B | 153.855 | 154.320 | 465.1 | −98.9 | −98.9 | exact one beat |
+| Stutter 1A ×3 | 135.136 | 134.421, 134.654, 134.886 | 233 ms chops | +2.4 | on the eighth | three, into the word |
+| Stutter 1B | 138.971 | 138.607 | 290 ms | +2.5 | +2.5 | one, the gap holds one |
+| Stutter 2A | 142.578 | 142.328 | 233 ms | +2.6 | +2.6 | one |
+| Stutter 2B | 146.413 | 146.049 | 286 ms | +2.7 | +2.7 | one |
+| Stutter 3A | 150.019 | 149.770 | 233 ms | +2.7 | +2.7 | one |
+| Stutter 3B | 153.855 | 153.491 | 286 ms | +2.8 | +2.8 | one |
+
 ### 2026-11-09 — v16 (the v4 song, with the echoes cleaned up and the phone outro finished)
 
 Chex, this is the version that sounded right around 10:39, with two things added only on the phone ending: a higher little echo after each line, and a short stutter into the first word. The echoes sit under the vocal. They repeat a few times and fade. They do not take over the song.
