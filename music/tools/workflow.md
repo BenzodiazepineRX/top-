@@ -52,7 +52,7 @@ python3 music/tools/analyze_audio.py instrumental.wav lead_vocal.wav adlibs.wav
 python3 music/tools/tempo_key.py instrumental.wav          # or the full mix
 ```
 
-Run tempo detection on the instrumental or full mix, never on a vocal stem alone: a vocal's phrasing misleads beat tracking (in testing, a vocal stem from a 92 BPM song read as 74 BPM with "high" confidence). If the user or their project states the BPM or key, that wins; if confidence is not high, or half/double time matters for the feel, confirm the BPM with the user before rendering any delay.
+Run tempo detection on the instrumental or full mix, never on a vocal stem alone: a vocal's phrasing misleads beat tracking (in testing, a vocal stem from a 92 BPM song read as 74 BPM with "high" confidence). `tempo_key.py` then measures the **exact** tempo from the snare and hi-hat grid to 0.001 BPM and builds the delay table from it: a beat exported with a small sample-rate mismatch can be 128.71 BPM instead of 129, which puts quarter-note echoes 1 ms early per repeat and anything moved by 60 bars a quarter second off the beat. Use the exact figure everywhere (delays, pre-delays, decays, and when moving vocals by whole bars). If the user or their project states the BPM or key, that wins, but if their figure is a whole number and the drum grid locks to a fraction, tell them; if confidence is not high, or half/double time matters for the feel, confirm the BPM with the user before rendering any delay.
 
 Delay times come from the BPM, never from guesswork:
 - Quarter note (1/4) = 60,000 / BPM ms
