@@ -8,6 +8,17 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v4-master (every repeat matches its main line)
+
+- **Files:** `Driftin_Away_master_v4_24bit.wav`, `Driftin_Away_master_v4.mp3`, `Driftin_Away_v3_vs_v4_1m16.mp3` (v3 then v4, same loudness, 1:16.5–1:29.5). Audio delivered in chat, not committed.
+- **Owner on v3 (headphones):** "At 1:18 the repeat is louder than the main. 'Always up late at night I can never sleep' (LOUDER REPEAT 'I can never sleep') that repeat isn't supposed to be louder." Then: "make the adlib track louder but [the] specific part needs to be lower, the repeat, to match." Asked which answers are repeats: "All 16 are repeats."
+- **What went wrong in v3:** the adlib responses were raised as one track against the beat, and no check compared each repeat with the line it repeats. Measured on v3: all 16 repeats were 2–4 dB louder than their main lines. An attempt to tell repeats from other adlibs by envelope shape was not reliable (it even missed the 1:20 one), so the owner's answer decided it.
+- **What changed (`build_mix.py v4`, `match_repeats`):** each repeat is set to the loudness of the main line it answers (the background vocal over the 2 bars that end where the repeat ends), held through the repeat's own echoes: −0.3 to −3.0 dB. Measured on the parts exactly as they enter the mix: 0.0 dB on all 16, none louder. Everything else is v3: the verse adlibs stay 2 dB under the lead, the background vocal at the lead's level, the swells, build-ups and drops unchanged.
+- **New check for every future version:** `check_repeats.py` reads the vocal parts as they enter the mix (`stem_<version>_responses.wav`, `stem_<version>_background.wav`) and fails any repeat louder than its main line.
+- **Result:** −11.5 LUFS, −0.7 dBTP (WAV) / −0.6 dBTP (MP3), limiter 0.3 LU, worst limiter dip −2.9 dB (v3: −3.1). Verse and second half within 0.7 dB. Timing unchanged (79 echo repeats on the grid, max 0.01 ms; drops on their transients).
+- **Effects log and review report:** `effects/v4.json`, `reports/v4.md`: ⚠️ close, 72 passed, 2 to check (upper-mid and air about 3 dB over the raw stems summed, because the vocals are much louder over the beat than in the raw stems, as asked), 0 failed.
+- **Listening check:** pending owner, headphones. Spot: 1:18–1:22 ("I can never sleep" and its repeat), then every 2 bars to 2:18.
+
 ### 2026-11-09 — v3-master (adlibs and background up, louder swells, drops with a build-up)
 
 - **Files:** `Driftin_Away_master_v3_24bit.wav`, `Driftin_Away_master_v3.mp3`, `Driftin_Away_v2_vs_v3_0m24.mp3` (the first drop and verse start) and `Driftin_Away_v2_vs_v3_1m16.mp3` (into the second half): v2 then v3, same loudness, 14 s each. Audio delivered in chat, not committed.

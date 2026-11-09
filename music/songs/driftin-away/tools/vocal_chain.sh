@@ -28,3 +28,4 @@ $T comp2 a_6.wav a_7.wav
 #   ADLIB_SRC=a_8.wav python3 build_fx.py && python3 build_mix.py v2
 python3 -I "$(dirname "$0")/level_adlibs.py"
 # v3: FX_VERSION=v3 ADLIB_SRC=a_8.wav python3 build_fx.py && python3 build_mix.py v3
+# v4: python3 build_mix.py v4 && python3 check_repeats.py   (every repeat must measure 0.0 dB or less vs its main line)

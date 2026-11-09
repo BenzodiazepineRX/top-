@@ -38,8 +38,13 @@ SETTINGS = {
     # level, build-up swells into the drops (built by build_fx.py with FX_VERSION=v3)
     "v3": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-2.0, responses_vs_beat=4.0, lead_plate_db=-15.0,
                adlib_file="a_8.wav", background_vs_beat=1.0, riser=True, peak_catch_db={"adlib_responses": 9.0, "background": 11.0}),
+    # v4 (owner on v3: at 1:18 the repeat "I can never sleep" is louder than the main line; all 16 second-half
+    # adlib answers are repeats and must match the line they repeat, never louder; the rest stays as v3)
+    "v4": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-2.0, responses_vs_beat=4.0, lead_plate_db=-15.0,
+               adlib_file="a_8.wav", background_vs_beat=1.0, riser=True, peak_catch_db={"adlib_responses": 9.0, "background": 11.0},
+               match_repeats=True),
 }
-SET = SETTINGS.get(TAG, SETTINGS["v3"])
+SET = SETTINGS.get(TAG, SETTINGS["v4"])
 sr = 44100
 G0, Q = 0.03837, 0.4
 BAR = 1.6
@@ -118,6 +123,11 @@ def loud(x, t0, t1, gate_self=True):
     return -0.691 + 10 * math.log10(ms.mean()) if len(ms) else -99.0
 
 
+RESP = [(80.21, 82.00), (83.63, 85.08), (86.82, 88.45), (90.13, 91.64), (93.23, 94.84), (96.43, 98.12),
+        (99.66, 101.47), (102.86, 104.53), (104.87, 109.05), (111.50, 113.23), (114.71, 116.42), (118.07, 120.02),
+        (121.28, 123.22), (124.72, 126.27), (130.90, 132.75), (135.93, 138.91)]
+
+
 def main():
     beat0, _ = dt.read(D + "beat_fx.wav")
     n = len(beat0) + int(4 * sr)
@@ -162,6 +172,25 @@ def main():
             else:
                 bgv = y / G[name]
         print("peak catch:", json.dumps(pc))
+    rep = []
+    rep_curve = np.zeros(n)
+    if SET.get("match_repeats"):
+        # each repeat measured against the main line it answers (the background vocal over the 2 bars that end
+        # where the repeat ends) and set to the same loudness; the gain holds through the repeat's echoes and
+        # changes 60 ms before the next repeat starts
+        for k, (a, b) in enumerate(RESP):
+            Lm = loud(bgv * G["background"], b - 3.2, b)
+            Lr = loud(adl_b * G["adlib_responses"], a, b)
+            c = min(0.0, Lm - Lr)
+            lo = a - 0.15 if k == 0 else RESP[k][0] - 0.12
+            hi = RESP[k + 1][0] - 0.12 if k + 1 < len(RESP) else n / sr
+            rep_curve[(t >= lo) & (t < hi)] = c
+            rep.append({"repeat_s": [a, b], "main_line_lufs": round(Lm, 2), "repeat_before_lufs": round(Lr, 2), "gain_db": round(c, 2)})
+        kk = int(0.06 * sr)
+        rep_curve = np.convolve(rep_curve, np.ones(kk) / kk, mode="same")
+        adl_b = adl_b * (10 ** (rep_curve / 20))[:, None]
+        e_adl = e_adl * (10 ** (rep_curve / 20))[:, None]
+        print("repeats matched to their main lines:", " ".join(f"{r['gain_db']:+.1f}" for r in rep))
 
     # ---- reverbs: lead plate 1 bar (1.6 s), background hall 1.5 bars (2.4 s), pre-delay 1/64 = 25 ms
     rv = {}
@@ -177,6 +206,10 @@ def main():
 
     mix = (beat + lead * G["lead"] + adl_v * G["adlib_verse"] + bgv * G["background"] + adl_b * G["adlib_responses"]
            + phone * G["phone"] + echoes + sw * sw_g + riser + sum(rv.values()))
+
+    # the two vocal parts exactly as they enter the mix (after gains, peak catchers and repeat matching), for checks
+    dt.write(D + f"stem_{TAG}_responses.wav", adl_b * G["adlib_responses"], sr)
+    dt.write(D + f"stem_{TAG}_background.wav", bgv * G["background"], sr)
 
     # ---- fade-out: bars 99-104 (156.84 s to the beat's end at bar 105, 166.44 s), raised cosine, then silence
     f0, f1 = bar_t(99), bar_t(105)
@@ -209,7 +242,7 @@ def main():
         "background_reverb_vs_background_db": round(loud(rv["background"], 78, 139) - loud(bgv * G["background"], 78, 138), 2),
     }
     print("measured balance:", json.dumps(chk))
-    json.dump({"gains_db": {k: round(v, 2) for k, v in gains.items()}, "balance": chk, "peak_catch": pc,
+    json.dump({"gains_db": {k: round(v, 2) for k, v in gains.items()}, "balance": chk, "peak_catch": pc, "repeats_matched": rep,
                "fade": {"start_s": round(f0, 4), "end_s": round(f1, 4), "shape": "raised cosine", "bars": "99-104"},
                "length_s": round(len(mix) / sr, 3)}, open(D + f"mix_{TAG}.json", "w"), indent=1)
 
