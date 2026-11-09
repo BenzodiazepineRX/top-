@@ -12,7 +12,7 @@ If you do not know an answer yet, write "unknown" and who to ask. Do not guess a
 - **Artist:** unknown, ask the owner
 - **Genre / subgenre:** unknown, ask the owner (the session is beat + rap/sung lead + adlibs)
 - **Mood / vibe:** unknown, ask the owner
-- **BPM:** 128.71 (exact, from the snare/hi-hat grid; the coarse detector said 129, and v1–v3 were timed at 129. Likely a 129 BPM beat exported with a 44.2/44.1 kHz mismatch: 129 × 44100/44200 = 128.71)
+- **BPM:** 129 (measured on the beat stem, high confidence; confirmed directly: the beat's drum pattern repeats at shifts of 104.186, 107.906 and 111.628 s for 56, 58 and 60 bars, exactly 129 BPM. A 128.71 reading from a grid-fit method was a false lock and was reverted after it put the outro off beat.)
 - **Key:** F major (measured, medium confidence; runner-up Bb major). Tuning A4 = 439.7 Hz.
 
 ## Reference tracks
@@ -59,18 +59,18 @@ Requested by the owner on 2026-11-08 (v4).
 
 ## Delay timing for this song
 
-- **BPM used:** 128.71
+- **BPM used:** 129
 - **Time signature:** 4/4 (assumed; confirm with the owner)
 
 | Note | Straight (ms) | Dotted × 1.5 (ms) | Triplet × 2/3 (ms) |
 | --- | --- | --- | --- |
-| 1 bar (4 beats in 4/4) | 1864.66 | — | — |
-| 1/2 | 932.33 | 1398.49 | 621.55 |
-| 1/4 | 466.16 | 699.25 | 310.78 |
-| 1/8 | 233.08 | 349.62 | 155.39 |
-| 1/16 | 116.54 | 174.81 | 77.69 |
+| 1 bar (4 beats in 4/4) | 1860.47 | — | — |
+| 1/2 | 930.23 | 1395.35 | 620.16 |
+| 1/4 | 465.12 | 697.67 | 310.08 |
+| 1/8 | 232.56 | 348.84 | 155.04 |
+| 1/16 | 116.28 | 174.42 | 77.52 |
 
-Checked against `tempo_key.py`'s table at 128.71 BPM. Reverb pre-delay in range: 1/64 = 29.14 ms.
+Checked against `tempo_key.py`'s table at 129 BPM. Reverb pre-delay in range: 1/64 = 29.07 ms.
 
 ## Where it will be heard
 

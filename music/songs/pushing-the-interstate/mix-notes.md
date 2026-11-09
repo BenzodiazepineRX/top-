@@ -8,21 +8,21 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
-### 2026-11-08 — v4-master (phone-call outro, lead delay, exact tempo)
+### 2026-11-08 — v4-master (phone-call outro, line-end echoes, fade-out)
 
-- **Files:** `Pushing_the_Interstate_master_v4_24bit.wav`, `Pushing_the_Interstate_master_v4.mp3` (2:51), `Outro_preview_v4.mp3` (2:08 to end), `Lead_delay_preview_v4.mp3` (0:40–1:06). Audio delivered in chat, not committed.
+- **Files:** `Pushing_the_Interstate_master_v4_24bit.wav`, `Pushing_the_Interstate_master_v4.mp3` (2:51), `Outro_preview_v4.mp3` (2:08 to end), `Lead_echo_preview_v4.mp3` (0:30–1:03). Audio delivered in chat, not committed.
 - **What changed:**
-  - *Exact tempo:* owner heard the lead echoes as "not perfectly timed". Measured: the beat runs at **128.71 BPM**, not 129 (snare and hi-hats lock 0.44 to a 128.711 grid vs 0.18 to 129; the old FX stem's echoes repeat at 466 ms, a quarter at 128.7). Everything timed is now built at 128.71: lead plate pre-delay 29.14 ms and decay 1.398 s, adlib 1/8 dotted 349.62 ms, all new delays and reverbs. `tempo_key.py` now measures the exact tempo itself.
-  - *Lead vocal delay:* 1/4 note (466.16 ms) ping-pong under both verses, ducked 10 dB so it blooms at line endings, 12–18 dB under the adlibs in the breaths (the adlibs answer in every breath); off after 2:13.9 so it can't smear into the outro. Half-note throw (932.33 ms) on the last word of verse 1 (1:00.25–1:00.65) into the instrumental break, with a 1-bar hall.
-  - *Phone-call outro:* line A (0:30.88–0:34.41) and line B (0:34.78–0:38.15) alternate in three 4-bar blocks at bars 73, 77 and 81, moved by whole bars at 128.71 so each keeps its pickup beat (verified within 2 ms of the hi-hat grid). Telephone effect: 420 Hz–3.2 kHz band, +4 dB at 1.8 kHz, 8 kHz resample, saturation, 6:1 compression, line hiss at −34 dB; block 3 darker (2.6 kHz). Quarter-note echoes in the gaps, half-note throws on "interstate" at the end of blocks 2 and 3, halls of 1 and 1.5 bars. Outro bus 1.5 dB under the first draft, as asked.
-  - *Fade-out:* beat and old FX stem fade −10 dB over bar 82 to the beat's hard stop at 2:39.2; the last "interstate" echoes past the stop and fades to silence (file trimmed 0.5 s after the last sound).
+  - *Phone-call outro:* line A (0:30.88–0:34.41) and line B (0:34.78–0:38.15) alternate in three 4-bar blocks at bars 73, 77 and 81, moved by whole bars at 129 BPM (104.186, 111.628, 119.070 s) so each keeps its pickup beat. Telephone effect: 420 Hz–3.2 kHz band, +4 dB at 1.8 kHz, 8 kHz resample, saturation, 6:1 compression, line hiss at −34 dB; block 3 darker (2.6 kHz). Quarter-note echoes in the gaps, half-note throws on "interstate" at the end of blocks 2 and 3, halls of 1 and 1.5 bars. Outro bus 1.5 dB under the first draft, as asked.
+  - *Lead vocal echoes:* only on the last word of each real line ending (9 spots, 1/4 note = 465.12 ms), silent everywhere else and off at the end of verse 2; plus a half-note throw (930.23 ms) on the last word of verse 1 into the instrumental break.
+  - *Fade-out:* beat and old FX stem fade −10 dB over bar 82 to the beat's hard stop at 2:39.2; the last "interstate" echoes past the stop to silence.
+- **Detour, logged so it isn't repeated:** the owner heard the first lead delay (always on, ducked) as "not perfectly timed". I wrongly blamed the tempo: a 16th-grid fit on the hats and snare said 128.71 BPM, and I rebuilt everything at 128.71. The owner then heard the outro go off beat. A direct test settled it: the beat's own drum pattern repeats at shifts of 104.186, 107.906 and 111.628 s for 56, 58 and 60 bars, exactly 129 BPM; the grid fit had locked onto a false nearby tempo (its error wrapped in a sawtooth instead of drifting). Everything is back at 129 and the `tempo_key.py` change was reverted. The real echo problem was the always-on delay: ducking let fragments of words from a beat earlier surface at random points, so echoes now repeat only the word just said. **Lesson:** check a tempo by matching the drums against themselves bars apart, and trust the owner's ears over a fit.
 - **Why:** owner requests in the brief's Creative effects table (phone-call outro, lead vocal delay, song fade-out).
-- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.4 dBTP (MP3), loudness range 7.6 LU, limiter loss 0.7 LU, no dips over 4.5 dB, ending passes the new hard-cut check (largest drop 15 dB, 5.6 s tail).
-- **Effects log and review report:** `effects/v4.json` (35 entries), `reports/v4.md`: ⚠️ close, 60 passed, 4 to check, 0 failed. Mid +3.9 dB and upper-mid +3.1 dB vs the original: the phone outro is all midrange, intended. Old FX stem timing: unchanged, but its echoes measured 466 ms, which matches 128.71. Outro line choice: found by vocal shape, owner to confirm the words.
-- **Creative effects acknowledged:** phone-call outro (outro vocal, bars 73–86 plus ring-out, no plugin named); lead vocal delay (lead, both verses, off at the end of verse 2); song fade-out (whole mix, bars 82–86). All three built; the report confirms each.
-- **Delay times used:** 1/4 = 466.16 ms, 1/2 = 932.33 ms, 1/8 dotted = 349.62 ms, pre-delay 1/64 = 29.14 ms, decays dotted half 1.398 s, 1 bar 1.865 s, 1.5 bars 2.797 s, all at 128.71 BPM. v1–v3 used 129 BPM figures.
-- **Listening check:** owner on the first v4 draft: "It is literally ALMOST perfect", lead echoes not perfectly timed (fixed here).
-- **Next:** owner confirms the echoes are now on time and the outro lines are the right words.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.5 dBTP (MP3), loudness range 7.6 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v4.json`, `reports/v4.md` (counts in the report). Mid and upper-mid up about 3–4 dB vs the original because the phone outro is all midrange, intended. Outro line choice: found by vocal shape, owner to confirm the words.
+- **Creative effects acknowledged:** phone-call outro (outro vocal, bars 73–86 plus ring-out, no plugin named); lead vocal delay (lead, line endings in both verses, off at the end of verse 2); song fade-out (whole mix, bars 82–86). All three built.
+- **Delay times used:** 1/4 = 465.12 ms, 1/2 = 930.23 ms, 1/8 dotted = 348.84 ms, pre-delay 1/64 = 29.07 ms, decays dotted half 1.395 s, 1 bar 1.860 s, 1.5 bars 2.791 s, all at 129 BPM.
+- **Listening check:** owner on the first v4 draft: "It is literally ALMOST perfect", lead echoes not perfectly timed; on the 128.71 rebuild: "the outro is off beat now". Both addressed here.
+- **Next:** owner confirms the echoes and outro timing, and that the outro lines are the right words.
 
 ### 2026-11-08 — v3-master
 

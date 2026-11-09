@@ -97,28 +97,28 @@
   "effect": "Plate reverb",
   "type": "reverb",
   "tool": "dsp_tools.py reverb",
-  "settings": "plate, RT60 1.398 s (dotted half), pre-delay 29.14 ms (1/64), ducked 4 dB, return -14 dB",
+  "settings": "plate, RT60 1.395 s (dotted half), pre-delay 29.07 ms (1/64), ducked 4 dB, return -14 dB",
   "measured": {
-   "predelay_ms": 29.135,
-   "decay_s": 1.39849,
-   "bpm": 128.71
+   "predelay_ms": 29.07,
+   "decay_s": 1.39535,
+   "bpm": 129.0
   },
   "why": "short glue space around the dry lead"
  },
  {
   "track": "Lead vocal",
-  "effect": "Quarter-note delay (both verses)",
+  "effect": "Quarter-note echoes on line endings",
   "type": "delay",
   "tool": "dsp_tools.py delay",
   "request": "Lead vocal delay",
-  "settings": "1/4 note ping-pong, feedback 0.3, 500-5000 Hz loop, return -3 dB, ducked -10 dB by the lead; sent 0:30.8-2:13.9 only (off at the end of verse 2 so it can't smear into the phone outro)",
+  "settings": "1/4 note ping-pong on the last word (0.30 s) before each real line break (breath >= 0.14 s): 0:34.1, 0:37.8, 0:41.6, 1:15.9, 1:17.8, 1:27.9, 1:45.7, 1:47.6, 1:57.6; feedback 0.35, 450-5000 Hz loop, return +3 dB, ducked -8 dB by the lead; silent everywhere else (-60 dB) and off at the end of verse 2",
   "measured": {
    "note": "1/4",
-   "ms": 466.16,
-   "bpm": 128.71,
+   "ms": 465.12,
+   "bpm": 129.0,
    "ducked": true
   },
-  "why": "fills the vocal out and blooms at line endings; sits 12-18 dB under the adlibs in the breaths, because the adlibs answer in every breath"
+  "why": "owner heard the earlier always-on delay as \"not perfectly timed\": ducking let fragments of words from a beat earlier surface at random spots. Now only the last word of a line repeats, exactly one beat after it is said: first echo -8 to -10 dB under the singing in verse 1, -15 dB in verse 2 where the next line starts sooner"
  },
  {
   "track": "Lead vocal",
@@ -129,8 +129,8 @@
   "settings": "1/2 note ping-pong on 1:00.25-1:00.65, feedback 0.5, 350-4500 Hz loop, return +6 dB, ducked by the lead",
   "measured": {
    "note": "1/2",
-   "ms": 932.33,
-   "bpm": 128.71,
+   "ms": 930.23,
+   "bpm": 129.0,
    "ducked": true
   },
   "why": "the one wide-open spot in the vocal (no adlibs, old FX quiet): echoes ring into the instrumental break"
@@ -143,9 +143,9 @@
   "request": "Lead vocal delay",
   "settings": "hall, decay 1 bar, pre-delay 1/64, return -10 dB",
   "measured": {
-   "predelay_ms": 29.135,
-   "decay_s": 1.86466,
-   "bpm": 128.71
+   "predelay_ms": 29.07,
+   "decay_s": 1.86047,
+   "bpm": 129.0
   },
   "why": "lets the throw bloom into the break"
  },
@@ -208,8 +208,8 @@
   "settings": "1/8 dotted, feedback 0.35, 300-6000 Hz loop, ducked -10 dB by the lead",
   "measured": {
    "note": "1/8d",
-   "ms": 349.62,
-   "bpm": 128.71,
+   "ms": 348.84,
+   "bpm": 129.0,
    "ducked": true
   },
   "why": "width and movement in the gaps"
@@ -236,7 +236,7 @@
   "type": "gain",
   "tool": "numpy gain ramp",
   "request": "Song fade-out",
-  "settings": "0 to -10 dB from 2:31.0 (bar 82) to the beat's stop at 2:39.2",
+  "settings": "0 to -10 dB from 2:30.7 (bar 82) to the beat's stop at 2:39.2",
   "why": "owner asked for the song to fade out under the last calls; the beat stem itself stops dead at 2:39.2"
  },
  {
@@ -244,7 +244,7 @@
   "effect": "Previous engineer's reverb, delays and throws",
   "type": "keep",
   "tool": "printed stem, unchanged",
-  "settings": "0 dB, same -10 dB fade as the beat from 2:31.0",
+  "settings": "0 dB, same -10 dB fade as the beat from 2:30.7",
   "why": "protect the original vibe",
   "issues": [
    "timing of the printed delays can't be checked against 129 BPM from a printed stem; confirm by ear or get the session"
@@ -256,8 +256,8 @@
   "type": "keep",
   "tool": "numpy (copied from the processed lead)",
   "request": "Phone-call outro",
-  "settings": "line A = 0:30.88-0:34.41, line B = 0:34.78-0:38.15 (cut 30.80-34.62 and 34.70-38.25 with 12 ms fades); A+B blocks moved exactly 56, 60 and 64 bars at 128.71 BPM (104.421, 111.879, 119.338 s; bars 73, 77, 81), gains 0 / -1.5 / -3 dB",
-  "why": "whole-bar moves keep each line on its original pickup beat; A to B timing kept exactly as in verse 1; verified: outro syllables sit within 2 ms of the hi-hat 16th grid (the original line sits 4.5 ms off it)",
+  "settings": "line A = 0:30.88-0:34.41, line B = 0:34.78-0:38.15 (cut 30.80-34.62 and 34.70-38.25 with 12 ms fades); A+B blocks moved exactly 56, 60 and 64 bars at 129 BPM (104.186, 111.628, 119.070 s; bars 73, 77, 81), gains 0 / -1.5 / -3 dB",
+  "why": "whole-bar moves keep each line on its original pickup beat; A to B timing kept exactly as in verse 1; verified: the beat's drum pattern matches itself at exactly these shifts (104.186 s and 111.628 s measured)",
   "issues": [
    "lines were found by vocal shape, not by listening; owner to confirm line A and line B are the right words"
   ]
@@ -280,8 +280,8 @@
   "settings": "1/4 note ping-pong, feedback 0.42, 400-3500 Hz loop, return -9 dB, ducked -10 dB by the phone vocal",
   "measured": {
    "note": "1/4",
-   "ms": 466.16,
-   "bpm": 128.71,
+   "ms": 465.12,
+   "bpm": 129.0,
    "ducked": true
   },
   "why": "repeats land after what is said, not over it"
@@ -292,11 +292,11 @@
   "type": "delay",
   "tool": "dsp_tools.py delay",
   "request": "Phone-call outro",
-  "settings": "1/2 note on 2:29.40-2:30.10, feedback 0.55, return -5 dB, ducked",
+  "settings": "1/2 note on 2:29.15-2:29.85, feedback 0.55, return -5 dB, ducked",
   "measured": {
    "note": "1/2",
-   "ms": 932.33,
-   "bpm": 128.71,
+   "ms": 930.23,
+   "bpm": 129.0,
    "ducked": true
   },
   "why": "'interstate' echoes out between blocks"
@@ -307,11 +307,11 @@
   "type": "delay",
   "tool": "dsp_tools.py delay",
   "request": "Song fade-out",
-  "settings": "1/2 note on 2:36.86-2:37.56, feedback 0.66, return +3 dB, ducked",
+  "settings": "1/2 note on 2:36.59-2:37.29, feedback 0.66, return +3 dB, ducked",
   "measured": {
    "note": "1/2",
-   "ms": 932.33,
-   "bpm": 128.71,
+   "ms": 930.23,
+   "bpm": 129.0,
    "ducked": true
   },
   "why": "the last 'interstate' keeps echoing after the beat stops, fading to silence"
@@ -324,9 +324,9 @@
   "request": "Phone-call outro",
   "settings": "hall, decay 1 bar, pre-delay 1/64, return -14 dB, ducked 3 dB",
   "measured": {
-   "predelay_ms": 29.135,
-   "decay_s": 1.86466,
-   "bpm": 128.71
+   "predelay_ms": 29.07,
+   "decay_s": 1.86047,
+   "bpm": 129.0
   },
   "why": "phone voice in a real space"
  },
@@ -338,9 +338,9 @@
   "request": "Phone-call outro",
   "settings": "hall, decay 1 bar, pre-delay 1/64, return -9 dB",
   "measured": {
-   "predelay_ms": 29.135,
-   "decay_s": 1.86466,
-   "bpm": 128.71
+   "predelay_ms": 29.07,
+   "decay_s": 1.86047,
+   "bpm": 129.0
   },
   "why": "each block moves farther away"
  },
@@ -352,9 +352,9 @@
   "request": "Phone-call outro",
   "settings": "hall, decay 1.5 bars, pre-delay 1/64, return -7 dB",
   "measured": {
-   "predelay_ms": 29.135,
-   "decay_s": 2.79699,
-   "bpm": 128.71
+   "predelay_ms": 29.07,
+   "decay_s": 2.7907,
+   "bpm": 129.0
   },
   "why": "farthest away; tail carries into the fade"
  },
@@ -366,9 +366,9 @@
   "request": "Phone-call outro",
   "settings": "hall, decay 1 bar / 1.5 bars, pre-delay 1/64, returns -10 / -8 dB",
   "measured": {
-   "predelay_ms": 29.135,
-   "decay_s": 1.86466,
-   "bpm": 128.71
+   "predelay_ms": 29.07,
+   "decay_s": 1.86047,
+   "bpm": 129.0
   },
   "why": "echoes bloom instead of stopping dry"
  },
