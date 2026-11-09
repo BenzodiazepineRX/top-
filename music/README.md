@@ -71,6 +71,10 @@ Every export gets an entry in `mix-notes.md`: the date, the version name, the WA
 
 Keep older notes. They are how the next session knows what already failed.
 
+### 7. Review every version
+
+Before any version goes to the owner, write its effects log and review report (`music/tools/workflow.md`, step 7): `effects/<version>.json` lists every effect and plugin, and `music/tools/song_report.py` writes `reports/<version>.md` with pass/check/fail results and the list of what's still needed to reach near-perfect. Fix every ❌ first. Open a pull request for the song so it is reviewed on GitHub too.
+
 A rough mix can still be exported for feedback before the steps below are all true. Label that version as a work in progress in `mix-notes.md`. It is not the finished song.
 
 ## Definition of done
@@ -82,6 +86,7 @@ No song is finished until it passes this full final check. The same list is in `
 - Translation checks on earbuds, a phone speaker, a car, and studio monitors are written in the notes. Problems that showed up are fixed, or the notes say why they stay.
 - Loudness and true peak meet the targets chosen for this song. Pick those targets from the platforms named in the brief, using the ranges in `checklist.md`. Write the measured LUFS and true peak next to the target.
 - The master was played against the reference tracks in the brief. The notes say what matches, and what was left different on purpose.
+- The final version's review report (`reports/<version>.md`) has no ❌, and every ⚠️ is fixed or explained in `mix-notes.md`. Every effect and plugin used is in that version's effects log.
 - The owner signs off on the final master in the **Final sign-off** section of `mix-notes.md`.
 
 Until that sign-off is written, the song is still in progress.

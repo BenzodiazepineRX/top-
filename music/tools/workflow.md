@@ -35,6 +35,7 @@ All scripts live in `music/tools/`, need ffmpeg/ffprobe plus numpy (and scipy fo
 | `render_master.py` | Oversampled lookahead limiter to an exact LUFS target and true-peak ceiling |
 | `export_master.py` | 24-bit TPDF-dithered WAV + 320 kbps MP3, each reopened and verified |
 | `ab_match.py` | Loudness-matched A/B clip for the user's ears |
+| `song_report.py` | The review report for each version: master checks, limiter dips (pumping), tone vs the original, every effect and plugin against its rule, brief gaps, and the list of what's still needed to reach near-perfect |
 
 `music/tools/recipes.md` has tested ffmpeg settings for repairs on stereo files (EQ, clicks, hum, noise), syntax traps, loudness-target notes and the stem-separation route. Read it when a problem isn't covered below.
 
@@ -142,6 +143,47 @@ python3 music/tools/ab_match.py original_mix.wav SongName_master_v1_24bit.wav --
 - The export writes a 24-bit 44.1 kHz WAV (TPDF dither) and a 320 kbps MP3, reopens both, and checks duration, sample rate, channels, decoding, LUFS and true peak. MP3 encoding overshoots peaks: at a −0.5 dBTP master, the MP3 tested at +0.3 dBTP, so the script turns down only the MP3 copy until it fits under −0.1 dBTP. Mention this when it happens; the WAV stays at the target.
 - `analyze_audio.py --reference` verifies RMS, peak, LUFS, stereo correlation and spectral power distribution against the original. Expect the master to be louder with a similar tonal shape; explain any band that moved more than about 2 dB.
 - Send the A/B clip so the user can judge at matched loudness, plus the delivery files.
+
+### 7. Effects log and review report (every version)
+
+Every version gets a written review before it goes to the owner. Two files go in the song's folder:
+
+1. **`effects/<version>.json`: every effect and plugin used**, one entry each, in the order applied. This includes effects on a single track, on the mix bus and on the master, and anything kept unchanged from someone else's session. Fields:
+
+   | Field | What it holds |
+   | --- | --- |
+   | `track` | "Lead vocal", "Adlibs", "Beat", "Mix bus", "Master"… |
+   | `effect` | plain-English name ("De-esser", "Plate reverb") |
+   | `type` | the rule to check it with: `gain`, `hpf`, `eq`, `dyneq`, `deess`, `comp`, `saturation`, `delay`, `reverb`, `low-end`, `bus`, `limiter`, `keep` |
+   | `tool` / `plugin` | the script or plugin that did it |
+   | `requested_plugin` | if the brief named a plugin; a different `plugin` is flagged so it gets rebuilt later |
+   | `request` | the matching effect name from the brief's Creative effects table, if this builds one |
+   | `settings` | the settings, in words |
+   | `measured` | the numbers the tool printed: `pct_active`, `avg_db` (de-esser, dynamic EQ), `avg_gr_db` (compressor), `freq_hz` and optional `lowest_note_hz` (high-pass), `note`/`ms`/`bpm`/`ducked` (delay), `predelay_ms`/`decay_s`/`bpm` (reverb) |
+   | `why` | the reason, tied to the brief or a measurement |
+   | `issues` | anything known to be imperfect; each becomes a to-do in the report |
+
+2. **`reports/<version>.md`: the report**, written by:
+
+```bash
+python3 music/tools/song_report.py music/songs/<song> --version v3 \
+   --master Song_master_v3_24bit.wav --mp3 Song_master_v3.mp3 \
+   --pre-limiter mix_v3_ms.wav --settings master_v3.wav.settings.json \
+   --original original_mix.wav --previous Song_master_v2_24bit.wav \
+   --effects music/songs/<song>/effects/v3.json --lowest-note-hz 110
+```
+
+What it checks, each marked ✅ pass, ⚠️ check, or ❌ fail:
+
+- **Master:** loudness vs target (±0.2 LU), true peak (WAV and MP3), clipping, punch (peak-to-loudness ≥ 8 dB), contrast between sections (loudness range ≥ 5 LU), limiter workload (≤ 2 LU), **volume dips from the limiter** (no second with a dip over 4.5 dB, typical worst under 3 dB, and the times of the worst ones), stereo phase, mono playback, ending, DC offset.
+- **Tone** vs the original and the previous version: any band that moved more than 3 dB must be confirmed by ear.
+- **Every effect and plugin** by its rule: de-esser active 3–25% of singing; dynamic EQ active ≤ 30%; compression 2–7 dB average; lead high-pass below the lowest sung note; delay time exactly the note value at the brief's BPM, and ducked; reverb pre-delay and decay on note values; substituted plugins; logged issues.
+- **The brief:** missing facts ("unknown") and every Creative effects request present in the effects log.
+- **What's needed before the song is near-perfect:** every ⚠️ and ❌ with its fix, missing brief facts, and the owner's unchecked listening and sign-off items.
+
+Fix every ❌ before the owner hears the version. Fix or explain every ⚠️ in `mix-notes.md`. A report with nothing left means "ready for the owner's ears", never "finished": the tools measure, they do not listen.
+
+Each song's work goes to GitHub as its own pull request (folder, effects log, report, notes), so the reviewer checks it too: delay math against the BPM, missing facts, notes that contradict the report.
 
 ### Reporting to the user
 

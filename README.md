@@ -28,6 +28,7 @@ music/tools/                   the audio processing toolkit (Python + ffmpeg)
   render_master.py             master to a loudness target with a true-peak ceiling
   export_master.py             24-bit WAV + MP3 exports, checked
   ab_match.py                  loudness-matched before/after clips for the owner to judge
+  song_report.py               the review report for every version of a song
 music/songs/_template/         copy this folder when a new song starts
   brief.md                     facts, goals, effect requests, and delay times
   mix-notes.md                 versions, listening checks, and final sign-off
@@ -46,6 +47,7 @@ When a real song starts, copy `_template` to a new folder such as `music/songs/s
 - The owner has no DAW yet. Agents do the mixing themselves on the assistant's Linux computer. Use REAPER, Ardour, or scripted tools such as ffmpeg, SoX, and Python. The owner provides stems. Agents return a WAV master and an MP3 preview, and log both in that song's `mix-notes.md`. See `music/daw-setup.md`. FL Studio, Logic Pro, and Pro Tools are the plan for when the owner gets a computer. A mobile DAW is only a placeholder until one is chosen.
 - Do the processing with the toolkit in `music/tools/` (start with `music/tools/workflow.md`). Each tool prints what it measured and changed; copy those numbers into the song's `mix-notes.md`. The tools measure, they do not listen, so every version also goes to the owner as a loudness-matched before/after from `ab_match.py`.
 - Write notes and decisions back into that song's folder, in `mix-notes.md`.
+- Every version gets an effects log (`effects/<version>.json`, every effect and plugin) and a review report (`reports/<version>.md`, from `music/tools/song_report.py`) before the owner hears it. Fix every ❌ first. Each song goes to GitHub as its own pull request so it gets reviewed there too.
 - A song is finished only when the definition of done in `music/README.md` is met and the owner signs off in that song's `mix-notes.md`.
 - Keep secrets, passwords, and API keys out of the repo. Never commit them.
 - Keep explanations beginner-friendly. Say what you changed and why in plain English.

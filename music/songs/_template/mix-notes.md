@@ -23,6 +23,7 @@ Example name: `v1-rough-mix`. Replace this heading when the real work starts.
   - Studio monitors:
 - **Feedback:** (from Chex, a listener, or another agent)
 - **Creative effects acknowledged:** (list each request from the brief in your own words: effect, one track or whole mix, spot, length in bars, plugin. Write "none for this song" if the brief says that.)
+- **Effects log and review report:** `effects/<version>.json`, `reports/<version>.md` (verdict, and how each ⚠️ was fixed or why it stays)
 - **Delay times used:** (note value and milliseconds, and that they match the brief's timing table)
 - **Next:**
 
