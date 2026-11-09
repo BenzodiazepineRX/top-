@@ -1,0 +1,33 @@
+{
+  "note": "FLAC files are lossless copies of the Dropbox WAVs. PCM samples match. Do not edit these files. The mix keeps both files at sample 0.",
+  "dropbox_folder": "https://www.dropbox.com/scl/fo/aw8nse2z7x87eiixq68go/ABILlQSSQvIVGdPxLpaniAE?rlkey=iglhvsh562cteqf4nuyo20r7f&st=pqmj8kmj&dl=1",
+  "files": [
+    {
+      "original_name": "Satans casino beat.wav",
+      "stored_as": "satans-casino-beat.flac",
+      "wav_sha256": "d50319d0eacb96126a1e4b0431fa72a229b329486ae219bb2c0c3588a743e048",
+      "wav_bytes": 38135484,
+      "sample_rate": 44100,
+      "channels": 2,
+      "codec": "pcm_s16le",
+      "seconds": 216.172721,
+      "peak_dbfs": -0.10024,
+      "chapter_tempo_tag": "110.0",
+      "measured_bpm": 135.0
+    },
+    {
+      "original_name": "Satans casino lead vocals.wav",
+      "stored_as": "satans-casino-lead-vocals.flac",
+      "wav_sha256": "2275840c4f836f4bf7f9abf3663668b6752287ca930374bc1105dcb97bd4599e",
+      "wav_bytes": 33285520,
+      "sample_rate": 44100,
+      "channels": 2,
+      "codec": "pcm_s16le",
+      "seconds": 188.680295,
+      "peak_dbfs": -0.10024,
+      "chapter_tempo_tag": "110.0",
+      "first_activity_above_minus60_dbfs_s": 13.4335,
+      "stated_activity_s": 13.437
+    }
+  ]
+}

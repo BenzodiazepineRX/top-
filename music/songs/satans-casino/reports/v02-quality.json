@@ -1,0 +1,262 @@
+{
+  "version": "v02",
+  "bpm": 135.0,
+  "samples_per_quarter": 19600,
+  "quarter_ms": 444.4444,
+  "eighth_ms": 222.2222,
+  "dotted_eighth_ms": 333.3333,
+  "bar_s": 1.777778,
+  "activity_minus60_s": 13.4335,
+  "sung_onset_s": 15.9597,
+  "quiet_gap_start_s": 154.5607,
+  "vocal_return_s": 156.4385,
+  "energy_return_candidates": [
+    {
+      "suggested_s": 30.6,
+      "nearest_beat": 69,
+      "nearest_beat_s": 30.666667,
+      "offset_ms": -66.7,
+      "bar": 17,
+      "beat_in_bar": 2,
+      "beat_rms_db": -18.52,
+      "vocal_rms_db": -28.24,
+      "decision": "not a stop: vocal and beat are both up. No beat-stop envelope here."
+    },
+    {
+      "suggested_s": 59.1,
+      "nearest_beat": 133,
+      "nearest_beat_s": 59.111111,
+      "offset_ms": -11.1,
+      "bar": 33,
+      "beat_in_bar": 2,
+      "beat_rms_db": -9.54,
+      "vocal_rms_db": -18.51,
+      "decision": "not a stop: vocal and beat are both up. No beat-stop envelope here."
+    },
+    {
+      "suggested_s": 87.5,
+      "nearest_beat": 197,
+      "nearest_beat_s": 87.555556,
+      "offset_ms": -55.6,
+      "bar": 49,
+      "beat_in_bar": 2,
+      "beat_rms_db": -14.31,
+      "vocal_rms_db": -18.43,
+      "decision": "not a stop: vocal and beat are both up. No beat-stop envelope here."
+    },
+    {
+      "suggested_s": 158.6,
+      "nearest_beat": 357,
+      "nearest_beat_s": 158.666667,
+      "offset_ms": -66.7,
+      "bar": 89,
+      "beat_in_bar": 2,
+      "beat_rms_db": -18.38,
+      "vocal_rms_db": -19.56,
+      "decision": "not a stop: vocal and beat are both up. No beat-stop envelope here."
+    }
+  ],
+  "bus_levels": {
+    "beat_dry": {
+      "peak_dbfs": -8.1,
+      "rms_db": -24.54
+    },
+    "vocal_dry": {
+      "peak_dbfs": -6.1,
+      "rms_db": -26.62
+    },
+    "beat_stop": {
+      "peak_dbfs": -15.99,
+      "rms_db": -63.66
+    },
+    "reverse_swells": {
+      "peak_dbfs": -18.0,
+      "rms_db": -55.57
+    },
+    "telephone_bgv": {
+      "peak_dbfs": -20.62,
+      "rms_db": -53.87
+    },
+    "telephone_reverb": {
+      "peak_dbfs": -26.84,
+      "rms_db": -60.78
+    },
+    "lead_reverb": {
+      "peak_dbfs": -25.29,
+      "rms_db": -43.19
+    },
+    "delay_throws": {
+      "peak_dbfs": -15.66,
+      "rms_db": -49.7
+    }
+  },
+  "baseline": {
+    "beat_db": -8.0,
+    "vocal_db": -6.0,
+    "sample_peak_dbfs": -1.55,
+    "true_peak_dbtp": -1.544,
+    "integrated_lufs": -20.22,
+    "seconds": 216.172721
+  },
+  "candidate": {
+    "sample_peak_dbfs": -1.54,
+    "true_peak_dbtp": -1.534,
+    "integrated_lufs": -20.24,
+    "seconds": 216.172721,
+    "samples": 9533217,
+    "sample_rate": 44100,
+    "bit_depth_wav": 24,
+    "mp3_kbps": 320,
+    "mp3_sample_peak_dbfs": -1.532,
+    "mp3_true_peak_dbtp": -1.526,
+    "mp3_trim_db": 0.0,
+    "fx_headroom_trims_db": []
+  },
+  "baked_vocal_effects": {
+    "measurement_not_listening": true,
+    "vocal_side_minus_mid_db": -22.03,
+    "envelope_autocorr_at_note_lags": {
+      "1/8": 0.0266,
+      "1/8 dotted": -0.0167,
+      "1/4": 0.2252,
+      "1/2": 0.2015
+    },
+    "quiet_gap_decay_from_s": 154.5607,
+    "quiet_gap_decay": [
+      {
+        "t_offset_s": 0.0,
+        "rms_db": -39.57
+      },
+      {
+        "t_offset_s": 0.1,
+        "rms_db": -40.65
+      },
+      {
+        "t_offset_s": 0.2,
+        "rms_db": -46.34
+      },
+      {
+        "t_offset_s": 0.4,
+        "rms_db": -49.39
+      },
+      {
+        "t_offset_s": 0.8,
+        "rms_db": -63.55
+      }
+    ],
+    "reading": "The lead is nearly mono (side well below mid). Autocorrelation at a dotted eighth is not a discrete echo peak; the quarter-note value tracks the delivery sitting near the grid. The quiet gap falls toward the noise floor within a few hundred milliseconds. No substantial baked delay or long stereo reverb was measured, so none was removed and none was doubled. A short decay at phrase ends is the voice closing, not a printed throw."
+  },
+  "checks": [
+    {
+      "name": "finite",
+      "pass": true,
+      "detail": "all mix samples finite"
+    },
+    {
+      "name": "no_clip",
+      "pass": true,
+      "detail": "sample peak -1.540 dBFS"
+    },
+    {
+      "name": "sample_headroom",
+      "pass": true,
+      "detail": "-1.540 dBFS"
+    },
+    {
+      "name": "true_peak",
+      "pass": true,
+      "detail": "-1.534 dBTP"
+    },
+    {
+      "name": "length",
+      "pass": true,
+      "detail": "9533217 samples, 216.172721s, beat was 216.172721s"
+    },
+    {
+      "name": "baseline_peak",
+      "pass": true,
+      "detail": "-1.550 dBFS (DAW reference -1.55)"
+    },
+    {
+      "name": "vocal_unshifted",
+      "pass": true,
+      "detail": "lag-0 correlation 1.000000"
+    },
+    {
+      "name": "sources_untouched_peaks",
+      "pass": true,
+      "detail": "beat -0.10024 vocal -0.10024"
+    },
+    {
+      "name": "vocal_start_kept",
+      "pass": true,
+      "detail": "first -60 dB frame 13.4335s (stated 13.437s)"
+    },
+    {
+      "name": "throws_on_subdivision_grid",
+      "pass": true,
+      "detail": "16 throws, phase 0"
+    },
+    {
+      "name": "throws_clear_next_phrase",
+      "pass": true,
+      "detail": "each kept repeat ends before the clearance wall"
+    },
+    {
+      "name": "throws_not_on_lead",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "name": "reverse_sits_in_a_gap",
+      "pass": true,
+      "detail": "reverse body before the landing is under -36 dB in the vocal"
+    },
+    {
+      "name": "few_beat_stops",
+      "pass": true,
+      "detail": "beat-stop-bar-40,beat-stop-bar-80"
+    },
+    {
+      "name": "energy_returns_not_used_as_stops",
+      "pass": true,
+      "detail": "none landed on"
+    },
+    {
+      "name": "phone_clear_of_vocal_entry",
+      "pass": true,
+      "detail": "phone rms 13.4-15.9s -200.0 dB"
+    },
+    {
+      "name": "fades_present",
+      "pass": true,
+      "detail": "throws, reverses, phone, and risers have a fade"
+    },
+    {
+      "name": "mp3_true_peak",
+      "pass": true,
+      "detail": "-1.526 dBTP, sample -1.532 dBFS, encode trim 0.00 dB"
+    },
+    {
+      "name": "mp3_length",
+      "pass": true,
+      "detail": "216.173s"
+    }
+  ],
+  "throw_count": 16,
+  "limitations": [
+    "No listening pass was done. Grid, gaps, peaks, and lags are measurements.",
+    "Eighth-note and dotted-eighth throws are allowed and are not required to land on a kick.",
+    "Energy-return suggestions at 30.6, 59.1, 87.5, and 158.6 s sit on beat 2 while the vocal is up. They were not turned into stops.",
+    "Only two hat-dropout builds were automated (bars 40 and 80). Other dips were left as the beat stem wrote them.",
+    "One vocal stem. Telephone parts are copies of measured phrases, not new performances.",
+    "Lead tone is the raw stem at -6 dB. No EQ boost, compressor, or de-esser was added.",
+    "No mastering limiter and no loudness target. LUFS is whatever the -8/-6 balance plus the FX produced.",
+    "Key was not used for tuning. An earlier chroma estimate favored A minor with a close runner-up; that is not confirmed by ear.",
+    "The WAV chapter tag says Tempo 110.0. The drum grid measures 135.00 BPM. 129 BPM was not used.",
+    "Reverse landings use a 6 ms fade so the swell does not click. That is a few milliseconds, not a chopped lyric.",
+    "This is a review candidate, not a signed-off master."
+  ],
+  "listening": "not performed",
+  "claim": "review candidate only"
+}
