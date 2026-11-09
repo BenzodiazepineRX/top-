@@ -8,6 +8,12 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v13-master (undo the stacked echoes, fade the repeats)
+
+- **Files:** `Pushing_the_Interstate_master_v13_24bit.wav`, `Pushing_the_Interstate_master_v13.mp3`.
+- **What changed:** v12 echoed the whole "stay awake" and "five minutes away" lines three times on the lead and again on the adlib, so the repeats stacked and did not sound like they faded. v13 takes that back. Only the last word of each line is echoed, and it starts on the next beat. One quieter repeat follows, about 14 dB down, then it stops. Every other adlib delay is two repeats, not three, with the second about 15 dB down. The printed FX stem is back. Those two lines are not said again later in the vocal or the adlibs.
+- **Loudness:** −11.6 LUFS, true peak −0.7 dBTP.
+
 ### 2026-11-09 — v12-master (stay awake / five minutes away echoes on the beat)
 
 - **Files:** `Pushing_the_Interstate_master_v12_24bit.wav`, `Pushing_the_Interstate_master_v12.mp3`.
