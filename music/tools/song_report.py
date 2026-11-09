@@ -151,6 +151,36 @@ def limiter_dips(pre_path, master_path, gain_db):
             "worst_at": sorted(int(i) for i in worst_times)}
 
 
+def ending_check(path, window_s=30.0):
+    """Look for a hard cut near the end of the sound (not the silent padding after it).
+
+    Scans the last `window_s` seconds of actual sound in 50 ms blocks and reports the largest sudden drop:
+    the mean of the 0.1 s before a point (while still above -30 dBFS) minus the mean of the 0.2 s after it."""
+    x, sr = dt.read(path)
+    m = np.sqrt((x ** 2).mean(axis=1)) if x.ndim == 2 else np.abs(x)
+    w = int(0.05 * sr)
+    k = len(m) // w
+    if k < 20:
+        return None
+    lv = 20 * np.log10(np.sqrt((m[:k * w] ** 2).reshape(k, w).mean(axis=1)) + 1e-12)
+    sound = np.where(lv > -60)[0]
+    if not len(sound):
+        return None
+    last = int(sound[-1])
+    start = max(2, last - int(window_s / 0.05))
+    best, at = 0.0, None
+    for i in range(start, last + 1):
+        before = lv[i - 2:i].mean()
+        if before < -30:
+            continue
+        after = lv[i:i + 4].mean() if i + 4 <= len(lv) else -120.0
+        if before - after > best:
+            best, at = before - after, i
+    loud = np.where(lv[:last + 1] > lv.max() - 30)[0]
+    tail_s = (last - int(loud[-1])) * 0.05 if len(loud) else 0.0
+    return {"drop_db": float(best), "abrupt_at": at * 0.05 if best > 25 else None, "tail_s": float(tail_s)}
+
+
 def mmss(s):
     return f"{int(s) // 60}:{int(s) % 60:02d}"
 
@@ -204,11 +234,18 @@ def review_master(rv, a, mp3, dips, settings, target, ceiling):
         st = grade(fold, lambda v: v >= -1.5, lambda v: v >= -3)
         rv.add(sec, st, "Mono playback (phone speaker)", f"{fold:+.1f} dB when folded to mono",
                "parts disappear in mono: narrow the widest elements" if st != PASS else "")
-    tail = S.get("last_100ms_rms_dbfs")
-    if tail is not None:
-        st = PASS if tail < -50 else WARN
-        rv.add(sec, st, "Ending", f"last 0.1 s at {tail} dBFS",
-               "song ends while still loud: confirm the cut is intended or add a fade" if st != PASS else "")
+    end = ending_check(a["file"])
+    if end:
+        if end["abrupt_at"] is not None:
+            st = WARN
+            value = (f"stops abruptly at {mmss(end['abrupt_at'])} (level falls {end['drop_db']:.0f} dB in 0.1 s), "
+                     f"then {end['tail_s']:.1f} s of tail")
+            action = "the song cuts off instead of ending: confirm the hard stop is intended, or fade or ring it out"
+        else:
+            st = PASS
+            value = f"ends smoothly: largest sudden drop {end['drop_db']:.0f} dB, {end['tail_s']:.1f} s fade/tail"
+            action = ""
+        rv.add(sec, st, "Ending", value, action)
     dc = max(abs(v) for v in S["dc_offset_per_channel"])
     rv.add(sec, PASS if dc < 0.002 else WARN, "DC offset", f"{dc:.4f}", "high-pass the mix at 5-10 Hz" if dc >= 0.002 else "")
 
