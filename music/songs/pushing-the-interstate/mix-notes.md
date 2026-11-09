@@ -8,6 +8,16 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v7-master (verse echoes locked to the drums)
+
+- **Files:** `Pushing_the_Interstate_master_v7_24bit.wav`, `Pushing_the_Interstate_master_v7.mp3`, `v6_vs_v7_verse_0m33.mp3`, `v6_vs_v7_verse_1m52.mp3`. Audio delivered in chat, not committed.
+- **What changed:** the verse echoes (lead line-end echoes, the verse-1 throw, every adlib echo) are rendered with the new `groove_delay.py`, which puts each repeat on the beat's real drum hit nearest to the musical note value after the word's attack. Outro unchanged from v6.
+- **Why:** owner, on headphones, on v6: the verse echoes are "off again", late or early. v5 had already made every echo exactly one beat after its word (465.3–465.5 ms). Measured against the actual drum onsets: the words sit up to ~45 ms ahead of or behind the drums, and the beat swings, so tempo-exact echoes landed up to 36 ms off the drums (lead) and half the adlib echoes more than 20 ms off. Alone in the gaps, that reads as late or early. Now the first lead echoes land within 0.3 ms of a drum hit and the adlib echoes within 0.6 ms (median), checked by cross-correlation of each word with its echo against independently detected drum hits.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.5 dBTP (MP3), limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v7.json`, `reports/v7.md`.
+- **Lesson:** "on the tempo" is not "on the beat". Echoes heard on their own must land on the drums; three earlier fixes (tempo, ducking, exact lag) each perfected a number that wasn't the problem. Check echoes against the drum hits, not the grid.
+- **Listening check:** pending owner on v7.
+
 ### 2026-11-08 — v6-master (real stutters, delay through the whole outro)
 
 - **Files:** `Pushing_the_Interstate_master_v6_24bit.wav`, `Pushing_the_Interstate_master_v6.mp3` (2:53), `Outro_preview_v6.mp3` (2:08 to end). Audio delivered in chat, not committed.
@@ -124,7 +134,7 @@ The owner approved the master as finished. The unchecked boxes are recorded as n
 
 **Master version:** v4 (`Pushing_the_Interstate_master_v4_24bit.wav`, 129 BPM build)
 
-> v5 and v6 (verse echo timing fix, pitched outro delay, stutters) were made after this sign-off at the owner's request; v6 is awaiting the owner's approval. Until then, v4 is the approved master.
+> v5, v6 and v7 (verse echo fixes, pitched outro delay, stutters) were made after this sign-off at the owner's request; v7 is awaiting the owner's approval. Until then, v4 is the approved master.
 **Date:** 2026-11-08
 **Owner:** Chex
 **Owner's words:** "My boy….. it's beautiful" — then, asked whether that counts as final approval: "Yessss sirrrrr"
