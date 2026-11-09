@@ -1,0 +1,55 @@
+{
+  "title": "Satan's Casino",
+  "version": "v03",
+  "sample_rate": 44100,
+  "bpm": 135.0,
+  "samples_per_quarter": 19600,
+  "balance_db": {"beat": -8.0, "vocal": -6.0},
+  "headroom_dbfs": -1.2,
+  "headroom_dbtp": -1.0,
+  "articulation": {
+    "quiet_db": -42.0,
+    "min_gap_s": 0.12,
+    "frame_hop_s": 0.005,
+    "frame_win_s": 0.02
+  },
+  "phone": {
+    "band_hz": [300, 3600],
+    "order": 2,
+    "pre_pad_s": 0.04,
+    "bar_shift": -8,
+    "reverb_decay_note": "1/2",
+    "reverb_predelay_note": "1/64",
+    "reverb_return_db": -7.0,
+    "seed": 20261111
+  },
+  "lead_reverb": {
+    "decay_note": "1/2 dotted",
+    "predelay_note": "1/64",
+    "return_db": -12.0,
+    "duck_db": 5.0,
+    "release_ms": 160,
+    "seed": 20261109
+  },
+  "reverse": {
+    "decay_s": 1.05,
+    "target_peak_dbfs": -18.0,
+    "seed": 20261110
+  },
+  "beat_stops": [
+    {
+      "bar": 40,
+      "envelope_db": 0.8,
+      "riser_band_hz": [1800, 12000],
+      "riser_peak_dbfs": -16.0,
+      "why": "Measured hat dropout. Vocal is not chopped. One-bar riser into the downbeat."
+    },
+    {
+      "bar": 80,
+      "envelope_db": 0.6,
+      "riser_band_hz": [1800, 12000],
+      "riser_peak_dbfs": -22.0,
+      "why": "Second hat dropout. Vocal stays in the lead, so the riser is lower."
+    }
+  ]
+}

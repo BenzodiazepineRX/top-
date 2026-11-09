@@ -1,4 +1,24 @@
-# Satan's Casino — v02 notes
+# Satan's Casino — notes
+
+v02 was rejected: the added vocal at the start was cut off and off the beat. **Listen to v03**, not v02. v03 has not been listened to here. Peaks are not a sign-off.
+
+## v03 correction
+
+The opening line is one span, 15.954–18.693 s, after silence. A 10 ms window crosses -40 dBFS at 15.961 s, which is 39 ms before the downbeat at 16.000 s. v02 started its copy at 16.103 s, so it left that attack out, and it put the cut on a bar line.
+
+v03 copies that whole span, including a little silence in front of the attack, and moves it exactly eight bars earlier (1.692–4.470 s). The early entry is still early by the same amount. The band-limit changes the first 80 ms by 0.8 dB, not by deleting it.
+
+Every v02 throw was the last 300 ms of a line that was still loud before the cut. Those lines are about 2.7 s and the gaps after them are under a second, so a whole-line repeat does not fit. The throws were left out rather than cropped again. The telephone outro was a 1.6 s window that started mid-line. It was left out for the same reason.
+
+Kick attacks on the strong bars land 2.6–2.9 ms after the arithmetic downbeat. The low end of the kick peaks nearer +29 ms; that is the body of the hit, not a different grid. The vocal copy follows the singer's offset, not a snapped cut.
+
+Dry beat is still -8 dB and dry vocal -6 dB, both from sample 0. No limiter. Candidate peak -1.540 dBFS, true peak -1.534 dBTP. The telephone bus is its own file, so it can be muted in a DAW without moving the lead.
+
+What is still unknown, because nothing was heard: whether the 15.95–18.69 s span is one lyric line or several words that never fall to -42 dB, and whether a telephone preview belongs in the intro at all. The separate bus is there so that can be decided by ear.
+
+Details: `reports/v03.md` and `effects/v03-boundary-audit.json`.
+
+# v02 notes, kept so the rejected pass can be compared
 
 This is a review candidate. Nothing here was judged by ear. Peaks, gaps, and grid positions are measurements.
 
