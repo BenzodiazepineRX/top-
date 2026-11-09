@@ -195,11 +195,18 @@ def main():
     for r in table:
         print(f"  {r['note']:<15} {r['ms']:>9.2f} ms   ({r['formula']})")
     q = 60000.0 / bpm
-    synced = [(n, ms) for n, ms in (("1/64", q / 16), ("1/128", q / 32), ("1/32", q / 8)) if 25 <= ms <= 40]
-    if synced:
-        print(f"Tempo-synced reverb pre-delay in the 25-40 ms range: {synced[0][0]} = {synced[0][1]:.1f} ms")
-    else:
-        print("No note value lands in 25-40 ms at this tempo; use a fixed 30 ms pre-delay.")
+    # pre-delay is always a note value: the one inside 25-40 ms, or else the one closest to that range
+    cands = [("1/32", q / 8), ("1/64", q / 16), ("1/128", q / 32), ("1/256", q / 64)]
+    inside = [(n, ms) for n, ms in cands if 25 <= ms <= 40]
+    pick = inside[0] if inside else min(cands, key=lambda c: min(abs(c[1] - 25), abs(c[1] - 40)))
+    where = "in the 25-40 ms range" if inside else "closest to the 25-40 ms range"
+    print(f"Tempo-synced reverb pre-delay ({where}): {pick[0]} = {pick[1]:.2f} ms")
+    out["predelay"] = {"note": pick[0], "ms": round(pick[1], 2)}
+    decays = [("1/2", q * 2), ("1/2 dotted", q * 3), ("1 bar", q * 4)]
+    print("Tempo-synced reverb decay (RT60) choices: "
+          + ", ".join(f"{n} = {ms / 1000:.3f} s" for n, ms in decays)
+          + " (plate usually 1.2-2.0 s, hall 1.8-2.8 s: pick the note value in that range)")
+    out["decay_s"] = {n: round(ms / 1000, 5) for n, ms in decays}
 
     if a.json:
         with open(a.json, "w") as fh:

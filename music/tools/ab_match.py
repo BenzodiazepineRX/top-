@@ -68,8 +68,9 @@ def main():
     Ib, tpb, spb = measure(args.b)
     target = min(Ia, Ib)
     ga, gb = target - Ia, target - Ib
-    # keep a little sample-peak headroom so 24-bit files never clip
-    worst = max(spa + ga, spb + gb)
+    # keep a little headroom so 24-bit files never clip. Use the higher of sample and true peak: resampling to
+    # the common rate can turn intersample (true) peaks into real samples above full scale.
+    worst = max(max(spa, tpa) + ga, max(spb, tpb) + gb)
     extra = min(0.0, -0.3 - worst)
     ga, gb = ga + extra, gb + extra
     sr = max(rate_of(args.a), rate_of(args.b))

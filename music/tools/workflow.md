@@ -71,9 +71,13 @@ T="python3 music/tools/dsp_tools.py"
 $T gain-stage lead_vocal.wav v1.wav --target-rms -18 --against instrumental.wav
 $T hpf v1.wav v2.wav --freq 90 --order 3
 $T resonances v2.wav
-#   static cut for a fixed ring:   ffmpeg -i v2.wav -af "equalizer=f=280:t=q:w=4:g=-3" -c:a pcm_f32le v3.wav
+# optional static cut for a fixed ring: run ONE of these two lines so v3.wav always exists
+ffmpeg -i v2.wav -af "equalizer=f=280:t=q:w=4:g=-3" -c:a pcm_f32le v3.wav   # cut
+# cp v2.wav v3.wav                                                          # bypass (no fixed ring found)
 $T dyneq v3.wav v4.wav --freq 3500 --q 2
-#   broad presence lift:            ffmpeg -i v4.wav -af "equalizer=f=3200:t=q:w=1.0:g=2" -c:a pcm_f32le v5.wav
+# optional broad presence lift: run ONE of these two lines so v5.wav always exists
+ffmpeg -i v4.wav -af "equalizer=f=3200:t=q:w=1.0:g=2" -c:a pcm_f32le v5.wav  # lift
+# cp v4.wav v5.wav                                                          # bypass (presence already fine)
 $T deess v5.wav v6.wav --low 5500 --high 8500
 $T comp2 v6.wav v7.wav
 ```
@@ -103,11 +107,12 @@ Defaults: ping-pong stereo, a 300–6000 Hz loop filter so each repeat sits dark
 
 ```bash
 $T saturate v7.wav v8.wav --drive 6 --even 0.15 --mix 0.3
-$T reverb v8.wav vocal_verb.wav --type plate --decay 1.6 --predelay 30 --duck-by v8.wav --duck-depth 4
+# at 92 BPM: pre-delay 1/64 = 40.76 ms, decay 1/2 note = 1.30435 s (both printed by tempo_key.py)
+$T reverb v8.wav vocal_verb.wav --type plate --decay 1.30435 --predelay 40.76 --duck-by v8.wav --duck-depth 4
 ```
 
 - **Saturation** comes first, on the dry vocal, so the reverb receives the warmed signal. The asymmetric curve adds both even (2nd) and odd (3rd) harmonics, 4x oversampled to avoid aliasing. Tested on a sine at full mix, the 2nd and 3rd harmonics measured about 29 and 35 dB below the fundamental; the default 0.3 blend puts them roughly 10 dB lower still, which is subtle by design.
-- **Reverb.** Pre-delay of 25–40 ms keeps the vocal's attack upfront before the tail blooms; use the tempo-synced value `tempo_key.py` suggests when one falls in that range, otherwise 30 ms. Plate (bright, dense) at about 1.2–2.0 s suits most vocals; hall (darker, with early reflections) at about 1.8–2.8 s suits slower, bigger songs. The reverb is generated from a noise-based impulse response with per-band decay (highs fade faster); in testing, pre-delay landed at exactly 32.0 ms for a 32 ms setting and the measured RT60 matched the setting. Light ducking (3–4 dB) keeps the tail out of the words. Return about −12 to −18 dB.
+- **Reverb.** Both reverb times come from the song's BPM, never a fixed number. Pre-delay keeps the vocal's attack upfront before the tail blooms: use the note value `tempo_key.py` prints (1/64, 1/128 and so on), which is the one inside 25–40 ms or, when none lands there, the closest one. Decay is a note value too: `tempo_key.py` prints the 1/2-note, dotted-half and 1-bar times; pick the one in the plate range (about 1.2–2.0 s, bright and dense, suits most vocals) or hall range (about 1.8–2.8 s, darker, for slower, bigger songs). The reverb is generated from a noise-based impulse response with per-band decay (highs fade faster); in testing, pre-delay landed at exactly 32.0 ms for a 32 ms setting and the measured RT60 matched the setting. Light ducking (3–4 dB) keeps the tail out of the words. Return about −12 to −18 dB.
 
 ### 5. Mix and stereo bus mastering
 
@@ -115,7 +120,8 @@ Resample every file to 44.1 kHz first if it isn't already (`ffmpeg -i in.wav -af
 
 ```bash
 $T mix mix_v1.wav --track instrumental.wav:0 --track v8.wav:1 --track adlibs_processed.wav:-3 \
-   --track adlib_delay.wav:0 --track vocal_verb.wav:0
+   --track adlib_delay.wav:0 --track lead_throws.wav:0 --track vocal_verb.wav:0
+# every wet return rendered in steps 3-4 goes into the mix; leave lead_throws.wav out only if step 3 skipped throws
 $T ms-bus mix_v1.wav mix_v1_ms.wav --side-hp 90 --mid-shelf 9500:2.0
 python3 music/tools/render_master.py mix_v1_ms.wav master_v1.wav --target-lufs -10.5 --ceiling -0.5
 ```

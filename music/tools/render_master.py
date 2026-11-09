@@ -108,7 +108,8 @@ def main():
         gain = (a.target_lufs - I0) if a.target_lufs is not None else 0.0
         limit = a.ceiling - 0.2  # small margin; verified below
         m = None
-        for i in range(8):
+        passes = 8
+        for i in range(passes):
             m, used = run_pass(a.input, a.output, a.chain, sr, mono, gain, limit, a.attack, a.release, True, rs)
             I, tp = m["integrated_lufs"], m["true_peak_dbtp"]
             print(f"  pass {i + 1}: gain {gain:+.2f} dB, limit {limit:.2f} dB -> {I:.2f} LUFS, true peak {tp:+.2f} dBTP")
@@ -116,13 +117,18 @@ def main():
             ok_peak = tp is None or tp <= a.ceiling + 0.05
             if ok_loud and ok_peak:
                 break
-            if not ok_peak:
-                limit -= (tp - a.ceiling) + 0.1
-            if not ok_loud:
-                gain += (a.target_lufs - I)
-            if gain > 18:
-                print("  stopping: the target needs more than 18 dB of gain into the limiter")
+            # work out the next pass's settings, but only adopt them if that pass will actually run,
+            # so gain/limit (and the saved settings) always describe the file that was written
+            next_limit = limit - ((tp - a.ceiling) + 0.1) if not ok_peak else limit
+            next_gain = gain + (a.target_lufs - I) if not ok_loud else gain
+            if i == passes - 1:
+                print(f"  stopping: no convergence after {passes} passes; keeping the last rendered settings")
                 break
+            if next_gain > 18:
+                print("  stopping: the target needs more than 18 dB of gain into the limiter; "
+                      "keeping the last rendered settings")
+                break
+            gain, limit = next_gain, next_limit
 
     out_I, out_tp, out_lra = m["integrated_lufs"], m["true_peak_dbtp"], m["loudness_range_lu"]
     limiter_loss = (I0 + gain) - out_I if not a.no_limiter else 0.0

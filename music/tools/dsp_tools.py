@@ -81,9 +81,14 @@ def block_level(sig, sr, block_ms, mode="rms"):
     return db(v), n
 
 
+def power_mono(x):
+    """Per-sample RMS across channels. Unlike a mono fold, opposite-polarity channels do not cancel."""
+    return np.sqrt((x ** 2).mean(axis=1)) if x.ndim == 2 else np.abs(x)
+
+
 def gated_rms_db(x, sr, rel_gate=-30.0, abs_gate=-60.0):
-    """RMS of the active parts only (50 ms blocks above both gates), in dBFS."""
-    lev, _ = block_level(mono(x), sr, 50)
+    """RMS of the active parts only (50 ms blocks above both gates), in dBFS, from the channel energies."""
+    lev, _ = block_level(power_mono(x), sr, 50)
     loud = lev[lev > abs_gate]
     if not len(loud):
         return -150.0
@@ -162,6 +167,10 @@ def rbj(kind, f0, sr, gain_db=0.0, q=0.7071):
 def cmd_gain_stage(a):
     x, sr = read(a.input)
     before = gated_rms_db(x, sr)
+    if before <= -150:
+        write(a.output, x, sr)
+        print("Input has no active audio (silent or below -60 dBFS): wrote it unchanged instead of applying a huge gain.")
+        return
     g = a.target_rms - before
     y = x * 10 ** (g / 20)
     peak = float(db(np.abs(y).max()))
@@ -289,17 +298,26 @@ def cmd_resonances(a):
     print("Sustained notes also make peaks: confirm a candidate stays fixed across the song before cutting.")
 
 
-def split_band_dynamic(x, sr, sos, thr_db, ratio, max_cut, attack, release, auto_pct, block_ms=1.0, mode="peak"):
+def split_band_dynamic(x, sr, sos, thr_db, ratio, max_cut, attack, release, auto_pct, block_ms=1.0, mode="peak",
+                       sos_apply=None):
+    """Detect with `sos`; subtract the reduced band through `sos_apply` (defaults to `sos`).
+
+    The subtraction filter should be a first-order band-pass: x - k*BP then only ever cuts. Higher-order
+    band-passes are not phase-compatible with the dry signal and boost the neighboring frequencies."""
+    sos_apply = sos if sos_apply is None else sos_apply
     band_m = sosfilt(sos, mono(x))
     lev, n = block_level(band_m, sr, block_ms, mode)
-    full, _ = block_level(mono(x), sr, block_ms, "rms")
+    full, _ = block_level(power_mono(x), sr, block_ms, "rms")
     active = full > max(-60, full.max() - 45)
+    if not active.any():
+        return x.copy(), {"threshold_db": float("nan") if thr_db is None else thr_db, "pct_time_reducing": 0.0,
+                          "max_reduction_db": 0.0, "mean_reduction_when_active_db": 0.0, "silent": True}
     thr = float(np.percentile(lev[active], auto_pct)) if thr_db is None else thr_db
     over = lev - thr
     gr = np.clip(over * (1 - 1 / ratio), 0, max_cut)
     gr = ar_smooth(gr, n / sr, attack, release)
     g = 10 ** (-to_samples(gr, n, len(x)) / 20)
-    band = sosfilt(sos, x, axis=0)
+    band = sosfilt(sos_apply, x, axis=0)
     y = x - (1 - g)[:, None] * band
     act_gr = gr[active]
     stats = {"threshold_db": thr, "pct_time_reducing": 100 * float((act_gr > 0.5).mean()) if len(act_gr) else 0,
@@ -308,6 +326,9 @@ def split_band_dynamic(x, sr, sos, thr_db, ratio, max_cut, attack, release, auto
 
 
 def report_dyn(name, s):
+    if s.get("silent"):
+        print(f"{name}: no active audio (input is silent or below -60 dBFS); output equals input, no reduction.")
+        return
     print(f"{name}: threshold {s['threshold_db']:.1f} dBFS (band level), reducing {s['pct_time_reducing']:.1f}% of active time, "
           f"average {s['mean_reduction_when_active_db']:.1f} dB, max {s['max_reduction_db']:.1f} dB")
 
@@ -325,8 +346,10 @@ def cmd_dyneq(a):
 
 def cmd_deess(a):
     x, sr = read(a.input)
-    sos = butter(2, [a.low, a.high], btype="bandpass", fs=sr, output="sos")
-    y, s = split_band_dynamic(x, sr, sos, a.threshold, a.ratio, a.max_cut, a.attack, a.release, a.auto_pct, mode="peak", block_ms=1.0)
+    detect = butter(2, [a.low, a.high], btype="bandpass", fs=sr, output="sos")  # tight band for detection
+    apply = butter(1, [a.low, a.high], btype="bandpass", fs=sr, output="sos")   # first-order: cuts only, no boosts
+    y, s = split_band_dynamic(x, sr, detect, a.threshold, a.ratio, a.max_cut, a.attack, a.release, a.auto_pct,
+                              mode="peak", block_ms=1.0, sos_apply=apply)
     write(a.output, y, sr)
     print(f"De-esser: band-pass detection {a.low:g}-{a.high:g} Hz, ratio {a.ratio:g}:1, max cut {a.max_cut:g} dB")
     report_dyn("De-esser", s)
@@ -345,6 +368,8 @@ def cmd_comp2(a):
     y, _ = read(a.output)
     if a.makeup == "auto":  # restore the working level set by gain-stage
         mk = gated_rms_db(x, sr) - gated_rms_db(y, sr)
+        if not np.isfinite(mk) or gated_rms_db(x, sr) <= -150:
+            mk = 0.0
     else:
         mk = float(a.makeup)
     y = y * 10 ** (mk / 20)
@@ -353,6 +378,10 @@ def cmd_comp2(a):
     la, _ = block_level(mono(y), sr, 50)
     m = min(len(lb), len(la))
     act = lb[:m] > max(-60, lb.max() - 35)
+    if not act.any():
+        print("Two-stage compression applied, but the input has no active audio (silent or below -60 dBFS), "
+              f"so there are no gain-reduction statistics. Makeup gain {mk:+.1f} dB. Chain: {chain}")
+        return
     gr = (lb[:m] - la[:m])[act] + mk
     spread_b = np.percentile(lb[:m][act], 95) - np.percentile(lb[:m][act], 10)
     spread_a = np.percentile(la[:m][act], 95) - np.percentile(la[:m][act], 10)
@@ -378,6 +407,8 @@ def parse_ranges(s):
 def duck_gain(key, sr, n_out, depth, threshold, attack, release, knee=6.0):
     lev, n = block_level(mono(key), sr, 10)
     act = lev[lev > max(-60, lev.max() - 35)]
+    if threshold is None and not len(act):  # silent key: nothing to duck under, so leave the return unducked
+        return np.ones(n_out), float("nan"), 0.0
     thr = (10 * np.log10(np.mean(10 ** (act / 10))) - 15) if threshold is None else threshold
     t = np.clip((lev - thr) / knee + 0.5, 0, 1)
     gr = ar_smooth(depth * t, n / sr, attack, release)
@@ -439,7 +470,8 @@ def make_ir(sr, kind, decay, predelay_ms, width, seed=1):
     rng = np.random.default_rng(seed)
     length = int(sr * decay * 1.3)
     t = np.arange(length) / sr
-    edges = [0, 250, 1000, 4000, 8000, sr / 2 - 1]
+    nyq = sr / 2
+    edges = [e for e in (0, 250, 1000, 4000, 8000) if e < nyq * 0.9] + [nyq * 0.98]  # ascending, below Nyquist
     # high frequencies die away faster than lows: plate brighter, hall darker
     hf_ratio = 0.7 if kind == "plate" else 0.5
     rt = [decay * 1.1, decay, decay * 0.85, decay * hf_ratio, decay * hf_ratio * 0.7]
@@ -476,7 +508,9 @@ def cmd_reverb(a):
     ir = make_ir(sr, a.type, a.decay, a.predelay, a.width)
     out = np.stack([fftconvolve(send, ir[:, c]) for c in range(2)], 1)
     if a.duck_by:
-        key, _ = read(a.duck_by)
+        key, ksr = read(a.duck_by)
+        if ksr != sr:
+            sys.exit("Lead vocal and reverb source must share a sample rate (resample one with ffmpeg first)")
         g, thr, pct = duck_gain(key, sr, len(out), a.duck_depth, None, 15, 400)
         out *= g[:, None]
     out *= 10 ** (a.return_db / 20)

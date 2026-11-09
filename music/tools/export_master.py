@@ -117,6 +117,16 @@ def main():
     rate = a.rate if a.rate and a.rate != src["sample_rate"] else None
     files = []
 
+    # never let an export overwrite the master it is reading from
+    planned = [os.path.join(a.outdir, f"{a.name}_{b}bit.wav") for b in ([24, 16] if a.also_16bit else [24])]
+    if a.mp3 != "none":
+        planned.append(os.path.join(a.outdir, f"{a.name}.mp3"))
+    src_real = os.path.realpath(a.master)
+    clash = [d for d in planned if os.path.realpath(d) == src_real
+             or (os.path.exists(d) and os.path.samefile(d, a.master))]
+    if clash:
+        sys.exit(f"Refusing to export: {clash[0]} is the input master itself. Choose a different --name or --outdir.")
+
     for bits in ([24, 16] if a.also_16bit else [24]):
         dst = os.path.join(a.outdir, f"{a.name}_{bits}bit.wav")
         c = dithered_wav(a.master, dst, bits, rate, ch)
@@ -127,8 +137,9 @@ def main():
     if a.mp3 != "none":
         dst = os.path.join(a.outdir, f"{a.name}.mp3")
         q = ["-b:a", "320k"] if a.mp3 == "320" else ["-q:a", "0"]
-        trim = 0.0
-        for attempt in range(3):
+        trim = 0.0  # always the gain actually encoded into the current MP3
+        attempts = 4
+        for attempt in range(attempts):
             filt = ([f"aresample={rate}{soxr_opt()}"] if rate else []) + ([f"volume={-trim:.2f}dB"] if trim else [])
             af = ["-af", ",".join(filt)] if filt else []
             subprocess.run(["ffmpeg", "-hide_banner", "-v", "error", "-y", "-i", a.master, "-map", "a:0", *af,
@@ -136,6 +147,9 @@ def main():
             _, mp3_tp, _ = measure(dst, mono)
             if a.mp3_max_tp is None or mp3_tp is None or mp3_tp <= a.mp3_max_tp:
                 break
+            if attempt == attempts - 1:
+                sys.exit(f"MP3 true peak is still {mp3_tp:+.2f} dBTP after {attempts} encodes (trim {trim:.2f} dB), "
+                         f"above --mp3-max-tp {a.mp3_max_tp}. Lower the master's ceiling and export again.")
             trim += mp3_tp - a.mp3_max_tp + 0.1
         if trim:
             print(f"MP3 encoding pushed true peak above {a.mp3_max_tp} dBTP, so the MP3 copy was turned down "
@@ -158,8 +172,9 @@ def main():
             status.append(f"sample rate {p['sample_rate']}")
         if errors:
             status.append("decoder errors: " + errors[0][:80])
-        if p["codec"] == "mp3" and tp is not None and tp > 0.0:
-            status.append(f"MP3 true peak {tp:+.1f} dBTP is above 0; lower the master's ceiling")
+        mp3_ceiling = 0.0 if a.mp3_max_tp is None or a.mp3_max_tp >= 99 else a.mp3_max_tp
+        if p["codec"] == "mp3" and tp is not None and tp > mp3_ceiling:
+            status.append(f"MP3 true peak {tp:+.1f} dBTP is above {mp3_ceiling:+.1f}; lower the master's ceiling")
         problems += bool(status)
         size = os.path.getsize(f) / 1e6
         print(f"  {os.path.basename(f):<40} {p['codec']:<10} {p['sample_rate']} Hz  "

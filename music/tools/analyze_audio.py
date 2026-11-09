@@ -204,10 +204,13 @@ def sample_stats(path, info):
                     win_corr.append(float((Lc * Rc).sum() / den))
         else:
             mid = x[:, 0]
-        for off in range(0, len(mid) - FFT_N + 1, FFT_N):
-            seg = mid[off:off + FFT_N]
+        # tonal balance and bandwidth from each channel's own spectral power (averaged), not the mono fold, so
+        # opposite-polarity content still counts and width changes do not masquerade as tone changes.
+        # The mono fold is kept only for the mono-compatibility metrics above.
+        for off in range(0, len(x) - FFT_N + 1, FFT_N):
+            seg = x[off:off + FFT_N]
             if np.abs(seg).max() > thr:
-                spec += np.abs(np.fft.rfft(seg * window)) ** 2
+                spec += (np.abs(np.fft.rfft(seg * window[:, None], axis=0)) ** 2).mean(axis=1)
                 spec_frames += 1
         tail = np.concatenate((tail, x.astype(np.float32)))[-need:]
         n += len(x)
