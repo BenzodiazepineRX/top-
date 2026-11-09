@@ -22,7 +22,7 @@ Save the files in the song's folder. The WAV is the master or the mix. The MP3 i
 Pick the tool that can do the job, and name it in the notes.
 
 - **REAPER** or **Ardour** for a real session: tracks, buses, automation, and the bounce.
-- **ffmpeg**, **SoX**, or a **Python audio library** when the move has to land on an exact sample. Use these for tempo-synced delays, reversed reverb tails, gain fades, and filter moves across a set number of bars.
+- **ffmpeg**, **SoX**, or a **Python audio library** when the move has to land on an exact sample. The ready-made toolkit for this lives in `music/tools/` (see `music/tools/workflow.md`). Use these for tempo-synced delays, reversed reverb tails, gain fades, and filter moves across a set number of bars.
 
 Delay times still come from that song's BPM table in the brief. A script uses those milliseconds. Tempo sync inside REAPER or Ardour is fine when the session tempo is the song's BPM. Either way, double-check the math in `effects-guide.md`. Never guess a delay time.
 

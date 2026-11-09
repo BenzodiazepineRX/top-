@@ -7,6 +7,7 @@ The checklist in `checklist.md` is a list of questions, not a fixed chain of plu
 - `engineering-standards.md` — the level of craft expected on every song
 - `effects-guide.md` — creative effects on one track or the whole mix, and how to turn BPM into delay times
 - `daw-setup.md` — how agents mix on the Linux computer today, and the DAWs planned for later
+- `tools/workflow.md` — the processing toolkit: the scripts that measure, mix, master and export the song
 
 ## Who does what
 
