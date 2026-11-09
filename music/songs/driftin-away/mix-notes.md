@@ -8,6 +8,22 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v6-master (echoes on the repeats, fade-out of the second half, Copilot's fixes)
+
+- **Files:** `Driftin_Away_master_v6_24bit.wav`, `Driftin_Away_master_v6.mp3`, `Driftin_Away_v5_vs_v6_1m56.mp3` and `Driftin_Away_v5_vs_v6_2m15.mp3` (v5 then v6, same loudness, 12 s each). Audio delivered in chat, not committed.
+- **Owner on v5:** "Now we just need to add echoes on the repeat and fade out on the background vocals and adlibs so the song doesn't sound too empty when a bar or verse stops." Also asked for a Copilot review (PR #5, review at 22:16 UTC, 5 issues, all valid).
+- **Measured on v5 first:** the vocals went fully silent four times, all in the second half: 1:59.8 (1.2 s), 2:06.1 (1.9 s), 2:12.5 (1.9 s) and 2:18.8–2:24.8 (6.1 s, before the phone outro).
+- **Root cause found (Copilot, PR #5):** `build_fx.py` measured word timings on a 110-sample envelope (2.494 ms per step) but converted steps to seconds as 2.5 ms, and the line lists came from 5 ms analyses with the same 0.23% error. Every cut landed late, by about 70 ms at 0:30 and about 0.3 s by 2:18. The echoes still started exactly on the beat, but they were cut from the fading tail of the word: the adlib echoes in v1–v5 were 13–32 dB under the words, so they were barely there. The phone lines and stutters started 40–60 ms into their first syllable.
+- **What changed:**
+  - The timing fix: the real envelope step everywhere, and the line and repeat lists corrected (×220/220.5). Every echoed word is now a sung word (within about 3 dB of its part's level).
+  - Echoes on every repeat: the last sung word (one word, up to 0.4 s), first echo 3 dB under the repeat, then 4 dB quieter each: 4 echoes, 5 before the three gaps, 8 slow ones on the last repeat. Repeats themselves are still 4.0 dB under their lines (`check_repeats.py v6`: ok).
+  - Fade-out at the end of the second half: the background vocal's last word echoes 8 times on half notes (5 dB under, then 2.5 dB quieter each) and rings in a 2-bar hall, carrying 2:17–2:24 into the phone outro.
+  - The adlib responses re-levelled with the corrected windows (`level_adlibs.py`), and the lead echoes, phone lines and stutters re-cut at the real word starts.
+  - Copilot's other fixes: `check_repeats.py` reads the work folder, checks the versions asked for, compares with each version's limit and exits 1 on any repeat over it; `verify_v1.py` takes a version; the work folder path is made absolute, so the export step works with a relative `DRIFT_WORK`.
+- **Result:** −11.6 LUFS, −0.7 dBTP (WAV) / −0.6 dBTP (MP3), limiter 0.4 LU, worst dip −2.8 dB. 109 echo repeats on the beat grid (max 0.05 ms). Verse and second half within 0.8 dB, the same as v5.
+- **Effects log and review report:** `effects/v6.json`, `reports/v6.md`: ⚠️ close, 72 passed, 3 to check (mid, upper-mid and air about 3 dB over the raw stems summed, because the vocals now sit well over the beat), 0 failed.
+- **Listening check:** pending owner, headphones. Spots: 1:56–2:08 (echoes after the repeats), 2:15–2:25 (the second half fading into the phone outro).
+
 ### 2026-11-09 — v5-master (repeats under the background vocals, background vocals up slightly)
 
 - **Files:** `Driftin_Away_master_v5_24bit.wav`, `Driftin_Away_master_v5.mp3`, `Driftin_Away_v4_vs_v5_1m16.mp3` (v4 then v5, same loudness, 1:16.5–1:29.5). Audio delivered in chat, not committed.

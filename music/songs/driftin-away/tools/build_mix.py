@@ -22,7 +22,7 @@ from scipy.signal import butter, fftconvolve, lfilter, sosfilt
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools"))
 import dsp_tools as dt  # noqa: E402
 
-D = os.path.join(os.environ.get("DRIFT_WORK", "."), "")  # folder with the stems and renders
+D = os.path.join(os.path.abspath(os.environ.get("DRIFT_WORK", ".")), "")  # work folder, absolute
 TT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools")
 TAG = sys.argv[1] if len(sys.argv) > 1 else "v1"
 # per-version settings. v2 (owner on v1, 2026-11-09): "the lead vocals are a bit too loud and have slightly too
@@ -48,8 +48,13 @@ SETTINGS = {
     "v5": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-2.0, responses_vs_beat=4.0, lead_plate_db=-15.0,
                adlib_file="a_8.wav", background_vs_beat=2.0, riser=True, peak_catch_db={"adlib_responses": 9.0, "background": 11.0},
                match_repeats=True, repeat_vs_main_db=-4.0),
+    # v6 (owner on v5): echoes on the repeats, and a fade-out on the background vocals and adlibs so the song is
+    # not empty when a line stops (built by build_fx.py with FX_VERSION=v6)
+    "v6": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-2.0, responses_vs_beat=4.0, lead_plate_db=-15.0,
+               adlib_file="a_8.wav", background_vs_beat=2.0, riser=True, peak_catch_db={"adlib_responses": 9.0, "background": 11.0},
+               match_repeats=True, repeat_vs_main_db=-4.0, bgv_tail=True),
 }
-SET = SETTINGS.get(TAG, SETTINGS["v5"])
+SET = SETTINGS.get(TAG, SETTINGS["v6"])
 sr = 44100
 G0, Q = 0.03837, 0.4
 BAR = 1.6
@@ -128,9 +133,9 @@ def loud(x, t0, t1, gate_self=True):
     return -0.691 + 10 * math.log10(ms.mean()) if len(ms) else -99.0
 
 
-RESP = [(80.21, 82.00), (83.63, 85.08), (86.82, 88.45), (90.13, 91.64), (93.23, 94.84), (96.43, 98.12),
-        (99.66, 101.47), (102.86, 104.53), (104.87, 109.05), (111.50, 113.23), (114.71, 116.42), (118.07, 120.02),
-        (121.28, 123.22), (124.72, 126.27), (130.90, 132.75), (135.93, 138.91)]
+RESP = [(80.028, 81.814), (83.440, 84.887), (86.623, 88.249), (89.926, 91.432), (93.019, 94.625), (96.211, 97.898),
+        (99.434, 101.240), (102.627, 104.293), (104.632, 108.803), (111.247, 112.973), (114.450, 116.156), (117.802, 119.748),
+        (121.005, 122.941), (124.437, 125.984), (130.603, 132.449), (135.622, 138.595)]
 
 
 def main():
@@ -148,6 +153,8 @@ def main():
     e_lead, e_adl, e_ph = load("echo_lead.wav", n), load("echo_adlib.wav", n), load("echo_phone.wav", n)
     sw = load("revswell.wav", n)
     riser = load("beat_riser.wav", n) if SET.get("riser") else np.zeros((n, 2))
+    btail = load("bgv_tail.wav", n) if SET.get("bgv_tail") else np.zeros((n, 2))
+    e_bgv = load("echo_bgv.wav", n) if SET.get("bgv_tail") else np.zeros((n, 2))
 
     # ---- balance
     Lb_v, Lb_b, Lb_o = loud(beat, 27, 77, False), loud(beat, 78, 138, False), loud(beat, 142.4, 166.4, False)
@@ -203,14 +210,14 @@ def main():
     rv["background"] = reverb(bgv, "hall", 2.4, 25.0, -9.0, bgv, 2.0) * G["background"]
     rv["adlib_verse"] = reverb(adl_v, "plate", 1.6, 25.0, -14.0, adl_v, 3.0) * G["adlib_verse"]
     rv["adlib_responses"] = reverb(adl_b, "plate", 1.6, 25.0, -12.0, adl_b, 3.0) * G["adlib_responses"]
-    echoes = e_lead * G["lead"] + e_adl * G["adlib_responses"] + e_ph * G["phone"]
+    echoes = e_lead * G["lead"] + e_adl * G["adlib_responses"] + e_ph * G["phone"] + e_bgv * G["background"]
     rv["echoes"] = reverb(echoes, "plate", 1.6, 25.0, -8.0)
     rv["phone"] = reverb(phone, "hall", 2.4, 25.0, -14.0, phone, 2.0) * G["phone"]
     # the reverse swells carry the gain of the voice they lead into
     sw_g = np.where(t < 70, G["lead"], G["background"])[:, None]
 
     mix = (beat + lead * G["lead"] + adl_v * G["adlib_verse"] + bgv * G["background"] + adl_b * G["adlib_responses"]
-           + phone * G["phone"] + echoes + sw * sw_g + riser + sum(rv.values()))
+           + phone * G["phone"] + echoes + sw * sw_g + riser + btail * G["background"] + sum(rv.values()))
 
     # the two vocal parts exactly as they enter the mix (after gains, peak catchers and repeat matching), for checks
     dt.write(D + f"stem_{TAG}_responses.wav", adl_b * G["adlib_responses"], sr)

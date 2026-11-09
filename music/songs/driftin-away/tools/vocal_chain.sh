@@ -30,3 +30,4 @@ python3 -I "$(dirname "$0")/level_adlibs.py"
 # v3: FX_VERSION=v3 ADLIB_SRC=a_8.wav python3 build_fx.py && python3 build_mix.py v3
 # v4: python3 build_mix.py v4 && python3 check_repeats.py   (every repeat must measure 0.0 dB or less vs its main line)
 # v5: python3 build_mix.py v5 && python3 check_repeats.py   (every repeat 4 dB under the background vocal line it repeats)
+# v6: python3 level_adlibs.py && FX_VERSION=v6 ADLIB_SRC=a_8.wav python3 build_fx.py && python3 build_mix.py v6 && python3 check_repeats.py v6 && python3 verify_v1.py v6

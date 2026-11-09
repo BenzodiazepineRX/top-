@@ -25,7 +25,7 @@ from scipy.signal import butter, fftconvolve, sosfilt, sosfiltfilt
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools"))
 import dsp_tools as dt  # noqa: E402
 
-D = os.path.join(os.environ.get("DRIFT_WORK", "."), "")  # folder with the stems and renders
+D = os.path.join(os.path.abspath(os.environ.get("DRIFT_WORK", ".")), "")  # work folder, absolute
 sr = 44100
 G0, Q = 0.03837, 0.4
 BAR = 4 * Q
@@ -60,7 +60,8 @@ def mono(x):
 
 # ---------------------------------------------------------------- word attacks
 BAND = butter(4, [300, 5000], "bandpass", fs=sr, output="sos")
-HOP = int(0.0025 * sr)
+HOP = int(0.0025 * sr)  # 110 samples
+STEP = HOP / sr  # the real envelope step, 2.4943 ms (Copilot on PR #5: v1-v6 used 2.5 ms here, 0.23% off)
 
 
 def envelope_db(x):
@@ -73,7 +74,7 @@ def envelope_db(x):
 
 def attacks_in(env, t0, t1, rise=6.0):
     """Times where the level rises by `rise` dB within 25 ms from a local low (start of a syllable)."""
-    i0, i1 = max(10, int(t0 / 0.0025)), min(len(env) - 1, int(t1 / 0.0025))
+    i0, i1 = max(10, int(t0 / STEP)), min(len(env) - 1, int(t1 / STEP))
     out, last = [], -1
     for i in range(i0, i1):
         lo = env[i - 10:i].min()
@@ -82,23 +83,56 @@ def attacks_in(env, t0, t1, rise=6.0):
             k = j
             while k < i and env[k + 1] - env[j] < 1.5:
                 k += 1
-            out.append(k * 0.0025)
+            out.append(k * STEP)
             last = i
     return out
 
 
 def word_end(env, t_attack, t_max):
     """Last moment the word is within 30 dB of its own peak (before t_max)."""
-    i0, i1 = int(t_attack / 0.0025), int(t_max / 0.0025)
+    i0, i1 = int(t_attack / STEP), int(t_max / STEP)
     pk = env[i0:i1].max()
     above = np.where(env[i0:i1] > pk - 30)[0]
-    return (i0 + above[-1]) * 0.0025
+    return (i0 + above[-1]) * STEP
 
 
 def last_word(env, line_end, look=0.75, min_len=0.12):
     ats = [a for a in attacks_in(env, line_end - look, line_end) if line_end - a >= min_len]
     a = ats[-1] if ats else line_end - 0.35
     return a, word_end(env, a, line_end + 0.05)
+
+
+def last_loud_word(env, start, end, within_db=6.0):
+    """The last word of a phrase that is actually sung out: the last syllable start in the phrase's final 1.5 s
+    whose peak is within `within_db` of the phrase's loud level (90th percentile). The trailing breath or reverb
+    tail at a phrase end is skipped (v1-v5 echoed those tails on the adlibs, 13-32 dB under the words)."""
+    lo = max(start, end - 1.5)
+    loud = np.percentile(env[int(start / STEP):int(end / STEP)], 90)
+    ats = attacks_in(env, lo, end)
+    best = None
+    for k, a in enumerate(ats):
+        nxt = ats[k + 1] if k + 1 < len(ats) else end
+        if nxt - a < 0.08:
+            continue
+        if env[int(a / STEP):int(nxt / STEP)].max() >= loud - within_db:
+            best = (a, nxt)
+    if best is None:
+        return last_word(env, end)
+    a, nxt = best
+    e = word_end(env, a, nxt + 0.03)
+    L = 0.40
+    if e - a > L + 0.02:
+        # an echo repeats every 0.4 s, so the echoed piece is one word long: the latest 0.4 s window whose energy is
+        # within 3 dB of the loudest window in this last phrase piece, started at the syllable onset just before it
+        starts = np.arange(a, e - L + 1e-9, 0.0125)
+        vals = [10 * np.log10(np.mean(10 ** (env[int(x / STEP):int((x + L) / STEP)] / 10))) for x in starts]
+        best_v = max(vals)
+        s0 = [x for x, v in zip(starts, vals) if v >= best_v - 3.0][-1]
+        i0 = int(s0 / STEP)
+        j = max(int(a / STEP), i0 - 24)
+        s0 = (j + int(np.argmin(env[j:i0 + 1]))) * STEP
+        a, e = s0, min(e, s0 + L + 0.03)
+    return a, e
 
 
 def first_attack(env, t_approx, win=0.12):
@@ -137,7 +171,11 @@ def render_echoes(src, events, n, first_db, step_db, label):
     out = np.zeros((n, 2))
     log = []
     pre = 0.005
-    for att, end, taps in events:
+    for ev_ in events:
+        att, end, taps = ev_[:3]
+        fd = ev_[3] if len(ev_) > 3 else first_db
+        sd = ev_[4] if len(ev_) > 4 else step_db
+        sp = ev_[5] if len(ev_) > 5 else 1
         i, j = int((att - pre) * sr), int((end + 0.04) * sr)
         seg = fades(mono(src[i:j]), 0.003, 0.04)
         y = sosfiltfilt(ECHO_BAND, seg)
@@ -146,8 +184,8 @@ def render_echoes(src, events, n, first_db, step_db, label):
         for k in range(taps):
             if k:
                 y = sosfiltfilt(DARK, y)
-            tk = t1 + k * Q
-            g = 10 ** ((first_db + k * step_db) / 20)
+            tk = t1 + k * Q * sp
+            g = 10 ** ((fd + k * sd) / 20)
             s = int(round((tk - pre) * sr))
             e = min(n, s + len(y))
             pan = (1.0, 0.45) if k % 2 == 0 else (0.45, 1.0)
@@ -156,7 +194,7 @@ def render_echoes(src, events, n, first_db, step_db, label):
             out[s:e, 1] += y[:e - s] * g * pan[1] * norm
             times.append(round(tk, 4))
         log.append({"src": label, "word": [round(att, 4), round(end, 4)], "word_at": bb(att), "echo_times": times,
-                    "first_echo_at": bb(times[0]), "levels_db": [first_db + k * step_db for k in range(taps)]})
+                    "first_echo_at": bb(times[0]), "levels_db": [fd + k * sd for k in range(taps)]})
     return out, log
 
 
@@ -256,7 +294,7 @@ def main():
     # Left out: 35.76 and 45.25 (the next line starts 70-100 ms around the first echo), 63.51 (the reverse swell
     # into the drop owns that beat). 60.43 gets 2 repeats (the a cappella line comes back at 61.86) and 76.67 gets
     # 2 (the reverse swell into the background vocal takes over on bar 49 beat 3).
-    lead_ends = [(29.30, 3), (32.44, 3), (38.86, 3), (42.06, 3), (60.43, 2), (66.95, 3), (70.17, 3), (76.67, 2)]
+    lead_ends = [(29.234, 3), (32.366, 3), (38.772, 3), (41.965, 3), (60.293, 2), (66.798, 3), (70.011, 3), (76.496, 2)]
     events = []
     for t_end, taps in lead_ends:
         a, e = last_word(envL, t_end + 0.03)
@@ -264,13 +302,24 @@ def main():
     echo_l, log_l = render_echoes(lead, events, n, first_db=-9.0, step_db=-5.0, label="lead")
 
     # 3. adlib responses in the second half: last word, 3 repeats (4 on the last one, into the outro)
-    resp = [(80.21, 82.00), (83.63, 85.08), (86.82, 88.45), (90.13, 91.64), (93.23, 94.84), (96.43, 98.12),
-            (99.66, 101.47), (102.86, 104.53), (104.87, 109.05), (111.50, 113.23), (114.71, 116.42),
-            (118.07, 120.02), (121.28, 123.22), (124.72, 126.27), (130.90, 132.75), (135.93, 138.91)]
+    resp = [(80.028, 81.814), (83.440, 84.887), (86.623, 88.249), (89.926, 91.432), (93.019, 94.625), (96.211, 97.898),
+            (99.434, 101.240), (102.627, 104.293), (104.632, 108.803), (111.247, 112.973), (114.450, 116.156),
+            (117.802, 119.748), (121.005, 122.941), (124.437, 125.984), (130.603, 132.449), (135.622, 138.595)]
     events = []
     for k, (s, t_end) in enumerate(resp):
-        a, e = last_word(envA, t_end)
-        events.append((a, e, 4 if k == len(resp) - 1 else 3))
+        a, e = last_loud_word(envA, s, t_end) if FXV == "v6" else last_word(envA, t_end)
+        if FXV == "v6":
+            # owner on v5: more echo on the repeats and a fade-out so the song is not empty when a line stops.
+            # 4 repeats at -5 dB, -4 dB per repeat; 5 before the measured 1.9 s gaps; 8 slow ones (-3 dB per repeat)
+            # on the last repeat, which runs into the 6 s gap before the phone outro
+            if k == len(resp) - 1:
+                events.append((a, e, 8, -3.0, -3.0))
+            elif k in (11, 13, 14):
+                events.append((a, e, 5, -3.0, -4.0))
+            else:
+                events.append((a, e, 4, -3.0, -4.0))
+        else:
+            events.append((a, e, 4 if k == len(resp) - 1 else 3))
     echo_a, log_a = render_echoes(adl, events, n, first_db=-8.0, step_db=-5.0, label="adlib")
 
     # ducking: light and fast (the lesson from Pushing the Interstate: heavy, slow ducking makes echoes sound late)
@@ -282,8 +331,31 @@ def main():
     echo_a *= g[:, None]
     dt.write(D + "echo_lead.wav", echo_l, sr)
     dt.write(D + "echo_adlib.wav", echo_a, sr)
+
+    # v6: the background vocals' last line fades out in a long hall instead of stopping (2 bars, 3.2 s), from the
+    # attack of its last word, about 6 dB under the word
+    tail = np.zeros((n, 2))
+    if FXV == "v6":
+        a, e = last_loud_word(envB, 134.44, 137.59 + 0.03)
+        w = fades(mono(bgv[int(a * sr):int((e + 0.05) * sr)]), 0.003, 0.04)
+        ir = dt.make_ir(sr, "hall", 3.2, 25.0, 1.0, seed=5)
+        wet = np.stack([fftconvolve(w, ir[:, c]) for c in range(2)], 1)
+        wet *= np.sqrt(np.mean(w ** 2)) * 10 ** (-6 / 20) / (np.sqrt(np.mean(wet[:len(w)] ** 2)) + 1e-12)
+        s0 = int(a * sr)
+        tail[s0:s0 + len(wet)] += wet[:n - s0]
+        ev["background_tail"] = {"word_s": [round(a, 4), round(e, 4)], "hall_s": 3.2, "level_db": -6}
+    dt.write(D + "bgv_tail.wav", tail, sr)
+    # v6: the background vocals' last word also echoes on half notes, 8 times, fading 2.5 dB each, so the end of the
+    # second half drifts out over about 6 s and meets the phone outro instead of leaving the beat alone
+    echo_b = np.zeros((n, 2))
+    log_b = []
+    if FXV == "v6":
+        a, e = last_loud_word(envB, 134.44, 137.59 + 0.03)
+        echo_b, log_b = render_echoes(bgv, [(a, e, 8, -5.0, -2.5, 2)], n, first_db=-5.0, step_db=-2.5, label="background")
+        echo_b *= g[:, None]
+    dt.write(D + "echo_bgv.wav", echo_b, sr)
     ev["echo_ducking"] = {"depth_db": 3, "attack_ms": 5, "release_ms": 120, "fully_ducked_pct": round(pct, 1)}
-    ev["echoes"] = log_l + log_a
+    ev["echoes"] = log_l + log_a + log_b
 
     # 4. reverse-reverb swells, each starting on a beat and ending on the dry attack
     sw = np.zeros((n, 2))
@@ -306,8 +378,8 @@ def main():
     # 5. phone-call outro: lines A and B of the verse, moved by whole bars (+74, then +80), stutters before each
     A0 = first_attack(envL, 26.86)
     B0 = first_attack(envL, 30.09)
-    A1 = 29.30
-    B1 = 32.44
+    A1 = 29.234
+    B1 = 32.366
     lines = {"A": (A0, word_end(envL, A1 - 0.3, A1 + 0.05)), "B": (B0, word_end(envL, B1 - 0.3, B1 + 0.05))}
     dry = np.zeros((n, 2))
     stut = np.zeros((n, 2))

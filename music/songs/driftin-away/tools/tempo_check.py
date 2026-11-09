@@ -6,7 +6,7 @@ import numpy as np
 from scipy.signal import butter, sosfiltfilt
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools"))
 import dsp_tools as dt
-D = os.path.join(os.environ.get("DRIFT_WORK", "."), "")  # folder with the stems and renders
+D = os.path.join(os.path.abspath(os.environ.get("DRIFT_WORK", ".")), "")  # work folder, absolute
 sr = 44100
 beat, _ = dt.read(D + "01_Beat.wav")
 bm = beat.mean(axis=1)

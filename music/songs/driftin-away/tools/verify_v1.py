@@ -1,4 +1,4 @@
-"""Independent checks of Driftin' Away v1 (measured from the rendered files, not from the build's own numbers).
+"""Independent checks of one version of Driftin' Away (usage: verify_v1.py [version], default v1) (measured from the rendered files, not from the build's own numbers).
 
 1. echoes: every repeat found by cross-correlating the dry word with the rendered echo track (+-40 ms search);
    distance of the found repeat to the grid beat and to the nearest drum hit detected in the ORIGINAL beat
@@ -17,15 +17,18 @@ from scipy.signal import butter, fftconvolve, sosfiltfilt
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools"))
 import dsp_tools as dt  # noqa: E402
 
-D = os.path.join(os.environ.get("DRIFT_WORK", "."), "")  # folder with the stems and renders
+D = os.path.join(os.path.abspath(os.environ.get("DRIFT_WORK", ".")), "")  # work folder, absolute
 sr = 44100
 G0, Q = 0.03837, 0.4
+V = sys.argv[1] if len(sys.argv) > 1 else "v1"
+# the shared effect files (fx_events.json, echo_*.wav, revswell.wav) must come from the same build as this master:
+# run build_fx.py with the matching FX_VERSION before checking a version
 ev = json.load(open(D + "fx_events.json"))
 hits = np.load(D + "drum_hits.npy")
 bp = butter(4, [500, 4500], "bandpass", fs=sr, output="sos")
 mono = dt.mono
-src = {"lead": "l_8.wav", "adlib": "a_7.wav", "phone": "phone.wav"}
-echo = {"lead": "echo_lead.wav", "adlib": "echo_adlib.wav", "phone": "echo_phone.wav"}
+src = {"lead": "l_8.wav", "adlib": "a_7.wav" if V == "v1" else "a_8.wav", "phone": "phone.wav", "background": "b_7.wav"}
+echo = {"lead": "echo_lead.wav", "adlib": "echo_adlib.wav", "phone": "echo_phone.wav", "background": "echo_bgv.wav"}
 cache = {}
 
 
@@ -88,7 +91,7 @@ for s in ev["reverse_swells"]:
 
 print()
 print("3. air gaps in the master")
-m, _ = dt.read(D + "Driftin_Away_master_v1_24bit.wav")
+m, _ = dt.read(D + f"Driftin_Away_master_{V}_24bit.wav")
 for g in ev["air_gaps"]:
     s, e = g["gap_s"]
     inside = m[int((s + 0.01) * sr):int((e - 0.002) * sr)]
