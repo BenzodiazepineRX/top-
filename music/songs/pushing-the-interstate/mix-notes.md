@@ -8,6 +8,13 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v12-master (stay awake / five minutes away echoes on the beat)
+
+- **Files:** `Pushing_the_Interstate_master_v12_24bit.wav`, `Pushing_the_Interstate_master_v12.mp3`.
+- **What changed:** the echoes of "just tryna stay awake" and "only five minutes away" were landing between the beats from 0:42 to 0:46. Each of those lines is echoed once on the lead and once on the adlib, and every copy now starts on a quarter-note beat, then repeats twice more, one beat apart, fading out. The old off-beat echoes of those words in the printed FX stem are turned down. The rest of the vocal was checked: those two lines are not said again later.
+- **Where they land:** stay awake at 42.326, 42.791, 43.256 (lead) and 43.256, 43.721, 44.186 (adlib). Five minutes away at 46.047, 46.512, 46.977 (lead) and 46.977, 47.442, 47.907 (adlib). All at 129 BPM.
+- **Loudness:** −11.6 LUFS, true peak −0.7 dBTP.
+
 ### 2026-11-09 — v11-master (stutters say the whole first word, on the beat)
 
 - **Files:** `Pushing_the_Interstate_master_v11_24bit.wav`, `Pushing_the_Interstate_master_v11.mp3`.
