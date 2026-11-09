@@ -8,6 +8,68 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v16 (the v4 song, with the echoes cleaned up and the phone outro finished)
+
+Chex, this is the version that sounded right around 10:39, with two things added only on the phone ending: a higher little echo after each line, and a short stutter into the first word. The echoes sit under the vocal. They repeat a few times and fade. They do not take over the song.
+
+- **Files:** `Pushing_the_Interstate_master_v16_24bit.wav`, `Pushing_the_Interstate_master_v16.mp3`, `Outro_preview_v16.mp3` (from 2:08), `Pushing_the_Interstate_v16_effects_bus_24bit.wav` (echoes, delays, the verse throw, the outro ring and the stutters only).
+- **What stayed from v4:** 129 BPM, the vocal sound, the beat, the plate, the phone-call lines in the same places, the halls, and the fade. The adlib delay is still the dotted eighth, 348.84 ms, feedback 0.35.
+- **Lead echoes:** v4 copied a fixed 0.30 s slice. On the processed vocal that slice started in the middle of the last word, and on the lines around 34.1, 37.8, 75.9, 77.8 and 117.6 it ended while the word was still going. v16 copies the whole last word, from its start through its ending, with a short fade so it does not click. The delay time is still one quarter note, 465.12 ms, the same lag v4 used. Feedback stays 0.35, so about three repeats are audible (full, then about 9 dB down, then about 18 dB down) and the rest fade out. The first repeat is set about 12 dB under the dry word. Ducking is 4 dB with an 80 ms release, so the echo is not hidden and does not sound late.
+- **Verse-1 throw:** same half-note lag, 930.23 ms, on the last word into the break. v4's throw was about as loud as the vocal there. It is now about 9 dB under, so it does not compete with the beat.
+- **Printed FX stem:** the throws at 35.6, 39.3, 43.0, 47.1, 54.6 and 61.1 s were checked against the 129 BPM grid. 35.6, 39.3, 43.0 and 54.6 start on the "and" (about 230 ms, one eighth note, off the quarter). 43.0 is the one that sits on the and. 47.1's body is 172 ms off the quarter. 61.1's center is on the and, and it would have doubled the verse throw. Those six are muted, with a short fade so the mute is not a click. 58.2 starts 10 ms from the quarter, so it was left in. Around 135.0 s a one-beat copy and a two-beat copy of the same adlib land on top of each other; that spot is turned down 6 dB so one copy's level remains.
+- **Phone outro:** the lines, halls and fade are v4's. Added a delay a little higher in pitch (+3 semitones), one quarter note (465.12 ms) after what is said, three audible repeats, about 12 dB under the phone vocal, light duck (4 dB, 80 ms). The last "interstate" uses the half-note ring only, so that word does not also get a one-beat copy in the same place. Stutters are the first 75 ms of the first syllable, repeated on sixteenth notes (116.28 ms) and ending as the real word starts. The first line has room for four. Each "I'm" line has room for three. The later "since" lines sit right against the line before them (about 155 ms of space), so only one repeat fits without talking over that lyric.
+- **Loudness:** −11.5 LUFS, true peak −0.9 dBTP on the WAV, −0.7 dBTP on the MP3. v4 was −11.6 LUFS and −0.7 dBTP. The beat's last second finishes fading to silence, so the track does not stop dead at 2:39. The song runs about 2:41.
+- **v16 versus the v4 render** (same limiter, difference energy): verse 1 −27 dB, the break −38 dB, verse 2 −38 dB, just before the phone −43 dB, the phone outro −14 dB. The verses differ where the echoes and the muted FX throws are. The outro is the part that was meant to change.
+
+**Effects bus compared with the dry vocal** (a more negative number means the echoes are further under the voice):
+
+| Section | v16 | v4 | What changed |
+| --- | --- | --- | --- |
+| Verse 1 (0:20–1:00) | −25.1 dB | −25.2 dB | same weight |
+| Break (1:01–1:14) | −9.4 dB | −0.1 dB | the throw no longer sits on top of the track |
+| Verse 2 (1:15–2:05) | −24.4 dB | −26.5 dB | still well under the vocal |
+| Phone outro (2:14–2:35) | −14.9 dB | −20.9 dB | you can hear the new higher echo; it stays under the phone voice |
+| Fade (2:35–end) | −18.2 dB | −6.1 dB | the ending ring is quieter than v4 so it fades instead of hanging on |
+
+**Echo and stutter times.** Lag is the delay v4 used: quarter note 465.12 ms, half note 930.23 ms, dotted eighth 348.84 ms, all at 129 BPM. The grid column is how far the first tap sits from the nearest eighth-note line (and the nearest sixteenth, for the stutters). A small number means it is close to that line. v4 did not snap echoes onto the drums, and v16 does not either.
+
+| What | Source (s) | First tap (s) | Lag (ms) | Off the 1/8 grid (ms) | Off the 1/16 grid (ms) | Compared with v4 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Lead line ending | 33.950 | 34.415 | 465.1 | −3.5 | −3.5 | whole word through 34.450; same lag |
+| Lead line ending | 37.680 | 38.145 | 465.1 | +5.6 | +5.6 | whole word through 38.180; same lag |
+| Lead line ending | 41.410 | 41.875 | 465.1 | +14.7 | +14.7 | whole word through 41.900; same lag |
+| Lead line ending | 75.820 | 76.285 | 465.1 | +6.0 | +6.0 | whole word through 76.250; same lag |
+| Lead line ending | 77.710 | 78.175 | 465.1 | +35.6 | +35.6 | whole word through 78.130; same lag |
+| Lead line ending | 87.680 | 88.145 | 465.1 | +5.6 | +5.6 | whole word through 88.180; same lag |
+| Lead line ending | 105.570 | 106.035 | 465.1 | −11.4 | −11.4 | whole word through 106.000; same lag |
+| Lead line ending | 107.450 | 107.915 | 465.1 | +8.1 | +8.1 | whole word through 107.880; same lag |
+| Lead line ending | 117.660 | 118.125 | 465.1 | −14.4 | −14.4 | whole word through 118.160; same lag |
+| Verse-1 throw | 60.160 | 61.090 | 930.2 | −72.6 | +43.7 | same half-note lag; quieter |
+| Adlib delay, all 45 phrases | phrase start | +348.84 ms | 348.8 | follows the phrase, not the grid | same | same dotted eighth and feedback as v4; level about 12 dB under; duck release 80 ms instead of 300 ms |
+| Phone line, block 1 A | 135.076 | 135.541 | 465.1 | −40.4 | −40.4 | new higher voice; same quarter lag |
+| Phone line, block 1 B | 138.966 | 139.431 | 465.1 | −103.9 | +12.4 | new higher voice; same quarter lag |
+| Phone line, block 2 A | 142.523 | 142.988 | 465.1 | −35.4 | −35.4 | new higher voice; same quarter lag |
+| Phone line, block 2 B | 146.408 | 146.873 | 465.1 | −103.9 | +12.4 | new higher voice; same quarter lag |
+| Phone line, block 3 A | 149.965 | 150.430 | 465.1 | −35.4 | −35.4 | new higher voice; same quarter lag |
+| Last "interstate" ring | 153.855 | 154.785 | 930.2 | −98.9 | +17.4 | half-note ring only, higher voice, three repeats |
+| Stutter, block 1 "since" 1/4 | 135.076 | 134.652 | −424 | +0.9 | +0.9 | on the sixteenth grid |
+| Stutter, block 1 "since" 2/4 | 135.076 | 134.768 | −308 | −115.4 | +0.9 | on the sixteenth grid |
+| Stutter, block 1 "since" 3/4 | 135.076 | 134.885 | −191 | +0.9 | +0.9 | on the sixteenth grid |
+| Stutter, block 1 "since" 4/4 | 135.076 | 135.001 | −75 | −115.4 | +0.9 | ends as the word starts |
+| Stutter, block 1 "I'm" 1/3 | 138.966 | 138.658 | −308 | +53.7 | +53.7 | sixteenth spacing into the word |
+| Stutter, block 1 "I'm" 2/3 | 138.966 | 138.775 | −191 | −62.6 | +53.7 | sixteenth spacing into the word |
+| Stutter, block 1 "I'm" 3/3 | 138.966 | 138.891 | −75 | +53.7 | +53.7 | ends as the word starts |
+| Stutter, block 2 "since" | 142.523 | 142.448 | −75 | −110.4 | +5.8 | only one fits without covering the line before it |
+| Stutter, block 2 "I'm" 1/3 | 146.408 | 146.100 | −308 | +53.7 | +53.7 | sixteenth spacing into the word |
+| Stutter, block 2 "I'm" 2/3 | 146.408 | 146.216 | −191 | −62.6 | +53.7 | sixteenth spacing into the word |
+| Stutter, block 2 "I'm" 3/3 | 146.408 | 146.333 | −75 | +53.7 | +53.7 | ends as the word starts |
+| Stutter, block 3 "since" | 149.965 | 149.890 | −75 | −110.4 | +5.8 | only one fits without covering the line before it |
+| Stutter, block 3 "I'm" 1/3 | 153.855 | 153.547 | −308 | +58.7 | −57.6 | sixteenth spacing into the word |
+| Stutter, block 3 "I'm" 2/3 | 153.855 | 153.663 | −191 | −57.6 | −57.6 | sixteenth spacing into the word |
+| Stutter, block 3 "I'm" 3/3 | 153.855 | 153.780 | −75 | +58.7 | −57.6 | ends as the word starts |
+
+The delay engine places every lead, adlib and phone repeat at exactly 20512 samples (465.12 ms), 41023 samples (930.23 ms) or 15384 samples (348.84 ms). A cross-check of the adlib delay landed at 349.8 ms. The filtered copies of the lead and phone words read a couple of milliseconds off that in a correlation, because the tone filter changes the shape of the word; the delay itself is the sample count above.
+
 ### 2026-11-09 — v15-master (the 0:41 echoes are on the beat, and they fade)
 
 - **Files:** `Pushing_the_Interstate_master_v15_24bit.wav`, `Pushing_the_Interstate_master_v15.mp3`.
