@@ -8,6 +8,13 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v11-master (stutters say the whole first word, on the beat)
+
+- **Files:** `Pushing_the_Interstate_master_v11_24bit.wav`, `Pushing_the_Interstate_master_v11.mp3`.
+- **What changed:** the outro stutters were 80 ms chops on 16th notes, so they were too fast and off the beat, and the word never finished. Each cut is now the whole first word: "since" is 240 ms, "I'm" is 360 ms. The cuts start on quarter-note beats (465.12 ms apart at 129 BPM). The last cut finishes as the real line begins. Two cuts per line, not four fast ones. Delays are the v10 ones: the first echo starts one beat after the word ends, then two quieter repeats fade out.
+- **Loudness:** −11.6 LUFS, true peak −0.7 dBTP.
+- **Listening check:** pending, outro from about 2:14.
+
 ### 2026-11-09 — v10-master (echoes start after the word, not on top of it)
 
 - **Files:** `Pushing_the_Interstate_master_v10_24bit.wav`, `Pushing_the_Interstate_master_v10.mp3`.
