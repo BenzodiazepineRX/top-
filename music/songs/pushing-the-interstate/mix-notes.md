@@ -8,6 +8,14 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v14-master (timing correction patch on v13)
+
+- **Files:** `Pushing_the_Interstate_master_v14_24bit.wav`, `Pushing_the_Interstate_master_v14.mp3`.
+- **What changed:** this keeps v13 as the base (so the full arrangement, outro and fade stay the same), then patches only the two problem call-and-response spots (about 0:42 to 0:48). Those words were re-echoed from the stems with beat-locked quarter-note repeats on both lead and adlibs (2 repeats only). The v13 base is dipped by about 1.1 dB only inside those two windows so the corrected repeats can read clearly.
+- **Where they land (drum-locked):** lead repeats at 42.076, 42.554, 45.813, 46.277. Adlib repeats at 43.027, 43.455, 46.980, 47.380. All at 129 BPM (1/4 = 465.12 ms).
+- **Loudness:** −11.7 LUFS, true peak −0.9 dBTP (WAV) / −0.6 dBTP (MP3), loudness range 7.7 LU.
+- **Listening check:** pending owner, focus on 0:41–0:49.
+
 ### 2026-11-09 — v13-master (undo the stacked echoes, fade the repeats)
 
 - **Files:** `Pushing_the_Interstate_master_v13_24bit.wav`, `Pushing_the_Interstate_master_v13.mp3`.
