@@ -8,6 +8,20 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v16 (the 10:39 mix, with only the last word echoed on the beat)
+
+- **Files:** `Pushing_the_Interstate_master_v16_24bit.wav`, `Pushing_the_Interstate_master_v16.mp3`.
+- **What this is:** the v4 master from about 10:39pm CT. Same length (2:51). The vocal, the beat, the adlib delay, the phone outro, and the fade are that file. Nothing in the song was rebuilt.
+- **The only change:** the last word of "stay awake" and "five minutes away", once on the lead and once on the adlib. The word plays again on the next quarter-note beat, about 8 dB under the voice. One quieter copy follows one beat later, about 13 dB down, then it stops. No third repeat, and the whole line is not copied.
+- **Where they land (129 BPM, quarter = 465.12 ms):** lead "awake" at 42.326 and 42.791. Adlib "awake" at 43.256 and 43.721. Lead "away" at 46.047 and 46.512. Adlib "away" at 46.977 and 47.442.
+- **Later in the song:** these two lines are not said again.
+- **Loudness:** −11.6 LUFS, true peak −0.6 dBTP. Same loudness as v4.
+- **Do not build the next pass on v9–v15.** Those were new mixes. The owner said the 10:39 version was the good one and only the echoes needed to be fixed.
+
+### Note for Copilot
+
+v16 is the version to listen to. It is the v4 WAV plus four last-word echoes. v14's repeats were about an eighth note early, and v15 was built on v13, which the owner had already rejected. Do not add another echo layer on top of v16. Do not copy the whole line. Do not snap echoes to drum hits. If an echo is still early, move that one last word onto the next quarter-note beat (`n * 60/129`) and leave the rest of the file alone.
+
 ### 2026-11-09 — v15-master (the 0:41 echoes are on the beat, and they fade)
 
 - **Files:** `Pushing_the_Interstate_master_v15_24bit.wav`, `Pushing_the_Interstate_master_v15.mp3`.
