@@ -8,6 +8,19 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v9-master (adlib delay and lead echoes rebuilt from the stems)
+
+- **Files:** `Pushing_the_Interstate_master_v9_24bit.wav`, `Pushing_the_Interstate_master_v9.mp3`. Rebuilt from the four stems, not layered on the v4 WAV. Audio is not committed.
+- **What changed:** the adlib delay and the echoes under the lead are new renders, so the old ones are not still hiding under them.
+  - *Adlib delay:* dotted eighth at 129 BPM, **348.84 ms** (15384 samples). Three repeats, feedback 0.35, so the second is about 9 dB down and the third about 18 dB down, then it is gone. It sits 8 dB under the lead while the lead is singing, and the duck lets go in 100 ms, so the repeat is not covered up and does not sound late.
+  - *Lead echoes:* quarter note, **465.12 ms** (20512 samples), on the last 0.30 s of each line. Same three-repeat fade. 6 dB under the lead, 100 ms release. The verse-1 throw is a half note, **930.23 ms**.
+  - Vocal chain, beat, 808 control, plate, phone outro, and fade follow the v4 notes. The measured lead gain (+8.8 dB), de-esser, and compression matched those notes. Outro echoes are the pitched quarter-note repeats from v8, three taps, same fade.
+- **Why:** the v4 file already had the old delays printed in. Adding new ones on top would have doubled them. The stems were the way to replace them.
+- **Loudness:** −11.6 LUFS integrated, true peak −0.7 dBTP, loudness range 7.8 LU. Limiter took about 0.5 LU.
+- **Delay times used:** 1/8 dotted 348.84 ms, 1/4 465.12 ms, 1/2 930.23 ms, all at 129 BPM. Checked from the delay tool's sample count, not from a drum-hit snap.
+- **Listening check:** pending owner, on the adlibs and the lead echoes first.
+- **Next:** if a repeat is too many, too few, too loud, or still feels late, say which part.
+
 ### 2026-11-09 — v8-master (v4 kept, outro echoes in the adlib-delay style)
 
 - **Files:** `Pushing_the_Interstate_master_v8_24bit.wav`, `Pushing_the_Interstate_master_v8.mp3`, `Outro_preview_v8.mp3` (from 2:08). Built on the owner's v4 WAV. The verses are the v4 master with nothing added. Audio is not committed (see `.gitignore`).
