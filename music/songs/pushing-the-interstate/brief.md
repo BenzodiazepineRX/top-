@@ -56,6 +56,8 @@ Requested by the owner on 2026-11-08 (v4).
 | Phone-call outro | New outro vocal (copies of the lead) | Right after the last lead vocal (bar 73) until the song fades out | Bars 73–86 plus ring-out | none named | Alternate line A "since I already know what you planning to do you can go put the blame on me anyway" and line B "I'm riding through traffic with styrofoam cups in the console I'm pushing the interstate", repeated until the fade; telephone-line sound, really good reverb, perfectly timed delay that repeats after what is said; a little quieter than the first outro draft |
 | Lead vocal delay | Lead vocal | Both verses; off where it would get in the way | Whole song | none named | "Perfect" tempo-synced delay; owner: "if you think they need to be off a certain part then do that… I just want the song to be filled in" |
 | Song fade-out | Whole mix | The last bars of the song | Bars 82–86 | none named | Owner: "repeat those 2 parts… til the song fades out" |
+| Outro echoes, pitched up | Outro vocal | The outro lines | Bars 73–86 | none named | Owner: "add a delay with echos in the outro verse as well with the telephone effect but a little more high pitched on the delay vocal" |
+| Outro stutters | Outro vocal | In the outro | Bars 73–86 | none named | Owner: "add some like studders in the outro verse too" |
 
 ## Delay timing for this song
 

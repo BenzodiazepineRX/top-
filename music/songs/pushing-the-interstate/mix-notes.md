@@ -8,6 +8,21 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-08 — v5-master (echo timing fix, pitched outro echoes, stutters)
+
+- **Files:** `Pushing_the_Interstate_master_v5_24bit.wav`, `Pushing_the_Interstate_master_v5.mp3` (2:51), `Outro_preview_v5.mp3`, `v4_vs_v5_echoes_0m33.mp3`, `v4_vs_v5_echoes_1m14.mp3`. Audio delivered in chat, not committed.
+- **What changed:**
+  - *Verse echoes:* owner, on headphones after the v4 sign-off: echoes "a bit off track", in the verses, landing late or early. Measured: the delay time was exact, but heavy ducking (−8 dB, 300 ms release) pushed each echo's start under the next line, so it surfaced 15–36 ms late, and a fixed 0.30 s window could clip the start of the word. Now each echo carries the whole last word from its detected start, with ducking cut to −3 dB (5 ms attack, 120 ms release); cross-correlation puts every echo 465.3–465.5 ms after its word (one beat at 129, within 0.5 ms). Adlib echo ducking lightened to −6 dB / 150 ms for the same reason.
+  - *Outro echoes, pitched up:* owner asked for echoes in the outro with the delay vocal "a little more high pitched". The always-on phone echo is replaced by echoes of the last word of block 1's two lines, pitched up 3 semitones (rubberband; its 6 ms early smear compensated, aligned within 1 ms), plus the two "interstate" throws now pitched up the same way. Echo lag measured 465.4 ms.
+  - *Stutters:* owner asked for stutters in the outro. "I-I-I-I'm" (three 1/32 repeats) in the 0.22 s gap before line B in blocks 2 and 3, and "-state-state-state-state" (four 1/16 repeats fading −2 to −8 dB) after the final word as the beat fades. Only free space is used, so no lyric is cut; block 2/3 line-A echoes are dropped so they don't muddy the stutters.
+- **Why:** owner requests (brief: "Outro echoes, pitched up", "Outro stutters") and the owner's headphone check.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.4 dBTP (MP3), loudness range 7.5 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v5.json`, `reports/v5.md`: ⚠️ close, 63 passed, 4 to check, 0 failed (mids up from the phone outro, intended; old FX stem; outro line words to confirm).
+- **Key note:** I first told the owner the +3 semitone echo "fits F minor"; F minor is the next song's key. This song measured F major. The rap is spoken, so a third-up echo reads as a higher voice; +5 or +12 semitones are the in-key options if it ever sounds wrong.
+- **Lesson:** heavy ducking on a delay makes echoes sound late, because the listener hears the echo when it surfaces, not when it starts. For dense rap, echo whole line-end words with light, fast ducking and verify the lag by cross-correlation.
+- **Listening check:** pending owner on v5.
+- **Next:** owner listens on headphones; if approved, the sign-off moves from v4 to v5.
+
 ### 2026-11-08 — v4-master (phone-call outro, line-end echoes, fade-out)
 
 - **Files:** `Pushing_the_Interstate_master_v4_24bit.wav`, `Pushing_the_Interstate_master_v4.mp3` (2:51), `Outro_preview_v4.mp3` (2:08 to end), `Lead_echo_preview_v4.mp3` (0:30–1:03). Audio delivered in chat, not committed.
@@ -94,6 +109,8 @@ Use this only for the master you believe is finished. Leave every box unchecked 
 The owner approved the master as finished. The unchecked boxes are recorded as not done rather than assumed; they don't block the owner's sign-off.
 
 **Master version:** v4 (`Pushing_the_Interstate_master_v4_24bit.wav`, 129 BPM build)
+
+> v5 (verse echo timing fix, pitched outro echoes, stutters) was made after this sign-off at the owner's request and is awaiting the owner's approval. Until then, v4 is the approved master.
 **Date:** 2026-11-08
 **Owner:** Chex
 **Owner's words:** "My boy….. it's beautiful" — then, asked whether that counts as final approval: "Yessss sirrrrr"
