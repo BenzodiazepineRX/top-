@@ -28,6 +28,7 @@ music/tools/                   the audio processing toolkit (Python + ffmpeg)
   render_master.py             master to a loudness target with a true-peak ceiling
   export_master.py             24-bit WAV + MP3 exports, checked
   ab_match.py                  loudness-matched before/after clips for the owner to judge
+  groove_delay.py              echoes locked to the beat's real drum hits
   song_report.py               the review report for every version of a song
 music/songs/_template/         copy this folder when a new song starts
   brief.md                     facts, goals, effect requests, and delay times
