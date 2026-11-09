@@ -8,6 +8,14 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v10-master (echoes start after the word, not on top of it)
+
+- **Files:** `Pushing_the_Interstate_master_v10_24bit.wav`, `Pushing_the_Interstate_master_v10.mp3`.
+- **What changed:** the adlib delay and the lead echoes were landing too soon. v9 started the echo a beat after the *beginning* of the word, so it came in while the word was still finishing and sounded like a quick repeat. v10 starts the first echo one full beat after the word *ends* (465.12 ms at 129 BPM). Two quieter repeats follow, then it fades out. The adlib delay is no longer on every syllable. It is only on the end of each adlib phrase, under the lead.
+- **Delay times:** quarter note 465.12 ms after the end of the phrase. Three repeats, feedback 0.35. Duck releases in 100 ms so the echo is not hidden.
+- **Loudness:** −11.6 LUFS, true peak −0.7 dBTP.
+- **Listening check:** pending. This replaces v9.
+
 ### 2026-11-09 — v9-master (adlib delay and lead echoes rebuilt from the stems)
 
 - **Files:** `Pushing_the_Interstate_master_v9_24bit.wav`, `Pushing_the_Interstate_master_v9.mp3`. Rebuilt from the four stems, not layered on the v4 WAV. Audio is not committed.
