@@ -175,7 +175,7 @@ python3 music/tools/song_report.py music/songs/<song> --version v3 \
 
 What it checks, each marked ✅ pass, ⚠️ check, or ❌ fail:
 
-- **Master:** loudness vs target (±0.2 LU), true peak (WAV and MP3), clipping, punch (peak-to-loudness ≥ 8 dB), contrast between sections (loudness range ≥ 5 LU), limiter workload (≤ 2 LU), **volume dips from the limiter** (no second with a dip over 4.5 dB, typical worst under 3 dB, and the times of the worst ones), stereo phase, mono playback, ending, DC offset.
+- **Master:** loudness vs target (±0.2 LU), true peak (WAV and MP3), clipping, punch (peak-to-loudness ≥ 8 dB), contrast between sections (loudness range ≥ 5 LU), limiter workload (≤ 2 LU), **volume dips from the limiter** (no second with a dip over 4.5 dB, typical worst under 3 dB, and the times of the worst ones), stereo phase, mono playback, ending (flags a hard cut: a drop of more than 25 dB within 0.1 s in the last 30 s of sound, ignoring silent padding), DC offset.
 - **Tone** vs the original and the previous version: any band that moved more than 3 dB must be confirmed by ear.
 - **Every effect and plugin** by its rule: de-esser active 3–25% of singing; dynamic EQ active ≤ 30%; compression 2–7 dB average; lead high-pass below the lowest sung note; delay time exactly the note value at the brief's BPM, and ducked; reverb pre-delay and decay on note values; substituted plugins; logged issues.
 - **The brief:** missing facts ("unknown") and every Creative effects request present in the effects log.
