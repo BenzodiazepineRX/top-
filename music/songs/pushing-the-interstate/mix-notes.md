@@ -14,7 +14,7 @@ Say what you changed and why in plain English. Include settings only when a futu
 - **What changed:** adlib de-esser threshold −25 → −29.5 dBFS (active 2.4% → 11.4%, avg 1.8 dB). Everything else as v2.
 - **Why:** the v2 review report flagged the adlib de-esser as barely working. Measured: the adlibs' loudest sibilance sits at −4.6 dB band-to-full, as hot as the lead's (−5.7 dB), so they get matching treatment.
 - **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.4 dBTP (MP3), loudness range 7.1 LU, limiter loss 0.7 LU.
-- **Effects log and review report:** `effects/v3.json`, `reports/v3.md`: ⚠️ close, 45 passed, 1 to check, 0 failed. The one ⚠️ is the previous engineer's printed vocal FX stem, whose delay timing can't be measured against 129 BPM from a printed file; it stays until the owner confirms by ear or the original session is available. Brief still has 6 missing facts.
+- **Effects log and review report:** `effects/v3.json`, `reports/v3.md`: ⚠️ close, 46 passed, 1 to check, 0 failed. The one ⚠️ is the previous engineer's printed vocal FX stem, whose delay timing can't be measured against 129 BPM from a printed file; it stays until the owner confirms by ear or the original session is available. Brief still has 6 missing facts.
 - **Listening check:** pending owner. Owner on v2: "Absolute fucking masterpiece."
 - **Feedback:** pending on v2 vs v3.
 - **Creative effects acknowledged:** none requested for this song yet.

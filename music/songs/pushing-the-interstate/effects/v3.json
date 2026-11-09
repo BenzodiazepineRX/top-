@@ -107,6 +107,14 @@
  },
  {
   "track": "Adlibs",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS (+10.4 dB)",
+  "why": "working level the compressor settings expect; the mix gain of -10.0 dB brings them back down"
+ },
+ {
+  "track": "Adlibs",
   "effect": "High-pass filter",
   "type": "hpf",
   "tool": "dsp_tools.py hpf",
