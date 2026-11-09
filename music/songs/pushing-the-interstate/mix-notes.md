@@ -78,20 +78,22 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 Use this only for the master you believe is finished. Leave every box unchecked until that item is actually true. The song is still in progress until the owner signs.
 
-- [ ] All creative effects from the brief are in place, on the right track or mix bus, in the right spot, and the right length
-- [ ] Echo, delay, pre-delay, and decay times match this song's BPM, and the math was checked
-- [ ] Earbuds check passed
-- [ ] Phone speaker check passed
-- [ ] Car check passed
-- [ ] Studio monitors check passed
-- [ ] Loudness and true peak meet this song's targets
-  - Integrated LUFS:
-  - True peak:
-  - Target used (platform and number):
-- [ ] Compared against the reference tracks in the brief
-- [ ] Owner sign-off on the final master
+- [x] All creative effects from the brief are in place, on the right track or mix bus, in the right spot, and the right length (phone-call outro, lead vocal delay, song fade-out; confirmed in `reports/v4.md`)
+- [x] Echo, delay, pre-delay, and decay times match this song's BPM, and the math was checked (129 BPM; outro placement confirmed by matching the drums against themselves)
+- [ ] Earbuds check passed (not reported separately)
+- [ ] Phone speaker check passed (not reported separately)
+- [ ] Car check passed (not reported separately)
+- [ ] Studio monitors check passed (owner has no monitors yet)
+- [x] Loudness and true peak meet this song's targets
+  - Integrated LUFS: −11.6
+  - True peak: −0.7 dBTP (WAV), −0.5 dBTP (MP3)
+  - Target used (platform and number): −11.5 LUFS / −0.5 dBTP, chosen to remove limiter pumping; streaming platforms normalize to around −14 LUFS. No platform named in the brief.
+- [ ] Compared against the reference tracks in the brief (no reference tracks given)
+- [x] Owner sign-off on the final master
 
-**Master version:**
-**Date:**
+The owner approved the master as finished. The unchecked boxes are recorded as not done rather than assumed; they don't block the owner's sign-off.
+
+**Master version:** v4 (`Pushing_the_Interstate_master_v4_24bit.wav`, 129 BPM build)
+**Date:** 2026-11-08
 **Owner:** Chex
-**Owner's words:** (Chex writes "approved" here, or an agent copies Chex's exact sign-off)
+**Owner's words:** "My boy….. it's beautiful" — then, asked whether that counts as final approval: "Yessss sirrrrr"
