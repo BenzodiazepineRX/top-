@@ -8,6 +8,24 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v14-master (the printed stem's own echoes moved onto the drums)
+
+- **Files:** `Pushing_the_Interstate_master_v14_24bit.wav`, `Pushing_the_Interstate_master_v14.mp3`, `v7_vs_v14_0m40.mp3` (0:40-0:50 before and after). Audio delivered in chat, not committed.
+- **What changed (from v7, and nothing else):** the echoes printed in the old effects stem were moved onto the beat's real drum hits. 216 copies moved (lead words one quarter note after the word, about 23 dB under it; adlib phrases at half, one, three and four quarter notes, about 14 dB under); copies already within 1 ms of a hit, or with no hit within 60 ms (about 11 quiet lead copies), stay as printed. Reverb, reverse reverb and build-ups are untouched. The line-end echoes, throw, adlib echoes, reverb and outro are exactly v7's. No extra word echoes and no extra reverb on the lead.
+- **Why:** owner on v12: "way too much delay... it distracts the listener", and "you also added more reverb to the main vocals". Earlier: echoes "off from 0:43 onward". The owner also said the version closest to 10:40 PM (v4) had the right effects. Measured, the off-beat echoes were never my drum-locked ones: the stem prints exact-note copies of the dry vocals, so each sits as far off the drums as its word (median 16.9 ms, 153 of 216 over 10 ms). Layering drum-locked echoes over them (v7 to v13) could not fix that.
+- **Checks:** median distance of the moved copies to the nearest drum hit 16.9 ms before, 1.1 ms after (16 still over 10 ms: loud adlib runs where neighbouring shifts are limited to 15 ms so no echo is cut or doubled). Correlation of each dry word with the stem at its old echo time fell from 0.53 to 0.17, the floor of the measurement (0.16), so no ghost echo is left. Build-ups unchanged (at most 0.02 dB). Rebuilding v7's recipe with the stem as printed matches `mix_v7.wav` to -82 dBFS rms (the largest difference, -63 dBFS in one quarter second and 43 dB under the mix, sits inside the line-end echo tails), so v14 differs from v7 only through the moved copies, and only between 0:31 and 2:14.
+- **Loudness:** -11.6 LUFS integrated, -0.7 dBTP (WAV) / -0.5 dBTP (MP3), loudness range 7.9 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v14.json`, `reports/v14.md` (60 passed, 3 to check, 0 failed; the 3 are the intended mid boost from the phone outro and the outro words to confirm). Retime log: `effects/v14_retime_log.json`. Scripts: `tools/retime_stem.py`, `tools/validate_retime.py`, `tools/build_v14.py`.
+- **Lesson:** I first moved only whole multi-word segments and found about half of the copies (the check against the first scan's 69 clearly echoed words caught it). Judge each word on its own, against a control floor, and measure coverage with a second, independent detector before trusting a "moved" count. Also: a loud adlib echo cut into pieces that are shifted by different amounts overlaps or drops out; limit the shift difference between neighbours.
+- **Naming:** v14 is Claude's numbering. The Cursor agent has its own v8-v13 on PR #3 (different files).
+- **Listening check:** pending owner on v14.
+- **Sign-off:** stays on v4 until the owner approves a later version.
+
+### 2026-11-09 — v8-v13 (Claude's drafts, not signed off, superseded by v14)
+
+- Exploratory builds sent to the owner in chat, not reproduced in this repo. They tried: v3's adlib delay and reverb back on the v7 mix (v8), a hall reverb on the lead (v10 and v12), echo layers re-rendered to be audible (v11) and one echo per sung word the stem echoed (v12), then a windows-based version (v13, never sent). Owner's verdicts: v11 echoes inaudible; v12 "way too much delay... distracts the listener" plus unwanted extra reverb on the lead.
+- What they taught: the problem was the stem's printed copies, not the echoes I was adding. v14 removes the added layers and fixes the printed copies instead.
+
 ### 2026-11-09 — v7-master (verse echoes locked to the drums)
 
 - **Files:** `Pushing_the_Interstate_master_v7_24bit.wav`, `Pushing_the_Interstate_master_v7.mp3`, `v6_vs_v7_verse_0m33.mp3`, `v6_vs_v7_verse_1m52.mp3`. Audio delivered in chat, not committed.
