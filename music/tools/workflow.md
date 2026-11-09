@@ -28,6 +28,7 @@ All scripts live in `music/tools/`, need ffmpeg/ffprobe plus numpy (and scipy fo
 | `dsp_tools.py dyneq` / `deess` | Split-band dynamic cut: band-pass envelope detection, cuts only when the band flares |
 | `dsp_tools.py comp2` | Two-stage serial compression: fast peak tamer, then a smooth slow-release leveler |
 | `dsp_tools.py delay` | Tempo-synced ping-pong delay return, ducked by the lead vocal; optional throws on chosen time ranges |
+| `groove_delay.py` | Echoes locked to the beat's real drum hits: each repeat lands on the hit nearest to N notes after the word's attack. Use it for any echo heard on its own (line-end throws, adlib echoes) |
 | `dsp_tools.py reverb` | Plate or hall return with exact pre-delay and decay |
 | `dsp_tools.py saturate` | Oversampled odd/even harmonic saturation |
 | `dsp_tools.py mix` | Sum stems and effect returns with gains, sample-aligned |
@@ -99,6 +100,8 @@ Delays go on backing vocals or adlibs, or on chosen lead words as throws:
 $T delay adlibs_processed.wav adlib_delay.wav --bpm 92 --note 1/8d --feedback 0.4 --duck-by v7.wav --duck-depth 10
 $T delay v7.wav lead_throws.wav --bpm 92 --note 1/4 --throws "31.2-32.0,58.5-59.1" --duck-by v7.wav
 ```
+
+**Lock echoes to the drums, not just the tempo.** A delay repeats a word exactly N beats after it; if the word sat ahead of or behind the drums (normal in rap) or the beat swings, the echo lands 20–40 ms off the drums, and alone in a gap that sounds late or early (Pushing the Interstate: lead echoes up to 36 ms off, half the adlib echoes over 20 ms off; two fixes that only perfected the delay time did not help). Render echo throws and adlib echoes with `groove_delay.py --drums beat.wav`, and check them by cross-correlating each word with its echo and comparing the result to the nearest drum hit.
 
 Ducking is mandatory: always pass `--duck-by` with the processed lead vocal. **Keep it light on throws over dense vocals** (about `--duck-depth 3 --duck-attack 5 --duck-release 120`): the listener hears an echo when it surfaces, so heavy, slow ducking (−8 to −10 dB, 300 ms release) hides each echo's start under the next line and it sounds late, even though the delay time is exact. For rap with little space, send the **whole last word of each line** (from its detected start, not a fixed window) rather than an always-on delay, and check the lag with a cross-correlation of the word against its echo. The tool ducks the delay return, which carries every repeat coming out of the feedback loop, so the echoes drop while the lead sings and swell back in the gaps. This keeps lyrics intelligible and is the standard way ducked delays work. In testing, a ducked return sat 7.9 dB lower during singing and unchanged in the gaps, with repeats exactly on the 1/8d grid. Check that the printout's "fully ducked" percentage roughly matches how much of the song the lead sings.
 
