@@ -8,13 +8,36 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v15-master (the 0:41 echoes are on the beat, and they fade)
+
+- **Files:** `Pushing_the_Interstate_master_v15_24bit.wav`, `Pushing_the_Interstate_master_v15.mp3`.
+- **What changed:** v14 is not the fix. Its repeats land on the off-beat, and they were added on top of v13, so the old repeats are still there. v15 starts from v13 again. Everything outside about 0:42 to 0:48 is the same as v13, including the outro. Inside that spot, three things that were stacking are taken out, and one short echo is put back.
+- **Taken out:** the printed FX echoes at 43.03–43.62 and 46.99–47.29 (the 43.03 one starts 226 ms before the beat, which is the "and" of the beat). Also the v13 copies of the whole line: the adlib copy from 43.25–44.19 is 940 ms long, and the lead copy from 46.03–46.81 is 780 ms long. A copy that long covers the next beat, so it sounds like the line keeps going and never fades.
+- **Put back:** only the last word, starting on the next quarter-note beat after that word has finished. One quieter copy follows one beat later, about 12 dB down, on the other side, then it stops. The first copy sits about 11 dB under the dry word. No ducking, so the start of the echo is not hidden.
+- **Where they land (129 BPM, quarter = 465.12 ms):** lead "awake" (41.40–41.88) at 42.326 and 42.791. Adlib "awake" (42.40–42.82) at 43.256 and 43.721. Lead "away" (45.42–45.76) at 46.047 and 46.512. Adlib "away" (46.36–46.76) at 46.977 and 47.442.
+- **Later in the song:** these two lines are not said again in the lead or the adlibs. The second verse repeats other lines ("just cause you're not around", "I came from the crime"). It does not repeat "stay awake" or "five minutes away". If the owner names another time where they hear those words, that time gets this same treatment.
+- **Loudness:** −11.6 LUFS, true peak −0.7 dBTP (WAV) / −0.2 dBTP (MP3).
+- **Listening check:** pending owner, 0:41–0:48, then a pass on the other adlib delays. Those other adlib delays were already a short word plus one quiet repeat, so they were left alone.
+
+### Note for Copilot (please read this before editing the echoes again)
+
+v14's echoes are off. The owner said so, and the grid says so too.
+
+The v14 notes call these times "drum-locked" quarter notes: 42.076, 42.554, 45.813, 46.277, 43.027, 43.455, 46.980, 47.380. At 129 BPM the quarter grid here is 42.326, 42.791, 43.256, 43.721, 46.047, 46.512, 46.977, 47.442. Most of the v14 times are about 230 ms early of that grid. 230 ms is an eighth note, the off-beat. An echo that starts on the "and" is the thing the owner is hearing as off. 46.980 is the only one of those eight that actually lands on a quarter.
+
+v14 also only dipped v13 by about 1.1 dB in that spot, then added another layer from about 42.03–44.32 and 45.92–48.22. The old repeats are still playing. Stacking another set on top is why it still does not fade.
+
+Do not snap these echoes to drum hits. That was tried in v7 and the owner rejected it. Do not use a 300 ms duck release. That hides the attack and makes the echo sound late. Do not copy the whole line. The line is longer than one beat, so the copies pile up.
+
+The rule for this song: echo the last word only. Start that copy on the next quarter-note beat after the word has finished (`beat = n * 60/129`, quarter = 465.12 ms = 20512 samples at 44100 Hz). One more copy, one beat later, about 12 dB quieter, then stop. Take the off-beat FX echo out first so it does not double the new one. v15 does that for the only place these two lines are said.
+
 ### 2026-11-09 — v14-master (timing correction patch on v13)
 
 - **Files:** `Pushing_the_Interstate_master_v14_24bit.wav`, `Pushing_the_Interstate_master_v14.mp3`.
 - **What changed:** this keeps v13 as the base (so the full arrangement, outro and fade stay the same), then patches only the two problem call-and-response spots (about 0:42 to 0:48). Those words were re-echoed from the stems with beat-locked quarter-note repeats on both lead and adlibs (2 repeats only). The v13 base is dipped by about 1.1 dB only inside those two windows so the corrected repeats can read clearly.
 - **Where they land (drum-locked):** lead repeats at 42.076, 42.554, 45.813, 46.277. Adlib repeats at 43.027, 43.455, 46.980, 47.380. All at 129 BPM (1/4 = 465.12 ms).
 - **Loudness:** −11.7 LUFS, true peak −0.9 dBTP (WAV) / −0.6 dBTP (MP3), loudness range 7.7 LU.
-- **Listening check:** pending owner, focus on 0:41–0:49.
+- **Listening check:** owner says these echoes are also off. The times above are about an eighth note early of the quarter grid. See v15. Do not build the next version on this file.
 
 ### 2026-11-09 — v13-master (undo the stacked echoes, fade the repeats)
 
