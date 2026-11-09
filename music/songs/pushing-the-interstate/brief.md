@@ -12,7 +12,7 @@ If you do not know an answer yet, write "unknown" and who to ask. Do not guess a
 - **Artist:** unknown, ask the owner
 - **Genre / subgenre:** unknown, ask the owner (the session is beat + rap/sung lead + adlibs)
 - **Mood / vibe:** unknown, ask the owner
-- **BPM:** 129 (measured on the beat stem, high confidence)
+- **BPM:** 128.71 (exact, from the snare/hi-hat grid; the coarse detector said 129, and v1–v3 were timed at 129. Likely a 129 BPM beat exported with a 44.2/44.1 kHz mismatch: 129 × 44100/44200 = 128.71)
 - **Key:** F major (measured, medium confidence; runner-up Bb major). Tuning A4 = 439.7 Hz.
 
 ## Reference tracks
@@ -36,7 +36,8 @@ The stems are lossy MP3. WAV stems would give the next pass more detail to work 
 
 ## What's working
 
-- unknown, ask the owner. The previous engineer's vocal FX stem was kept as printed in v1.
+- Owner on v2: "Absolute fucking masterpiece." Owner on v3: "I LOVED v3." Keep the v3 vocal sound, balance and loudness.
+- The previous engineer's vocal FX stem, kept as printed.
 
 ## Problem areas
 
@@ -44,30 +45,32 @@ Measured on the summed stems (not yet confirmed by the owner's ears):
 
 - Lead vocal: boxy buildup around 230–320 Hz; narrow harsh peaks at about 3.5 kHz and 4.7 kHz.
 - Whole mix: energy weighted heavily to sub and bass, dark in the upper mids and air.
-- Song ends while still loud (last 0.1 s at −21 dBFS): the ending may be cut off.
+- The beat stem stops dead at 2:39.2 while still loud. From v4 the owner asked for a fade-out, so the beat fades over bars 82–86 and the outro echoes ring past the stop.
 
 ## Creative effects requests
 
-None requested yet. Ask the owner.
+Requested by the owner on 2026-11-08 (v4).
 
 | Effect | Scope (one track or whole mix) | Where it happens | How long (bars) | Plugin, if one is required | Notes |
 | --- | --- | --- | --- | --- | --- |
-| none requested yet | | | | | |
+| Phone-call outro | New outro vocal (copies of the lead) | Right after the last lead vocal (bar 73) until the song fades out | Bars 73–86 plus ring-out | none named | Alternate line A "since I already know what you planning to do you can go put the blame on me anyway" and line B "I'm riding through traffic with styrofoam cups in the console I'm pushing the interstate", repeated until the fade; telephone-line sound, really good reverb, perfectly timed delay that repeats after what is said; a little quieter than the first outro draft |
+| Lead vocal delay | Lead vocal | Both verses; off where it would get in the way | Whole song | none named | "Perfect" tempo-synced delay; owner: "if you think they need to be off a certain part then do that… I just want the song to be filled in" |
+| Song fade-out | Whole mix | The last bars of the song | Bars 82–86 | none named | Owner: "repeat those 2 parts… til the song fades out" |
 
 ## Delay timing for this song
 
-- **BPM used:** 129
+- **BPM used:** 128.71
 - **Time signature:** 4/4 (assumed; confirm with the owner)
 
 | Note | Straight (ms) | Dotted × 1.5 (ms) | Triplet × 2/3 (ms) |
 | --- | --- | --- | --- |
-| 1 bar (4 beats in 4/4) | 1860.47 | — | — |
-| 1/2 | 930.23 | 1395.35 | 620.16 |
-| 1/4 | 465.12 | 697.67 | 310.08 |
-| 1/8 | 232.56 | 348.84 | 155.04 |
-| 1/16 | 116.28 | 174.42 | 77.52 |
+| 1 bar (4 beats in 4/4) | 1864.66 | — | — |
+| 1/2 | 932.33 | 1398.49 | 621.55 |
+| 1/4 | 466.16 | 699.25 | 310.78 |
+| 1/8 | 233.08 | 349.62 | 155.39 |
+| 1/16 | 116.54 | 174.81 | 77.69 |
 
-Checked against `tempo_key.py`'s table at 129 BPM. Reverb pre-delay in range: 1/64 = 29.07 ms.
+Checked against `tempo_key.py`'s table at 128.71 BPM. Reverb pre-delay in range: 1/64 = 29.14 ms.
 
 ## Where it will be heard
 
