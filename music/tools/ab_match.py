@@ -51,6 +51,27 @@ def stem(path):
     return os.path.splitext(os.path.basename(path))[0]
 
 
+def same_file(p, q):
+    """True when p and q are the same file: equal after resolving symlinks, or the same device and inode
+    (which also catches hard links)."""
+    try:
+        return os.path.samefile(p, q)
+    except OSError:  # one of them does not exist yet: compare the resolved paths
+        return os.path.realpath(p) == os.path.realpath(q)
+
+
+def planned_outputs(args):
+    outs = []
+    if not args.no_full:
+        outs += [os.path.join(args.outdir, f"A_{stem(args.a)}_matched.wav"),
+                 os.path.join(args.outdir, f"B_{stem(args.b)}_matched.wav")]
+    if args.snippet:
+        outs.append(os.path.join(args.outdir, "AB_blind_snippet.wav" if args.blind else "AB_snippet.wav"))
+        if args.blind:
+            outs.append(os.path.join(args.outdir, "AB_blind_KEY_do_not_share_yet.txt"))
+    return outs
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("a", help="version A (usually the original)")
@@ -62,6 +83,13 @@ def main():
     ap.add_argument("--blind", action="store_true", help="shuffle snippet order; key saved separately")
     ap.add_argument("--no-full", action="store_true", help="skip the full-length matched copies")
     args = ap.parse_args()
+    # ffmpeg is run with -y, so an output that is one of the inputs (or a link to one) would be destroyed
+    # before it is read. Check every planned output against both inputs before touching any file.
+    for out in planned_outputs(args):
+        for src in (args.a, args.b):
+            if same_file(out, src):
+                raise SystemExit(f"Refusing to write {out}: it is the same file as the input {src} "
+                                 "(possibly through a link). Use a different --outdir or rename the input.")
     os.makedirs(args.outdir, exist_ok=True)
 
     Ia, tpa, spa = measure(args.a)
