@@ -188,7 +188,8 @@ def main():
     lead_raw, _ = dt.read(D + "l_2.wav")
     bgv, _ = dt.read(D + "b_7.wav")
     bgv_raw, _ = dt.read(D + "b_2.wav")
-    adl, _ = dt.read(D + "a_7.wav")
+    # v1: a_7.wav; v2: a_8.wav (the second-half responses levelled to one another, level_adlibs.py)
+    adl, _ = dt.read(D + __import__("os").environ.get("ADLIB_SRC", "a_7.wav"))
     adl_raw, _ = dt.read(D + "a_2.wav")
     envL, envB, envA = envelope_db(lead_raw), envelope_db(bgv_raw), envelope_db(adl_raw)
     ev = {"grid": {"bpm": 150, "g0_s": G0, "bar_s": BAR}}

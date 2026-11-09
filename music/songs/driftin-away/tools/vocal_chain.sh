@@ -24,3 +24,6 @@ $T hpf a_1.wav a_2.wav --freq 150 --order 3
 $T dyneq a_2.wav a_4.wav --freq 3000 --q 2 --auto-pct 97
 $T deess a_4.wav a_6.wav --low 5500 --high 8500 --auto-pct 97
 $T comp2 a_6.wav a_7.wav
+# v2: the adlib responses levelled to one another (writes a_8.wav), then
+#   ADLIB_SRC=a_8.wav python3 build_fx.py && python3 build_mix.py v2
+python3 -I "$(dirname "$0")/level_adlibs.py"

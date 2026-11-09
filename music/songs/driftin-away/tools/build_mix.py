@@ -24,7 +24,17 @@ import dsp_tools as dt  # noqa: E402
 
 D = os.path.join(os.environ.get("DRIFT_WORK", "."), "")  # folder with the stems and renders
 TT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "tools")
-TAG = sys.argv[1]
+TAG = sys.argv[1] if len(sys.argv) > 1 else "v1"
+# per-version settings. v2 (owner on v1, 2026-11-09): "the lead vocals are a bit too loud and have slightly too
+# much reverb ... other parts are louder than the others ... the adlibs need to be louder so you can hear them
+# much better"
+SETTINGS = {
+    "v1": dict(lead_vs_beat=1.0, adlib_verse_vs_lead=-9.0, responses_vs_beat=-2.0, lead_plate_db=-12.5,
+               adlib_file="a_7.wav", background_vs_beat=-3.0),
+    "v2": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-4.0, responses_vs_beat=1.0, lead_plate_db=-15.0,
+               adlib_file="a_8.wav", background_vs_beat=-2.0),
+}
+SET = SETTINGS.get(TAG, SETTINGS["v2"])
 sr = 44100
 G0, Q = 0.03837, 0.4
 BAR = 1.6
@@ -85,7 +95,7 @@ def main():
     beat = load("beat_fx.wav", n)
     lead = load("l_8.wav", n)
     bgv = load("b_7.wav", n)
-    adl = load("a_7.wav", n)
+    adl = load(SET["adlib_file"], n)
     t = np.arange(n) / sr
     split = 79.0
     adl_v = adl * (t < split)[:, None]
@@ -97,10 +107,10 @@ def main():
     # ---- balance
     Lb_v, Lb_b, Lb_o = loud(beat, 27, 77, False), loud(beat, 78, 138, False), loud(beat, 142.4, 166.4, False)
     gains = {}
-    gains["lead"] = (Lb_v + 1.0) - loud(lead, 27, 77)
-    gains["adlib_verse"] = (loud(lead, 27, 77) + gains["lead"] - 9.0) - loud(adl_v, 27, 77)
-    gains["background"] = (Lb_b - 3.0) - loud(bgv, 78, 138)
-    gains["adlib_responses"] = (Lb_b - 2.0) - loud(adl_b, 79, 139.5)
+    gains["lead"] = (Lb_v + SET["lead_vs_beat"]) - loud(lead, 27, 77)
+    gains["adlib_verse"] = (loud(lead, 27, 77) + gains["lead"] + SET["adlib_verse_vs_lead"]) - loud(adl_v, 27, 77)
+    gains["background"] = (Lb_b + SET["background_vs_beat"]) - loud(bgv, 78, 138)
+    gains["adlib_responses"] = (Lb_b + SET["responses_vs_beat"]) - loud(adl_b, 79, 139.5)
     # the outro beat is a quiet breakdown (about 10 dB under the verse beat), so the phone lines are set against
     # the verse lead instead: 6 dB under it, which still puts them well in front of the outro beat
     gains["phone"] = (Lb_v + 1.0 - 6.0) - loud(phone, 144, 161)
@@ -110,7 +120,7 @@ def main():
 
     # ---- reverbs: lead plate 1 bar (1.6 s), background hall 1.5 bars (2.4 s), pre-delay 1/64 = 25 ms
     rv = {}
-    rv["lead"] = reverb(lead, "plate", 1.6, 25.0, -12.5, lead, 4.0) * G["lead"]
+    rv["lead"] = reverb(lead, "plate", 1.6, 25.0, SET["lead_plate_db"], lead, 4.0) * G["lead"]
     rv["background"] = reverb(bgv, "hall", 2.4, 25.0, -9.0, bgv, 2.0) * G["background"]
     rv["adlib_verse"] = reverb(adl_v, "plate", 1.6, 25.0, -14.0, adl_v, 3.0) * G["adlib_verse"]
     rv["adlib_responses"] = reverb(adl_b, "plate", 1.6, 25.0, -12.0, adl_b, 3.0) * G["adlib_responses"]

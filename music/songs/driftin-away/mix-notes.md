@@ -8,6 +8,24 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v2-master (lead down, less lead reverb, louder and even adlibs)
+
+- **Files:** `Driftin_Away_master_v2_24bit.wav`, `Driftin_Away_master_v2.mp3`, `Driftin_Away_v1_vs_v2_0m38.mp3` and `Driftin_Away_v1_vs_v2_1m51.mp3` (v1 then v2, same loudness, 12 s each). Audio delivered in chat, not committed.
+- **Owner on v1 (headphones):** "It's nearly perfect. The lead vocals are a bit too loud and have slightly too much reverb and other parts are louder than the others. Also the ADLIBS need to be louder so you can hear them much better."
+- **Measured on v1 first:** the verse played 1.5 dB louder than the second half's full-beat part (the lead sat on top there), and the 16 adlib responses varied by 5.0 dB from one to the next. The lead itself was even (one 2-bar outlier is the pause at bar 39), and the background vocal varied only 1.8 dB.
+- **What changed (only these; every effect and its timing is as v1):**
+  - Lead 1.5 dB lower: now 0.5 dB under the beat in the verse (v1: 1 dB over).
+  - Lead plate 2.5 dB lower (return −15 dB, same 1-bar length): the reverb now sits 17.4 dB under the lead (v1: 14.9).
+  - Verse adlibs (the double under the lead) 3.5 dB louder: 4 dB under the lead (v1: 9).
+  - Adlib responses levelled to one another (`tools/level_adlibs.py`: each moved to the median, −2.5 to +2.4 dB, changes made in the gaps), then raised to 1 dB over the beat (v1: 2 dB under). Their echoes follow them, so the echoes are louder by the same amount.
+  - Background vocal 1 dB up (2 dB under the beat; still about 3 dB under the full beat), so the second half sits closer to the verse.
+- **Result:** verse vs second half full beat: +1.5 dB (v1) → +0.9 dB (v2). The rest of the difference is the lead on top in the verse versus the background vocal behind in the second half, as the brief asks.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.6 dBTP (MP3), limiter 0.4 LU, no dips over 4.5 dB.
+- **Timing checks (`tools/verify_v1.py` on v2):** unchanged from v1: all 79 echo repeats on the beat grid (max 0.01 ms), reverse swells on the words' first sounds, air gaps ending on the drop transients.
+- **Effects log and review report:** `effects/v2.json`, `reports/v2.md`: ⚠️ close, 70 passed, 1 to check (the same air-band note as v1; v2 vs v1 air −0.3 dB), 0 failed.
+- **Listening check:** pending owner, headphones. Spots: 0:38–0:50 (lead lower, less reverb, adlibs up), 1:51–2:03 (adlib responses louder and even).
+- **Next:** if the verse should match the second half exactly, a 0.5–1 dB whole-mix ride on bars 17–48 does it; only if the owner hears it.
+
 ### 2026-11-09 — v1-master (first full mix and master, every requested effect)
 
 - **Files:** `Driftin_Away_master_v1_24bit.wav`, `Driftin_Away_master_v1.mp3`, `Driftin_Away_v1_before_after_0m38.mp3` (raw stems summed vs v1, loudness-matched, 0:38–0:53). Audio delivered in chat, not committed.
