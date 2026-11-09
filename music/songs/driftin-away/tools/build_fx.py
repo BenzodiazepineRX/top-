@@ -196,16 +196,26 @@ def main():
 
     # 1. beat air gaps before the drops at bar 17 and bar 57: silence for the last eighth note, beat back exactly
     #    on the drop's own transient (found in the beat, not assumed)
+    #    v3 (owner on v2: "the reverse reverbs and silent to built up beat drops are still quiet"): the gaps are two
+    #    beats long, the last of them filled by a build-up swell, and the beat's own stops get the same build-up
+    FXV = __import__("os").environ.get("FX_VERSION", "v1")
+    GAP = Q / 2 if FXV == "v1" else 2 * Q
+    SWELL_DB = -6.0 if FXV == "v1" else 0.0
+    RISER_DB = 0.0  # build-up peak vs the drop's first hit (v3)
     bfx = beat.copy()
     bm = mono(beat)
     lowb = sosfiltfilt(butter(4, 150, "lowpass", fs=sr, output="sos"), bm)
-    gaps = []
-    for b in (17, 57):
+
+    def drop_onset(b):
         t_drop = bar_t(b)
         w0, w1 = int((t_drop - 0.03) * sr), int((t_drop + 0.03) * sr)
         e = np.abs(lowb[w0:w1])
-        on = w0 + int(np.argmax(e > 0.1 * e.max()))  # first sample at 10% of the drop's peak low end
-        g_start = int(round((t_drop - Q / 2) * sr))
+        return t_drop, w0 + int(np.argmax(e > 0.1 * e.max()))  # first sample at 10% of the drop's peak low end
+
+    gaps = []
+    for b in (17, 57):
+        t_drop, on = drop_onset(b)
+        g_start = int(round((t_drop - GAP) * sr))
         g_end = on - int(0.001 * sr)
         f = int(0.003 * sr)
         bfx[g_start:g_start + f] *= np.linspace(1, 0, f)[:, None]
@@ -217,6 +227,29 @@ def main():
                      "transient_vs_grid_ms": round((on / sr - t_drop) * 1000, 1)})
     dt.write(D + "beat_fx.wav", bfx, sr)
     ev["air_gaps"] = gaps
+
+    # build-up swells into the drops (v3): the drop's own first hit (above 250 Hz, so it is a whoosh and not a
+    # second 808), reversed through a 2.4 s hall and reversed back, rising over the last beat before the drop and
+    # ending exactly on the drop's transient
+    risers = np.zeros((n, 2))
+    rlog = []
+    if FXV != "v1":
+        hp250 = butter(4, 250, "highpass", fs=sr, output="sos")
+        ir = dt.make_ir(sr, "hall", 2.4, 0.0, 1.0, seed=11)
+        for b in (17, 25, 41, 57, 65):
+            t_drop, on = drop_onset(b)
+            seg = fades(sosfiltfilt(hp250, bm[on:on + int(0.35 * sr)]), 0.001, 0.05)
+            wet = np.stack([fftconvolve(seg[::-1], ir[:, c]) for c in range(2)], 1)[::-1]
+            L = int(round(Q * sr))
+            sw_ = wet[:len(ir) - 1][-L:].copy() * (np.linspace(0, 1, L) ** 2)[:, None]
+            sw_ = fades(sw_, 0.0, 0.003)
+            full_pk = np.abs(bm[on:on + int(0.35 * sr)]).max()
+            sw_ *= full_pk * 10 ** (RISER_DB / 20) / (np.abs(sw_).max() + 1e-12)
+            risers[on - L:on] += sw_
+            rlog.append({"drop_bar": b, "swell_s": [round((on - L) / sr, 4), round(on / sr, 4)], "swell_at": bb((on - L) / sr),
+                         "ends_on_drop_transient": True, "peak_vs_drop_hit_db": RISER_DB})
+    dt.write(D + "beat_riser.wav", risers, sr)
+    ev["drop_buildups"] = rlog
 
     # 2. lead line-end echoes (line ends found from the breath dips; 4 repeats into stops and section ends)
     # Only line ends whose first echo lands in a clear gap (the next line starts at least 100 ms after it).
@@ -260,7 +293,10 @@ def main():
             ("lead into the drop at bar 41", lead, lead_raw, 63.8, 64.4, bar_t(40, 4)),  # bar 40 beat 4 -> word
             ("background vocal entrance", bgv, bgv_raw, 77.8, 78.4, bar_t(49, 3))):      # bar 49 beat 3 -> word
         att = first_sound(raw, t_from, t_to)
-        y, s = reverse_swell(src, att, st, 0.45, gain_db=-6.0)
+        # v3: measured against the music around each swell; the first word's swell sits under the full beat, so it
+        # gets 4 dB more, the swell into the drop 2 dB more (it shares the beat with the build-up)
+        extra = {"first word of the verse": 4.0, "lead into the drop at bar 41": 2.0}.get(label, 0.0) if FXV != "v1" else 0.0
+        y, s = reverse_swell(src, att, st, 0.45, gain_db=SWELL_DB + extra)
         sw[s:s + len(y)] += y
         swells.append({"what": label, "attack_s": round(att, 4), "attack_at": bb(att), "swell_start_s": round(st, 4),
                        "swell_start_at": bb(st), "length_s": round(att - st, 3)})

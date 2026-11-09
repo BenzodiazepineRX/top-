@@ -8,6 +8,21 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v3-master (adlibs and background up, louder swells, drops with a build-up)
+
+- **Files:** `Driftin_Away_master_v3_24bit.wav`, `Driftin_Away_master_v3.mp3`, `Driftin_Away_v2_vs_v3_0m24.mp3` (the first drop and verse start) and `Driftin_Away_v2_vs_v3_1m16.mp3` (into the second half): v2 then v3, same loudness, 14 s each. Audio delivered in chat, not committed.
+- **Owner on v2 (headphones):** "Around 1:18 and onward ... the volumes are still unevenly matched ... the adlib vocals ... are still too quiet. The backgrounds (yeah)'s and others you can barely hear and the reverse reverbs and silent to built up beat drops are still quiet."
+- **What changed (built with `FX_VERSION=v3 ADLIB_SRC=a_8.wav build_fx.py`, then `build_mix.py v3`):**
+  - Background vocal 3 dB up: now about as loud as the verse lead (+0.7 dB). Its darker top and longer hall keep it sounding behind; the brief's "behind" now means the sound, not the level.
+  - Adlibs up: the verse double to 2 dB under the lead (v2: 4), the responses to 4 dB over the beat (v2: +1). Their echoes follow.
+  - Peak catchers (new, `peak_catch` in `build_mix.py`): at the new level the responses peaked 18 dB over their loudness and pulled the master limiter down 5 dB at 1:23, 1:30, 1:51, 2:01 and 2:04. A 5 ms lookahead limiter on the responses (ceiling = loudness + 9 dB; average 0.9 dB, max 8.8 dB) and on the background vocal (loudness + 11 dB; average 0.2 dB) fixed it: worst master dip now −3.1 dB (v3 before the fix: −5.0).
+  - Reverse swells louder: peak level with the word (v1/v2: 6 dB under), plus 4 dB on the first word (it sits under the full beat) and 2 dB on the swell into bar 41. Measured over the music around them: +2.5, +1.6 and +11.8 dB.
+  - Drops rebuilt: before bars 17 and 57 the beat now stops for two beats (v1/v2: an eighth note); beat 3 is silent, beat 4 is a build-up swell made from the drop's own first hit (above 250 Hz, reversed through a 2.4 s hall), and the drop lands on its own transient. The beat's own stops (into bars 25, 41, 65) get the same build-up on their last beat. Each build-up ends 5–7 dB under the drop's first beat.
+- **Result:** the verse and the second half now match within 0.3 dB (v1: 1.5 dB apart; v2: 0.9). Master −11.6 LUFS, −0.7 dBTP (WAV) / −0.6 dBTP (MP3), limiter 0.3 LU.
+- **Timing checks (`tools/verify_v1.py` on v3):** unchanged: 79 echo repeats on the grid (max 0.01 ms), swells on the words' first sounds, drops on their transients (+1.8 and −0.6 ms from the grid).
+- **Effects log and review report:** `effects/v3.json`, `reports/v3.md`: ⚠️ close, 70 passed, 3 to check, 0 failed. The three are the mid, upper-mid and air bands about 3.3 dB up against the raw stems summed: the vocals are now much louder over the beat than in the raw stems, which is what the owner asked for.
+- **Listening check:** pending owner, headphones. Spots: 0:24–0:27 (silence, build-up, drop, swell into the first word), 1:00–1:05, 1:16–1:30 (swell into the background vocal, the louder background and adlibs), 1:39–1:43 (build-up into the bar 65 drop).
+
 ### 2026-11-09 — v2-master (lead down, less lead reverb, louder and even adlibs)
 
 - **Files:** `Driftin_Away_master_v2_24bit.wav`, `Driftin_Away_master_v2.mp3`, `Driftin_Away_v1_vs_v2_0m38.mp3` and `Driftin_Away_v1_vs_v2_1m51.mp3` (v1 then v2, same loudness, 12 s each). Audio delivered in chat, not committed.

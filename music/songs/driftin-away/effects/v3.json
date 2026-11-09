@@ -1,0 +1,546 @@
+[
+ {
+  "track": "Lead vocal",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS -18.7 -> -18 dBFS (+0.74 dB)",
+  "why": "working level the compressor settings expect"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90,
+   "lowest_note_hz": 117
+  },
+  "why": "rumble and plosives out; lowest sung note Bb2 117 Hz stays"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "No static notches",
+  "type": "eq",
+  "tool": "dsp_tools.py resonances",
+  "settings": "peaks at 466, 624, 934, 1246, 2495 Hz are harmonics of the tuned Eb3 (155.6 Hz): left alone",
+  "why": "cutting them would cut the melody, not a resonance"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "2500 Hz, Q 2, threshold -19.4 dBFS (97th percentile)",
+  "measured": {
+   "pct_active": 13.4,
+   "avg_db": 1.2,
+   "max_db": 3.9
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Presence",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "+1.5 dB at 3.5 kHz, Q 1",
+  "why": "lyric clarity over the beat"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5.5-8.5 kHz, threshold -31.5 dBFS, 4:1",
+  "measured": {
+   "pct_active": 17.7,
+   "avg_db": 2.1,
+   "max_db": 8.0
+  },
+  "why": "S, T and CH only"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 6.4
+  },
+  "why": "steady level; loud-vs-quiet spread 21.2 -> 14.2 dB"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Saturation",
+  "type": "saturation",
+  "tool": "dsp_tools.py saturate",
+  "settings": "drive 6 dB, even 0.15, mix 0.3 (harmonics -27.8 dB)",
+  "why": "light warmth"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Plate reverb (a little dreamier)",
+  "type": "reverb",
+  "tool": "dsp_tools make_ir",
+  "request": "A little dreamier reverb",
+  "settings": "plate, RT60 1.6 s (1 bar), pre-delay 25 ms (1/64), ducked 4 dB, return -15 dB (v1: -12.5)",
+  "measured": {
+   "predelay_ms": 25.0,
+   "decay_s": 1.6,
+   "bpm": 150.0,
+   "return_vs_dry_db": -17.36
+  },
+  "why": "owner on v1: 'slightly too much reverb' on the lead; 2.5 dB less, same length"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Dreamy echoes on line-ending words",
+  "type": "delay",
+  "tool": "build_fx.py render_echoes",
+  "request": "Dreamy echoes",
+  "settings": "last word of 8 lines: 0:28.9 -> repeats from bar 19.3.00; 0:32.1 -> repeats from bar 21.3.00; 0:38.8 -> repeats from bar 25.3.00; 0:41.7 -> repeats from bar 27.3.00; 0:60.0 -> repeats from bar 39.1.00; 1:06.4 -> repeats from bar 43.1.00; 1:10.0 -> repeats from bar 45.1.00; 1:16.2 -> repeats from bar 49.2.00. First repeat 9 dB under the word, then -5 dB per repeat, 250-5500 Hz and darker each time, left/right alternating; ducked -3 dB (5 ms / 120 ms)",
+  "measured": {
+   "note": "1/4",
+   "ms": 400.0,
+   "bpm": 150.0,
+   "ducked": true,
+   "repeats_on_grid_max_ms": 0.01
+  },
+  "why": "owner chose 'more, dreamy'. Each repeat starts on a main beat (the grid measured from the drums), never on the 'and'. Left out where the next line starts within 100 ms of the first repeat (0:35.8, 0:45.3) and at 1:03.5, where the reverse swell into the drop owns the beat"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS -21.3 -> -18 dBFS (+3.27 dB)",
+  "why": "working level"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "130 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 130,
+   "lowest_note_hz": 139
+  },
+  "why": "thinner than the lead so it sits behind; lowest sung note Db3 139 Hz stays"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "2490 Hz, Q 2, threshold -18.4 dBFS",
+  "measured": {
+   "pct_active": 13.2,
+   "avg_db": 1.2,
+   "max_db": 5.3
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Softer front",
+  "type": "eq",
+  "tool": "ffmpeg equalizer / highshelf",
+  "request": "Background vocal behind",
+  "settings": "-1.5 dB at 3 kHz (Q 1), -2 dB shelf above 7 kHz",
+  "why": "owner: 'Behind, as background'"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-8 kHz, threshold -40.1 dBFS, 4:1",
+  "measured": {
+   "pct_active": 24.9,
+   "avg_db": 1.4,
+   "max_db": 5.2
+  },
+  "why": "S sounds only"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 5.9
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Hall reverb",
+  "type": "reverb",
+  "tool": "dsp_tools make_ir",
+  "request": "A little dreamier reverb",
+  "settings": "hall, RT60 2.4 s (1.5 bars), pre-delay 25 ms, ducked 2 dB, return -9 dB",
+  "measured": {
+   "predelay_ms": 25.0,
+   "decay_s": 2.4,
+   "bpm": 150.0,
+   "return_vs_dry_db": -7.93
+  },
+  "why": "more space than the lead pushes it back"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Level behind the beat",
+  "type": "balance",
+  "tool": "build_mix.py",
+  "request": "Background vocal behind",
+  "settings": "+2.23 dB: 1 dB over the beat over bars 49-86, about the same loudness as the verse lead (+0.7 dB); still darker and wetter than the lead",
+  "why": "owner on v2: the background 'yeah's and others can barely be heard; the softer top and the hall keep it sounding behind"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "build_mix.py peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -1.77 dBFS (loudness + 11 dB): over 1 dB on 4.9% of the singing, max 6.0 dB",
+  "why": "louder in v3, so its sharpest peaks are caught before the master limiter"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS -23.5 -> -18 dBFS (+5.50 dB)",
+  "why": "working level"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "150 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 150
+  },
+  "why": "a double and responses sit behind the lead; thinned on purpose (their lowest notes, C3 131 Hz, are partly cut)"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3000 Hz, Q 2, threshold -17.8 dBFS",
+  "measured": {
+   "pct_active": 12.4,
+   "avg_db": 1.2,
+   "max_db": 3.9
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5.5-8.5 kHz, threshold -31.3 dBFS, 4:1",
+  "measured": {
+   "pct_active": 19.3,
+   "avg_db": 2.1,
+   "max_db": 8.0
+  },
+  "why": "S sounds only"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 6.0
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Responses levelled to one another",
+  "type": "balance",
+  "tool": "level_adlibs.py",
+  "settings": "each of the 16 responses moved to their median (gains -2.5 to +2.4 dB), changes made mid-gap with 60 ms ramps; spread 5.0 -> 0.0 dB",
+  "why": "owner on v1: some parts louder than others; the responses jumped by up to 5 dB from one to the next"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Plate reverb",
+  "type": "reverb",
+  "tool": "dsp_tools make_ir",
+  "request": "A little dreamier reverb",
+  "settings": "plate 1.6 s, pre-delay 25 ms, return -14 dB (verse) / -12 dB (responses)",
+  "measured": {
+   "predelay_ms": 25.0,
+   "decay_s": 1.6,
+   "bpm": 150.0
+  },
+  "why": "same space as the lead"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Dreamy echoes on every response (bars 52-88)",
+  "type": "delay",
+  "tool": "build_fx.py render_echoes",
+  "request": "Dreamy echoes",
+  "settings": "last word of all 16 responses, 3 repeats (4 on the last one into the outro), first repeat 8 dB under the word, -5 dB per repeat, darker each time, left/right alternating; ducked -3 dB (5 ms / 120 ms)",
+  "measured": {
+   "note": "1/4",
+   "ms": 400.0,
+   "bpm": 150.0,
+   "ducked": true,
+   "repeats_on_grid_max_ms": 0.01
+  },
+  "why": "owner chose 'more, dreamy'; the responses come every 2 bars with about 1.6 s of space, which 3 quarter-note repeats fill"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Levels",
+  "type": "balance",
+  "tool": "build_mix.py",
+  "settings": "verse part -1.62 dB (2 dB under the lead; v2: 4, v1: 9); responses +6.17 dB (4 dB over the beat before the peak catcher; +2.1 dB after it; v2: +1)",
+  "why": "owner on v2: from 1:18 the adlibs are still too quiet"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Peak catcher on the responses",
+  "type": "limiter",
+  "tool": "build_mix.py peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -0.8 dBFS (loudness + 9 dB): over 1 dB on 26.8% of the responses, average 0.94 dB, max 8.8 dB",
+  "why": "at the v3 level their peaks sat 18 dB over their loudness and pulled the master limiter down 5 dB at 1:23, 1:30, 1:51, 2:01 and 2:04"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Reverse reverb into the first word of the verse",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py reverse_swell",
+  "request": "Reverse reverb",
+  "settings": "swell 26.038-26.833 s (bar 17.2.00 to the word at 17.3.99), 0.794 s; hall 2.4 s on the reversed word, reversed back; peak +4 dB vs the word's peak (v1/v2: -6 dB)",
+  "measured": {
+   "swell_start_on_beat": true,
+   "ends_on_first_sound_ms": "within 1 ms (checked: swell end vs the dry word's first sound)"
+  },
+  "why": "owner: 'only if you can time them perfectly'. Each swell starts on a beat and ends on the word's very first sound. v3 (owner: 'still quiet'): louder, measured against the music around each swell"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Reverse reverb into the lead into the drop at bar 41",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py reverse_swell",
+  "request": "Reverse reverb",
+  "settings": "swell 63.638-64.041 s (bar 40.4.00 to the word at 41.1.01), 0.403 s; hall 2.4 s on the reversed word, reversed back; peak +2 dB vs the word's peak (v1/v2: -6 dB)",
+  "measured": {
+   "swell_start_on_beat": true,
+   "ends_on_first_sound_ms": "within 1 ms (checked: swell end vs the dry word's first sound)"
+  },
+  "why": "owner: 'only if you can time them perfectly'. Each swell starts on a beat and ends on the word's very first sound. v3 (owner: 'still quiet'): louder, measured against the music around each swell"
+ },
+ {
+  "track": "Background vocal",
+  "effect": "Reverse reverb into the background vocal entrance",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py reverse_swell",
+  "request": "Reverse reverb",
+  "settings": "swell 77.638-78.014 s (bar 49.3.00 to the word at 49.3.94), 0.375 s; hall 2.4 s on the reversed word, reversed back; peak +0 dB vs the word's peak (v1/v2: -6 dB)",
+  "measured": {
+   "swell_start_on_beat": true,
+   "ends_on_first_sound_ms": "within 1 ms (checked: swell end vs the dry word's first sound)"
+  },
+  "why": "owner: 'only if you can time them perfectly'. Each swell starts on a beat and ends on the word's very first sound. v3 (owner: 'still quiet'): louder, measured against the music around each swell"
+ },
+ {
+  "track": "Beat",
+  "effect": "Beat stop before the drop at bar 17 (two beats)",
+  "type": "edit",
+  "tool": "build_fx.py",
+  "request": "Beat stop and drops",
+  "settings": "silent 24.8384-25.6392 s (bar 16.3.00 to the drop): beat 3 silent, beat 4 the build-up swell, then the drop on its own transient (v1/v2: an eighth note)",
+  "measured": {
+   "drop_transient_vs_grid_ms": 1.8
+  },
+  "why": "owner: 'beat stop and drops only if you can time them perfectly'. The beat's own 2-bar stops (bars 23-24, 39-40, 63-64) are kept as the producer made them"
+ },
+ {
+  "track": "Beat",
+  "effect": "Beat stop before the drop at bar 57 (two beats)",
+  "type": "edit",
+  "tool": "build_fx.py",
+  "request": "Beat stop and drops",
+  "settings": "silent 88.8384-89.6368 s (bar 56.3.00 to the drop): beat 3 silent, beat 4 the build-up swell, then the drop on its own transient (v1/v2: an eighth note)",
+  "measured": {
+   "drop_transient_vs_grid_ms": -0.6
+  },
+  "why": "owner: 'beat stop and drops only if you can time them perfectly'. The beat's own 2-bar stops (bars 23-24, 39-40, 63-64) are kept as the producer made them"
+ },
+ {
+  "track": "Beat",
+  "effect": "Build-up swell into the drop at bar 17",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py",
+  "request": "Beat stop and drops",
+  "settings": "25.2402-25.6402 s (bar 16.4.01, one beat): the drop's own first hit above 250 Hz, reversed through a 2.4 s hall, peak level with the drop hit, ends on the drop's transient",
+  "measured": {
+   "ends_on_drop_transient": true
+  },
+  "why": "owner on v2: the silent-to-built-up drops were still quiet; now each drop has silence (or the beat's own stop), a build-up, then the hit"
+ },
+ {
+  "track": "Beat",
+  "effect": "Build-up swell into the drop at bar 25",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py",
+  "request": "Beat stop and drops",
+  "settings": "38.0401-38.4401 s (bar 24.4.00, one beat): the drop's own first hit above 250 Hz, reversed through a 2.4 s hall, peak level with the drop hit, ends on the drop's transient",
+  "measured": {
+   "ends_on_drop_transient": true
+  },
+  "why": "owner on v2: the silent-to-built-up drops were still quiet; now each drop has silence (or the beat's own stop), a build-up, then the hit"
+ },
+ {
+  "track": "Beat",
+  "effect": "Build-up swell into the drop at bar 41",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py",
+  "request": "Beat stop and drops",
+  "settings": "63.6400-64.0400 s (bar 40.4.00, one beat): the drop's own first hit above 250 Hz, reversed through a 2.4 s hall, peak level with the drop hit, ends on the drop's transient",
+  "measured": {
+   "ends_on_drop_transient": true
+  },
+  "why": "owner on v2: the silent-to-built-up drops were still quiet; now each drop has silence (or the beat's own stop), a build-up, then the hit"
+ },
+ {
+  "track": "Beat",
+  "effect": "Build-up swell into the drop at bar 57",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py",
+  "request": "Beat stop and drops",
+  "settings": "89.2378-89.6378 s (bar 56.4.00, one beat): the drop's own first hit above 250 Hz, reversed through a 2.4 s hall, peak level with the drop hit, ends on the drop's transient",
+  "measured": {
+   "ends_on_drop_transient": true
+  },
+  "why": "owner on v2: the silent-to-built-up drops were still quiet; now each drop has silence (or the beat's own stop), a build-up, then the hit"
+ },
+ {
+  "track": "Beat",
+  "effect": "Build-up swell into the drop at bar 65",
+  "type": "reverse-reverb",
+  "tool": "build_fx.py",
+  "request": "Beat stop and drops",
+  "settings": "102.0399-102.4399 s (bar 64.4.00, one beat): the drop's own first hit above 250 Hz, reversed through a 2.4 s hall, peak level with the drop hit, ends on the drop's transient",
+  "measured": {
+   "ends_on_drop_transient": true
+  },
+  "why": "owner on v2: the silent-to-built-up drops were still quiet; now each drop has silence (or the beat's own stop), a build-up, then the hit"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Phone-call lines",
+  "type": "keep",
+  "tool": "build_fx.py + ffmpeg",
+  "request": "Phone-call effect",
+  "settings": "line A = verse 0:26.83-0:29.38, line B = 0:30.09-0:32.52 (processed lead); A moved 74 bars to 145.275 s (bar 91.4.09); B moved 74 bars to 148.460 s (bar 93.4.05); A moved 80 bars to 154.875 s (bar 97.4.09); B moved 80 bars to 158.060 s (bar 99.4.05); telephone: 420 Hz-3.2 kHz, +4 dB at 1.8 kHz, 8 kHz sample rate, 6:1 compression, soft clip, line hiss 34 dB under",
+  "why": "the same phone-call sound the owner loved on Pushing the Interstate; whole-bar moves keep each line's pickup on beat 4. The words are picked by position (the verse's first two lines): the owner should confirm them"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Stutters",
+  "type": "keep",
+  "tool": "build_fx.py",
+  "request": "Stutter effect",
+  "settings": "A at bar 91.4.09: first 75 ms of the first syllable at 91.3.00, 91.3.25, 91.3.50, 91.3.75; B at bar 93.4.05: first 75 ms of the first syllable at 93.3.00, 93.3.25, 93.3.50, 93.3.75; A at bar 97.4.09: first 75 ms of the first syllable at 97.3.00, 97.3.25, 97.3.50, 97.3.75; B at bar 99.4.05: first 75 ms of the first syllable at 99.3.00, 99.3.25, 99.3.50, 99.3.75 (16th notes = 100 ms, rising -1.5 to 0 dB), then the whole word",
+  "why": "the owner's own definition from the last song: the first part of a syllable repeats 3-4 times before the whole word"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Echoes on the end of each A-B pair",
+  "type": "delay",
+  "tool": "build_fx.py render_echoes",
+  "request": "Dreamy echoes",
+  "settings": "last word at 2:30.8 -> 4 repeats from bar 95.3.00; last word at 2:40.4 -> 4 repeats from bar 101.3.00; first repeat 8 dB under, -5 dB per repeat",
+  "measured": {
+   "note": "1/4",
+   "ms": 400.0,
+   "bpm": 150.0,
+   "ducked": true
+  },
+  "why": "line A runs straight into line B's stutters, so only the end of each pair echoes"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Hall",
+  "type": "reverb",
+  "tool": "dsp_tools make_ir",
+  "settings": "hall 2.4 s, pre-delay 25 ms, return -14 dB",
+  "measured": {
+   "predelay_ms": 25.0,
+   "decay_s": 2.4,
+   "bpm": 150.0
+  },
+  "why": "a phone voice in a room"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Level",
+  "type": "balance",
+  "tool": "build_mix.py",
+  "settings": "-6.75 dB: 6 dB under the verse lead, +5.7 dB over the quiet outro beat",
+  "why": "clear over the breakdown without jumping out"
+ },
+ {
+  "track": "Echoes",
+  "effect": "Plate on the echoes",
+  "type": "reverb",
+  "tool": "dsp_tools make_ir",
+  "request": "Dreamy echoes",
+  "settings": "plate 1.6 s, pre-delay 25 ms, return -8 dB",
+  "measured": {
+   "predelay_ms": 25.0,
+   "decay_s": 1.6,
+   "bpm": 150.0
+  },
+  "why": "repeats melt into space instead of stopping dry"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Level over the beat",
+  "type": "balance",
+  "tool": "build_mix.py",
+  "settings": "+1.64 dB: lead 0.5 dB under the beat (K-weighted) in the verse, 1.5 dB lower than v1; by part bars 17-22 -0.5, bars 23-24 beat stop +15.4, bars 25-38 -0.8, bars 41-48 -0.2",
+  "why": "owner on v1: 'the lead vocals are a bit too loud'"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Fade-out",
+  "type": "keep",
+  "tool": "build_mix.py",
+  "request": "Fade-out ending",
+  "settings": "bars 99-104 (156.84-166.44 s), raised cosine to silence on the beat's last bar",
+  "why": "owner asked for a fade-out; it starts as the last phone line begins, so the song drifts away"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Mono sub and mid air",
+  "type": "bus",
+  "tool": "dsp_tools.py ms-bus",
+  "settings": "side high-pass 90 Hz (24 dB/oct); mid high shelf +1.5 dB at 9.5 kHz",
+  "why": "centered 808; modest top because the beat is band-limited"
+ },
+ {
+  "track": "Master",
+  "effect": "True-peak limiter",
+  "type": "limiter",
+  "tool": "render_master.py",
+  "settings": "target -11.5 LUFS, ceiling -0.5 dBTP (result -11.6 LUFS, -0.7 dBTP, limiter 0.3 LU)",
+  "why": "same loudness as the approved Pushing the Interstate v4"
+ }
+]

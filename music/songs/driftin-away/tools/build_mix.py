@@ -33,8 +33,13 @@ SETTINGS = {
                adlib_file="a_7.wav", background_vs_beat=-3.0),
     "v2": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-4.0, responses_vs_beat=1.0, lead_plate_db=-15.0,
                adlib_file="a_8.wav", background_vs_beat=-2.0),
+    # v3 (owner on v2: from 1:18 the adlibs are still too quiet, the background "yeah"s can barely be heard, the
+    # reverse reverbs and the silent-to-built-up drops are still quiet): background and adlibs up to the lead's
+    # level, build-up swells into the drops (built by build_fx.py with FX_VERSION=v3)
+    "v3": dict(lead_vs_beat=-0.5, adlib_verse_vs_lead=-2.0, responses_vs_beat=4.0, lead_plate_db=-15.0,
+               adlib_file="a_8.wav", background_vs_beat=1.0, riser=True, peak_catch_db={"adlib_responses": 9.0, "background": 11.0}),
 }
-SET = SETTINGS.get(TAG, SETTINGS["v2"])
+SET = SETTINGS.get(TAG, SETTINGS["v3"])
 sr = 44100
 G0, Q = 0.03837, 0.4
 BAR = 1.6
@@ -62,6 +67,30 @@ def reverb(x, kind, decay, predelay, ret_db, duck_key=None, duck_db=0.0, hp=150,
         g, _, _ = dt.duck_gain(duck_key, sr, len(out), duck_db, None, 15, 400)
         out *= g[:, None]
     return out * 10 ** (ret_db / 20)
+
+
+def peak_catch(x, ceiling_db, look_ms=5.0, release_ms=60.0):
+    """Lookahead peak limiter for one vocal track: gain reaches its lowest point before each peak (min filter
+    plus moving average over the lookahead window), recovers with a 60 ms release. Returns the track and stats."""
+    from scipy.ndimage import minimum_filter1d, maximum_filter1d
+    thr = 10 ** (ceiling_db / 20)
+    a = np.abs(x).max(1)
+    k = int(look_ms / 1000 * sr)
+    env = maximum_filter1d(a, size=2 * k + 1)
+    g = np.minimum(1.0, thr / np.maximum(env, 1e-12))
+    g = minimum_filter1d(g, size=2 * k + 1)
+    g = np.convolve(g, np.ones(2 * k + 1) / (2 * k + 1), mode="same")
+    blk = int(0.001 * sr)
+    nb = len(g) // blk
+    gb = g[:nb * blk].reshape(nb, blk).min(1)
+    gs = dt.ar_smooth(gb, 0.001, release_ms, 0.5)  # rising gain (recovery) slow, falling gain instant
+    curve = np.minimum(np.interp(np.arange(len(g)), (np.arange(nb) + 0.5) * blk, gs), g)
+    act = a > thr * 10 ** (-30 / 20)
+    gr = -20 * np.log10(np.maximum(curve, 1e-9))
+    stats = {"ceiling_dbfs": round(ceiling_db, 2), "max_gr_db": round(float(gr.max()), 1),
+             "pct_of_active_time_over_1db": round(float((gr[act] > 1).mean() * 100), 1),
+             "avg_gr_active_db": round(float(gr[act].mean()), 2)}
+    return x * curve[:, None], stats
 
 
 # K-weighting (ITU-R BS.1770): high shelf +4 dB around 1.7 kHz, then a 38 Hz high-pass
@@ -103,6 +132,7 @@ def main():
     phone = load("phone.wav", n)
     e_lead, e_adl, e_ph = load("echo_lead.wav", n), load("echo_adlib.wav", n), load("echo_phone.wav", n)
     sw = load("revswell.wav", n)
+    riser = load("beat_riser.wav", n) if SET.get("riser") else np.zeros((n, 2))
 
     # ---- balance
     Lb_v, Lb_b, Lb_o = loud(beat, 27, 77, False), loud(beat, 78, 138, False), loud(beat, 142.4, 166.4, False)
@@ -117,6 +147,21 @@ def main():
     print(f"beat loudness: verse {Lb_v:.1f}, second half {Lb_b:.1f}, outro {Lb_o:.1f} LUFS (K-weighted, ungated)")
     print("mix gains (dB): " + ", ".join(f"{k} {v:+.2f}" for k, v in gains.items()))
     G = {k: 10 ** (v / 20) for k, v in gains.items()}
+    pc = {}
+    if SET.get("peak_catch_db"):
+        # v3: the louder adlib responses peaked 18 dB over their loudness and tripped the master limiter (dips to
+        # -5 dB at 1:23, 1:30, 1:51, 2:01, 2:04); catch those peaks on the track itself, ceiling = loudness + N dB
+        for name, over in SET["peak_catch_db"].items():
+            src = adl_b if name == "adlib_responses" else bgv
+            span = (79, 139.5) if name == "adlib_responses" else (78, 138)
+            ceil_ = loud(src * G[name], *span) + over
+            y, st = peak_catch(src * G[name], ceil_)
+            pc[name] = st
+            if name == "adlib_responses":
+                adl_b = y / G[name]
+            else:
+                bgv = y / G[name]
+        print("peak catch:", json.dumps(pc))
 
     # ---- reverbs: lead plate 1 bar (1.6 s), background hall 1.5 bars (2.4 s), pre-delay 1/64 = 25 ms
     rv = {}
@@ -131,7 +176,7 @@ def main():
     sw_g = np.where(t < 70, G["lead"], G["background"])[:, None]
 
     mix = (beat + lead * G["lead"] + adl_v * G["adlib_verse"] + bgv * G["background"] + adl_b * G["adlib_responses"]
-           + phone * G["phone"] + echoes + sw * sw_g + sum(rv.values()))
+           + phone * G["phone"] + echoes + sw * sw_g + riser + sum(rv.values()))
 
     # ---- fade-out: bars 99-104 (156.84 s to the beat's end at bar 105, 166.44 s), raised cosine, then silence
     f0, f1 = bar_t(99), bar_t(105)
@@ -164,7 +209,7 @@ def main():
         "background_reverb_vs_background_db": round(loud(rv["background"], 78, 139) - loud(bgv * G["background"], 78, 138), 2),
     }
     print("measured balance:", json.dumps(chk))
-    json.dump({"gains_db": {k: round(v, 2) for k, v in gains.items()}, "balance": chk,
+    json.dump({"gains_db": {k: round(v, 2) for k, v in gains.items()}, "balance": chk, "peak_catch": pc,
                "fade": {"start_s": round(f0, 4), "end_s": round(f1, 4), "shape": "raised cosine", "bars": "99-104"},
                "length_s": round(len(mix) / sr, 3)}, open(D + f"mix_{TAG}.json", "w"), indent=1)
 
