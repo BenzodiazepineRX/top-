@@ -1,0 +1,28 @@
+{
+  "stage": "level-only balance candidate, not final",
+  "version": "v01",
+  "beat_gain_db": -8,
+  "vocal_gain_db": -6,
+  "eq": false,
+  "compression": false,
+  "added_effects": false,
+  "alignment": "source starts unchanged; not yet confirmed musically",
+  "beat_duration_s": 216.1727,
+  "duration_rule": "Use the full beat. amix duration=longest keeps that length. Vocal starts stay where the source put them.",
+  "sources": {
+    "beat": "sources/Satans casino beat.wav",
+    "lead_vocals": "sources/Satans casino lead vocals.wav"
+  },
+  "render": "render.py writes v01/Satans_Casino_v01_balance.wav. Not run in this setup.",
+  "future_production": {
+    "owner": "EQ owns the artistic render. Do not mix, render, or add effects until his script is supplied.",
+    "tempo": "Verify this song's tempo before any delay, throw, or fade. Do not assume 129 BPM.",
+    "effects": [
+      "Build-ups into the beat stops",
+      "Reverse-reverb swells",
+      "Clear telephone backing vocals taken from selected lead phrases, with reverb",
+      "Beat-synced fading throws in the gaps"
+    ],
+    "separation": "Keep each effect on its own editable return. Do not print them into the source files."
+  }
+}
