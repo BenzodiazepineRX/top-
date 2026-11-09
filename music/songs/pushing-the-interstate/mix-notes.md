@@ -8,6 +8,18 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v8-master (v4 kept, outro echoes in the adlib-delay style)
+
+- **Files:** `Pushing_the_Interstate_master_v8_24bit.wav`, `Pushing_the_Interstate_master_v8.mp3`, `Outro_preview_v8.mp3` (from 2:08). Built on the owner's v4 WAV. The verses are the v4 master with nothing added. Audio is not committed (see `.gitignore`).
+- **What changed:** only the phone-call outro. v4's phone lines, halls, fade, verse echoes, and adlib delay are the ones already in that file.
+  - *Pitched outro delay:* each phone line gets a delay a little higher in pitch (+3 semitones). It is the same idea as the adlib delay under the main vocal: it sits under the line, repeats a few times, and fades out. Timing is one quarter note at 129 BPM, 465.12 ms (20512 samples). Three repeats: full level, then about 9 dB down, then about 18 dB down, then gone. Feedback 0.35, the same fade shape as the adlib delay. While the line is singing the echo is 6 dB under it and comes back within 100 ms, so the repeat is not hidden and does not sound late. It is not snapped to drum hits.
+  - *Stutters:* the first 80 ms of each outro line ("si" and "I'm") repeats on 16th notes (116.28 ms) before the word, then the word plays where v4 already put it. Four repeats before the first line, three before each "I'm" line. The gap before the later "since" lines only holds one repeat without covering the line before it, so those two get one.
+- **Why:** owner on v4 liked the adlib delay (under the vocal, a few repeats, fade out) and wanted the echoes on time. v5–v7 changed the outro layout and moved verse echoes onto drum hits. v8 starts from the signed-off v4 file and only adds the missing outro pieces.
+- **Loudness:** −11.5 LUFS integrated, true peak about −0.2 dBFS, loudness range 7.6 LU. v4 was −11.6 LUFS and −0.7 dBTP. The verses were not turned down.
+- **Delay times used:** quarter note 465.12 ms, 16th note 116.28 ms, both at 129 BPM. Adlib delay already in v4 stays at dotted 8th, 348.84 ms.
+- **Listening check:** pending owner, headphones, outro from 2:14.
+- **Next:** if a repeat is too loud, too quiet, or the pitch is too high, say which. The verse delays are still the v4 ones.
+
 ### 2026-11-09 — v7-master (verse echoes locked to the drums)
 
 - **Files:** `Pushing_the_Interstate_master_v7_24bit.wav`, `Pushing_the_Interstate_master_v7.mp3`, `v6_vs_v7_verse_0m33.mp3`, `v6_vs_v7_verse_1m52.mp3`. Audio delivered in chat, not committed.
