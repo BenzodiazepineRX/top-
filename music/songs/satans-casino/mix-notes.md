@@ -1,6 +1,14 @@
 # Satan's Casino — notes
 
-**Listen to v06.** v05 is not verified. v03 is still the dry mix. Nothing here was listened to. This is not a finished master, and the lines are not confirmed lyrics.
+**Listen to v07.** v06 and v05 are not the lyric-aligned pass. v03 is still the dry mix. Nothing here was listened to. This is not a finished master. Alignment scores are not musical approval.
+
+## v07
+
+Chex's wording is in `lyrics/chex-supplied.txt`, kept as supplied. `spite` and `forth` were not changed. Repeat notes were not pasted in as extra lines. Placement is an ordered match to the earlier transcript, then MMS CTC forced alignment. A line was copied only when that match held.
+
+36 supplied-line copies, each once, one bar later, -16 dB, telephone. Eight last-word echo groups, first tap -14 dB, then -5 dB, never boosted. No feedback. The late 15K word is 153.660–154.560 s (CTC `fifteen`+`k` from 153.764, transcript token from 153.660, decay measured after that). Its echoes start at 154.660 and 155.660 s. Adderall starts at the transcript token, 21.300 and 104.900 s. Opening alcohol is 17.740–18.629 s, and the telephone echoes of that word are at 4.518, 5.518, 6.518 and 7.518 s. The CTC score on that alcohol token is 0.228, flagged because the speech model does not fit the singing. The opening line itself was not given a new backing copy. The v03 telephone line is unchanged.
+
+Not rendered, with the spans in `reports/v07.md`: L01 as a full line, L03, L04, L06, L08, L12 (spite/forth were timed, the line ending was not), L22. Dry level from 17–18.5 s matches v03 at -20.77 dB RMS. Correlation with v03 is 0.9931. Peak -1.53 dBFS. No limiter.
 
 ## v06
 
