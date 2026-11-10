@@ -1,6 +1,20 @@
 # Satan's Casino — notes
 
-**Listen to v05.** v04 is not approved. v03 is still the dry mix that was liked. v05 was not listened to here. Peaks are not a sign-off.
+**Listen to v06.** v05 is not verified. v03 is still the dry mix. Nothing here was listened to. This is not a finished master, and the lines are not confirmed lyrics.
+
+## v06
+
+The one-copy, one-bar backing stays. There is no feedback loop. Short pause-splits are not rendered as lines: one- and two-word scraps, and anything under a second, are left out. So are transcript runs longer than 6 seconds with no pause. Those need a lyric sheet and line timings. They were not cut into new guesses.
+
+"15k" is the model's whole token, 153.660–154.340 s, plus the fall to 154.560 s. It is not the later rise at 154.240 s. The copy starts at 154.660 s, after that span. Phonetic alignment was not run, so this is not claimed as a proven word.
+
+Alcohol still starts at the model time 17.740 s and runs through the fall to 18.620 s. The loud sound just before it can be the previous word. Opening echoes use that same span, at 4.518, 5.518, 6.518 and 7.518 s.
+
+Gains are fixed at -16 dB on the raw vocal for a line and -14 dB for the first echo. Quiet words are not turned up. The +5.6 and +6.1 dB boosts on "it" are gone.
+
+Dry beat and dry vocal are the v03 buses. From 17–18.5 s, v03 is -20.77 dB RMS and v06 is -20.73 dB. Peak -1.54 dBFS. No limiter.
+
+What is still missing: a human lyric with line and word timings. Until that exists, every backing line is only a pause-grouped transcript, and every last word is only a model token plus a decay. Detail is in `reports/v06.md` and `effects/v06-events.json`.
 
 ## v05
 

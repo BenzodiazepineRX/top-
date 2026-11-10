@@ -1,0 +1,1329 @@
+{
+  "version": "v06",
+  "baseline": "v03 satans-casino-v03-review.wav plus the same selective hiss darkening as measured on the reverse and intro phone",
+  "v04_status": "not approved; its feedback delay is not in this render",
+  "listening": "not performed",
+  "lyric_check": "not performed; word text is a speech model's guess and was not corrected",
+  "full_line_repeat_count_each": 1,
+  "full_line_shift": "exactly 1 bar, 78400 samples, 1777.78 ms",
+  "echo_interval": "dotted eighth, 14700 samples, 333.33 ms, first tap is the smallest multiple that starts after the word ends",
+  "hiss_before": {
+    "hole_reverse_2k5k": -57.43,
+    "intro_phone_2k5k": -55.47
+  },
+  "hiss_after": {
+    "hole_reverse_2k5k": -59.07,
+    "intro_phone_2k5k": -56.1
+  },
+  "difference_vs_v03": {
+    "singing_rms_v03": -20.77,
+    "singing_rms_v06": -20.73,
+    "correlation": 0.9942
+  },
+  "peak_dbfs": -1.54,
+  "trims_db": [],
+  "full_lines": [
+    {
+      "id": "line-00",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "to next then it down with alcohol",
+      "n_words": 7,
+      "source_start_s": 15.954,
+      "source_end_s": 18.62,
+      "dest_start_s": 17.731778,
+      "dest_end_s": 20.397778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-01",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "haven't haven't slept I've been out the Adderall",
+      "n_words": 8,
+      "source_start_s": 19.66,
+      "source_end_s": 22.12,
+      "dest_start_s": 21.437778,
+      "dest_end_s": 23.897778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-02",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "be catching up just thing going right for me always find a way to mess it up getting so tired of me",
+      "n_words": 22,
+      "source_start_s": 24.66,
+      "source_end_s": 30.64,
+      "dest_start_s": 26.437778,
+      "dest_end_s": 32.417778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-08",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "after that then I redo it not buy you know but it can buy for me",
+      "n_words": 16,
+      "source_start_s": 56.36,
+      "source_end_s": 60.3,
+      "dest_start_s": 58.137778,
+      "dest_end_s": 62.077778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-09",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "was never my thing rather go out and go flip me a",
+      "n_words": 12,
+      "source_start_s": 61.04,
+      "source_end_s": 63.5,
+      "dest_start_s": 62.817778,
+      "dest_end_s": 65.277778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-11",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "not buy you know happiness but it can buy it for me",
+      "n_words": 12,
+      "source_start_s": 72.1,
+      "source_end_s": 74.52,
+      "dest_start_s": 73.877778,
+      "dest_end_s": 76.297778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-12",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "hoses was never my thing I would rather go out and go flip",
+      "n_words": 13,
+      "source_start_s": 74.98,
+      "source_end_s": 77.72,
+      "dest_start_s": 76.757778,
+      "dest_end_s": 79.497778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-14",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "take the bigger risk it come with a way bigger reward. Got my",
+      "n_words": 13,
+      "source_start_s": 85.44,
+      "source_end_s": 88.34,
+      "dest_start_s": 87.217778,
+      "dest_end_s": 90.117778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-18",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "take before yours?",
+      "n_words": 3,
+      "source_start_s": 97.52,
+      "source_end_s": 98.78,
+      "dest_start_s": 99.297778,
+      "dest_end_s": 100.557778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-19",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "and then I it down with alcohol.",
+      "n_words": 7,
+      "source_start_s": 100.32,
+      "source_end_s": 102.22,
+      "dest_start_s": 102.097778,
+      "dest_end_s": 103.997778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-20",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "And haven't haven't slept I've been out Adderall.",
+      "n_words": 8,
+      "source_start_s": 102.94,
+      "source_end_s": 105.72,
+      "dest_start_s": 104.717778,
+      "dest_end_s": 107.497778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-21",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "And they know escaping what I'm running from be catching up. Just not think something going right for me",
+      "n_words": 19,
+      "source_start_s": 106.32,
+      "source_end_s": 111.28,
+      "dest_start_s": 108.097778,
+      "dest_end_s": 113.057778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-22",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "find a way to mess it up. I'm getting so tired of me",
+      "n_words": 13,
+      "source_start_s": 111.3,
+      "source_end_s": 114.18,
+      "dest_start_s": 113.077778,
+      "dest_end_s": 115.957778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-23",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Taking prescription pills,",
+      "n_words": 3,
+      "source_start_s": 114.2,
+      "source_end_s": 115.22,
+      "dest_start_s": 115.977778,
+      "dest_end_s": 116.997778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-24",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I'm drinking on alcohol",
+      "n_words": 4,
+      "source_start_s": 115.94,
+      "source_end_s": 117.14,
+      "dest_start_s": 117.717778,
+      "dest_end_s": 118.917778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-25",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "it's water. my chance",
+      "n_words": 4,
+      "source_start_s": 117.16,
+      "source_end_s": 118.8,
+      "dest_start_s": 118.937778,
+      "dest_end_s": 120.577778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-27",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I'm dice and I gamble my life with the devil.",
+      "n_words": 10,
+      "source_start_s": 119.6,
+      "source_end_s": 121.78,
+      "dest_start_s": 121.377778,
+      "dest_end_s": 123.557778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-28",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I'm at the casino",
+      "n_words": 4,
+      "source_start_s": 122.24,
+      "source_end_s": 123.7,
+      "dest_start_s": 124.017778,
+      "dest_end_s": 125.477778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-29",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "drugs with demons for pleasure.",
+      "n_words": 5,
+      "source_start_s": 123.88,
+      "source_end_s": 125.4,
+      "dest_start_s": 125.657778,
+      "dest_end_s": 127.177778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-30",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I got my life on the line rolling dice if I crap out that's when I lose it.",
+      "n_words": 18,
+      "source_start_s": 125.68,
+      "source_end_s": 128.98,
+      "dest_start_s": 127.457778,
+      "dest_end_s": 130.757778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-31",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I don't want to think these in in the",
+      "n_words": 9,
+      "source_start_s": 129.22,
+      "source_end_s": 131.04,
+      "dest_start_s": 130.997778,
+      "dest_end_s": 132.817778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-33",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Most of the time I snoozing. I wake up and get active at night and I take all the I got and I move it. I get",
+      "n_words": 27,
+      "source_start_s": 132.82,
+      "source_end_s": 138.62,
+      "dest_start_s": 134.597778,
+      "dest_end_s": 140.397778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-35",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "after that then I redo it. Money",
+      "n_words": 7,
+      "source_start_s": 139.94,
+      "source_end_s": 141.72,
+      "dest_start_s": 141.717778,
+      "dest_end_s": 143.497778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-37",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "it can buy it for me.",
+      "n_words": 6,
+      "source_start_s": 142.78,
+      "source_end_s": 143.9,
+      "dest_start_s": 144.557778,
+      "dest_end_s": 145.677778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-38",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Flipping was never my thing rather go out and go flip me a",
+      "n_words": 13,
+      "source_start_s": 144.14,
+      "source_end_s": 147.08,
+      "dest_start_s": 145.917778,
+      "dest_end_s": 148.857778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-39",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Told the plug I'd be back in week. It ain't take me a week came back in three days.",
+      "n_words": 19,
+      "source_start_s": 147.6,
+      "source_end_s": 151.24,
+      "dest_start_s": 149.377778,
+      "dest_end_s": 153.017778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-40",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Used to think two bands was a lot I touching my first 15k.",
+      "n_words": 13,
+      "source_start_s": 151.28,
+      "source_end_s": 154.56,
+      "dest_start_s": 153.057778,
+      "dest_end_s": 156.337778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-41",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I take the bigger",
+      "n_words": 4,
+      "source_start_s": 156.2,
+      "source_end_s": 157.3,
+      "dest_start_s": 157.977778,
+      "dest_end_s": 159.077778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-42",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "it come with a way bigger reward.",
+      "n_words": 7,
+      "source_start_s": 157.44,
+      "source_end_s": 159.16,
+      "dest_start_s": 159.217778,
+      "dest_end_s": 160.937778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-43",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Got my flipping just like",
+      "n_words": 5,
+      "source_start_s": 159.26,
+      "source_end_s": 160.3,
+      "dest_start_s": 161.037778,
+      "dest_end_s": 162.077778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-45",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Started doing what niggas ain't think I could do. Then they start me for it. I made for fun for a couple of months.",
+      "n_words": 24,
+      "source_start_s": 162.8,
+      "source_end_s": 168.42,
+      "dest_start_s": 164.577778,
+      "dest_end_s": 170.197778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-46",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "take off before yours.",
+      "n_words": 4,
+      "source_start_s": 168.66,
+      "source_end_s": 169.92,
+      "dest_start_s": 170.437778,
+      "dest_end_s": 171.697778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-47",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I got my life on the line dice I crap out that's when I lose it.",
+      "n_words": 16,
+      "source_start_s": 170.38,
+      "source_end_s": 173.86,
+      "dest_start_s": 172.157778,
+      "dest_end_s": 175.637778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-51",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Most of the time I snoozing. I wake up and get active at night and I take all the I got and I move it. I get it",
+      "n_words": 28,
+      "source_start_s": 177.74,
+      "source_end_s": 183.52,
+      "dest_start_s": 179.517778,
+      "dest_end_s": 185.297778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    },
+    {
+      "id": "line-53",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "after that then I redo it.",
+      "n_words": 6,
+      "source_start_s": 184.82,
+      "source_end_s": 186.32,
+      "dest_start_s": 186.597778,
+      "dest_end_s": 188.097778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "boundary_status": "unverified lyric line; pause-grouped transcript words, not a supplied lyric",
+      "onset_offset_preserved": true
+    }
+  ],
+  "last_word_echoes": [
+    {
+      "id": "lastword-L00",
+      "layer": "last_word_echoes",
+      "word": "alcohol",
+      "probability": 0.981,
+      "model_start_s": 17.74,
+      "model_end_s": 18.08,
+      "source_start_s": 17.74,
+      "source_end_s": 18.62,
+      "boundary_status": "model token plus decay; not phonetically aligned",
+      "alignment_flags": [
+        "source starts at the model token 17.740s. Level in the 80 ms before is -21.8 dB and the first 50 ms is -18.8 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 18.080s still has level -16.5 dB, then it falls to -39.5 dB by 18.620s. Next trusted word is 19.460s, so this is the rest of the word, not the next one."
+      ],
+      "pause_after_model_end_s": 1.58,
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 18.74,
+          "dest_end_s": 19.44,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.21,
+          "gain_db": -14.0
+        }
+      ]
+    },
+    {
+      "id": "opening-telephone-last-word",
+      "layer": "opening_telephone_last_word_echoes",
+      "word": "alcohol",
+      "source_start_s": 17.74,
+      "source_end_s": 18.62,
+      "intro_word_start_s": 3.517778,
+      "intro_word_end_s": 4.397778,
+      "intro_shift_samples": -627200,
+      "boundary_status": "same alcohol token as the lead echo; opening copy only. Not phonetically aligned.",
+      "alignment_flags": [
+        "source starts at the model token 17.740s. Level in the 80 ms before is -21.8 dB and the first 50 ms is -18.8 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 18.080s still has level -16.5 dB, then it falls to -39.5 dB by 18.620s. Next trusted word is 19.460s, so this is the rest of the word, not the next one."
+      ],
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 4.517778,
+          "dest_end_s": 5.397778,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -14.0
+        },
+        {
+          "n": 6,
+          "dest_start_s": 5.517778,
+          "dest_end_s": 6.397778,
+          "delay_samples": 88200,
+          "delay_ms": 2000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -19.0
+        },
+        {
+          "n": 9,
+          "dest_start_s": 6.517778,
+          "dest_end_s": 7.397778,
+          "delay_samples": 132300,
+          "delay_ms": 3000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -24.0
+        },
+        {
+          "n": 12,
+          "dest_start_s": 7.517778,
+          "dest_end_s": 8.397778,
+          "delay_samples": 176400,
+          "delay_ms": 4000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -29.0
+        }
+      ],
+      "why": "Explicit echoes of the opening telephone line's last word, same recording, shifted with that line, then whole dotted eighths."
+    },
+    {
+      "id": "lastword-L01",
+      "layer": "last_word_echoes",
+      "word": "Adderall",
+      "probability": 0.782,
+      "model_start_s": 21.3,
+      "model_end_s": 21.86,
+      "source_start_s": 21.3,
+      "source_end_s": 22.12,
+      "boundary_status": "model token plus decay; not phonetically aligned",
+      "alignment_flags": [
+        "source starts at the model token 21.300s. Level in the 80 ms before is -30.1 dB and the first 50 ms is -18.2 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 21.860s still has level -30.5 dB, then it falls to -36.7 dB by 22.120s. Next trusted word is 23.000s, so this is the rest of the word, not the next one."
+      ],
+      "pause_after_model_end_s": 2.8,
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 22.3,
+          "dest_end_s": 22.98,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.17,
+          "gain_db": -14.0
+        }
+      ]
+    },
+    {
+      "id": "lastword-L18",
+      "layer": "last_word_echoes",
+      "word": "yours?",
+      "probability": 0.995,
+      "model_start_s": 98.08,
+      "model_end_s": 98.42,
+      "source_start_s": 98.08,
+      "source_end_s": 98.78,
+      "boundary_status": "model token plus decay; not phonetically aligned",
+      "alignment_flags": [
+        "source starts at the model token 98.080s. Level in the 80 ms before is -23.6 dB and the first 50 ms is -17.2 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 98.420s still has level -26.0 dB, then it falls to -37.1 dB by 98.780s. Next trusted word is 99.560s, so this is the rest of the word, not the next one."
+      ],
+      "pause_after_model_end_s": 1.9,
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 99.08,
+          "dest_end_s": 99.54,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.27,
+          "gain_db": -14.0
+        }
+      ]
+    },
+    {
+      "id": "lastword-L19",
+      "layer": "last_word_echoes",
+      "word": "alcohol.",
+      "probability": 0.924,
+      "model_start_s": 101.3,
+      "model_end_s": 101.64,
+      "source_start_s": 101.3,
+      "source_end_s": 102.22,
+      "boundary_status": "model token plus decay; not phonetically aligned",
+      "alignment_flags": [
+        "source starts at the model token 101.300s. Level in the 80 ms before is -21.0 dB and the first 50 ms is -23.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 101.640s still has level -16.6 dB, then it falls to -39.3 dB by 102.220s. Next trusted word is 102.940s, so this is the rest of the word, not the next one."
+      ],
+      "pause_after_model_end_s": 1.3,
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 102.3,
+          "dest_end_s": 102.92,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.33,
+          "gain_db": -14.0
+        }
+      ]
+    },
+    {
+      "id": "lastword-L40",
+      "layer": "last_word_echoes",
+      "word": "15k.",
+      "probability": 0.782,
+      "model_start_s": 153.66,
+      "model_end_s": 154.34,
+      "source_start_s": 153.66,
+      "source_end_s": 154.56,
+      "boundary_status": "model token plus decay; not phonetically aligned",
+      "alignment_flags": [
+        "source starts at the model token 153.660s. Level in the 80 ms before is -15.8 dB and the first 50 ms is -23.4 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 154.340s still has level -22.3 dB, then it falls to -37.3 dB by 154.560s. Next trusted word is 156.200s, so this is the rest of the word, not the next one."
+      ],
+      "pause_after_model_end_s": 1.86,
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 154.66,
+          "dest_end_s": 155.56,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -14.0
+        }
+      ]
+    },
+    {
+      "id": "lastword-L46",
+      "layer": "last_word_echoes",
+      "word": "yours.",
+      "probability": 0.989,
+      "model_start_s": 169.26,
+      "model_end_s": 169.6,
+      "source_start_s": 169.26,
+      "source_end_s": 169.92,
+      "boundary_status": "model token plus decay; not phonetically aligned",
+      "alignment_flags": [
+        "source starts at the model token 169.260s. Level in the 80 ms before is -18.5 dB and the first 50 ms is -18.8 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 169.600s still has level -28.9 dB, then it falls to -36.7 dB by 169.920s. Next trusted word is 170.380s, so this is the rest of the word, not the next one."
+      ],
+      "pause_after_model_end_s": 0.78,
+      "taps": [
+        {
+          "n": 2,
+          "dest_start_s": 169.926667,
+          "dest_end_s": 170.36,
+          "delay_samples": 29400,
+          "delay_ms": 666.67,
+          "fade_out_s": 0.257,
+          "gain_db": -14.0
+        }
+      ]
+    },
+    {
+      "id": "lastword-L53",
+      "layer": "last_word_echoes",
+      "word": "it.",
+      "probability": 0.997,
+      "model_start_s": 185.88,
+      "model_end_s": 186.1,
+      "source_start_s": 185.88,
+      "source_end_s": 186.32,
+      "boundary_status": "model token plus decay; not phonetically aligned",
+      "alignment_flags": [
+        "source starts at the model token 185.880s. Level in the 80 ms before is -14.8 dB and the first 50 ms is -13.7 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 186.100s still has level -34.8 dB, then it falls to -38.2 dB by 186.320s. Next trusted word is 188.680s, so this is the rest of the word, not the next one."
+      ],
+      "pause_after_model_end_s": 2.58,
+      "taps": [
+        {
+          "n": 2,
+          "dest_start_s": 186.546667,
+          "dest_end_s": 186.986667,
+          "delay_samples": 29400,
+          "delay_ms": 666.67,
+          "fade_out_s": 0.04,
+          "gain_db": -14.0
+        },
+        {
+          "n": 4,
+          "dest_start_s": 187.213333,
+          "dest_end_s": 187.653333,
+          "delay_samples": 58800,
+          "delay_ms": 1333.33,
+          "fade_out_s": 0.04,
+          "gain_db": -19.0
+        },
+        {
+          "n": 6,
+          "dest_start_s": 187.88,
+          "dest_end_s": 188.32,
+          "delay_samples": 88200,
+          "delay_ms": 2000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -24.0
+        }
+      ]
+    }
+  ],
+  "skipped_lines": [
+    {
+      "line": 3,
+      "text": "prescription pills",
+      "n_words": 2,
+      "start": 30.8,
+      "end": 31.64,
+      "needs": "a supplied lyric line and its timing",
+      "why": "2 trusted words, 0.84s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 4,
+      "text": "I'm drinking on alcohol like it's water my chance I'm seeing tomorrow I'm dice and I gamble my life with the devil I'm at the casino doing drugs with demons pleasure I got my life on the line rolling dice if I crap out that's when I lose it I don't want to think these in in the one I took it and chewed it most of the time I'll be snoozing I wake up and get active at night and I take all the I",
+      "n_words": 86,
+      "start": 32.16,
+      "end": 53.24,
+      "needs": "a supplied lyric line and its timing",
+      "why": "86 trusted words, 21.08s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 5,
+      "text": "it",
+      "n_words": 1,
+      "start": 53.78,
+      "end": 54.28,
+      "needs": "a supplied lyric line and its timing",
+      "why": "1 trusted words, 0.50s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 6,
+      "text": "get it",
+      "n_words": 2,
+      "start": 54.56,
+      "end": 55.04,
+      "needs": "a supplied lyric line and its timing",
+      "why": "2 trusted words, 0.48s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 7,
+      "text": "plug and",
+      "n_words": 2,
+      "start": 55.5,
+      "end": 56.12,
+      "needs": "a supplied lyric line and its timing",
+      "why": "2 trusted words, 0.62s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 10,
+      "text": "the plug be back in a week take me a week I came back in three days to think two bands was a lot till I touching my first 15k",
+      "n_words": 30,
+      "start": 64.24,
+      "end": 70.98,
+      "needs": "a supplied lyric line and its timing",
+      "why": "30 trusted words, 6.74s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 13,
+      "text": "plug back in week and ain't take me a week I came back in three days used think bands was a lot I touching my first 15k.",
+      "n_words": 27,
+      "start": 78.6,
+      "end": 85.2,
+      "needs": "a supplied lyric line and its timing",
+      "why": "27 trusted words, 6.60s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 15,
+      "text": "just like",
+      "n_words": 2,
+      "start": 88.74,
+      "end": 89.14,
+      "needs": "a supplied lyric line and its timing",
+      "why": "2 trusted words, 0.40s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 16,
+      "text": "as they me",
+      "n_words": 3,
+      "start": 89.86,
+      "end": 90.76,
+      "needs": "a supplied lyric line and its timing",
+      "why": "3 trusted words, 0.90s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 17,
+      "text": "board. Started doing what niggas ain't think I could do. Then they start hating me for it. I made music for fun for a couple of months.",
+      "n_words": 27,
+      "start": 91.04,
+      "end": 97.26,
+      "needs": "a supplied lyric line and its timing",
+      "why": "27 trusted words, 6.22s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 26,
+      "text": "tomorrow.",
+      "n_words": 1,
+      "start": 118.82,
+      "end": 119.52,
+      "needs": "a supplied lyric line and its timing",
+      "why": "1 trusted words, 0.70s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 32,
+      "text": "took and chewed it.",
+      "n_words": 4,
+      "start": 131.5,
+      "end": 132.46,
+      "needs": "a supplied lyric line and its timing",
+      "why": "4 trusted words, 0.96s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 34,
+      "text": "plug and",
+      "n_words": 2,
+      "start": 139.06,
+      "end": 139.7,
+      "needs": "a supplied lyric line and its timing",
+      "why": "2 trusted words, 0.64s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 36,
+      "text": "happiness",
+      "n_words": 1,
+      "start": 142.16,
+      "end": 142.76,
+      "needs": "a supplied lyric line and its timing",
+      "why": "1 trusted words, 0.60s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 44,
+      "text": "as they me",
+      "n_words": 3,
+      "start": 161.02,
+      "end": 161.72,
+      "needs": "a supplied lyric line and its timing",
+      "why": "3 trusted words, 0.70s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 48,
+      "text": "I don't want to think these",
+      "n_words": 6,
+      "start": 174.1,
+      "end": 175.08,
+      "needs": "a supplied lyric line and its timing",
+      "why": "6 trusted words, 0.98s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 49,
+      "text": "in the",
+      "n_words": 2,
+      "start": 175.64,
+      "end": 175.92,
+      "needs": "a supplied lyric line and its timing",
+      "why": "2 trusted words, 0.28s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 50,
+      "text": "took and chewed it.",
+      "n_words": 4,
+      "start": 176.38,
+      "end": 177.34,
+      "needs": "a supplied lyric line and its timing",
+      "why": "4 trusted words, 0.96s. A pause in the transcript is not a lyric line. Not rendered."
+    },
+    {
+      "line": 52,
+      "text": "the plug and",
+      "n_words": 3,
+      "start": 183.8,
+      "end": 184.58,
+      "needs": "a supplied lyric line and its timing",
+      "why": "3 trusted words, 0.78s. A pause in the transcript is not a lyric line. Not rendered."
+    }
+  ],
+  "skipped_echoes": [
+    {
+      "line": 2,
+      "word": " me",
+      "flags": [
+        "source starts at the model token 30.000s. Level in the 80 ms before is -19.8 dB and the first 50 ms is -21.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 30.100s still has level -19.5 dB, then it falls to -30.5 dB by 30.640s. Next trusted word is 30.680s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 8,
+      "word": " me",
+      "flags": [
+        "source starts at the model token 59.900s. Level in the 80 ms before is -25.4 dB and the first 50 ms is -21.4 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 60.120s still has level -27.4 dB, then it falls to -37.3 dB by 60.300s. Next trusted word is 60.600s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 9,
+      "word": " a",
+      "flags": [
+        "source starts at the model token 63.340s. Level in the 80 ms before is -22.5 dB and the first 50 ms is -18.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 11,
+      "word": " me",
+      "flags": [
+        "source starts at the model token 74.120s. Level in the 80 ms before is -24.8 dB and the first 50 ms is -21.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 74.360s still has level -30.6 dB, then it falls to -37.8 dB by 74.520s. Next trusted word is 74.840s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 12,
+      "word": " flip",
+      "flags": [
+        "source starts at the model token 77.200s. Level in the 80 ms before is -17.8 dB and the first 50 ms is -28.6 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 77.380s still has level -21.8 dB, then it falls to -27.8 dB by 77.720s. Next trusted word is 77.780s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 14,
+      "word": " my",
+      "flags": [
+        "source starts at the model token 88.200s. Level in the 80 ms before is -14.3 dB and the first 50 ms is -22.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 20,
+      "word": " Adderall.",
+      "flags": [
+        "source starts at the model token 104.900s. Level in the 80 ms before is -28.5 dB and the first 50 ms is -16.9 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 105.420s still has level -27.7 dB, then it falls to -36.9 dB by 105.720s. Next trusted word is 106.320s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 21,
+      "word": " me",
+      "why": "Pause after the line is 0.38s. No gap long enough for a fading echo. The full-line repeat is separate and was not used as a substitute."
+    },
+    {
+      "line": 22,
+      "word": " me",
+      "flags": [
+        "source starts at the model token 113.600s. Level in the 80 ms before is -20.5 dB and the first 50 ms is -20.9 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 113.680s still has level -19.5 dB, then it falls to -28.9 dB by 114.180s. Next trusted word is 114.200s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 23,
+      "word": " pills,",
+      "flags": [
+        "source starts at the model token 114.720s. Level in the 80 ms before is -22.4 dB and the first 50 ms is -17.3 dB. A loud neighbour can be the previous word; this was not phonetically aligned."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 24,
+      "word": " alcohol",
+      "why": "Pause after the line is 0.40s. No gap long enough for a fading echo. The full-line repeat is separate and was not used as a substitute."
+    },
+    {
+      "line": 25,
+      "word": " chance",
+      "why": "Pause after the line is 0.40s. No gap long enough for a fading echo. The full-line repeat is separate and was not used as a substitute."
+    },
+    {
+      "line": 27,
+      "word": " devil.",
+      "flags": [
+        "source starts at the model token 121.340s. Level in the 80 ms before is -29.8 dB and the first 50 ms is -23.4 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 121.580s still has level -31.6 dB, then it falls to -36.7 dB by 121.780s. Next trusted word is 122.220s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 28,
+      "word": " casino",
+      "flags": [
+        "source starts at the model token 122.840s. Level in the 80 ms before is -16.9 dB and the first 50 ms is -20.3 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 123.140s still has level -19.3 dB, then it falls to -32.2 dB by 123.700s. Next trusted word is 123.740s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 29,
+      "word": " pleasure.",
+      "flags": [
+        "source starts at the model token 124.820s. Level in the 80 ms before is -23.9 dB and the first 50 ms is -34.1 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 125.120s still has level -30.1 dB, then it falls to -38.2 dB by 125.400s. Next trusted word is 125.680s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 30,
+      "word": " it.",
+      "why": "Pause after the line is 0.36s. No gap long enough for a fading echo. The full-line repeat is separate and was not used as a substitute."
+    },
+    {
+      "line": 31,
+      "word": " the",
+      "flags": [
+        "source starts at the model token 130.940s. Level in the 80 ms before is -22.8 dB and the first 50 ms is -22.9 dB. A loud neighbour can be the previous word; this was not phonetically aligned."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 33,
+      "word": " get",
+      "flags": [
+        "source starts at the model token 138.180s. Level in the 80 ms before is -17.4 dB and the first 50 ms is -28.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 138.320s still has level -17.3 dB, then it falls to -16.0 dB by 138.620s. Next trusted word is 138.660s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 35,
+      "word": " Money",
+      "flags": [
+        "source starts at the model token 141.320s. Level in the 80 ms before is -29.7 dB and the first 50 ms is -16.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 141.480s still has level -19.2 dB, then it falls to -19.3 dB by 141.720s. Next trusted word is 141.760s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 37,
+      "word": " me.",
+      "flags": [
+        "source starts at the model token 143.500s. Level in the 80 ms before is -24.2 dB and the first 50 ms is -21.6 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 143.700s still has level -27.0 dB, then it falls to -37.6 dB by 143.900s. Next trusted word is 144.140s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 38,
+      "word": " a",
+      "flags": [
+        "source starts at the model token 146.940s. Level in the 80 ms before is -21.7 dB and the first 50 ms is -18.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 39,
+      "word": " days.",
+      "why": "Pause after the line is 0.36s. No gap long enough for a fading echo. The full-line repeat is separate and was not used as a substitute."
+    },
+    {
+      "line": 41,
+      "word": " bigger",
+      "flags": [
+        "source starts at the model token 156.860s. Level in the 80 ms before is -19.8 dB and the first 50 ms is -27.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 157.040s still has level -18.5 dB, then it falls to -22.8 dB by 157.300s. Next trusted word is 157.360s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 42,
+      "word": " reward.",
+      "why": "Pause after the line is 0.38s. No gap long enough for a fading echo. The full-line repeat is separate and was not used as a substitute."
+    },
+    {
+      "line": 43,
+      "word": " like",
+      "flags": [
+        "source starts at the model token 160.100s. Level in the 80 ms before is -16.8 dB and the first 50 ms is -25.4 dB. A loud neighbour can be the previous word; this was not phonetically aligned."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 45,
+      "word": " months.",
+      "flags": [
+        "source starts at the model token 167.900s. Level in the 80 ms before is -21.2 dB and the first 50 ms is -22.5 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 168.180s still has level -36.1 dB, then it falls to -38.6 dB by 168.420s. Next trusted word is 168.460s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    },
+    {
+      "line": 47,
+      "word": " it.",
+      "why": "Pause after the line is 0.36s. No gap long enough for a fading echo. The full-line repeat is separate and was not used as a substitute."
+    },
+    {
+      "line": 51,
+      "word": " it",
+      "flags": [
+        "source starts at the model token 183.200s. Level in the 80 ms before is -13.7 dB and the first 50 ms is -18.4 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 183.320s still has level -16.2 dB, then it falls to -18.5 dB by 183.520s. Next trusted word is 183.560s, so this is the rest of the word, not the next one."
+      ],
+      "why": "No dotted-eighth multiple puts the copy after the word and inside the pause."
+    }
+  ],
+  "alcohol_verification": {
+    "model": [
+      17.74,
+      18.08
+    ],
+    "used": [
+      17.74,
+      18.62
+    ],
+    "waveform": "Loud again from 18.08 to about 18.28, then falling through 18.56. Next trusted word is at 19.66 s. The extension is the rest of that word, not the next line.",
+    "flags": [
+      "source starts at the model token 17.740s. Level in the 80 ms before is -21.8 dB and the first 50 ms is -18.8 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+      "model end 18.080s still has level -16.5 dB, then it falls to -39.5 dB by 18.620s. Next trusted word is 19.460s, so this is the rest of the word, not the next one."
+    ]
+  },
+  "word_15k_verification": [
+    {
+      "id": "lastword-L40",
+      "model": [
+        153.66,
+        154.34
+      ],
+      "used": [
+        153.66,
+        154.56
+      ],
+      "flags": [
+        "source starts at the model token 153.660s. Level in the 80 ms before is -15.8 dB and the first 50 ms is -23.4 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+        "model end 154.340s still has level -22.3 dB, then it falls to -37.3 dB by 154.560s. Next trusted word is 156.200s, so this is the rest of the word, not the next one."
+      ]
+    }
+  ],
+  "opening_telephone_last_word": {
+    "id": "opening-telephone-last-word",
+    "layer": "opening_telephone_last_word_echoes",
+    "word": "alcohol",
+    "source_start_s": 17.74,
+    "source_end_s": 18.62,
+    "intro_word_start_s": 3.517778,
+    "intro_word_end_s": 4.397778,
+    "intro_shift_samples": -627200,
+    "boundary_status": "same alcohol token as the lead echo; opening copy only. Not phonetically aligned.",
+    "alignment_flags": [
+      "source starts at the model token 17.740s. Level in the 80 ms before is -21.8 dB and the first 50 ms is -18.8 dB. A loud neighbour can be the previous word; this was not phonetically aligned.",
+      "model end 18.080s still has level -16.5 dB, then it falls to -39.5 dB by 18.620s. Next trusted word is 19.460s, so this is the rest of the word, not the next one."
+    ],
+    "taps": [
+      {
+        "n": 3,
+        "dest_start_s": 4.517778,
+        "dest_end_s": 5.397778,
+        "delay_samples": 44100,
+        "delay_ms": 1000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -14.0
+      },
+      {
+        "n": 6,
+        "dest_start_s": 5.517778,
+        "dest_end_s": 6.397778,
+        "delay_samples": 88200,
+        "delay_ms": 2000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -19.0
+      },
+      {
+        "n": 9,
+        "dest_start_s": 6.517778,
+        "dest_end_s": 7.397778,
+        "delay_samples": 132300,
+        "delay_ms": 3000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -24.0
+      },
+      {
+        "n": 12,
+        "dest_start_s": 7.517778,
+        "dest_end_s": 8.397778,
+        "delay_samples": 176400,
+        "delay_ms": 4000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -29.0
+      }
+    ],
+    "why": "Explicit echoes of the opening telephone line's last word, same recording, shifted with that line, then whole dotted eighths."
+  }
+}

@@ -1,0 +1,5144 @@
+[
+  {
+    "i": 0,
+    "start": 19.14,
+    "end": 23.64,
+    "avg_logprob": -0.486,
+    "text": "I'm not having they haven't slept because I've been out there and they know escaping",
+    "words": [
+      {
+        "start": 19.14,
+        "end": 19.54,
+        "p": 0.133,
+        "word": " I'm"
+      },
+      {
+        "start": 19.54,
+        "end": 19.64,
+        "p": 0.197,
+        "word": " not"
+      },
+      {
+        "start": 19.64,
+        "end": 19.86,
+        "p": 0.186,
+        "word": " having"
+      },
+      {
+        "start": 19.86,
+        "end": 20.06,
+        "p": 0.479,
+        "word": " they"
+      },
+      {
+        "start": 20.06,
+        "end": 20.36,
+        "p": 0.898,
+        "word": " haven't"
+      },
+      {
+        "start": 20.36,
+        "end": 20.52,
+        "p": 0.991,
+        "word": " slept"
+      },
+      {
+        "start": 20.52,
+        "end": 20.7,
+        "p": 0.37,
+        "word": " because"
+      },
+      {
+        "start": 20.7,
+        "end": 20.84,
+        "p": 0.954,
+        "word": " I've"
+      },
+      {
+        "start": 20.84,
+        "end": 20.96,
+        "p": 0.998,
+        "word": " been"
+      },
+      {
+        "start": 20.96,
+        "end": 21.14,
+        "p": 0.748,
+        "word": " out"
+      },
+      {
+        "start": 21.14,
+        "end": 21.28,
+        "p": 0.702,
+        "word": " there"
+      },
+      {
+        "start": 21.28,
+        "end": 22.28,
+        "p": 0.247,
+        "word": " and"
+      },
+      {
+        "start": 22.28,
+        "end": 23.18,
+        "p": 0.73,
+        "word": " they"
+      },
+      {
+        "start": 23.18,
+        "end": 23.36,
+        "p": 0.981,
+        "word": " know"
+      },
+      {
+        "start": 23.36,
+        "end": 23.64,
+        "p": 0.617,
+        "word": " escaping"
+      }
+    ]
+  },
+  {
+    "i": 1,
+    "start": 23.64,
+    "end": 27.36,
+    "avg_logprob": -0.486,
+    "text": "what I'm running from it be catching up just another thing something going right for me",
+    "words": [
+      {
+        "start": 23.64,
+        "end": 23.94,
+        "p": 0.5,
+        "word": " what"
+      },
+      {
+        "start": 23.94,
+        "end": 24.14,
+        "p": 0.972,
+        "word": " I'm"
+      },
+      {
+        "start": 24.14,
+        "end": 24.3,
+        "p": 0.99,
+        "word": " running"
+      },
+      {
+        "start": 24.3,
+        "end": 24.54,
+        "p": 0.972,
+        "word": " from"
+      },
+      {
+        "start": 24.54,
+        "end": 24.68,
+        "p": 0.469,
+        "word": " it"
+      },
+      {
+        "start": 24.68,
+        "end": 24.8,
+        "p": 0.819,
+        "word": " be"
+      },
+      {
+        "start": 24.8,
+        "end": 25.06,
+        "p": 0.981,
+        "word": " catching"
+      },
+      {
+        "start": 25.06,
+        "end": 25.42,
+        "p": 0.987,
+        "word": " up"
+      },
+      {
+        "start": 25.42,
+        "end": 25.86,
+        "p": 0.648,
+        "word": " just"
+      },
+      {
+        "start": 25.86,
+        "end": 26.04,
+        "p": 0.353,
+        "word": " another"
+      },
+      {
+        "start": 26.04,
+        "end": 26.28,
+        "p": 0.667,
+        "word": " thing"
+      },
+      {
+        "start": 26.28,
+        "end": 26.44,
+        "p": 0.453,
+        "word": " something"
+      },
+      {
+        "start": 26.44,
+        "end": 26.82,
+        "p": 0.944,
+        "word": " going"
+      },
+      {
+        "start": 26.82,
+        "end": 27.02,
+        "p": 0.975,
+        "word": " right"
+      },
+      {
+        "start": 27.02,
+        "end": 27.2,
+        "p": 0.95,
+        "word": " for"
+      },
+      {
+        "start": 27.2,
+        "end": 27.36,
+        "p": 0.995,
+        "word": " me"
+      }
+    ]
+  },
+  {
+    "i": 2,
+    "start": 27.36,
+    "end": 30.8,
+    "avg_logprob": -0.255,
+    "text": "I always find a way to mess it up I'm getting so tired of me losing taking",
+    "words": [
+      {
+        "start": 27.36,
+        "end": 27.5,
+        "p": 0.638,
+        "word": " I"
+      },
+      {
+        "start": 27.5,
+        "end": 27.74,
+        "p": 0.537,
+        "word": " always"
+      },
+      {
+        "start": 27.74,
+        "end": 27.96,
+        "p": 0.891,
+        "word": " find"
+      },
+      {
+        "start": 27.96,
+        "end": 28.08,
+        "p": 0.943,
+        "word": " a"
+      },
+      {
+        "start": 28.08,
+        "end": 28.24,
+        "p": 0.999,
+        "word": " way"
+      },
+      {
+        "start": 28.24,
+        "end": 28.36,
+        "p": 0.994,
+        "word": " to"
+      },
+      {
+        "start": 28.36,
+        "end": 28.54,
+        "p": 0.99,
+        "word": " mess"
+      },
+      {
+        "start": 28.54,
+        "end": 28.76,
+        "p": 0.998,
+        "word": " it"
+      },
+      {
+        "start": 28.76,
+        "end": 28.94,
+        "p": 0.999,
+        "word": " up"
+      },
+      {
+        "start": 28.94,
+        "end": 29.26,
+        "p": 0.58,
+        "word": " I'm"
+      },
+      {
+        "start": 29.26,
+        "end": 29.4,
+        "p": 0.919,
+        "word": " getting"
+      },
+      {
+        "start": 29.4,
+        "end": 29.64,
+        "p": 0.997,
+        "word": " so"
+      },
+      {
+        "start": 29.64,
+        "end": 29.88,
+        "p": 0.987,
+        "word": " tired"
+      },
+      {
+        "start": 29.88,
+        "end": 30.0,
+        "p": 0.991,
+        "word": " of"
+      },
+      {
+        "start": 30.0,
+        "end": 30.1,
+        "p": 0.997,
+        "word": " me"
+      },
+      {
+        "start": 30.1,
+        "end": 30.46,
+        "p": 0.546,
+        "word": " losing"
+      },
+      {
+        "start": 30.46,
+        "end": 30.8,
+        "p": 0.084,
+        "word": " taking"
+      }
+    ]
+  },
+  {
+    "i": 3,
+    "start": 30.8,
+    "end": 34.82,
+    "avg_logprob": -0.255,
+    "text": "prescription pills I abuse I'm drinking on alcohol like it's water risking my chance",
+    "words": [
+      {
+        "start": 30.8,
+        "end": 31.14,
+        "p": 0.98,
+        "word": " prescription"
+      },
+      {
+        "start": 31.14,
+        "end": 31.6,
+        "p": 0.998,
+        "word": " pills"
+      },
+      {
+        "start": 31.6,
+        "end": 31.82,
+        "p": 0.145,
+        "word": " I"
+      },
+      {
+        "start": 31.82,
+        "end": 32.16,
+        "p": 0.593,
+        "word": " abuse"
+      },
+      {
+        "start": 32.16,
+        "end": 32.38,
+        "p": 0.828,
+        "word": " I'm"
+      },
+      {
+        "start": 32.38,
+        "end": 32.54,
+        "p": 0.975,
+        "word": " drinking"
+      },
+      {
+        "start": 32.54,
+        "end": 32.8,
+        "p": 0.867,
+        "word": " on"
+      },
+      {
+        "start": 32.8,
+        "end": 33.16,
+        "p": 0.997,
+        "word": " alcohol"
+      },
+      {
+        "start": 33.16,
+        "end": 33.58,
+        "p": 0.892,
+        "word": " like"
+      },
+      {
+        "start": 33.58,
+        "end": 33.76,
+        "p": 0.956,
+        "word": " it's"
+      },
+      {
+        "start": 33.76,
+        "end": 34.06,
+        "p": 0.997,
+        "word": " water"
+      },
+      {
+        "start": 34.06,
+        "end": 34.36,
+        "p": 0.338,
+        "word": " risking"
+      },
+      {
+        "start": 34.36,
+        "end": 34.56,
+        "p": 0.993,
+        "word": " my"
+      },
+      {
+        "start": 34.56,
+        "end": 34.82,
+        "p": 0.956,
+        "word": " chance"
+      }
+    ]
+  },
+  {
+    "i": 4,
+    "start": 34.82,
+    "end": 38.9,
+    "avg_logprob": -0.255,
+    "text": "I'm seeing tomorrow I'm rolling dice and I gamble my life with the devil I'm at",
+    "words": [
+      {
+        "start": 34.82,
+        "end": 35.06,
+        "p": 0.758,
+        "word": " I'm"
+      },
+      {
+        "start": 35.06,
+        "end": 35.24,
+        "p": 0.695,
+        "word": " seeing"
+      },
+      {
+        "start": 35.24,
+        "end": 35.7,
+        "p": 0.788,
+        "word": " tomorrow"
+      },
+      {
+        "start": 35.7,
+        "end": 36.12,
+        "p": 0.868,
+        "word": " I'm"
+      },
+      {
+        "start": 36.12,
+        "end": 36.3,
+        "p": 0.612,
+        "word": " rolling"
+      },
+      {
+        "start": 36.3,
+        "end": 36.54,
+        "p": 0.982,
+        "word": " dice"
+      },
+      {
+        "start": 36.54,
+        "end": 36.7,
+        "p": 0.919,
+        "word": " and"
+      },
+      {
+        "start": 36.7,
+        "end": 36.82,
+        "p": 0.931,
+        "word": " I"
+      },
+      {
+        "start": 36.82,
+        "end": 36.96,
+        "p": 0.933,
+        "word": " gamble"
+      },
+      {
+        "start": 36.96,
+        "end": 37.24,
+        "p": 0.994,
+        "word": " my"
+      },
+      {
+        "start": 37.24,
+        "end": 37.48,
+        "p": 0.999,
+        "word": " life"
+      },
+      {
+        "start": 37.48,
+        "end": 37.62,
+        "p": 0.997,
+        "word": " with"
+      },
+      {
+        "start": 37.62,
+        "end": 37.74,
+        "p": 0.986,
+        "word": " the"
+      },
+      {
+        "start": 37.74,
+        "end": 38.0,
+        "p": 0.938,
+        "word": " devil"
+      },
+      {
+        "start": 38.0,
+        "end": 38.8,
+        "p": 0.945,
+        "word": " I'm"
+      },
+      {
+        "start": 38.8,
+        "end": 38.9,
+        "p": 0.997,
+        "word": " at"
+      }
+    ]
+  },
+  {
+    "i": 5,
+    "start": 38.9,
+    "end": 43.04,
+    "avg_logprob": -0.255,
+    "text": "the sated casino doing drugs with his demons for pleasure I got my life on the",
+    "words": [
+      {
+        "start": 38.9,
+        "end": 39.02,
+        "p": 0.986,
+        "word": " the"
+      },
+      {
+        "start": 39.02,
+        "end": 39.26,
+        "p": 0.517,
+        "word": " sated"
+      },
+      {
+        "start": 39.26,
+        "end": 39.72,
+        "p": 0.98,
+        "word": " casino"
+      },
+      {
+        "start": 39.72,
+        "end": 40.3,
+        "p": 0.847,
+        "word": " doing"
+      },
+      {
+        "start": 40.3,
+        "end": 40.52,
+        "p": 0.714,
+        "word": " drugs"
+      },
+      {
+        "start": 40.52,
+        "end": 40.7,
+        "p": 0.953,
+        "word": " with"
+      },
+      {
+        "start": 40.7,
+        "end": 40.82,
+        "p": 0.501,
+        "word": " his"
+      },
+      {
+        "start": 40.82,
+        "end": 41.04,
+        "p": 0.985,
+        "word": " demons"
+      },
+      {
+        "start": 41.04,
+        "end": 41.26,
+        "p": 0.714,
+        "word": " for"
+      },
+      {
+        "start": 41.26,
+        "end": 41.56,
+        "p": 0.998,
+        "word": " pleasure"
+      },
+      {
+        "start": 41.56,
+        "end": 42.26,
+        "p": 0.896,
+        "word": " I"
+      },
+      {
+        "start": 42.26,
+        "end": 42.4,
+        "p": 0.873,
+        "word": " got"
+      },
+      {
+        "start": 42.4,
+        "end": 42.54,
+        "p": 0.999,
+        "word": " my"
+      },
+      {
+        "start": 42.54,
+        "end": 42.76,
+        "p": 0.994,
+        "word": " life"
+      },
+      {
+        "start": 42.76,
+        "end": 42.94,
+        "p": 0.965,
+        "word": " on"
+      },
+      {
+        "start": 42.94,
+        "end": 43.04,
+        "p": 0.951,
+        "word": " the"
+      }
+    ]
+  },
+  {
+    "i": 6,
+    "start": 43.04,
+    "end": 46.14,
+    "avg_logprob": -0.255,
+    "text": "line rolling dice if I crap out then that's when I lose it I don't want to",
+    "words": [
+      {
+        "start": 43.04,
+        "end": 43.18,
+        "p": 0.987,
+        "word": " line"
+      },
+      {
+        "start": 43.18,
+        "end": 43.4,
+        "p": 0.804,
+        "word": " rolling"
+      },
+      {
+        "start": 43.4,
+        "end": 43.64,
+        "p": 0.992,
+        "word": " dice"
+      },
+      {
+        "start": 43.64,
+        "end": 43.82,
+        "p": 0.824,
+        "word": " if"
+      },
+      {
+        "start": 43.82,
+        "end": 43.88,
+        "p": 0.987,
+        "word": " I"
+      },
+      {
+        "start": 43.88,
+        "end": 44.06,
+        "p": 0.821,
+        "word": " crap"
+      },
+      {
+        "start": 44.06,
+        "end": 44.26,
+        "p": 0.966,
+        "word": " out"
+      },
+      {
+        "start": 44.26,
+        "end": 44.42,
+        "p": 0.33,
+        "word": " then"
+      },
+      {
+        "start": 44.42,
+        "end": 44.6,
+        "p": 0.983,
+        "word": " that's"
+      },
+      {
+        "start": 44.6,
+        "end": 44.7,
+        "p": 0.985,
+        "word": " when"
+      },
+      {
+        "start": 44.7,
+        "end": 44.8,
+        "p": 0.992,
+        "word": " I"
+      },
+      {
+        "start": 44.8,
+        "end": 45.06,
+        "p": 0.945,
+        "word": " lose"
+      },
+      {
+        "start": 45.06,
+        "end": 45.3,
+        "p": 0.992,
+        "word": " it"
+      },
+      {
+        "start": 45.3,
+        "end": 45.72,
+        "p": 0.842,
+        "word": " I"
+      },
+      {
+        "start": 45.72,
+        "end": 45.88,
+        "p": 0.994,
+        "word": " don't"
+      },
+      {
+        "start": 45.88,
+        "end": 46.02,
+        "p": 0.913,
+        "word": " want"
+      },
+      {
+        "start": 46.02,
+        "end": 46.14,
+        "p": 0.988,
+        "word": " to"
+      }
+    ]
+  },
+  {
+    "i": 7,
+    "start": 46.14,
+    "end": 48.74,
+    "avg_logprob": -0.255,
+    "text": "think about these hands in the sprite in the fourth one I took it and chewed",
+    "words": [
+      {
+        "start": 46.14,
+        "end": 46.28,
+        "p": 0.988,
+        "word": " think"
+      },
+      {
+        "start": 46.28,
+        "end": 46.44,
+        "p": 0.198,
+        "word": " about"
+      },
+      {
+        "start": 46.44,
+        "end": 46.62,
+        "p": 0.984,
+        "word": " these"
+      },
+      {
+        "start": 46.62,
+        "end": 46.78,
+        "p": 0.321,
+        "word": " hands"
+      },
+      {
+        "start": 46.78,
+        "end": 46.94,
+        "p": 0.755,
+        "word": " in"
+      },
+      {
+        "start": 46.94,
+        "end": 47.02,
+        "p": 0.645,
+        "word": " the"
+      },
+      {
+        "start": 47.02,
+        "end": 47.18,
+        "p": 0.636,
+        "word": " sprite"
+      },
+      {
+        "start": 47.18,
+        "end": 47.36,
+        "p": 0.805,
+        "word": " in"
+      },
+      {
+        "start": 47.36,
+        "end": 47.46,
+        "p": 0.98,
+        "word": " the"
+      },
+      {
+        "start": 47.46,
+        "end": 47.6,
+        "p": 0.337,
+        "word": " fourth"
+      },
+      {
+        "start": 47.6,
+        "end": 47.78,
+        "p": 0.721,
+        "word": " one"
+      },
+      {
+        "start": 47.78,
+        "end": 47.92,
+        "p": 0.904,
+        "word": " I"
+      },
+      {
+        "start": 47.92,
+        "end": 48.06,
+        "p": 0.995,
+        "word": " took"
+      },
+      {
+        "start": 48.06,
+        "end": 48.22,
+        "p": 0.818,
+        "word": " it"
+      },
+      {
+        "start": 48.22,
+        "end": 48.36,
+        "p": 0.827,
+        "word": " and"
+      },
+      {
+        "start": 48.36,
+        "end": 48.74,
+        "p": 0.99,
+        "word": " chewed"
+      }
+    ]
+  },
+  {
+    "i": 8,
+    "start": 48.74,
+    "end": 52.24,
+    "avg_logprob": -0.255,
+    "text": "it most of the time I'll be snoozing I wake up and get active at night and",
+    "words": [
+      {
+        "start": 48.74,
+        "end": 48.82,
+        "p": 0.992,
+        "word": " it"
+      },
+      {
+        "start": 48.82,
+        "end": 49.42,
+        "p": 0.412,
+        "word": " most"
+      },
+      {
+        "start": 49.42,
+        "end": 49.58,
+        "p": 0.997,
+        "word": " of"
+      },
+      {
+        "start": 49.58,
+        "end": 49.66,
+        "p": 0.998,
+        "word": " the"
+      },
+      {
+        "start": 49.66,
+        "end": 49.82,
+        "p": 0.997,
+        "word": " time"
+      },
+      {
+        "start": 49.82,
+        "end": 50.0,
+        "p": 0.739,
+        "word": " I'll"
+      },
+      {
+        "start": 50.0,
+        "end": 50.08,
+        "p": 0.998,
+        "word": " be"
+      },
+      {
+        "start": 50.08,
+        "end": 50.52,
+        "p": 0.93,
+        "word": " snoozing"
+      },
+      {
+        "start": 50.52,
+        "end": 50.88,
+        "p": 0.965,
+        "word": " I"
+      },
+      {
+        "start": 50.88,
+        "end": 51.02,
+        "p": 0.991,
+        "word": " wake"
+      },
+      {
+        "start": 51.02,
+        "end": 51.22,
+        "p": 0.999,
+        "word": " up"
+      },
+      {
+        "start": 51.22,
+        "end": 51.32,
+        "p": 0.994,
+        "word": " and"
+      },
+      {
+        "start": 51.32,
+        "end": 51.46,
+        "p": 0.996,
+        "word": " get"
+      },
+      {
+        "start": 51.46,
+        "end": 51.74,
+        "p": 0.997,
+        "word": " active"
+      },
+      {
+        "start": 51.74,
+        "end": 51.92,
+        "p": 0.997,
+        "word": " at"
+      },
+      {
+        "start": 51.92,
+        "end": 52.1,
+        "p": 0.999,
+        "word": " night"
+      },
+      {
+        "start": 52.1,
+        "end": 52.24,
+        "p": 0.94,
+        "word": " and"
+      }
+    ]
+  },
+  {
+    "i": 9,
+    "start": 52.24,
+    "end": 55.48,
+    "avg_logprob": -0.255,
+    "text": "I take all the pieces I got and I move it I get it all gonna call the",
+    "words": [
+      {
+        "start": 52.24,
+        "end": 52.36,
+        "p": 0.981,
+        "word": " I"
+      },
+      {
+        "start": 52.36,
+        "end": 52.54,
+        "p": 0.976,
+        "word": " take"
+      },
+      {
+        "start": 52.54,
+        "end": 52.72,
+        "p": 0.995,
+        "word": " all"
+      },
+      {
+        "start": 52.72,
+        "end": 52.82,
+        "p": 0.982,
+        "word": " the"
+      },
+      {
+        "start": 52.82,
+        "end": 53.02,
+        "p": 0.35,
+        "word": " pieces"
+      },
+      {
+        "start": 53.02,
+        "end": 53.22,
+        "p": 0.912,
+        "word": " I"
+      },
+      {
+        "start": 53.22,
+        "end": 53.38,
+        "p": 0.913,
+        "word": " got"
+      },
+      {
+        "start": 53.38,
+        "end": 53.56,
+        "p": 0.918,
+        "word": " and"
+      },
+      {
+        "start": 53.56,
+        "end": 53.68,
+        "p": 0.912,
+        "word": " I"
+      },
+      {
+        "start": 53.68,
+        "end": 54.0,
+        "p": 0.968,
+        "word": " move"
+      },
+      {
+        "start": 54.0,
+        "end": 54.18,
+        "p": 0.963,
+        "word": " it"
+      },
+      {
+        "start": 54.18,
+        "end": 54.58,
+        "p": 0.935,
+        "word": " I"
+      },
+      {
+        "start": 54.58,
+        "end": 54.72,
+        "p": 0.982,
+        "word": " get"
+      },
+      {
+        "start": 54.72,
+        "end": 54.86,
+        "p": 0.988,
+        "word": " it"
+      },
+      {
+        "start": 54.86,
+        "end": 55.0,
+        "p": 0.392,
+        "word": " all"
+      },
+      {
+        "start": 55.0,
+        "end": 55.14,
+        "p": 0.164,
+        "word": " gonna"
+      },
+      {
+        "start": 55.14,
+        "end": 55.34,
+        "p": 0.879,
+        "word": " call"
+      },
+      {
+        "start": 55.34,
+        "end": 55.48,
+        "p": 0.786,
+        "word": " the"
+      }
+    ]
+  },
+  {
+    "i": 10,
+    "start": 56.18,
+    "end": 56.54,
+    "avg_logprob": -1.299,
+    "text": "uveI",
+    "words": [
+      {
+        "start": 56.18,
+        "end": 56.54,
+        "p": 0.0,
+        "word": "uveI"
+      }
+    ]
+  },
+  {
+    "i": 11,
+    "start": 56.54,
+    "end": 61.22,
+    "avg_logprob": -1.299,
+    "text": "reduent money not by you know happiness but it can buy for me flipella was",
+    "words": [
+      {
+        "start": 56.54,
+        "end": 56.84,
+        "p": 0.001,
+        "word": " reduent"
+      },
+      {
+        "start": 56.84,
+        "end": 57.86,
+        "p": 0.208,
+        "word": " money"
+      },
+      {
+        "start": 57.86,
+        "end": 58.12,
+        "p": 0.571,
+        "word": " not"
+      },
+      {
+        "start": 58.12,
+        "end": 58.3,
+        "p": 0.171,
+        "word": " by"
+      },
+      {
+        "start": 58.3,
+        "end": 58.42,
+        "p": 0.708,
+        "word": " you"
+      },
+      {
+        "start": 58.42,
+        "end": 58.58,
+        "p": 0.648,
+        "word": " know"
+      },
+      {
+        "start": 58.58,
+        "end": 58.82,
+        "p": 0.6,
+        "word": " happiness"
+      },
+      {
+        "start": 58.82,
+        "end": 59.22,
+        "p": 0.785,
+        "word": " but"
+      },
+      {
+        "start": 59.22,
+        "end": 59.34,
+        "p": 0.924,
+        "word": " it"
+      },
+      {
+        "start": 59.34,
+        "end": 59.44,
+        "p": 0.983,
+        "word": " can"
+      },
+      {
+        "start": 59.44,
+        "end": 59.68,
+        "p": 0.881,
+        "word": " buy"
+      },
+      {
+        "start": 59.68,
+        "end": 59.9,
+        "p": 0.604,
+        "word": " for"
+      },
+      {
+        "start": 59.9,
+        "end": 60.1,
+        "p": 0.983,
+        "word": " me"
+      },
+      {
+        "start": 60.1,
+        "end": 60.86,
+        "p": 0.037,
+        "word": " flipella"
+      },
+      {
+        "start": 60.86,
+        "end": 61.22,
+        "p": 0.432,
+        "word": " was"
+      }
+    ]
+  },
+  {
+    "i": 12,
+    "start": 61.22,
+    "end": 65.28,
+    "avg_logprob": -1.299,
+    "text": "never my thing hour lot and go flip me up so the plug I'll be back in a",
+    "words": [
+      {
+        "start": 61.22,
+        "end": 61.44,
+        "p": 0.976,
+        "word": " never"
+      },
+      {
+        "start": 61.44,
+        "end": 61.68,
+        "p": 0.934,
+        "word": " my"
+      },
+      {
+        "start": 61.68,
+        "end": 61.88,
+        "p": 0.962,
+        "word": " thing"
+      },
+      {
+        "start": 61.88,
+        "end": 62.04,
+        "p": 0.008,
+        "word": " hour"
+      },
+      {
+        "start": 62.04,
+        "end": 62.32,
+        "p": 0.0,
+        "word": " lot"
+      },
+      {
+        "start": 62.32,
+        "end": 62.86,
+        "p": 0.224,
+        "word": " and"
+      },
+      {
+        "start": 62.86,
+        "end": 62.98,
+        "p": 0.818,
+        "word": " go"
+      },
+      {
+        "start": 62.98,
+        "end": 63.14,
+        "p": 0.788,
+        "word": " flip"
+      },
+      {
+        "start": 63.14,
+        "end": 63.36,
+        "p": 0.897,
+        "word": " me"
+      },
+      {
+        "start": 63.36,
+        "end": 63.54,
+        "p": 0.237,
+        "word": " up"
+      },
+      {
+        "start": 63.54,
+        "end": 64.22,
+        "p": 0.038,
+        "word": " so"
+      },
+      {
+        "start": 64.22,
+        "end": 64.38,
+        "p": 0.672,
+        "word": " the"
+      },
+      {
+        "start": 64.38,
+        "end": 64.56,
+        "p": 0.859,
+        "word": " plug"
+      },
+      {
+        "start": 64.56,
+        "end": 64.72,
+        "p": 0.461,
+        "word": " I'll"
+      },
+      {
+        "start": 64.72,
+        "end": 64.8,
+        "p": 0.993,
+        "word": " be"
+      },
+      {
+        "start": 64.8,
+        "end": 65.02,
+        "p": 0.991,
+        "word": " back"
+      },
+      {
+        "start": 65.02,
+        "end": 65.18,
+        "p": 0.939,
+        "word": " in"
+      },
+      {
+        "start": 65.18,
+        "end": 65.28,
+        "p": 0.66,
+        "word": " a"
+      }
+    ]
+  },
+  {
+    "i": 13,
+    "start": 65.28,
+    "end": 68.58,
+    "avg_logprob": -1.299,
+    "text": "week it takes me a week I came back in three days use a thing the two bands",
+    "words": [
+      {
+        "start": 65.28,
+        "end": 65.44,
+        "p": 0.99,
+        "word": " week"
+      },
+      {
+        "start": 65.44,
+        "end": 65.58,
+        "p": 0.173,
+        "word": " it"
+      },
+      {
+        "start": 65.58,
+        "end": 65.8,
+        "p": 0.006,
+        "word": " takes"
+      },
+      {
+        "start": 65.8,
+        "end": 66.02,
+        "p": 0.947,
+        "word": " me"
+      },
+      {
+        "start": 66.02,
+        "end": 66.18,
+        "p": 0.746,
+        "word": " a"
+      },
+      {
+        "start": 66.18,
+        "end": 66.28,
+        "p": 0.958,
+        "word": " week"
+      },
+      {
+        "start": 66.28,
+        "end": 66.42,
+        "p": 0.886,
+        "word": " I"
+      },
+      {
+        "start": 66.42,
+        "end": 66.58,
+        "p": 0.867,
+        "word": " came"
+      },
+      {
+        "start": 66.58,
+        "end": 66.76,
+        "p": 0.995,
+        "word": " back"
+      },
+      {
+        "start": 66.76,
+        "end": 66.88,
+        "p": 0.972,
+        "word": " in"
+      },
+      {
+        "start": 66.88,
+        "end": 67.02,
+        "p": 0.819,
+        "word": " three"
+      },
+      {
+        "start": 67.02,
+        "end": 67.5,
+        "p": 0.987,
+        "word": " days"
+      },
+      {
+        "start": 67.5,
+        "end": 67.84,
+        "p": 0.197,
+        "word": " use"
+      },
+      {
+        "start": 67.84,
+        "end": 67.96,
+        "p": 0.169,
+        "word": " a"
+      },
+      {
+        "start": 67.96,
+        "end": 68.08,
+        "p": 0.621,
+        "word": " thing"
+      },
+      {
+        "start": 68.08,
+        "end": 68.22,
+        "p": 0.245,
+        "word": " the"
+      },
+      {
+        "start": 68.22,
+        "end": 68.36,
+        "p": 0.797,
+        "word": " two"
+      },
+      {
+        "start": 68.36,
+        "end": 68.58,
+        "p": 0.588,
+        "word": " bands"
+      }
+    ]
+  },
+  {
+    "i": 14,
+    "start": 68.58,
+    "end": 73.04,
+    "avg_logprob": -1.299,
+    "text": "was a lot till I start touching my first 15k money not by you know happiness",
+    "words": [
+      {
+        "start": 68.58,
+        "end": 68.72,
+        "p": 0.809,
+        "word": " was"
+      },
+      {
+        "start": 68.72,
+        "end": 68.86,
+        "p": 0.876,
+        "word": " a"
+      },
+      {
+        "start": 68.86,
+        "end": 68.98,
+        "p": 0.949,
+        "word": " lot"
+      },
+      {
+        "start": 68.98,
+        "end": 69.14,
+        "p": 0.695,
+        "word": " till"
+      },
+      {
+        "start": 69.14,
+        "end": 69.24,
+        "p": 0.95,
+        "word": " I"
+      },
+      {
+        "start": 69.24,
+        "end": 69.38,
+        "p": 0.751,
+        "word": " start"
+      },
+      {
+        "start": 69.38,
+        "end": 69.66,
+        "p": 0.735,
+        "word": " touching"
+      },
+      {
+        "start": 69.66,
+        "end": 69.86,
+        "p": 0.96,
+        "word": " my"
+      },
+      {
+        "start": 69.86,
+        "end": 70.1,
+        "p": 0.85,
+        "word": " first"
+      },
+      {
+        "start": 70.1,
+        "end": 70.76,
+        "p": 0.7,
+        "word": " 15k"
+      },
+      {
+        "start": 70.76,
+        "end": 72.1,
+        "p": 0.86,
+        "word": " money"
+      },
+      {
+        "start": 72.1,
+        "end": 72.32,
+        "p": 0.911,
+        "word": " not"
+      },
+      {
+        "start": 72.32,
+        "end": 72.5,
+        "p": 0.871,
+        "word": " by"
+      },
+      {
+        "start": 72.5,
+        "end": 72.64,
+        "p": 0.981,
+        "word": " you"
+      },
+      {
+        "start": 72.64,
+        "end": 72.78,
+        "p": 0.987,
+        "word": " know"
+      },
+      {
+        "start": 72.78,
+        "end": 73.04,
+        "p": 0.837,
+        "word": " happiness"
+      }
+    ]
+  },
+  {
+    "i": 15,
+    "start": 73.04,
+    "end": 76.78,
+    "avg_logprob": -1.299,
+    "text": "but it can buy for me flip\u0435\u0445osive was never my thing how it's rather go",
+    "words": [
+      {
+        "start": 73.04,
+        "end": 73.42,
+        "p": 0.97,
+        "word": " but"
+      },
+      {
+        "start": 73.42,
+        "end": 73.56,
+        "p": 0.944,
+        "word": " it"
+      },
+      {
+        "start": 73.56,
+        "end": 73.66,
+        "p": 0.974,
+        "word": " can"
+      },
+      {
+        "start": 73.66,
+        "end": 73.88,
+        "p": 0.946,
+        "word": " buy"
+      },
+      {
+        "start": 73.88,
+        "end": 74.1,
+        "p": 0.943,
+        "word": " for"
+      },
+      {
+        "start": 74.1,
+        "end": 74.38,
+        "p": 0.996,
+        "word": " me"
+      },
+      {
+        "start": 74.38,
+        "end": 75.36,
+        "p": 0.137,
+        "word": " flip\u0435\u0445osive"
+      },
+      {
+        "start": 75.36,
+        "end": 75.48,
+        "p": 0.796,
+        "word": " was"
+      },
+      {
+        "start": 75.48,
+        "end": 75.66,
+        "p": 0.987,
+        "word": " never"
+      },
+      {
+        "start": 75.66,
+        "end": 75.9,
+        "p": 0.937,
+        "word": " my"
+      },
+      {
+        "start": 75.9,
+        "end": 76.1,
+        "p": 0.975,
+        "word": " thing"
+      },
+      {
+        "start": 76.1,
+        "end": 76.26,
+        "p": 0.002,
+        "word": " how"
+      },
+      {
+        "start": 76.26,
+        "end": 76.56,
+        "p": 0.187,
+        "word": " it's"
+      },
+      {
+        "start": 76.56,
+        "end": 76.56,
+        "p": 0.128,
+        "word": " rather"
+      },
+      {
+        "start": 76.56,
+        "end": 76.78,
+        "p": 0.8,
+        "word": " go"
+      }
+    ]
+  },
+  {
+    "i": 16,
+    "start": 76.78,
+    "end": 80.06,
+    "avg_logprob": -1.299,
+    "text": "wide and go flip me uphe told the plug I'll be back in a week and I take",
+    "words": [
+      {
+        "start": 76.78,
+        "end": 77.0,
+        "p": 0.013,
+        "word": " wide"
+      },
+      {
+        "start": 77.0,
+        "end": 77.1,
+        "p": 0.902,
+        "word": " and"
+      },
+      {
+        "start": 77.1,
+        "end": 77.22,
+        "p": 0.96,
+        "word": " go"
+      },
+      {
+        "start": 77.22,
+        "end": 77.38,
+        "p": 0.925,
+        "word": " flip"
+      },
+      {
+        "start": 77.38,
+        "end": 77.58,
+        "p": 0.943,
+        "word": " me"
+      },
+      {
+        "start": 77.58,
+        "end": 77.94,
+        "p": 0.434,
+        "word": " uphe"
+      },
+      {
+        "start": 77.94,
+        "end": 78.46,
+        "p": 0.364,
+        "word": " told"
+      },
+      {
+        "start": 78.46,
+        "end": 78.6,
+        "p": 0.907,
+        "word": " the"
+      },
+      {
+        "start": 78.6,
+        "end": 78.78,
+        "p": 0.912,
+        "word": " plug"
+      },
+      {
+        "start": 78.78,
+        "end": 78.92,
+        "p": 0.782,
+        "word": " I'll"
+      },
+      {
+        "start": 78.92,
+        "end": 79.02,
+        "p": 0.997,
+        "word": " be"
+      },
+      {
+        "start": 79.02,
+        "end": 79.24,
+        "p": 0.996,
+        "word": " back"
+      },
+      {
+        "start": 79.24,
+        "end": 79.38,
+        "p": 0.968,
+        "word": " in"
+      },
+      {
+        "start": 79.38,
+        "end": 79.48,
+        "p": 0.764,
+        "word": " a"
+      },
+      {
+        "start": 79.48,
+        "end": 79.66,
+        "p": 0.995,
+        "word": " week"
+      },
+      {
+        "start": 79.66,
+        "end": 79.84,
+        "p": 0.209,
+        "word": " and"
+      },
+      {
+        "start": 79.84,
+        "end": 79.92,
+        "p": 0.186,
+        "word": " I"
+      },
+      {
+        "start": 79.92,
+        "end": 80.06,
+        "p": 0.863,
+        "word": " take"
+      }
+    ]
+  },
+  {
+    "i": 17,
+    "start": 80.06,
+    "end": 83.36,
+    "avg_logprob": -1.299,
+    "text": "me a week I came back in three days use a thing to do bankers alike to",
+    "words": [
+      {
+        "start": 80.06,
+        "end": 80.24,
+        "p": 0.988,
+        "word": " me"
+      },
+      {
+        "start": 80.24,
+        "end": 80.38,
+        "p": 0.743,
+        "word": " a"
+      },
+      {
+        "start": 80.38,
+        "end": 80.5,
+        "p": 0.976,
+        "word": " week"
+      },
+      {
+        "start": 80.5,
+        "end": 80.64,
+        "p": 0.951,
+        "word": " I"
+      },
+      {
+        "start": 80.64,
+        "end": 80.8,
+        "p": 0.934,
+        "word": " came"
+      },
+      {
+        "start": 80.8,
+        "end": 80.96,
+        "p": 0.997,
+        "word": " back"
+      },
+      {
+        "start": 80.96,
+        "end": 81.1,
+        "p": 0.978,
+        "word": " in"
+      },
+      {
+        "start": 81.1,
+        "end": 81.24,
+        "p": 0.918,
+        "word": " three"
+      },
+      {
+        "start": 81.24,
+        "end": 81.72,
+        "p": 0.994,
+        "word": " days"
+      },
+      {
+        "start": 81.72,
+        "end": 82.06,
+        "p": 0.589,
+        "word": " use"
+      },
+      {
+        "start": 82.06,
+        "end": 82.16,
+        "p": 0.575,
+        "word": " a"
+      },
+      {
+        "start": 82.16,
+        "end": 82.3,
+        "p": 0.895,
+        "word": " thing"
+      },
+      {
+        "start": 82.3,
+        "end": 82.42,
+        "p": 0.193,
+        "word": " to"
+      },
+      {
+        "start": 82.42,
+        "end": 82.56,
+        "p": 0.164,
+        "word": " do"
+      },
+      {
+        "start": 82.56,
+        "end": 82.92,
+        "p": 0.296,
+        "word": " bankers"
+      },
+      {
+        "start": 82.92,
+        "end": 83.16,
+        "p": 0.012,
+        "word": " alike"
+      },
+      {
+        "start": 83.16,
+        "end": 83.36,
+        "p": 0.041,
+        "word": " to"
+      }
+    ]
+  },
+  {
+    "i": 18,
+    "start": 83.36,
+    "end": 84.96,
+    "avg_logprob": -0.273,
+    "text": "I started touching my first 15k.",
+    "words": [
+      {
+        "start": 83.36,
+        "end": 83.44,
+        "p": 0.472,
+        "word": " I"
+      },
+      {
+        "start": 83.44,
+        "end": 83.58,
+        "p": 0.694,
+        "word": " started"
+      },
+      {
+        "start": 83.58,
+        "end": 83.88,
+        "p": 0.779,
+        "word": " touching"
+      },
+      {
+        "start": 83.88,
+        "end": 84.06,
+        "p": 0.983,
+        "word": " my"
+      },
+      {
+        "start": 84.06,
+        "end": 84.3,
+        "p": 0.968,
+        "word": " first"
+      },
+      {
+        "start": 84.3,
+        "end": 84.96,
+        "p": 0.852,
+        "word": " 15k."
+      }
+    ]
+  },
+  {
+    "i": 19,
+    "start": 85.34,
+    "end": 87.7,
+    "avg_logprob": -0.273,
+    "text": "I take the bigger risk cause it come with a way bigger reward.",
+    "words": [
+      {
+        "start": 85.34,
+        "end": 85.36,
+        "p": 0.943,
+        "word": " I"
+      },
+      {
+        "start": 85.36,
+        "end": 85.54,
+        "p": 0.578,
+        "word": " take"
+      },
+      {
+        "start": 85.54,
+        "end": 85.7,
+        "p": 0.99,
+        "word": " the"
+      },
+      {
+        "start": 85.7,
+        "end": 85.9,
+        "p": 0.889,
+        "word": " bigger"
+      },
+      {
+        "start": 85.9,
+        "end": 86.14,
+        "p": 0.677,
+        "word": " risk"
+      },
+      {
+        "start": 86.14,
+        "end": 86.3,
+        "p": 0.352,
+        "word": " cause"
+      },
+      {
+        "start": 86.3,
+        "end": 86.42,
+        "p": 0.952,
+        "word": " it"
+      },
+      {
+        "start": 86.42,
+        "end": 86.58,
+        "p": 0.739,
+        "word": " come"
+      },
+      {
+        "start": 86.58,
+        "end": 86.74,
+        "p": 0.931,
+        "word": " with"
+      },
+      {
+        "start": 86.74,
+        "end": 86.88,
+        "p": 0.799,
+        "word": " a"
+      },
+      {
+        "start": 86.88,
+        "end": 86.98,
+        "p": 0.986,
+        "word": " way"
+      },
+      {
+        "start": 86.98,
+        "end": 87.24,
+        "p": 0.979,
+        "word": " bigger"
+      },
+      {
+        "start": 87.24,
+        "end": 87.7,
+        "p": 0.992,
+        "word": " reward."
+      }
+    ]
+  },
+  {
+    "i": 20,
+    "start": 88.1,
+    "end": 89.46,
+    "avg_logprob": -0.273,
+    "text": "Got my past flipping just like gymnastics,",
+    "words": [
+      {
+        "start": 88.1,
+        "end": 88.2,
+        "p": 0.935,
+        "word": " Got"
+      },
+      {
+        "start": 88.2,
+        "end": 88.32,
+        "p": 0.99,
+        "word": " my"
+      },
+      {
+        "start": 88.32,
+        "end": 88.5,
+        "p": 0.411,
+        "word": " past"
+      },
+      {
+        "start": 88.5,
+        "end": 88.74,
+        "p": 0.739,
+        "word": " flipping"
+      },
+      {
+        "start": 88.74,
+        "end": 88.94,
+        "p": 0.832,
+        "word": " just"
+      },
+      {
+        "start": 88.94,
+        "end": 89.14,
+        "p": 0.992,
+        "word": " like"
+      },
+      {
+        "start": 89.14,
+        "end": 89.46,
+        "p": 0.461,
+        "word": " gymnastics,"
+      }
+    ]
+  },
+  {
+    "i": 21,
+    "start": 89.72,
+    "end": 91.3,
+    "avg_logprob": -0.273,
+    "text": "just as they giving me 10 cross the board.",
+    "words": [
+      {
+        "start": 89.72,
+        "end": 89.86,
+        "p": 0.552,
+        "word": " just"
+      },
+      {
+        "start": 89.86,
+        "end": 90.04,
+        "p": 0.937,
+        "word": " as"
+      },
+      {
+        "start": 90.04,
+        "end": 90.14,
+        "p": 0.949,
+        "word": " they"
+      },
+      {
+        "start": 90.14,
+        "end": 90.36,
+        "p": 0.542,
+        "word": " giving"
+      },
+      {
+        "start": 90.36,
+        "end": 90.54,
+        "p": 0.988,
+        "word": " me"
+      },
+      {
+        "start": 90.54,
+        "end": 90.72,
+        "p": 0.774,
+        "word": " 10"
+      },
+      {
+        "start": 90.72,
+        "end": 90.88,
+        "p": 0.402,
+        "word": " cross"
+      },
+      {
+        "start": 90.88,
+        "end": 91.04,
+        "p": 0.632,
+        "word": " the"
+      },
+      {
+        "start": 91.04,
+        "end": 91.3,
+        "p": 0.974,
+        "word": " board."
+      }
+    ]
+  },
+  {
+    "i": 22,
+    "start": 91.62,
+    "end": 93.46,
+    "avg_logprob": -0.273,
+    "text": "Started doing what niggas ain't think I could do.",
+    "words": [
+      {
+        "start": 91.62,
+        "end": 91.84,
+        "p": 0.946,
+        "word": " Started"
+      },
+      {
+        "start": 91.84,
+        "end": 92.12,
+        "p": 0.97,
+        "word": " doing"
+      },
+      {
+        "start": 92.12,
+        "end": 92.36,
+        "p": 0.954,
+        "word": " what"
+      },
+      {
+        "start": 92.36,
+        "end": 92.64,
+        "p": 0.881,
+        "word": " niggas"
+      },
+      {
+        "start": 92.64,
+        "end": 92.78,
+        "p": 0.78,
+        "word": " ain't"
+      },
+      {
+        "start": 92.78,
+        "end": 92.94,
+        "p": 0.971,
+        "word": " think"
+      },
+      {
+        "start": 92.94,
+        "end": 93.08,
+        "p": 0.949,
+        "word": " I"
+      },
+      {
+        "start": 93.08,
+        "end": 93.24,
+        "p": 0.7,
+        "word": " could"
+      },
+      {
+        "start": 93.24,
+        "end": 93.46,
+        "p": 0.995,
+        "word": " do."
+      }
+    ]
+  },
+  {
+    "i": 23,
+    "start": 93.7,
+    "end": 94.96,
+    "avg_logprob": -0.273,
+    "text": "Then they start hating me for it.",
+    "words": [
+      {
+        "start": 93.7,
+        "end": 93.86,
+        "p": 0.964,
+        "word": " Then"
+      },
+      {
+        "start": 93.86,
+        "end": 93.96,
+        "p": 0.982,
+        "word": " they"
+      },
+      {
+        "start": 93.96,
+        "end": 94.1,
+        "p": 0.792,
+        "word": " start"
+      },
+      {
+        "start": 94.1,
+        "end": 94.32,
+        "p": 0.913,
+        "word": " hating"
+      },
+      {
+        "start": 94.32,
+        "end": 94.54,
+        "p": 0.958,
+        "word": " me"
+      },
+      {
+        "start": 94.54,
+        "end": 94.82,
+        "p": 0.905,
+        "word": " for"
+      },
+      {
+        "start": 94.82,
+        "end": 94.96,
+        "p": 0.986,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 24,
+    "start": 95.18,
+    "end": 97.02,
+    "avg_logprob": -0.273,
+    "text": "I made music for fun for a couple of months.",
+    "words": [
+      {
+        "start": 95.18,
+        "end": 95.3,
+        "p": 0.987,
+        "word": " I"
+      },
+      {
+        "start": 95.3,
+        "end": 95.44,
+        "p": 0.81,
+        "word": " made"
+      },
+      {
+        "start": 95.44,
+        "end": 95.68,
+        "p": 0.989,
+        "word": " music"
+      },
+      {
+        "start": 95.68,
+        "end": 95.9,
+        "p": 0.981,
+        "word": " for"
+      },
+      {
+        "start": 95.9,
+        "end": 96.08,
+        "p": 0.994,
+        "word": " fun"
+      },
+      {
+        "start": 96.08,
+        "end": 96.22,
+        "p": 0.991,
+        "word": " for"
+      },
+      {
+        "start": 96.22,
+        "end": 96.36,
+        "p": 0.995,
+        "word": " a"
+      },
+      {
+        "start": 96.36,
+        "end": 96.56,
+        "p": 0.996,
+        "word": " couple"
+      },
+      {
+        "start": 96.56,
+        "end": 96.76,
+        "p": 0.961,
+        "word": " of"
+      },
+      {
+        "start": 96.76,
+        "end": 97.02,
+        "p": 0.993,
+        "word": " months."
+      }
+    ]
+  },
+  {
+    "i": 25,
+    "start": 97.28,
+    "end": 98.4,
+    "avg_logprob": -0.273,
+    "text": "How it take off before yours?",
+    "words": [
+      {
+        "start": 97.28,
+        "end": 97.4,
+        "p": 0.586,
+        "word": " How"
+      },
+      {
+        "start": 97.4,
+        "end": 97.52,
+        "p": 0.372,
+        "word": " it"
+      },
+      {
+        "start": 97.52,
+        "end": 97.7,
+        "p": 0.923,
+        "word": " take"
+      },
+      {
+        "start": 97.7,
+        "end": 97.88,
+        "p": 0.903,
+        "word": " off"
+      },
+      {
+        "start": 97.88,
+        "end": 98.04,
+        "p": 0.917,
+        "word": " before"
+      },
+      {
+        "start": 98.04,
+        "end": 98.4,
+        "p": 0.994,
+        "word": " yours?"
+      }
+    ]
+  },
+  {
+    "i": 26,
+    "start": 99.38,
+    "end": 101.6,
+    "avg_logprob": -0.273,
+    "text": "I bought two Zanex and then I watched it down with alcohol.",
+    "words": [
+      {
+        "start": 99.38,
+        "end": 99.66,
+        "p": 0.587,
+        "word": " I"
+      },
+      {
+        "start": 99.66,
+        "end": 99.78,
+        "p": 0.224,
+        "word": " bought"
+      },
+      {
+        "start": 99.78,
+        "end": 99.94,
+        "p": 0.41,
+        "word": " two"
+      },
+      {
+        "start": 99.94,
+        "end": 100.32,
+        "p": 0.468,
+        "word": " Zanex"
+      },
+      {
+        "start": 100.32,
+        "end": 100.42,
+        "p": 0.786,
+        "word": " and"
+      },
+      {
+        "start": 100.42,
+        "end": 100.56,
+        "p": 0.981,
+        "word": " then"
+      },
+      {
+        "start": 100.56,
+        "end": 100.7,
+        "p": 0.988,
+        "word": " I"
+      },
+      {
+        "start": 100.7,
+        "end": 100.9,
+        "p": 0.472,
+        "word": " watched"
+      },
+      {
+        "start": 100.9,
+        "end": 101.04,
+        "p": 0.979,
+        "word": " it"
+      },
+      {
+        "start": 101.04,
+        "end": 101.16,
+        "p": 0.967,
+        "word": " down"
+      },
+      {
+        "start": 101.16,
+        "end": 101.32,
+        "p": 0.983,
+        "word": " with"
+      },
+      {
+        "start": 101.32,
+        "end": 101.6,
+        "p": 0.824,
+        "word": " alcohol."
+      }
+    ]
+  },
+  {
+    "i": 27,
+    "start": 102.76,
+    "end": 104.08,
+    "avg_logprob": -0.273,
+    "text": "And now having they haven't slept",
+    "words": [
+      {
+        "start": 102.76,
+        "end": 103.12,
+        "p": 0.914,
+        "word": " And"
+      },
+      {
+        "start": 103.12,
+        "end": 103.24,
+        "p": 0.421,
+        "word": " now"
+      },
+      {
+        "start": 103.24,
+        "end": 103.48,
+        "p": 0.692,
+        "word": " having"
+      },
+      {
+        "start": 103.48,
+        "end": 103.64,
+        "p": 0.816,
+        "word": " they"
+      },
+      {
+        "start": 103.64,
+        "end": 103.92,
+        "p": 0.724,
+        "word": " haven't"
+      },
+      {
+        "start": 103.92,
+        "end": 104.08,
+        "p": 0.998,
+        "word": " slept"
+      }
+    ]
+  },
+  {
+    "i": 28,
+    "start": 104.08,
+    "end": 105.4,
+    "avg_logprob": -0.273,
+    "text": "cause I've been out the Adderall.",
+    "words": [
+      {
+        "start": 104.08,
+        "end": 104.24,
+        "p": 0.673,
+        "word": " cause"
+      },
+      {
+        "start": 104.24,
+        "end": 104.42,
+        "p": 0.808,
+        "word": " I've"
+      },
+      {
+        "start": 104.42,
+        "end": 104.56,
+        "p": 0.996,
+        "word": " been"
+      },
+      {
+        "start": 104.56,
+        "end": 104.7,
+        "p": 0.745,
+        "word": " out"
+      },
+      {
+        "start": 104.7,
+        "end": 104.88,
+        "p": 0.547,
+        "word": " the"
+      },
+      {
+        "start": 104.88,
+        "end": 105.4,
+        "p": 0.816,
+        "word": " Adderall."
+      }
+    ]
+  },
+  {
+    "i": 29,
+    "start": 106.48,
+    "end": 108.12,
+    "avg_logprob": -0.273,
+    "text": "And they know escaping what I'm running from",
+    "words": [
+      {
+        "start": 106.48,
+        "end": 106.68,
+        "p": 0.97,
+        "word": " And"
+      },
+      {
+        "start": 106.68,
+        "end": 106.78,
+        "p": 0.931,
+        "word": " they"
+      },
+      {
+        "start": 106.78,
+        "end": 106.96,
+        "p": 0.968,
+        "word": " know"
+      },
+      {
+        "start": 106.96,
+        "end": 107.26,
+        "p": 0.933,
+        "word": " escaping"
+      },
+      {
+        "start": 107.26,
+        "end": 107.54,
+        "p": 0.774,
+        "word": " what"
+      },
+      {
+        "start": 107.54,
+        "end": 107.74,
+        "p": 0.981,
+        "word": " I'm"
+      },
+      {
+        "start": 107.74,
+        "end": 107.86,
+        "p": 0.99,
+        "word": " running"
+      },
+      {
+        "start": 107.86,
+        "end": 108.12,
+        "p": 0.99,
+        "word": " from"
+      }
+    ]
+  },
+  {
+    "i": 30,
+    "start": 108.12,
+    "end": 108.98,
+    "avg_logprob": -0.273,
+    "text": "it be catching up.",
+    "words": [
+      {
+        "start": 108.12,
+        "end": 108.26,
+        "p": 0.232,
+        "word": " it"
+      },
+      {
+        "start": 108.26,
+        "end": 108.38,
+        "p": 0.737,
+        "word": " be"
+      },
+      {
+        "start": 108.38,
+        "end": 108.64,
+        "p": 0.961,
+        "word": " catching"
+      },
+      {
+        "start": 108.64,
+        "end": 108.98,
+        "p": 0.997,
+        "word": " up."
+      }
+    ]
+  },
+  {
+    "i": 31,
+    "start": 109.32,
+    "end": 110.92,
+    "avg_logprob": -0.273,
+    "text": "Just to not think something going right for me",
+    "words": [
+      {
+        "start": 109.32,
+        "end": 109.46,
+        "p": 0.973,
+        "word": " Just"
+      },
+      {
+        "start": 109.46,
+        "end": 109.58,
+        "p": 0.179,
+        "word": " to"
+      },
+      {
+        "start": 109.58,
+        "end": 109.68,
+        "p": 0.865,
+        "word": " not"
+      },
+      {
+        "start": 109.68,
+        "end": 109.86,
+        "p": 0.943,
+        "word": " think"
+      },
+      {
+        "start": 109.86,
+        "end": 110.02,
+        "p": 0.956,
+        "word": " something"
+      },
+      {
+        "start": 110.02,
+        "end": 110.38,
+        "p": 0.678,
+        "word": " going"
+      },
+      {
+        "start": 110.38,
+        "end": 110.6,
+        "p": 0.991,
+        "word": " right"
+      },
+      {
+        "start": 110.6,
+        "end": 110.78,
+        "p": 0.972,
+        "word": " for"
+      },
+      {
+        "start": 110.78,
+        "end": 110.92,
+        "p": 0.999,
+        "word": " me"
+      }
+    ]
+  },
+  {
+    "i": 32,
+    "start": 110.92,
+    "end": 112.5,
+    "avg_logprob": -0.273,
+    "text": "I always find a way to mess it up.",
+    "words": [
+      {
+        "start": 110.92,
+        "end": 111.06,
+        "p": 0.187,
+        "word": " I"
+      },
+      {
+        "start": 111.06,
+        "end": 111.34,
+        "p": 0.966,
+        "word": " always"
+      },
+      {
+        "start": 111.34,
+        "end": 111.56,
+        "p": 0.882,
+        "word": " find"
+      },
+      {
+        "start": 111.56,
+        "end": 111.66,
+        "p": 0.941,
+        "word": " a"
+      },
+      {
+        "start": 111.66,
+        "end": 111.8,
+        "p": 0.999,
+        "word": " way"
+      },
+      {
+        "start": 111.8,
+        "end": 111.94,
+        "p": 0.996,
+        "word": " to"
+      },
+      {
+        "start": 111.94,
+        "end": 112.12,
+        "p": 0.992,
+        "word": " mess"
+      },
+      {
+        "start": 112.12,
+        "end": 112.32,
+        "p": 0.997,
+        "word": " it"
+      },
+      {
+        "start": 112.32,
+        "end": 112.5,
+        "p": 0.999,
+        "word": " up."
+      }
+    ]
+  },
+  {
+    "i": 33,
+    "start": 112.5,
+    "end": 114.06,
+    "avg_logprob": -0.229,
+    "text": "I'm getting so tired of me losing.",
+    "words": [
+      {
+        "start": 112.5,
+        "end": 112.84,
+        "p": 0.805,
+        "word": " I'm"
+      },
+      {
+        "start": 112.84,
+        "end": 113.0,
+        "p": 0.859,
+        "word": " getting"
+      },
+      {
+        "start": 113.0,
+        "end": 113.22,
+        "p": 0.997,
+        "word": " so"
+      },
+      {
+        "start": 113.22,
+        "end": 113.46,
+        "p": 0.989,
+        "word": " tired"
+      },
+      {
+        "start": 113.46,
+        "end": 113.6,
+        "p": 0.99,
+        "word": " of"
+      },
+      {
+        "start": 113.6,
+        "end": 113.68,
+        "p": 0.998,
+        "word": " me"
+      },
+      {
+        "start": 113.68,
+        "end": 114.06,
+        "p": 0.395,
+        "word": " losing."
+      }
+    ]
+  },
+  {
+    "i": 34,
+    "start": 114.2,
+    "end": 115.72,
+    "avg_logprob": -0.229,
+    "text": "Taking prescription pills, eye pills.",
+    "words": [
+      {
+        "start": 114.2,
+        "end": 114.42,
+        "p": 0.673,
+        "word": " Taking"
+      },
+      {
+        "start": 114.42,
+        "end": 114.74,
+        "p": 0.975,
+        "word": " prescription"
+      },
+      {
+        "start": 114.74,
+        "end": 115.2,
+        "p": 0.998,
+        "word": " pills,"
+      },
+      {
+        "start": 115.34,
+        "end": 115.42,
+        "p": 0.352,
+        "word": " eye"
+      },
+      {
+        "start": 115.42,
+        "end": 115.72,
+        "p": 0.292,
+        "word": " pills."
+      }
+    ]
+  },
+  {
+    "i": 35,
+    "start": 115.94,
+    "end": 117.62,
+    "avg_logprob": -0.229,
+    "text": "I'm drinking on alcohol like it's water.",
+    "words": [
+      {
+        "start": 115.94,
+        "end": 115.98,
+        "p": 0.976,
+        "word": " I'm"
+      },
+      {
+        "start": 115.98,
+        "end": 116.14,
+        "p": 0.947,
+        "word": " drinking"
+      },
+      {
+        "start": 116.14,
+        "end": 116.38,
+        "p": 0.84,
+        "word": " on"
+      },
+      {
+        "start": 116.38,
+        "end": 116.76,
+        "p": 0.998,
+        "word": " alcohol"
+      },
+      {
+        "start": 116.76,
+        "end": 117.16,
+        "p": 0.719,
+        "word": " like"
+      },
+      {
+        "start": 117.16,
+        "end": 117.32,
+        "p": 0.957,
+        "word": " it's"
+      },
+      {
+        "start": 117.32,
+        "end": 117.62,
+        "p": 0.998,
+        "word": " water."
+      }
+    ]
+  },
+  {
+    "i": 36,
+    "start": 117.78,
+    "end": 119.22,
+    "avg_logprob": -0.229,
+    "text": "Risking my chance I'm seeing tomorrow.",
+    "words": [
+      {
+        "start": 117.78,
+        "end": 117.96,
+        "p": 0.667,
+        "word": " Risking"
+      },
+      {
+        "start": 117.96,
+        "end": 118.16,
+        "p": 0.985,
+        "word": " my"
+      },
+      {
+        "start": 118.16,
+        "end": 118.42,
+        "p": 0.959,
+        "word": " chance"
+      },
+      {
+        "start": 118.42,
+        "end": 118.66,
+        "p": 0.603,
+        "word": " I'm"
+      },
+      {
+        "start": 118.66,
+        "end": 118.82,
+        "p": 0.604,
+        "word": " seeing"
+      },
+      {
+        "start": 118.82,
+        "end": 119.22,
+        "p": 0.861,
+        "word": " tomorrow."
+      }
+    ]
+  },
+  {
+    "i": 37,
+    "start": 119.6,
+    "end": 121.58,
+    "avg_logprob": -0.229,
+    "text": "I'm rolling dice and I gamble my life with the devil.",
+    "words": [
+      {
+        "start": 119.6,
+        "end": 119.7,
+        "p": 0.98,
+        "word": " I'm"
+      },
+      {
+        "start": 119.7,
+        "end": 119.88,
+        "p": 0.635,
+        "word": " rolling"
+      },
+      {
+        "start": 119.88,
+        "end": 120.1,
+        "p": 0.995,
+        "word": " dice"
+      },
+      {
+        "start": 120.1,
+        "end": 120.28,
+        "p": 0.879,
+        "word": " and"
+      },
+      {
+        "start": 120.28,
+        "end": 120.38,
+        "p": 0.88,
+        "word": " I"
+      },
+      {
+        "start": 120.38,
+        "end": 120.56,
+        "p": 0.903,
+        "word": " gamble"
+      },
+      {
+        "start": 120.56,
+        "end": 120.82,
+        "p": 0.993,
+        "word": " my"
+      },
+      {
+        "start": 120.82,
+        "end": 121.06,
+        "p": 0.999,
+        "word": " life"
+      },
+      {
+        "start": 121.06,
+        "end": 121.2,
+        "p": 0.997,
+        "word": " with"
+      },
+      {
+        "start": 121.2,
+        "end": 121.36,
+        "p": 0.976,
+        "word": " the"
+      },
+      {
+        "start": 121.36,
+        "end": 121.58,
+        "p": 0.889,
+        "word": " devil."
+      }
+    ]
+  },
+  {
+    "i": 38,
+    "start": 122.24,
+    "end": 123.16,
+    "avg_logprob": -0.229,
+    "text": "I'm at the sated casino",
+    "words": [
+      {
+        "start": 122.24,
+        "end": 122.4,
+        "p": 0.994,
+        "word": " I'm"
+      },
+      {
+        "start": 122.4,
+        "end": 122.48,
+        "p": 0.996,
+        "word": " at"
+      },
+      {
+        "start": 122.48,
+        "end": 122.6,
+        "p": 0.986,
+        "word": " the"
+      },
+      {
+        "start": 122.6,
+        "end": 122.84,
+        "p": 0.529,
+        "word": " sated"
+      },
+      {
+        "start": 122.84,
+        "end": 123.16,
+        "p": 0.989,
+        "word": " casino"
+      }
+    ]
+  },
+  {
+    "i": 39,
+    "start": 123.56,
+    "end": 125.14,
+    "avg_logprob": -0.229,
+    "text": "doing drugs with its demons for pleasure.",
+    "words": [
+      {
+        "start": 123.56,
+        "end": 123.88,
+        "p": 0.51,
+        "word": " doing"
+      },
+      {
+        "start": 123.88,
+        "end": 124.1,
+        "p": 0.78,
+        "word": " drugs"
+      },
+      {
+        "start": 124.1,
+        "end": 124.28,
+        "p": 0.965,
+        "word": " with"
+      },
+      {
+        "start": 124.28,
+        "end": 124.4,
+        "p": 0.32,
+        "word": " its"
+      },
+      {
+        "start": 124.4,
+        "end": 124.62,
+        "p": 0.975,
+        "word": " demons"
+      },
+      {
+        "start": 124.62,
+        "end": 124.84,
+        "p": 0.674,
+        "word": " for"
+      },
+      {
+        "start": 124.84,
+        "end": 125.14,
+        "p": 0.998,
+        "word": " pleasure."
+      }
+    ]
+  },
+  {
+    "i": 40,
+    "start": 125.72,
+    "end": 127.22,
+    "avg_logprob": -0.229,
+    "text": "I got my life on the line rolling dice",
+    "words": [
+      {
+        "start": 125.72,
+        "end": 125.86,
+        "p": 0.994,
+        "word": " I"
+      },
+      {
+        "start": 125.86,
+        "end": 125.98,
+        "p": 0.906,
+        "word": " got"
+      },
+      {
+        "start": 125.98,
+        "end": 126.14,
+        "p": 0.997,
+        "word": " my"
+      },
+      {
+        "start": 126.14,
+        "end": 126.38,
+        "p": 0.994,
+        "word": " life"
+      },
+      {
+        "start": 126.38,
+        "end": 126.54,
+        "p": 0.972,
+        "word": " on"
+      },
+      {
+        "start": 126.54,
+        "end": 126.62,
+        "p": 0.96,
+        "word": " the"
+      },
+      {
+        "start": 126.62,
+        "end": 126.76,
+        "p": 0.986,
+        "word": " line"
+      },
+      {
+        "start": 126.76,
+        "end": 126.98,
+        "p": 0.829,
+        "word": " rolling"
+      },
+      {
+        "start": 126.98,
+        "end": 127.22,
+        "p": 0.994,
+        "word": " dice"
+      }
+    ]
+  },
+  {
+    "i": 41,
+    "start": 127.22,
+    "end": 128.86,
+    "avg_logprob": -0.229,
+    "text": "if I crap out then that's when I lose it.",
+    "words": [
+      {
+        "start": 127.22,
+        "end": 127.42,
+        "p": 0.69,
+        "word": " if"
+      },
+      {
+        "start": 127.42,
+        "end": 127.48,
+        "p": 0.978,
+        "word": " I"
+      },
+      {
+        "start": 127.48,
+        "end": 127.66,
+        "p": 0.812,
+        "word": " crap"
+      },
+      {
+        "start": 127.66,
+        "end": 127.84,
+        "p": 0.916,
+        "word": " out"
+      },
+      {
+        "start": 127.84,
+        "end": 128.0,
+        "p": 0.501,
+        "word": " then"
+      },
+      {
+        "start": 128.0,
+        "end": 128.18,
+        "p": 0.986,
+        "word": " that's"
+      },
+      {
+        "start": 128.18,
+        "end": 128.28,
+        "p": 0.994,
+        "word": " when"
+      },
+      {
+        "start": 128.28,
+        "end": 128.38,
+        "p": 0.99,
+        "word": " I"
+      },
+      {
+        "start": 128.38,
+        "end": 128.64,
+        "p": 0.891,
+        "word": " lose"
+      },
+      {
+        "start": 128.64,
+        "end": 128.86,
+        "p": 0.996,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 42,
+    "start": 129.22,
+    "end": 130.36,
+    "avg_logprob": -0.229,
+    "text": "I don't want to think all these hands",
+    "words": [
+      {
+        "start": 129.22,
+        "end": 129.32,
+        "p": 0.967,
+        "word": " I"
+      },
+      {
+        "start": 129.32,
+        "end": 129.46,
+        "p": 0.996,
+        "word": " don't"
+      },
+      {
+        "start": 129.46,
+        "end": 129.6,
+        "p": 0.843,
+        "word": " want"
+      },
+      {
+        "start": 129.6,
+        "end": 129.72,
+        "p": 0.968,
+        "word": " to"
+      },
+      {
+        "start": 129.72,
+        "end": 129.88,
+        "p": 0.981,
+        "word": " think"
+      },
+      {
+        "start": 129.88,
+        "end": 130.04,
+        "p": 0.105,
+        "word": " all"
+      },
+      {
+        "start": 130.04,
+        "end": 130.18,
+        "p": 0.97,
+        "word": " these"
+      },
+      {
+        "start": 130.18,
+        "end": 130.36,
+        "p": 0.57,
+        "word": " hands"
+      }
+    ]
+  },
+  {
+    "i": 43,
+    "start": 130.36,
+    "end": 132.42,
+    "avg_logprob": -0.229,
+    "text": "in a sprite in the forth when I took it and chewed it.",
+    "words": [
+      {
+        "start": 130.36,
+        "end": 130.52,
+        "p": 0.776,
+        "word": " in"
+      },
+      {
+        "start": 130.52,
+        "end": 130.6,
+        "p": 0.512,
+        "word": " a"
+      },
+      {
+        "start": 130.6,
+        "end": 130.76,
+        "p": 0.659,
+        "word": " sprite"
+      },
+      {
+        "start": 130.76,
+        "end": 130.94,
+        "p": 0.833,
+        "word": " in"
+      },
+      {
+        "start": 130.94,
+        "end": 131.02,
+        "p": 0.74,
+        "word": " the"
+      },
+      {
+        "start": 131.02,
+        "end": 131.2,
+        "p": 0.339,
+        "word": " forth"
+      },
+      {
+        "start": 131.2,
+        "end": 131.36,
+        "p": 0.877,
+        "word": " when"
+      },
+      {
+        "start": 131.36,
+        "end": 131.5,
+        "p": 0.99,
+        "word": " I"
+      },
+      {
+        "start": 131.5,
+        "end": 131.66,
+        "p": 0.983,
+        "word": " took"
+      },
+      {
+        "start": 131.66,
+        "end": 131.8,
+        "p": 0.96,
+        "word": " it"
+      },
+      {
+        "start": 131.8,
+        "end": 131.94,
+        "p": 0.948,
+        "word": " and"
+      },
+      {
+        "start": 131.94,
+        "end": 132.32,
+        "p": 0.991,
+        "word": " chewed"
+      },
+      {
+        "start": 132.32,
+        "end": 132.42,
+        "p": 0.995,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 44,
+    "start": 132.82,
+    "end": 134.1,
+    "avg_logprob": -0.229,
+    "text": "Most of the time I be snoozing.",
+    "words": [
+      {
+        "start": 132.82,
+        "end": 133.02,
+        "p": 0.993,
+        "word": " Most"
+      },
+      {
+        "start": 133.02,
+        "end": 133.16,
+        "p": 0.996,
+        "word": " of"
+      },
+      {
+        "start": 133.16,
+        "end": 133.24,
+        "p": 0.998,
+        "word": " the"
+      },
+      {
+        "start": 133.24,
+        "end": 133.42,
+        "p": 0.996,
+        "word": " time"
+      },
+      {
+        "start": 133.42,
+        "end": 133.54,
+        "p": 0.933,
+        "word": " I"
+      },
+      {
+        "start": 133.54,
+        "end": 133.66,
+        "p": 0.469,
+        "word": " be"
+      },
+      {
+        "start": 133.66,
+        "end": 134.1,
+        "p": 0.924,
+        "word": " snoozing."
+      }
+    ]
+  },
+  {
+    "i": 45,
+    "start": 134.36,
+    "end": 135.68,
+    "avg_logprob": -0.229,
+    "text": "I wake up and get active at night",
+    "words": [
+      {
+        "start": 134.36,
+        "end": 134.48,
+        "p": 0.997,
+        "word": " I"
+      },
+      {
+        "start": 134.48,
+        "end": 134.62,
+        "p": 0.996,
+        "word": " wake"
+      },
+      {
+        "start": 134.62,
+        "end": 134.82,
+        "p": 0.998,
+        "word": " up"
+      },
+      {
+        "start": 134.82,
+        "end": 134.92,
+        "p": 0.985,
+        "word": " and"
+      },
+      {
+        "start": 134.92,
+        "end": 135.04,
+        "p": 0.992,
+        "word": " get"
+      },
+      {
+        "start": 135.04,
+        "end": 135.32,
+        "p": 0.993,
+        "word": " active"
+      },
+      {
+        "start": 135.32,
+        "end": 135.5,
+        "p": 0.994,
+        "word": " at"
+      },
+      {
+        "start": 135.5,
+        "end": 135.68,
+        "p": 0.999,
+        "word": " night"
+      }
+    ]
+  },
+  {
+    "i": 46,
+    "start": 135.68,
+    "end": 137.74,
+    "avg_logprob": -0.229,
+    "text": "and I take all the pieces I got and I move it.",
+    "words": [
+      {
+        "start": 135.68,
+        "end": 135.82,
+        "p": 0.903,
+        "word": " and"
+      },
+      {
+        "start": 135.82,
+        "end": 135.94,
+        "p": 0.955,
+        "word": " I"
+      },
+      {
+        "start": 135.94,
+        "end": 136.1,
+        "p": 0.991,
+        "word": " take"
+      },
+      {
+        "start": 136.1,
+        "end": 136.3,
+        "p": 0.987,
+        "word": " all"
+      },
+      {
+        "start": 136.3,
+        "end": 136.4,
+        "p": 0.973,
+        "word": " the"
+      },
+      {
+        "start": 136.4,
+        "end": 136.62,
+        "p": 0.319,
+        "word": " pieces"
+      },
+      {
+        "start": 136.62,
+        "end": 136.82,
+        "p": 0.925,
+        "word": " I"
+      },
+      {
+        "start": 136.82,
+        "end": 136.98,
+        "p": 0.916,
+        "word": " got"
+      },
+      {
+        "start": 136.98,
+        "end": 137.14,
+        "p": 0.969,
+        "word": " and"
+      },
+      {
+        "start": 137.14,
+        "end": 137.26,
+        "p": 0.901,
+        "word": " I"
+      },
+      {
+        "start": 137.26,
+        "end": 137.58,
+        "p": 0.971,
+        "word": " move"
+      },
+      {
+        "start": 137.58,
+        "end": 137.74,
+        "p": 0.987,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 47,
+    "start": 138.04,
+    "end": 139.84,
+    "avg_logprob": -0.229,
+    "text": "I get it all gone call the plug and re-upting",
+    "words": [
+      {
+        "start": 138.04,
+        "end": 138.16,
+        "p": 0.996,
+        "word": " I"
+      },
+      {
+        "start": 138.16,
+        "end": 138.32,
+        "p": 0.986,
+        "word": " get"
+      },
+      {
+        "start": 138.32,
+        "end": 138.44,
+        "p": 0.992,
+        "word": " it"
+      },
+      {
+        "start": 138.44,
+        "end": 138.6,
+        "p": 0.481,
+        "word": " all"
+      },
+      {
+        "start": 138.6,
+        "end": 138.74,
+        "p": 0.294,
+        "word": " gone"
+      },
+      {
+        "start": 138.74,
+        "end": 138.92,
+        "p": 0.506,
+        "word": " call"
+      },
+      {
+        "start": 138.92,
+        "end": 139.06,
+        "p": 0.665,
+        "word": " the"
+      },
+      {
+        "start": 139.06,
+        "end": 139.24,
+        "p": 0.988,
+        "word": " plug"
+      },
+      {
+        "start": 139.24,
+        "end": 139.38,
+        "p": 0.952,
+        "word": " and"
+      },
+      {
+        "start": 139.38,
+        "end": 139.52,
+        "p": 0.585,
+        "word": " re"
+      },
+      {
+        "start": 139.52,
+        "end": 139.84,
+        "p": 0.69,
+        "word": "-upting"
+      }
+    ]
+  },
+  {
+    "i": 48,
+    "start": 139.84,
+    "end": 141.2,
+    "avg_logprob": -0.229,
+    "text": "and after that then I redo it.",
+    "words": [
+      {
+        "start": 139.84,
+        "end": 139.94,
+        "p": 0.728,
+        "word": " and"
+      },
+      {
+        "start": 139.94,
+        "end": 140.16,
+        "p": 0.917,
+        "word": " after"
+      },
+      {
+        "start": 140.16,
+        "end": 140.38,
+        "p": 0.994,
+        "word": " that"
+      },
+      {
+        "start": 140.38,
+        "end": 140.56,
+        "p": 0.82,
+        "word": " then"
+      },
+      {
+        "start": 140.56,
+        "end": 140.7,
+        "p": 0.995,
+        "word": " I"
+      },
+      {
+        "start": 140.7,
+        "end": 141.0,
+        "p": 0.869,
+        "word": " redo"
+      },
+      {
+        "start": 141.0,
+        "end": 141.2,
+        "p": 0.996,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 49,
+    "start": 141.2,
+    "end": 143.72,
+    "avg_logprob": -0.203,
+    "text": "Money not buy you no happiness but it can buy it for me.",
+    "words": [
+      {
+        "start": 141.2,
+        "end": 141.48,
+        "p": 0.399,
+        "word": " Money"
+      },
+      {
+        "start": 141.48,
+        "end": 141.7,
+        "p": 0.602,
+        "word": " not"
+      },
+      {
+        "start": 141.7,
+        "end": 141.88,
+        "p": 0.504,
+        "word": " buy"
+      },
+      {
+        "start": 141.88,
+        "end": 142.02,
+        "p": 0.765,
+        "word": " you"
+      },
+      {
+        "start": 142.02,
+        "end": 142.16,
+        "p": 0.768,
+        "word": " no"
+      },
+      {
+        "start": 142.16,
+        "end": 142.4,
+        "p": 0.968,
+        "word": " happiness"
+      },
+      {
+        "start": 142.4,
+        "end": 142.8,
+        "p": 0.489,
+        "word": " but"
+      },
+      {
+        "start": 142.8,
+        "end": 142.92,
+        "p": 0.983,
+        "word": " it"
+      },
+      {
+        "start": 142.92,
+        "end": 143.02,
+        "p": 0.991,
+        "word": " can"
+      },
+      {
+        "start": 143.02,
+        "end": 143.26,
+        "p": 0.989,
+        "word": " buy"
+      },
+      {
+        "start": 143.26,
+        "end": 143.4,
+        "p": 0.791,
+        "word": " it"
+      },
+      {
+        "start": 143.4,
+        "end": 143.5,
+        "p": 0.817,
+        "word": " for"
+      },
+      {
+        "start": 143.5,
+        "end": 143.72,
+        "p": 0.999,
+        "word": " me."
+      }
+    ]
+  },
+  {
+    "i": 50,
+    "start": 144.02,
+    "end": 145.46,
+    "avg_logprob": -0.203,
+    "text": "Flipping hoses was never my thing.",
+    "words": [
+      {
+        "start": 144.02,
+        "end": 144.38,
+        "p": 0.958,
+        "word": " Flipping"
+      },
+      {
+        "start": 144.38,
+        "end": 144.62,
+        "p": 0.443,
+        "word": " hoses"
+      },
+      {
+        "start": 144.62,
+        "end": 144.84,
+        "p": 0.891,
+        "word": " was"
+      },
+      {
+        "start": 144.84,
+        "end": 145.02,
+        "p": 0.996,
+        "word": " never"
+      },
+      {
+        "start": 145.02,
+        "end": 145.24,
+        "p": 0.995,
+        "word": " my"
+      },
+      {
+        "start": 145.24,
+        "end": 145.46,
+        "p": 0.996,
+        "word": " thing."
+      }
+    ]
+  },
+  {
+    "i": 51,
+    "start": 145.52,
+    "end": 147.3,
+    "avg_logprob": -0.203,
+    "text": "I would rather go out and go flip me a pee.",
+    "words": [
+      {
+        "start": 145.52,
+        "end": 145.6,
+        "p": 0.956,
+        "word": " I"
+      },
+      {
+        "start": 145.6,
+        "end": 145.68,
+        "p": 0.756,
+        "word": " would"
+      },
+      {
+        "start": 145.68,
+        "end": 145.9,
+        "p": 0.933,
+        "word": " rather"
+      },
+      {
+        "start": 145.9,
+        "end": 146.12,
+        "p": 0.995,
+        "word": " go"
+      },
+      {
+        "start": 146.12,
+        "end": 146.32,
+        "p": 0.934,
+        "word": " out"
+      },
+      {
+        "start": 146.32,
+        "end": 146.46,
+        "p": 0.973,
+        "word": " and"
+      },
+      {
+        "start": 146.46,
+        "end": 146.56,
+        "p": 0.974,
+        "word": " go"
+      },
+      {
+        "start": 146.56,
+        "end": 146.74,
+        "p": 0.929,
+        "word": " flip"
+      },
+      {
+        "start": 146.74,
+        "end": 146.92,
+        "p": 0.994,
+        "word": " me"
+      },
+      {
+        "start": 146.92,
+        "end": 147.1,
+        "p": 0.966,
+        "word": " a"
+      },
+      {
+        "start": 147.1,
+        "end": 147.3,
+        "p": 0.302,
+        "word": " pee."
+      }
+    ]
+  },
+  {
+    "i": 52,
+    "start": 147.64,
+    "end": 149.02,
+    "avg_logprob": -0.203,
+    "text": "Told the plug I'll be back in a week.",
+    "words": [
+      {
+        "start": 147.64,
+        "end": 147.82,
+        "p": 0.644,
+        "word": " Told"
+      },
+      {
+        "start": 147.82,
+        "end": 147.96,
+        "p": 0.981,
+        "word": " the"
+      },
+      {
+        "start": 147.96,
+        "end": 148.12,
+        "p": 0.868,
+        "word": " plug"
+      },
+      {
+        "start": 148.12,
+        "end": 148.28,
+        "p": 0.55,
+        "word": " I'll"
+      },
+      {
+        "start": 148.28,
+        "end": 148.38,
+        "p": 0.996,
+        "word": " be"
+      },
+      {
+        "start": 148.38,
+        "end": 148.6,
+        "p": 0.998,
+        "word": " back"
+      },
+      {
+        "start": 148.6,
+        "end": 148.76,
+        "p": 0.995,
+        "word": " in"
+      },
+      {
+        "start": 148.76,
+        "end": 148.84,
+        "p": 0.948,
+        "word": " a"
+      },
+      {
+        "start": 148.84,
+        "end": 149.02,
+        "p": 0.996,
+        "word": " week."
+      }
+    ]
+  },
+  {
+    "i": 53,
+    "start": 149.12,
+    "end": 149.86,
+    "avg_logprob": -0.203,
+    "text": "It ain't take me a week.",
+    "words": [
+      {
+        "start": 149.12,
+        "end": 149.16,
+        "p": 0.93,
+        "word": " It"
+      },
+      {
+        "start": 149.16,
+        "end": 149.28,
+        "p": 0.958,
+        "word": " ain't"
+      },
+      {
+        "start": 149.28,
+        "end": 149.44,
+        "p": 0.875,
+        "word": " take"
+      },
+      {
+        "start": 149.44,
+        "end": 149.6,
+        "p": 0.993,
+        "word": " me"
+      },
+      {
+        "start": 149.6,
+        "end": 149.74,
+        "p": 0.991,
+        "word": " a"
+      },
+      {
+        "start": 149.74,
+        "end": 149.86,
+        "p": 0.993,
+        "word": " week."
+      }
+    ]
+  },
+  {
+    "i": 54,
+    "start": 149.98,
+    "end": 150.92,
+    "avg_logprob": -0.203,
+    "text": "I came back in three days.",
+    "words": [
+      {
+        "start": 149.98,
+        "end": 150.0,
+        "p": 0.998,
+        "word": " I"
+      },
+      {
+        "start": 150.0,
+        "end": 150.16,
+        "p": 0.964,
+        "word": " came"
+      },
+      {
+        "start": 150.16,
+        "end": 150.34,
+        "p": 0.999,
+        "word": " back"
+      },
+      {
+        "start": 150.34,
+        "end": 150.48,
+        "p": 0.998,
+        "word": " in"
+      },
+      {
+        "start": 150.48,
+        "end": 150.6,
+        "p": 0.925,
+        "word": " three"
+      },
+      {
+        "start": 150.6,
+        "end": 150.92,
+        "p": 0.999,
+        "word": " days."
+      }
+    ]
+  },
+  {
+    "i": 55,
+    "start": 151.26,
+    "end": 152.56,
+    "avg_logprob": -0.203,
+    "text": "Used to think that two bands was a lot",
+    "words": [
+      {
+        "start": 151.26,
+        "end": 151.42,
+        "p": 0.827,
+        "word": " Used"
+      },
+      {
+        "start": 151.42,
+        "end": 151.54,
+        "p": 0.999,
+        "word": " to"
+      },
+      {
+        "start": 151.54,
+        "end": 151.66,
+        "p": 0.996,
+        "word": " think"
+      },
+      {
+        "start": 151.66,
+        "end": 151.8,
+        "p": 0.607,
+        "word": " that"
+      },
+      {
+        "start": 151.8,
+        "end": 151.92,
+        "p": 0.791,
+        "word": " two"
+      },
+      {
+        "start": 151.92,
+        "end": 152.14,
+        "p": 0.872,
+        "word": " bands"
+      },
+      {
+        "start": 152.14,
+        "end": 152.3,
+        "p": 0.987,
+        "word": " was"
+      },
+      {
+        "start": 152.3,
+        "end": 152.44,
+        "p": 0.949,
+        "word": " a"
+      },
+      {
+        "start": 152.44,
+        "end": 152.56,
+        "p": 0.924,
+        "word": " lot"
+      }
+    ]
+  },
+  {
+    "i": 56,
+    "start": 152.56,
+    "end": 154.34,
+    "avg_logprob": -0.203,
+    "text": "till I started touching my first 15k.",
+    "words": [
+      {
+        "start": 152.56,
+        "end": 152.72,
+        "p": 0.488,
+        "word": " till"
+      },
+      {
+        "start": 152.72,
+        "end": 152.82,
+        "p": 0.992,
+        "word": " I"
+      },
+      {
+        "start": 152.82,
+        "end": 152.98,
+        "p": 0.735,
+        "word": " started"
+      },
+      {
+        "start": 152.98,
+        "end": 153.24,
+        "p": 0.934,
+        "word": " touching"
+      },
+      {
+        "start": 153.24,
+        "end": 153.44,
+        "p": 0.987,
+        "word": " my"
+      },
+      {
+        "start": 153.44,
+        "end": 153.66,
+        "p": 0.981,
+        "word": " first"
+      },
+      {
+        "start": 153.66,
+        "end": 154.34,
+        "p": 0.772,
+        "word": " 15k."
+      }
+    ]
+  },
+  {
+    "i": 57,
+    "start": 156.26,
+    "end": 157.28,
+    "avg_logprob": -0.203,
+    "text": "I take the bigger rich",
+    "words": [
+      {
+        "start": 156.26,
+        "end": 156.52,
+        "p": 0.954,
+        "word": " I"
+      },
+      {
+        "start": 156.52,
+        "end": 156.68,
+        "p": 0.446,
+        "word": " take"
+      },
+      {
+        "start": 156.68,
+        "end": 156.86,
+        "p": 0.99,
+        "word": " the"
+      },
+      {
+        "start": 156.86,
+        "end": 157.04,
+        "p": 0.936,
+        "word": " bigger"
+      },
+      {
+        "start": 157.04,
+        "end": 157.28,
+        "p": 0.66,
+        "word": " rich"
+      }
+    ]
+  },
+  {
+    "i": 58,
+    "start": 157.28,
+    "end": 158.86,
+    "avg_logprob": -0.203,
+    "text": "cause it come with a way bigger reward.",
+    "words": [
+      {
+        "start": 157.28,
+        "end": 157.44,
+        "p": 0.201,
+        "word": " cause"
+      },
+      {
+        "start": 157.44,
+        "end": 157.56,
+        "p": 0.879,
+        "word": " it"
+      },
+      {
+        "start": 157.56,
+        "end": 157.72,
+        "p": 0.805,
+        "word": " come"
+      },
+      {
+        "start": 157.72,
+        "end": 157.88,
+        "p": 0.965,
+        "word": " with"
+      },
+      {
+        "start": 157.88,
+        "end": 158.0,
+        "p": 0.841,
+        "word": " a"
+      },
+      {
+        "start": 158.0,
+        "end": 158.12,
+        "p": 0.981,
+        "word": " way"
+      },
+      {
+        "start": 158.12,
+        "end": 158.4,
+        "p": 0.989,
+        "word": " bigger"
+      },
+      {
+        "start": 158.4,
+        "end": 158.86,
+        "p": 0.997,
+        "word": " reward."
+      }
+    ]
+  },
+  {
+    "i": 59,
+    "start": 159.26,
+    "end": 160.6,
+    "avg_logprob": -0.203,
+    "text": "Got my past flipping just like gymnastics.",
+    "words": [
+      {
+        "start": 159.26,
+        "end": 159.36,
+        "p": 0.97,
+        "word": " Got"
+      },
+      {
+        "start": 159.36,
+        "end": 159.46,
+        "p": 0.996,
+        "word": " my"
+      },
+      {
+        "start": 159.46,
+        "end": 159.64,
+        "p": 0.639,
+        "word": " past"
+      },
+      {
+        "start": 159.64,
+        "end": 159.9,
+        "p": 0.847,
+        "word": " flipping"
+      },
+      {
+        "start": 159.9,
+        "end": 160.12,
+        "p": 0.902,
+        "word": " just"
+      },
+      {
+        "start": 160.12,
+        "end": 160.3,
+        "p": 0.995,
+        "word": " like"
+      },
+      {
+        "start": 160.3,
+        "end": 160.6,
+        "p": 0.628,
+        "word": " gymnastics."
+      }
+    ]
+  },
+  {
+    "i": 60,
+    "start": 160.9,
+    "end": 162.42,
+    "avg_logprob": -0.203,
+    "text": "Just as they giving me 10 costs aboard.",
+    "words": [
+      {
+        "start": 160.9,
+        "end": 161.02,
+        "p": 0.451,
+        "word": " Just"
+      },
+      {
+        "start": 161.02,
+        "end": 161.18,
+        "p": 0.91,
+        "word": " as"
+      },
+      {
+        "start": 161.18,
+        "end": 161.28,
+        "p": 0.925,
+        "word": " they"
+      },
+      {
+        "start": 161.28,
+        "end": 161.5,
+        "p": 0.508,
+        "word": " giving"
+      },
+      {
+        "start": 161.5,
+        "end": 161.7,
+        "p": 0.989,
+        "word": " me"
+      },
+      {
+        "start": 161.7,
+        "end": 161.88,
+        "p": 0.749,
+        "word": " 10"
+      },
+      {
+        "start": 161.88,
+        "end": 162.02,
+        "p": 0.143,
+        "word": " costs"
+      },
+      {
+        "start": 162.02,
+        "end": 162.42,
+        "p": 0.291,
+        "word": " aboard."
+      }
+    ]
+  },
+  {
+    "i": 61,
+    "start": 162.78,
+    "end": 164.6,
+    "avg_logprob": -0.203,
+    "text": "Started doing what niggas ain't think I could do.",
+    "words": [
+      {
+        "start": 162.78,
+        "end": 163.0,
+        "p": 0.975,
+        "word": " Started"
+      },
+      {
+        "start": 163.0,
+        "end": 163.26,
+        "p": 0.952,
+        "word": " doing"
+      },
+      {
+        "start": 163.26,
+        "end": 163.5,
+        "p": 0.923,
+        "word": " what"
+      },
+      {
+        "start": 163.5,
+        "end": 163.78,
+        "p": 0.882,
+        "word": " niggas"
+      },
+      {
+        "start": 163.78,
+        "end": 163.94,
+        "p": 0.925,
+        "word": " ain't"
+      },
+      {
+        "start": 163.94,
+        "end": 164.08,
+        "p": 0.984,
+        "word": " think"
+      },
+      {
+        "start": 164.08,
+        "end": 164.24,
+        "p": 0.982,
+        "word": " I"
+      },
+      {
+        "start": 164.24,
+        "end": 164.38,
+        "p": 0.818,
+        "word": " could"
+      },
+      {
+        "start": 164.38,
+        "end": 164.6,
+        "p": 0.998,
+        "word": " do."
+      }
+    ]
+  },
+  {
+    "i": 62,
+    "start": 164.86,
+    "end": 166.12,
+    "avg_logprob": -0.203,
+    "text": "Then they start hating me for it.",
+    "words": [
+      {
+        "start": 164.86,
+        "end": 165.0,
+        "p": 0.967,
+        "word": " Then"
+      },
+      {
+        "start": 165.0,
+        "end": 165.12,
+        "p": 0.981,
+        "word": " they"
+      },
+      {
+        "start": 165.12,
+        "end": 165.24,
+        "p": 0.886,
+        "word": " start"
+      },
+      {
+        "start": 165.24,
+        "end": 165.48,
+        "p": 0.635,
+        "word": " hating"
+      },
+      {
+        "start": 165.48,
+        "end": 165.68,
+        "p": 0.974,
+        "word": " me"
+      },
+      {
+        "start": 165.68,
+        "end": 165.94,
+        "p": 0.978,
+        "word": " for"
+      },
+      {
+        "start": 165.94,
+        "end": 166.12,
+        "p": 0.993,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 63,
+    "start": 166.36,
+    "end": 168.16,
+    "avg_logprob": -0.203,
+    "text": "I made music for fun for a couple of months.",
+    "words": [
+      {
+        "start": 166.36,
+        "end": 166.46,
+        "p": 0.991,
+        "word": " I"
+      },
+      {
+        "start": 166.46,
+        "end": 166.58,
+        "p": 0.812,
+        "word": " made"
+      },
+      {
+        "start": 166.58,
+        "end": 166.84,
+        "p": 0.99,
+        "word": " music"
+      },
+      {
+        "start": 166.84,
+        "end": 167.04,
+        "p": 0.987,
+        "word": " for"
+      },
+      {
+        "start": 167.04,
+        "end": 167.24,
+        "p": 0.995,
+        "word": " fun"
+      },
+      {
+        "start": 167.24,
+        "end": 167.38,
+        "p": 0.991,
+        "word": " for"
+      },
+      {
+        "start": 167.38,
+        "end": 167.52,
+        "p": 0.99,
+        "word": " a"
+      },
+      {
+        "start": 167.52,
+        "end": 167.72,
+        "p": 0.998,
+        "word": " couple"
+      },
+      {
+        "start": 167.72,
+        "end": 167.9,
+        "p": 0.953,
+        "word": " of"
+      },
+      {
+        "start": 167.9,
+        "end": 168.16,
+        "p": 0.996,
+        "word": " months."
+      }
+    ]
+  },
+  {
+    "i": 64,
+    "start": 168.44,
+    "end": 169.52,
+    "avg_logprob": -0.203,
+    "text": "I would take off before yours.",
+    "words": [
+      {
+        "start": 168.44,
+        "end": 168.54,
+        "p": 0.335,
+        "word": " I"
+      },
+      {
+        "start": 168.54,
+        "end": 168.66,
+        "p": 0.824,
+        "word": " would"
+      },
+      {
+        "start": 168.66,
+        "end": 168.86,
+        "p": 0.994,
+        "word": " take"
+      },
+      {
+        "start": 168.86,
+        "end": 169.02,
+        "p": 0.543,
+        "word": " off"
+      },
+      {
+        "start": 169.02,
+        "end": 169.24,
+        "p": 0.761,
+        "word": " before"
+      },
+      {
+        "start": 169.24,
+        "end": 169.52,
+        "p": 0.992,
+        "word": " yours."
+      }
+    ]
+  },
+  {
+    "i": 65,
+    "start": 170.4,
+    "end": 172.12,
+    "avg_logprob": -0.226,
+    "text": "I got my life on the line roller dice",
+    "words": [
+      {
+        "start": 170.4,
+        "end": 170.72,
+        "p": 0.353,
+        "word": " I"
+      },
+      {
+        "start": 170.72,
+        "end": 170.86,
+        "p": 0.812,
+        "word": " got"
+      },
+      {
+        "start": 170.86,
+        "end": 171.0,
+        "p": 0.995,
+        "word": " my"
+      },
+      {
+        "start": 171.0,
+        "end": 171.24,
+        "p": 0.991,
+        "word": " life"
+      },
+      {
+        "start": 171.24,
+        "end": 171.42,
+        "p": 0.869,
+        "word": " on"
+      },
+      {
+        "start": 171.42,
+        "end": 171.5,
+        "p": 0.94,
+        "word": " the"
+      },
+      {
+        "start": 171.5,
+        "end": 171.66,
+        "p": 0.976,
+        "word": " line"
+      },
+      {
+        "start": 171.66,
+        "end": 171.82,
+        "p": 0.176,
+        "word": " roller"
+      },
+      {
+        "start": 171.82,
+        "end": 172.12,
+        "p": 0.568,
+        "word": " dice"
+      }
+    ]
+  },
+  {
+    "i": 66,
+    "start": 172.12,
+    "end": 173.74,
+    "avg_logprob": -0.226,
+    "text": "if I crap out then that's when I lose it.",
+    "words": [
+      {
+        "start": 172.12,
+        "end": 172.3,
+        "p": 0.601,
+        "word": " if"
+      },
+      {
+        "start": 172.3,
+        "end": 172.36,
+        "p": 0.962,
+        "word": " I"
+      },
+      {
+        "start": 172.36,
+        "end": 172.54,
+        "p": 0.795,
+        "word": " crap"
+      },
+      {
+        "start": 172.54,
+        "end": 172.72,
+        "p": 0.952,
+        "word": " out"
+      },
+      {
+        "start": 172.72,
+        "end": 172.88,
+        "p": 0.312,
+        "word": " then"
+      },
+      {
+        "start": 172.88,
+        "end": 173.06,
+        "p": 0.949,
+        "word": " that's"
+      },
+      {
+        "start": 173.06,
+        "end": 173.16,
+        "p": 0.993,
+        "word": " when"
+      },
+      {
+        "start": 173.16,
+        "end": 173.26,
+        "p": 0.986,
+        "word": " I"
+      },
+      {
+        "start": 173.26,
+        "end": 173.52,
+        "p": 0.895,
+        "word": " lose"
+      },
+      {
+        "start": 173.52,
+        "end": 173.74,
+        "p": 0.991,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 67,
+    "start": 174.12,
+    "end": 175.26,
+    "avg_logprob": -0.226,
+    "text": "I don't want to think all these hands",
+    "words": [
+      {
+        "start": 174.12,
+        "end": 174.18,
+        "p": 0.977,
+        "word": " I"
+      },
+      {
+        "start": 174.18,
+        "end": 174.38,
+        "p": 0.991,
+        "word": " don't"
+      },
+      {
+        "start": 174.38,
+        "end": 174.48,
+        "p": 0.853,
+        "word": " want"
+      },
+      {
+        "start": 174.48,
+        "end": 174.58,
+        "p": 0.946,
+        "word": " to"
+      },
+      {
+        "start": 174.58,
+        "end": 174.74,
+        "p": 0.971,
+        "word": " think"
+      },
+      {
+        "start": 174.74,
+        "end": 174.92,
+        "p": 0.092,
+        "word": " all"
+      },
+      {
+        "start": 174.92,
+        "end": 175.08,
+        "p": 0.969,
+        "word": " these"
+      },
+      {
+        "start": 175.08,
+        "end": 175.26,
+        "p": 0.618,
+        "word": " hands"
+      }
+    ]
+  },
+  {
+    "i": 68,
+    "start": 175.26,
+    "end": 177.3,
+    "avg_logprob": -0.226,
+    "text": "in a sprite in the forth when I took it and chewed it.",
+    "words": [
+      {
+        "start": 175.26,
+        "end": 175.4,
+        "p": 0.797,
+        "word": " in"
+      },
+      {
+        "start": 175.4,
+        "end": 175.48,
+        "p": 0.515,
+        "word": " a"
+      },
+      {
+        "start": 175.48,
+        "end": 175.64,
+        "p": 0.664,
+        "word": " sprite"
+      },
+      {
+        "start": 175.64,
+        "end": 175.82,
+        "p": 0.88,
+        "word": " in"
+      },
+      {
+        "start": 175.82,
+        "end": 175.92,
+        "p": 0.847,
+        "word": " the"
+      },
+      {
+        "start": 175.92,
+        "end": 176.08,
+        "p": 0.261,
+        "word": " forth"
+      },
+      {
+        "start": 176.08,
+        "end": 176.26,
+        "p": 0.784,
+        "word": " when"
+      },
+      {
+        "start": 176.26,
+        "end": 176.38,
+        "p": 0.991,
+        "word": " I"
+      },
+      {
+        "start": 176.38,
+        "end": 176.54,
+        "p": 0.99,
+        "word": " took"
+      },
+      {
+        "start": 176.54,
+        "end": 176.68,
+        "p": 0.943,
+        "word": " it"
+      },
+      {
+        "start": 176.68,
+        "end": 176.82,
+        "p": 0.902,
+        "word": " and"
+      },
+      {
+        "start": 176.82,
+        "end": 177.2,
+        "p": 0.987,
+        "word": " chewed"
+      },
+      {
+        "start": 177.2,
+        "end": 177.3,
+        "p": 0.992,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 69,
+    "start": 177.68,
+    "end": 179.0,
+    "avg_logprob": -0.226,
+    "text": "Most of the time I be snoozing.",
+    "words": [
+      {
+        "start": 177.68,
+        "end": 177.9,
+        "p": 0.991,
+        "word": " Most"
+      },
+      {
+        "start": 177.9,
+        "end": 178.06,
+        "p": 0.996,
+        "word": " of"
+      },
+      {
+        "start": 178.06,
+        "end": 178.12,
+        "p": 0.998,
+        "word": " the"
+      },
+      {
+        "start": 178.12,
+        "end": 178.3,
+        "p": 0.995,
+        "word": " time"
+      },
+      {
+        "start": 178.3,
+        "end": 178.42,
+        "p": 0.896,
+        "word": " I"
+      },
+      {
+        "start": 178.42,
+        "end": 178.56,
+        "p": 0.334,
+        "word": " be"
+      },
+      {
+        "start": 178.56,
+        "end": 179.0,
+        "p": 0.932,
+        "word": " snoozing."
+      }
+    ]
+  },
+  {
+    "i": 70,
+    "start": 179.3,
+    "end": 180.58,
+    "avg_logprob": -0.226,
+    "text": "I wake up and get active at night",
+    "words": [
+      {
+        "start": 179.3,
+        "end": 179.36,
+        "p": 0.997,
+        "word": " I"
+      },
+      {
+        "start": 179.36,
+        "end": 179.48,
+        "p": 0.996,
+        "word": " wake"
+      },
+      {
+        "start": 179.48,
+        "end": 179.7,
+        "p": 0.999,
+        "word": " up"
+      },
+      {
+        "start": 179.7,
+        "end": 179.8,
+        "p": 0.99,
+        "word": " and"
+      },
+      {
+        "start": 179.8,
+        "end": 179.92,
+        "p": 0.995,
+        "word": " get"
+      },
+      {
+        "start": 179.92,
+        "end": 180.22,
+        "p": 0.995,
+        "word": " active"
+      },
+      {
+        "start": 180.22,
+        "end": 180.38,
+        "p": 0.992,
+        "word": " at"
+      },
+      {
+        "start": 180.38,
+        "end": 180.58,
+        "p": 0.998,
+        "word": " night"
+      }
+    ]
+  },
+  {
+    "i": 71,
+    "start": 180.58,
+    "end": 182.62,
+    "avg_logprob": -0.226,
+    "text": "and I take all the pieces I got and I move it.",
+    "words": [
+      {
+        "start": 180.58,
+        "end": 180.7,
+        "p": 0.857,
+        "word": " and"
+      },
+      {
+        "start": 180.7,
+        "end": 180.82,
+        "p": 0.969,
+        "word": " I"
+      },
+      {
+        "start": 180.82,
+        "end": 181.0,
+        "p": 0.987,
+        "word": " take"
+      },
+      {
+        "start": 181.0,
+        "end": 181.18,
+        "p": 0.983,
+        "word": " all"
+      },
+      {
+        "start": 181.18,
+        "end": 181.26,
+        "p": 0.973,
+        "word": " the"
+      },
+      {
+        "start": 181.26,
+        "end": 181.5,
+        "p": 0.452,
+        "word": " pieces"
+      },
+      {
+        "start": 181.5,
+        "end": 181.7,
+        "p": 0.882,
+        "word": " I"
+      },
+      {
+        "start": 181.7,
+        "end": 181.84,
+        "p": 0.922,
+        "word": " got"
+      },
+      {
+        "start": 181.84,
+        "end": 182.04,
+        "p": 0.935,
+        "word": " and"
+      },
+      {
+        "start": 182.04,
+        "end": 182.14,
+        "p": 0.967,
+        "word": " I"
+      },
+      {
+        "start": 182.14,
+        "end": 182.46,
+        "p": 0.966,
+        "word": " move"
+      },
+      {
+        "start": 182.46,
+        "end": 182.62,
+        "p": 0.951,
+        "word": " it."
+      }
+    ]
+  },
+  {
+    "i": 72,
+    "start": 182.96,
+    "end": 184.12,
+    "avg_logprob": -0.226,
+    "text": "I get it all gone call the plug",
+    "words": [
+      {
+        "start": 182.96,
+        "end": 183.04,
+        "p": 0.994,
+        "word": " I"
+      },
+      {
+        "start": 183.04,
+        "end": 183.2,
+        "p": 0.987,
+        "word": " get"
+      },
+      {
+        "start": 183.2,
+        "end": 183.32,
+        "p": 0.99,
+        "word": " it"
+      },
+      {
+        "start": 183.32,
+        "end": 183.48,
+        "p": 0.412,
+        "word": " all"
+      },
+      {
+        "start": 183.48,
+        "end": 183.62,
+        "p": 0.205,
+        "word": " gone"
+      },
+      {
+        "start": 183.62,
+        "end": 183.8,
+        "p": 0.509,
+        "word": " call"
+      },
+      {
+        "start": 183.8,
+        "end": 183.94,
+        "p": 0.725,
+        "word": " the"
+      },
+      {
+        "start": 183.94,
+        "end": 184.12,
+        "p": 0.985,
+        "word": " plug"
+      }
+    ]
+  },
+  {
+    "i": 73,
+    "start": 184.12,
+    "end": 186.1,
+    "avg_logprob": -0.226,
+    "text": "and re-upting and after that then I redo it.",
+    "words": [
+      {
+        "start": 184.12,
+        "end": 184.24,
+        "p": 0.933,
+        "word": " and"
+      },
+      {
+        "start": 184.24,
+        "end": 184.38,
+        "p": 0.634,
+        "word": " re"
+      },
+      {
+        "start": 184.38,
+        "end": 184.72,
+        "p": 0.704,
+        "word": "-upting"
+      },
+      {
+        "start": 184.72,
+        "end": 184.8,
+        "p": 0.696,
+        "word": " and"
+      },
+      {
+        "start": 184.8,
+        "end": 185.06,
+        "p": 0.72,
+        "word": " after"
+      },
+      {
+        "start": 185.06,
+        "end": 185.28,
+        "p": 0.992,
+        "word": " that"
+      },
+      {
+        "start": 185.28,
+        "end": 185.44,
+        "p": 0.746,
+        "word": " then"
+      },
+      {
+        "start": 185.44,
+        "end": 185.58,
+        "p": 0.991,
+        "word": " I"
+      },
+      {
+        "start": 185.58,
+        "end": 185.86,
+        "p": 0.889,
+        "word": " redo"
+      },
+      {
+        "start": 185.86,
+        "end": 186.1,
+        "p": 0.996,
+        "word": " it."
+      }
+    ]
+  }
+]
