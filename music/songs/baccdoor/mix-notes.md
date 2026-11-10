@@ -8,6 +8,29 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v3-master (mono, tone-matched leads; echoes on every line; telephone background vocals; fade-out)
+
+- **Files:** `Baccdoor_master_v3_24bit.wav`, `Baccdoor_master_v3.mp3`, `Baccdoor_v2_vs_v3_0m30.mp3` (v2 then v3, same loudness, 0:30–0:50), `Baccdoor_leads_alone_raw_vs_v3_0m38.mp3` (the two lead stems exactly as exported, then the v3 leads, same loudness, 0:38–0:52), `Baccdoor_v3_ending_2m48.mp3` (the fade). Audio delivered in chat, not committed.
+- **Owner on v2:** "lead vocals still very harsh, amplifying, and scratchy. Not clear." And: "I wanna fade the song out. Fill in quiet gaps with echos/delay perfectly timed making the song pop. Add background vocals [to] the start of the song's lead vocals as well that sit behind with nice dreamy reverb telephone effect."
+- **Measured first:**
+  - The chain is not adding the grain: the harmonics-to-noise ratio (`hnr.py`) is the same raw and after every step (Main1 14.8 dB, Main2 14.0 dB).
+  - The stereo part of the lead stems is the grittiest: harmonics-to-noise 10.2/9.4 dB against 14.8/14.0 in the middle, more 2–5 kHz and more grit, and left/right only 45–48% alike in 1–4 kHz with no delay between them: it behaves like a stereo effect baked into the export.
+  - Against the owner's Driftin' Away lead (same measure, sung frames), these takes carry 8–11 dB more 3.5–5 kHz, 12–19 dB more 5–14 kHz, 6 dB more 100–200 Hz, and 2–4 dB less of the 1.6–3.5 kHz range that carries the words. v2 cut the top above 5.5 kHz but left 3.5–5 kHz as it was, so it stayed harsh and lost air without gaining clarity.
+  - The raw lead stems roll off steeply above 15–16 kHz.
+- **What changed (everything else is v2):**
+  - Leads mono: the middle only (v1/v2: side −6 dB).
+  - Leads tone-matched 85% of the way to the Driftin' Away lead as mixed (`match_eq.py`, linear phase): about −3 dB at 125 Hz, +1.5 to +2 dB at 500 Hz, −4 dB at 1 kHz, +0.3 to +1 dB at 2 kHz, −4 to −6 dB at 4 kHz, −10 dB at 8 kHz and above. Then a dynamic EQ at 4 kHz (24–25% of the time, 1.5 dB average), the de-esser at 5–11 kHz (20–22%), and gentler compression (2.9–3.0 dB average, v2 4.8; phrase-to-phrase loudness still within 2.2 dB).
+  - Leads 0.5 dB under the beat (v2: 0.3 over), the level the owner approved on Driftin' Away.
+  - Background layers: tone match with cuts only (less 250 Hz and 8 kHz+, no presence lift), so they stay behind.
+  - Echo throws on the last sung word of every lead line, both leads (3 echoes: −5, −9, −13 dB), plus the drops and the last line as before: 32 throws, 108 echoes (v2: 20 and 72). The two leads overlap from 0:31.7 to 2:51.4, so the vocals have no silent gaps; every line ending now answers with an echo.
+  - Telephone background vocals: from the first lead line (0:31.7) through bar 25, the background vocals go through a telephone (420 Hz–3.2 kHz, +4 dB at 1.8 kHz, an 8 kHz line, 6:1 compression, no drive) into a dreamy hall (2.88 s = 1.5 bars, pre-delay 60 ms), 8 dB under the leads, then cross back to the plain background vocals over bar 26 (0:49.5–0:51.4). The background take is used, not a copy of the leads, so nothing stacks on the leads in the same band and sounds honky.
+  - Fade-out from the downbeat of bar 90 (2:52.3, right after the last line) to silence on the downbeat of bar 97 (3:05.8); the last line's 8 half-note echoes ride down with it. The song now ends at 3:05.7 (was 3:19.7).
+- **Result:** the leads as mixed: grit 0.013 (v2 0.048, Driftin' Away lead 0.032), fizz −34.4 dB (v2 −29.9), 3.5–5 kHz −34.6 dB (v2 −32.0), 1.6–3.5 kHz up 1.6–3.1 dB, 100–200 Hz down 2.6 dB. The master's grit 0.044 (v2 0.101, Driftin' Away v6 0.059). −12.1 LUFS, −1.2 dBTP (WAV and MP3), limiter 0.6 LU. All `verify_bacc.py v3` checks pass: 108 echoes within 0.04 ms of a beat; background −4.4 to −8.9 dB under the leads, its background −3.8 to −6.3 dB under it; the telephone layer −7.4 to −8.8 dB under the leads (target −8); no gaps; mono −0.2 dB, vocal band −0.2 dB.
+- **Tried and dropped:** a grain reducer (`degrain.py`) that lowers the noise between the harmonics of each sung note. It raised the harmonics-to-noise ratio by only 0.3–0.4 dB: the main note is A2 (110 Hz), and at that pitch the harmonics sit too close together to separate from the grain cleanly. Not worth the risk of a phasey sound.
+- **Effects log and review report:** `effects/v3.json`, `reports/v3.md`: ⚠️ close, 73 passed, 4 to check, 0 failed. Two are the mid and upper-mid bands against the raw stems summed (the vocals were recorded 8 dB under the beat; lifting them moves these bands). Two are the background layers' de-essers at 26–28% of the time: kept, because those layers sit 5–9 dB under the leads and should sound soft. Plus the brief's unknown facts (artist, reference track, streaming service, deadline).
+- **Open question for the owner:** if the first half of `Baccdoor_leads_alone_raw_vs_v3_0m38.mp3` (his files exactly as exported) also sounds scratchy to him, the grain is in the recording. A fresh export of the vocals with only the autotune on (no app reverb, stereo or amp effect) would let the next version get cleaner still.
+- **Listening check:** pending owner. Spots: 0:31–0:52 (the telephone background vocals and the first echoes), 1:24–1:47 (into drop 1), 2:45–3:06 (the last line, its echoes and the fade).
+
 ### 2026-11-09 — v2-master (the harshness taken out)
 
 - **Files:** `Baccdoor_master_v2_24bit.wav`, `Baccdoor_master_v2.mp3`, `Baccdoor_v1_vs_v2_0m38.mp3` (v1 then v2, same loudness, 0:38–0:52). Audio delivered in chat, not committed.

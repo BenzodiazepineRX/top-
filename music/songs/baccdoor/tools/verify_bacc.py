@@ -28,7 +28,8 @@ fails = []
 bp = butter(4, [500, 4500], "bandpass", fs=sr, output="sos")
 E, _ = L.dt.read(D + f"stem_{V}_echo.wav")
 E = sosfiltfilt(bp, L.mono(E))
-srcs = {"lead 1": L.dt.read(D + "m1_8.wav")[0], "lead 2": L.dt.read(D + "m2_8.wav")[0]}
+vf = b.get("vocal_files", {})
+srcs = {"lead 1": L.dt.read(D + vf.get("lead 1", "m1_8.wav"))[0], "lead 2": L.dt.read(D + vf.get("lead 2", "m2_8.wav"))[0]}
 offs = []
 for r in b["echoes"]:
     a, e = r["word"]
@@ -82,6 +83,24 @@ for lab in ("background vs mains", "bg-of-bg vs background", "bg-of-bg vs mains"
     if over:
         fails.append(lab)
 
+# ---- 3b. v3: the telephone background vocals at the first lead lines sit under the leads
+if os.path.exists(D + f"stem_{V}_phone.wav"):
+    ph = b["phone_bg"]
+    pp = L.kblocks(L.kweight(L.dt.read(D + f"stem_{V}_phone.wav")[0]))
+    ap_ = L.active_blocks(pp)
+    dd = []
+    bar = ph["bars"][0]
+    while bar <= ph["bars"][1]:
+        d = L.layer_diff(pp, pm, ap_, am, L.bar_t(bar), L.bar_t(bar + 2))
+        if d is not None:
+            dd.append(d)
+        bar += 2
+    over = [d for d in dd if d > ph["vs_mains_target_db"] + 1.5]
+    print(f"3b. telephone background (bars {ph['bars'][0]}-{ph['bars'][1]}) vs mains: {len(dd)} windows, median {np.median(dd):+.1f} dB "
+          f"(target {ph['vs_mains_target_db']:+.1f}), range {min(dd):+.1f} to {max(dd):+.1f}; over target by >1.5 dB: {len(over)}")
+    if over:
+        fails.append("telephone background too loud")
+
 # ---- 4. gaps
 def act(x, rel=-35):
     m = L.mono(x)
@@ -95,7 +114,8 @@ def act(x, rel=-35):
     return out
 
 
-V_ = np.any([act(L.dt.read(D + f)[0]) for f in (f"stem_{V}_mains.wav", f"stem_{V}_bg.wav", f"stem_{V}_bgbg.wav")], axis=0)
+V_ = np.any([act(L.dt.read(D + f)[0]) for f in (f"stem_{V}_mains.wav", f"stem_{V}_bg.wav", f"stem_{V}_bgbg.wav", f"stem_{V}_phone.wav")
+             if os.path.exists(D + f)], axis=0)
 EE = act(L.dt.read(D + f"stem_{V}_echo.wav")[0], -45)
 first, lastv = np.where(V_)[0][0], np.where(V_)[0][-1]
 gaps, s = [], None

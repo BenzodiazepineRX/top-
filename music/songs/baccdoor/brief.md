@@ -54,7 +54,8 @@ The vocal phrases start on the beat to within about 20 ms, line after line, so t
 
 - The beat is a 160 kbps YouTube rip: its top end is gone and cannot be restored. A WAV from the producer would be cleaner for streaming.
 - The lead stems carry a lot of stereo width (side 8 dB under the middle, 14% of moments out of phase), which phones play in mono.
-- The vocals end at 2:51.4 and the beat runs to 3:19.7 (12 s of full beat, then the 16 s piano outro).
+- The vocals end at 2:51.4 and the beat runs to 3:19.7 (12 s of full beat, then the 16 s piano outro). v3: the owner chose a fade-out.
+- The owner hears the leads as harsh, "amplifying" and scratchy (v1 and v2). Measured on the raw stems: the stereo part is the grittiest, and against his Driftin' Away lead these takes carry far more 3.5–14 kHz and 100–200 Hz. v3: leads mono and tone-matched toward Driftin' Away.
 
 ## Creative effects requests
 
@@ -62,11 +63,13 @@ The owner, 2026-11-09: "good delays, good reverb, good echo throws perfectly tim
 
 | Effect | Scope (one track or whole mix) | Where it happens | How long (bars) | Plugin, if one is required | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Echo throws | lead 1, lead 2 | the last sung word of every lead 1 line; every lead line in the two drops; the very last line | 3 echoes (4 in the drops, 8 half-note echoes on the last line) | none | each echo starts on a main beat (1/4 = 480 ms) of the grid measured from the drums |
+| Echo throws | lead 1, lead 2 | v3: the last sung word of every lead line (both leads); every lead line in the two drops; the very last line | 3 echoes (4 in the drops, 8 half-note echoes on the last line) | none | each echo starts on a main beat (1/4 = 480 ms) of the grid measured from the drums. Owner, v2 feedback: "fill in quiet gaps with echos/delay perfectly timed making the song pop" |
 | Reverb | leads, background layers, echoes | whole song; the lead plate opens up in the drops | — | none | plate 1.44 s (dotted half) on the leads, hall 1.92 s (1 bar) on the background layers, pre-delay 30 ms (1/64) |
 | Progression | leads, background layers | A → drops → B → C | — | none | background vocals 6 dB under the leads in A, 5 in B and the drops, 4.5 in C; lead reverb −16 dB in A, −15 in B and C, −12 in the drops |
 | Layer order | background vocals, background of background | whole song | — | none | background under the leads, its own background 4 dB under it, checked every 2 bars |
-| Streaming master | whole mix | whole song | — | none | −11.5 LUFS, −1.0 dBTP (room for AAC/Ogg encoders), mono-safe for phones |
+| Streaming master | whole mix | whole song | — | none | −12.0 LUFS, −1.0 dBTP (room for AAC/Ogg encoders), mono-safe for phones |
+| Telephone background vocals | background vocals | the first lead lines: 0:31.7 through bar 25, back to the plain background vocals over bar 26 | bars 16–25 | none | owner, v2 feedback: "add background vocals [to] the start of the song's lead vocals ... that sit behind with nice dreamy reverb telephone effect"; 8 dB under the leads, dreamy hall 2.88 s (1.5 bars) |
+| Fade-out | whole mix | right after the last line | bars 90–97 (2:52.3–3:05.8) | none | owner, v2 feedback: "yes I wanna fade the song out" |
 
 ## Delay timing for this song
 

@@ -35,6 +35,18 @@ SET = {
                bgbg_vs_bg=-4.0, bgbg_vs_mains_alone=-9.0, side_db=-6.0,
                plate_db={"A": -16.0, "drop 1": -12.0, "B": -15.0, "drop 2": -12.0, "C": -15.0, "intro": -16.0, "outro": -15.0},
                lufs=-12.0, ceiling=-1.0, beat_file="01_Beat.wav", chain="deharsh", bus_shelf="9500:0", verb_lp=8000),
+    # v3 (owner on v2: "lead vocals still very harsh, amplifying, and scratchy. Not clear"; and: fade the song out,
+    # fill quiet gaps with perfectly timed echoes, dreamy telephone background vocals at the start of the leads):
+    # leads mono (the stems' stereo part is the grittiest), tone matched 85% of the way to the owner's Driftin' Away
+    # lead, gentler compression, leads 0.5 dB under the beat (his approved Driftin' Away level, was +0.3); background
+    # layers matched with cuts only; an echo throw at the end of every lead line; the background vocals of the first
+    # lead lines (bars 16-25) through a telephone with a dreamy hall; fade-out from bar 90 to bar 97
+    "v3": dict(mains_vs_beat=-0.5, lift_db={"A": 0.0, "drop 1": 0.0, "B": 0.3, "drop 2": 0.3, "C": 0.6},
+               bg_vs_mains={"A": -6.0, "drop 1": -5.0, "B": -5.0, "drop 2": -5.0, "C": -4.5},
+               bgbg_vs_bg=-4.0, bgbg_vs_mains_alone=-9.0, side_db=None,
+               plate_db={"A": -16.0, "drop 1": -12.0, "B": -15.0, "drop 2": -12.0, "C": -15.0, "intro": -16.0, "outro": -15.0},
+               lufs=-12.0, ceiling=-1.0, beat_file="01_Beat.wav", chain="match", bus_shelf="9500:0", verb_lp=8000,
+               echo_every_line=True, echo_first_db=-5.0, phone_bg=dict(bars=(16, 25), vs_mains=-8.0), fade_bars=(90, 97)),
 }[TAG]
 log = {"version": TAG}
 
@@ -87,6 +99,37 @@ if SET.get("chain") == "deharsh":
                           "deess": sh(f"{T} deess {tag}_h2.wav {tag}_h3.wav --low 5000 --high 11000 --auto-pct 93")[-1]}
             chain[tag]["comp"] = sh(f"{T} comp2 {tag}_h3.wav {tag}_9.wav", 3)[-2]
         json.dump(chain, open(D + "chains_v2.json", "w"), indent=1)
+if SET.get("chain") == "match":
+    # tone match: the saved curves (match_<tag>.json) are re-applied when present, so the build does not need the
+    # Driftin' Away files; otherwise they are measured from the reference (DRIFT_WORK, default ../drift)
+    ref_dir = os.path.join(os.path.abspath(os.environ.get("DRIFT_WORK", os.path.join(D, "..", "drift"))), "")
+    if all(os.path.exists(D + f) for f in ("m1_10.wav", "m2_10.wav", "bg_10.wav", "bb_10.wav", "chains_v3.json")):
+        chain = json.load(open(D + "chains_v3.json"))
+    else:
+        chain = {}
+        ME = f"python3 -I {os.path.dirname(os.path.abspath(__file__))}/match_eq.py"
+        for tag in ("m1", "m2", "bg", "bb"):
+            lead = tag in ("m1", "m2")
+            x2, _ = L.dt.read(D + f"{tag}_2.wav")
+            if lead:   # mono: the mid only (the side part of these takes is the grittiest: HNR 9-10 dB vs 14-15)
+                mm = L.mono(x2)
+                L.dt.write(D + f"{tag}_mid.wav", np.stack([mm, mm], 1).astype(np.float32), sr)
+            src = f"{tag}_mid.wav" if lead else f"{tag}_2.wav"
+            cj = f"match_{tag}.json"
+            saved = [p for p in (D + cj, os.path.join(os.path.dirname(os.path.abspath(__file__)), cj)) if os.path.exists(p)]
+            if saved:
+                tone = sh(f"{ME} {src} - {tag}_m1.wav --curve-in {saved[0]}")[-1]
+            elif lead:
+                tone = sh(f"{ME} {src} {ref_dir}l_8.wav {tag}_m1.wav --amount 0.85 --curve-out {cj}")[-1]
+            else:   # background layers: cuts only, so they stay behind (no presence lift)
+                span = "31 100" if tag == "bg" else "93 132"
+                tone = sh(f"{ME} {src} {ref_dir}b_7.wav {tag}_m1.wav --amount 0.7 --max-boost 0.5 --ref-t 78 138 --src-t {span} --curve-out {cj}")[-1]
+            chain[tag] = {"mono": "mid only" if lead else "stereo kept", "tone": tone,
+                          "dyneq": sh(f"{T} dyneq {tag}_m1.wav {tag}_m2.wav --freq {4000 if lead else 3500} --q 1.2 --auto-pct 90")[-1],
+                          "deess": sh(f"{T} deess {tag}_m2.wav {tag}_m3.wav --low 5000 --high 11000 --auto-pct {95 if lead else 93}")[-1]}
+            comp = "--peak-threshold -8 --smooth-threshold -22 --smooth-ratio 2.0" if lead else ""
+            chain[tag]["comp"] = sh(f"{T} comp2 {tag}_m3.wav {tag}_10.wav {comp}", 3)[-2] + (" (gentler: peak -8 dB, smooth -22 dB at 2:1)" if lead else "")
+        json.dump(chain, open(D + "chains_v3.json", "w"), indent=1)
 log["chains"] = chain
 
 beat0, _ = L.dt.read(D + "01_Beat.wav")
@@ -106,15 +149,16 @@ def load(name):
 
 beat = load(SET.get("beat_file", "01_Beat.wav"))   # v1: the beat as delivered (spike and 808 control were tried and dropped: see mix-notes)
 log["beat_file"] = SET.get("beat_file", "01_Beat.wav")
-if SET.get("chain") == "deharsh":
-    m1, m2, bg, bgbg = load("m1_9.wav"), load("m2_9.wav"), load("bg_9.wav"), load("bb_9.wav")
-else:
-    m1, m2, bg, bgbg = load("m1_8.wav"), load("m2_8.wav"), load("bg_7.wav"), load("bb_7.wav")
+FILES = {"deharsh": ("m1_9.wav", "m2_9.wav", "bg_9.wav", "bb_9.wav"),
+         "match": ("m1_10.wav", "m2_10.wav", "bg_10.wav", "bb_10.wav")}.get(SET.get("chain"), ("m1_8.wav", "m2_8.wav", "bg_7.wav", "bb_7.wav"))
+m1, m2, bg, bgbg = (load(f) for f in FILES)
+log["vocal_files"] = dict(zip(("lead 1", "lead 2", "background", "bg-of-bg"), FILES))
 
-# ---------------------------------------------------------------- 2. mains narrower (phones play mono)
-for x in (m1, m2):
-    M, S = (x[:, 0] + x[:, 1]) / 2, (x[:, 0] - x[:, 1]) / 2 * 10 ** (SET["side_db"] / 20)
-    x[:, 0], x[:, 1] = M + S, M - S
+# ---------------------------------------------------------------- 2. mains narrower (phones play mono); v3: mono already
+if SET["side_db"] is not None:
+    for x in (m1, m2):
+        M, S = (x[:, 0] + x[:, 1]) / 2, (x[:, 0] - x[:, 1]) / 2 * 10 ** (SET["side_db"] / 20)
+        x[:, 0], x[:, 1] = M + S, M - S
 
 # ---------------------------------------------------------------- 3. levels: mains equal and against the beat
 K = {k: L.kweight(v) for k, v in (("beat", beat), ("m1", m1), ("m2", m2), ("bg", bg), ("bgbg", bgbg))}
@@ -160,6 +204,44 @@ bg, rides_bg = L.ride_layer(bg, Km, lambda s: SET["bg_vs_mains"].get(s, -5.0), n
 Kbg = L.kweight(bg)
 bgbg, rides_bb = L.ride_layer(bgbg, Kbg, lambda s: SET["bgbg_vs_bg"], n, fallback_k=Km, fallback_target=SET["bgbg_vs_mains_alone"])
 
+# ---------------------------------------------------------------- 4b. v3: the background vocals of the first lead lines
+# through a telephone, with a dreamy hall. They replace the plain background vocals there (no copy is stacked on the
+# leads, so nothing sums into a honky middle), then cross back to the plain ones over one bar.
+phone = np.zeros((n, 2))
+if SET.get("phone_bg"):
+    pb_ = SET["phone_bg"]
+    b0, b1 = pb_["bars"]
+    t_x0, t_x1 = L.bar_t(b1 + 1), L.bar_t(b1 + 2)                  # crossfade back over the bar after b1
+    w = np.ones(n)
+    i0, i1 = int(t_x0 * sr), int(t_x1 * sr)
+    w[i0:i1] = 0.5 + 0.5 * np.cos(np.pi * np.arange(i1 - i0) / (i1 - i0))
+    w[i1:] = 0.0
+    w[:int((L.bar_t(b0) - 1.0) * sr)] = 0.0
+    seg = bg * w[:, None]
+    bg = bg * np.sqrt(np.clip(1 - w ** 2, 0, 1))[:, None]          # equal-power crossfade
+    L.dt.write(D + "phone_src.wav", seg.astype(np.float32), sr)
+    # telephone: 420 Hz-3.2 kHz, +4 dB at 1.8 kHz, through an 8 kHz line, 6:1 compression. No drive or clipping
+    # (the owner hears grit as "scratchy"), so it stays smooth and dreamy
+    tel_chain = ("highpass=f=420:poles=2,highpass=f=420:poles=2,lowpass=f=3200:poles=2,lowpass=f=3200:poles=2,"
+                 "equalizer=f=1800:t=q:w=1.2:g=4,aresample=8000,aresample=44100,"
+                 "acompressor=threshold=-24dB:ratio=6:attack=3:release=80:makeup=6")
+    sh(f"{FF} -i phone_src.wav -af \"{tel_chain}\" -c:a pcm_f32le phone_tel.wav", 0)
+    tel = load("phone_tel.wav")
+    # dreamy hall: 2.88 s (1.5 bars), pre-delay 60 ms (1/32), 300 Hz-5 kHz send; the hall sits 2 dB under the dry phone
+    hall = L.reverb(tel, "hall", 2.88, 60.0, 0.0, None, 0.0, hp=300, lp=5000, seed=7)
+    a_, e_ = L.bar_t(b0), L.bar_t(b1 + 1)
+    hall *= 10 ** (((L.loud(tel, a_, e_) - 2.0) - L.loud(hall, a_, e_)) / 20)
+    phone = tel + hall
+    # level: under the leads by the target, measured where both sing in bars b0..b1
+    pk_ph, pk_m = L.kblocks(L.kweight(phone)), L.kblocks(Km)
+    dph = L.layer_diff(pk_ph, pk_m, L.active_blocks(pk_ph), L.active_blocks(pk_m), a_, e_)
+    gph = pb_["vs_mains"] - dph
+    phone *= 10 ** (gph / 20)
+    log["phone_bg"] = {"bars": [b0, b1], "crossfade_back": [round(t_x0, 3), round(t_x1, 3)], "chain": tel_chain,
+                       "hall": "2.88 s (1.5 bars), pre-delay 60 ms (1/32), 300 Hz-5 kHz, 2 dB under the dry phone",
+                       "vs_mains_target_db": pb_["vs_mains"], "gain_db": round(gph, 2)}
+    print(f"phone background: bars {b0}-{b1}, {gph:+.1f} dB to sit {pb_['vs_mains']} dB under the leads")
+
 # peak catchers on the two background layers (loudness + 10 dB), so their peaks do not pull the master down
 pc = {}
 for name in ("bg", "bgbg"):
@@ -171,6 +253,8 @@ for name in ("bg", "bgbg"):
         bg = y
     else:
         bgbg = y
+if np.abs(phone).max() > 0:
+    phone, pc["phone"] = L.peak_catch(phone, L.loud(phone, L.bar_t(16), L.bar_t(27)) + 10.0)
 log["peak_catch"] = pc
 
 # ---------------------------------------------------------------- 5. echo throws on the beat
@@ -184,7 +268,7 @@ for key, stem in (("m1", "02_Main1"), ("m2", "03_Main2")):
             continue
         sec = L.section_of(b)
         final = key == "m2" and abs(b - last_m2) < 0.01
-        if key == "m2" and not (sec.startswith("drop") or final):
+        if key == "m2" and not (sec.startswith("drop") or final or SET.get("echo_every_line")):
             continue
         w0, w1 = L.last_loud_word(envs[key], a, b)
         if final:
@@ -192,7 +276,7 @@ for key, stem in (("m1", "02_Main1"), ("m2", "03_Main2")):
         elif sec.startswith("drop"):
             events[key].append((w0, w1, 4, -4.0, -4.0, 1))      # more space in the drops
         else:
-            events[key].append((w0, w1, 3, -6.0, -4.0, 1))
+            events[key].append((w0, w1, 3, SET.get("echo_first_db", -6.0), -4.0, 1))
 echo = np.zeros((n, 2))
 elog = []
 for key, src in (("m1", m1), ("m2", m2)):
@@ -218,7 +302,7 @@ log["reverb"] = {"mains": "plate 1.44 s (dotted half), pre-delay 30 ms (1/64), d
                  "background": "hall 1.92 s (1 bar), pre-delay 30 ms, ducked 2 dB, return -9 dB", "echoes": "plate 1.44 s, -9 dB"}
 
 # ---------------------------------------------------------------- 7. mix, bus, master
-mix = beat + mains + bg + bgbg + echo + rv_main + rv_bg + rv_echo
+mix = beat + mains + bg + bgbg + phone + echo + rv_main + rv_bg + rv_echo
 # progression: the whole mix lifts a little section by section (1-beat ramps), so the song grows
 lift = np.zeros(len(mix))
 for nm, a, b in L.SECTIONS:
@@ -227,6 +311,17 @@ k = int(L.Q * sr)
 lift = np.convolve(np.pad(lift, (k, k), mode="edge"), np.ones(k) / k, mode="same")[k:-k]
 mix *= (10 ** (lift / 20))[:, None]
 log["lift_db"] = SET["lift_db"]
+if SET.get("fade_bars"):
+    # fade-out: starts on the downbeat of the bar after the last line, a cosine curve to silence on a downbeat,
+    # so the last echo throw (8 half notes) rides down with the beat
+    fb0, fb1 = SET["fade_bars"]
+    f0_, f1_ = L.bar_t(fb0), L.bar_t(fb1)
+    fade = np.ones(len(mix))
+    i0, i1 = int(f0_ * sr), int(f1_ * sr)
+    fade[i0:i1] = 0.5 + 0.5 * np.cos(np.pi * np.arange(i1 - i0) / (i1 - i0))
+    fade[i1:] = 0.0
+    mix *= fade[:, None]
+    log["fade"] = {"bars": [fb0, fb1], "from_s": round(f0_, 3), "to_s": round(f1_, 3), "shape": "cosine (half-cycle) to silence"}
 m = np.abs(mix).max(1)
 last = np.where(m > 10 ** (-80 / 20))[0][-1]
 mix = mix[:last + int(0.3 * sr)]
@@ -235,6 +330,8 @@ L.dt.write(D + f"stem_{TAG}_mains.wav", mains, sr)
 L.dt.write(D + f"stem_{TAG}_bg.wav", bg, sr)
 L.dt.write(D + f"stem_{TAG}_bgbg.wav", bgbg, sr)
 L.dt.write(D + f"stem_{TAG}_echo.wav", echo, sr)
+if np.abs(phone).max() > 0:
+    L.dt.write(D + f"stem_{TAG}_phone.wav", phone, sr)
 log["gains_db"] = {k: round(v, 2) for k, v in g.items()}
 log["rides"] = {"bg": rides_bg, "bgbg": rides_bb}
 log["beat_loudness_full_sections"] = round(Lbeat, 2)
