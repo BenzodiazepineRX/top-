@@ -40,7 +40,7 @@ DOTTED_EIGHTH = int(round(SR * 60.0 / BPM * 0.75))
 # Leads sit this far in front of the beat in the 1.6–5 kHz clarity band.
 LEAD_PRESENCE_DB = 6.0
 # Adlibs and the telephone lead are then set from the lead's own loudness.
-ADLIB_UNDER_LEAD_DB = 10.0
+ADLIB_UNDER_LEAD_DB = 6.5
 PHONE_UNDER_LEAD_DB = 1.0
 
 LEAD_SEND_DB = -15.0
