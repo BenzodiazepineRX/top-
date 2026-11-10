@@ -9,5 +9,6 @@ Run from a work folder that holds the stems as 01_Beat.wav, 02_Main1.wav, 03_Mai
 4. `check_retune.py` - the pitch moved by the planned cents and the timing did not move
 5. `build_bacc.py v1` - chains, layer order, echo throws, reverbs, progression, mix bus, master, export
 6. `verify_bacc.py v1` - echo timing, layer order, gaps, mono (exits 1 on a failure)
+7. `harsh.py` - harshness (2-5 kHz), fizz (5-12 kHz) and grit at every step of the lead chain, against Driftin' Away
 
 `low_ctl.py` and `beat_peaks.py` are the two beat-peak experiments tried for v1 and not used (see mix-notes.md).

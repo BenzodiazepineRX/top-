@@ -26,7 +26,15 @@ SET = {
     "v1": dict(mains_vs_beat=0.3, lift_db={"A": 0.0, "drop 1": 0.0, "B": 0.3, "drop 2": 0.3, "C": 0.6}, bg_vs_mains={"A": -6.0, "drop 1": -5.0, "B": -5.0, "drop 2": -5.0, "C": -4.5},
                bgbg_vs_bg=-4.0, bgbg_vs_mains_alone=-9.0, side_db=-6.0,
                plate_db={"A": -16.0, "drop 1": -12.0, "B": -15.0, "drop 2": -12.0, "C": -15.0, "intro": -16.0, "outro": -15.0},
-               lufs=-12.0, ceiling=-1.0, beat_file="01_Beat.wav"),
+               lufs=-12.0, ceiling=-1.0, beat_file="01_Beat.wav", bus_shelf="9500:1.5"),
+    # v2 (owner on v1: "very scratchy ... too ampy ... very harsh vocals"): the de-harsh chain (no presence boost,
+    # no saturation; -7 dB shelf above 5.5 kHz and a 12 kHz low-pass on the leads, fizz de-essed 5-11 kHz), no high
+    # shelf on the mix bus, reverb sends low-passed at 8 kHz
+    "v2": dict(mains_vs_beat=0.3, lift_db={"A": 0.0, "drop 1": 0.0, "B": 0.3, "drop 2": 0.3, "C": 0.6},
+               bg_vs_mains={"A": -6.0, "drop 1": -5.0, "B": -5.0, "drop 2": -5.0, "C": -4.5},
+               bgbg_vs_bg=-4.0, bgbg_vs_mains_alone=-9.0, side_db=-6.0,
+               plate_db={"A": -16.0, "drop 1": -12.0, "B": -15.0, "drop 2": -12.0, "C": -15.0, "intro": -16.0, "outro": -15.0},
+               lufs=-12.0, ceiling=-1.0, beat_file="01_Beat.wav", chain="deharsh", bus_shelf="9500:0", verb_lp=8000),
 }[TAG]
 log = {"version": TAG}
 
@@ -61,6 +69,24 @@ else:
         chain[tag]["deess"] = sh(f"{T} deess {tag}_5.wav {tag}_6.wav --low 5000 --high 8000 --auto-pct 97")[-1]
         chain[tag]["comp"] = sh(f"{T} comp2 {tag}_6.wav {tag}_7.wav", 3)[-2]
     json.dump(chain, open(D + "chains.json", "w"), indent=1)
+if SET.get("chain") == "deharsh":
+    if all(os.path.exists(D + f) for f in ("m1_9.wav", "m2_9.wav", "bg_9.wav", "bb_9.wav", "chains_v2.json")):
+        chain = json.load(open(D + "chains_v2.json"))
+    else:
+        chain = {}
+        for tag in ("m1", "m2"):
+            sh(f"{FF} -i {tag}_2.wav -af \"highshelf=f=5500:g=-7,lowpass=f=12000:poles=2\" -c:a pcm_f32le {tag}_h1.wav", 0)
+            chain[tag] = {"tone": "-7 dB shelf above 5.5 kHz, 12 kHz low-pass (12 dB/oct); no presence boost, no saturation",
+                          "dyneq": sh(f"{T} dyneq {tag}_h1.wav {tag}_h2.wav --freq 3500 --q 1.2 --auto-pct 92")[-1],
+                          "deess": sh(f"{T} deess {tag}_h2.wav {tag}_h3.wav --low 5000 --high 11000 --auto-pct 93")[-1]}
+            chain[tag]["comp"] = sh(f"{T} comp2 {tag}_h3.wav {tag}_9.wav", 3)[-2]
+        for tag in ("bg", "bb"):
+            sh(f"{FF} -i {tag}_2.wav -af \"equalizer=f=3000:t=q:w=1.0:g=-1.5,highshelf=f=5500:g=-6,lowpass=f=11000:poles=2\" -c:a pcm_f32le {tag}_h1.wav", 0)
+            chain[tag] = {"tone": "-1.5 dB at 3 kHz, -6 dB shelf above 5.5 kHz, 11 kHz low-pass",
+                          "dyneq": sh(f"{T} dyneq {tag}_h1.wav {tag}_h2.wav --freq 3500 --q 1.2 --auto-pct 92")[-1],
+                          "deess": sh(f"{T} deess {tag}_h2.wav {tag}_h3.wav --low 5000 --high 11000 --auto-pct 93")[-1]}
+            chain[tag]["comp"] = sh(f"{T} comp2 {tag}_h3.wav {tag}_9.wav", 3)[-2]
+        json.dump(chain, open(D + "chains_v2.json", "w"), indent=1)
 log["chains"] = chain
 
 beat0, _ = L.dt.read(D + "01_Beat.wav")
@@ -80,7 +106,10 @@ def load(name):
 
 beat = load(SET.get("beat_file", "01_Beat.wav"))   # v1: the beat as delivered (spike and 808 control were tried and dropped: see mix-notes)
 log["beat_file"] = SET.get("beat_file", "01_Beat.wav")
-m1, m2, bg, bgbg = load("m1_8.wav"), load("m2_8.wav"), load("bg_7.wav"), load("bb_7.wav")
+if SET.get("chain") == "deharsh":
+    m1, m2, bg, bgbg = load("m1_9.wav"), load("m2_9.wav"), load("bg_9.wav"), load("bb_9.wav")
+else:
+    m1, m2, bg, bgbg = load("m1_8.wav"), load("m2_8.wav"), load("bg_7.wav"), load("bb_7.wav")
 
 # ---------------------------------------------------------------- 2. mains narrower (phones play mono)
 for x in (m1, m2):
@@ -182,9 +211,9 @@ for nm, a, b in L.SECTIONS:
 k = int(L.Q * sr)
 plate_curve = np.convolve(np.pad(plate_curve, (k, k), mode="edge"), np.ones(k) / k, mode="same")[k:-k]
 pre = 30.0   # 1/64 at 125 BPM
-rv_main = L.reverb(mains, "plate", 1.44, pre, 0.0, mains, 4.0) * (10 ** (plate_curve / 20))[:, None]   # dotted half
-rv_bg = L.reverb(bg + bgbg, "hall", 1.92, pre, -9.0, bg + bgbg, 2.0, seed=3)                            # 1 bar
-rv_echo = L.reverb(echo, "plate", 1.44, pre, -9.0, seed=5)
+rv_main = L.reverb(mains, "plate", 1.44, pre, 0.0, mains, 4.0, lp=SET.get("verb_lp", 12000)) * (10 ** (plate_curve / 20))[:, None]   # dotted half
+rv_bg = L.reverb(bg + bgbg, "hall", 1.92, pre, -9.0, bg + bgbg, 2.0, lp=SET.get("verb_lp", 12000), seed=3)                            # 1 bar
+rv_echo = L.reverb(echo, "plate", 1.44, pre, -9.0, lp=SET.get("verb_lp", 12000), seed=5)
 log["reverb"] = {"mains": "plate 1.44 s (dotted half), pre-delay 30 ms (1/64), ducked 4 dB, return by section " + json.dumps(SET["plate_db"]),
                  "background": "hall 1.92 s (1 bar), pre-delay 30 ms, ducked 2 dB, return -9 dB", "echoes": "plate 1.44 s, -9 dB"}
 
@@ -211,6 +240,8 @@ log["rides"] = {"bg": rides_bg, "bgbg": rides_bb}
 log["beat_loudness_full_sections"] = round(Lbeat, 2)
 json.dump(log, open(D + f"build_{TAG}.json", "w"), indent=1)
 print(f"mains {g['m1']:+.2f} / {g['m2']:+.2f} dB; echo events: {len(elog)}; peak catch {json.dumps(pc)}")
-sh(f"{T} ms-bus mix_{TAG}.wav mix_{TAG}_ms.wav --side-hp 100 --mid-shelf 9500:1.5", 1)
+# ms-bus adds a 9500:2.0 shelf when --mid-shelf is left out, so "no shelf" must be passed as 0 dB
+shelf_arg = f" --mid-shelf {SET.get('bus_shelf') or '9500:0'}"
+sh(f"{T} ms-bus mix_{TAG}.wav mix_{TAG}_ms.wav --side-hp 100{shelf_arg}", 1)
 sh(f"python3 -I {TT}/render_master.py mix_{TAG}_ms.wav master_{TAG}.wav --target-lufs {SET['lufs']} --ceiling {SET['ceiling']}", 3)
 sh(f"python3 -I {TT}/export_master.py {D}master_{TAG}.wav --name Baccdoor_master_{TAG} --rate 44100", 3)

@@ -8,6 +8,20 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v2-master (the harshness taken out)
+
+- **Files:** `Baccdoor_master_v2_24bit.wav`, `Baccdoor_master_v2.mp3`, `Baccdoor_v1_vs_v2_0m38.mp3` (v1 then v2, same loudness, 0:38–0:52). Audio delivered in chat, not committed.
+- **Owner on v1:** "It's very scratchy, it sounds too ampy ... very harsh vocals."
+- **Measured first (`harsh.py`):** against the Driftin' Away lead (never called harsh), these recordings carry 15–18 dB more fizz (5–12 kHz against the 200–1500 Hz body) and about 3× the grit (spectral flatness 3–8 kHz, noise-like sound). No clipping (no flat tops) and a 43 dB noise floor, so it is the sung sound itself (consonants and the autotune's texture), not an overloaded mic or hiss. The retune added nothing. v1 made it worse: +2.3 dB at 2–5 kHz from the presence boost, the saturation and the compression, plus a +1.5 dB treble shelf on the mix bus.
+- **What changed (everything else is v1):**
+  - Leads: no presence boost, no saturation; −7 dB shelf above 5.5 kHz and a 12 kHz low-pass; the dynamic EQ at 3.5 kHz acts on the loud harsh moments (19–20% of the time); the de-esser covers 5–11 kHz (S sounds and fizz, 23–25% of the time).
+  - Background layers: −6 dB shelf above 5.5 kHz, 11 kHz low-pass, the same dynamic EQ and de-esser.
+  - Mix bus: no treble shelf. (`ms-bus` adds a +2 dB shelf when `--mid-shelf` is left out; the build now passes `9500:0` explicitly. The first v2 render caught this, and the bus and master were redone.)
+  - Reverb sends low-passed at 8 kHz, so the reverb does not spread the fizz.
+- **Result:** the leads as mixed: fizz −29.9 dB (v1 −19.5), 2–5 kHz −13.0 dB (v1 −10.6), grit 0.048 (v1 0.065). The master: 5–12 kHz −24.0 dB (v1 −19.1, Driftin' Away v6 −23.2), air share −45.6 dB (v1 −34.3). −12.1 LUFS, −1.2 dBTP, worst limiter dip −3.9 dB. All `verify_bacc.py v2` checks pass (72 echoes within 0.08 ms of a beat, layer order, no gaps, mono −0.3 dB).
+- **Effects log and review report:** `effects/v2.json`, `reports/v2.md`: ⚠️ close, 64 passed, 5 to check, 0 failed. Four are the tone against the raw stems (vocals lifted over the beat; the top now lower than the raw stems, on purpose). One is the background-of-background's de-esser at 27% of the time: kept, because that layer sits 9 dB under the leads and should sound soft.
+- **Listening check:** pending owner. If the words now sound too dull, the next step is +1 dB at 3 kHz on the leads, not more top end.
+
 ### 2026-11-09 — v1-master (retuned to the beat, layer order, echo throws, reverb that opens up, streaming master)
 
 - **Files:** `Baccdoor_master_v1_24bit.wav`, `Baccdoor_master_v1.mp3`, `Baccdoor_v1_before_after_1m24.mp3` (the raw stems summed, then v1, same loudness, 1:24–1:42: the end of A into drop 1). Audio delivered in chat, not committed.
