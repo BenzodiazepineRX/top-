@@ -8,6 +8,18 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v4-master (the lead's edge down, the words clearer)
+
+- **Files:** `Baccdoor_master_v4_24bit.wav`, `Baccdoor_master_v4.mp3`, `Baccdoor_v3_vs_v4_0m38.mp3` and `Baccdoor_v3_vs_v4_1m52.mp3` (v3 then v4, same loudness). Audio delivered in chat, not committed.
+- **Owner on v3:** "Nearly PERFECT. just gotta get the harshness in the lead down and more clear a little more then we're done."
+- **Measured first (v3, leads against the beat, per 1/3 octave while singing):** at 2.5 kHz the leads sat 14.6 dB over the beat, against 8–10 dB in the other bands. That is the band the ear is most sensitive to, so it reads as harsh. At 4–6 kHz, where consonants make words crisp, the leads sat 3–7 dB under the beat. Against the Driftin' Away lead, v3's leads were 4–8 dB darker at 4–8 kHz.
+- **What changed (everything else is v3):**
+  - Leads: −3.5 dB at 2.5 kHz (Q 1.4) and +2.5 dB at 5.5 kHz (Q 0.9), after the compression.
+  - Beat: its 3.2–6.5 kHz ducks up to 5 dB on the leads' consonants (keyed by the leads' own 3.2–6.5 kHz band over its 78th percentile, 5/120 ms), 28% of the time; the beat is as delivered the rest of the time. A first version keyed by the leads' overall level acted 68% of the time, because the two leads overlap almost everywhere, so it behaved like a static cut (the report flagged it); it was rebuilt keyed by the consonants before delivery to the repo. The owner first received a v4 rendered with that first version; the files were replaced in chat.
+- **Result:** the leads' 2–3.5 kHz edge against their body: −2.4 dB (median), −2.6 dB on the loud moments. On consonant moments, the leads over the beat: 3.2–4.5 kHz +9.6 → +12.5 dB, 4.5–6.5 kHz +1.3 → +4.0 dB. Grit 0.023 (v3 0.013, v2 0.048, Driftin' Away lead 0.032). The master: 2–5 kHz against the body −13.5 dB (v3 −11.5), grit 0.056 (v3 0.044, Driftin' Away v6 0.059). −12.1 LUFS, −1.2 dBTP WAV / −1.1 dBTP MP3. All `verify_bacc.py v4` checks pass.
+- **Effects log and review report:** `effects/v4.json`, `reports/v4.md`: ⚠️ close, 75 passed, 5 to check, 0 failed. Three are the low-mid, mid and upper-mid bands against the raw stems summed (the vocals lifted over the beat, as in every version; low-mid +3.0 dB crosses the warning line by 0.1 dB). Two are the background layers' de-essers, kept on purpose (see v3).
+- **Listening check:** pending owner. If it went too far either way, the two lead EQ moves are the knobs: "softer" = more cut at 2.5 kHz, "crisper" = more at 5.5 kHz.
+
 ### 2026-11-09 — v3-master (mono, tone-matched leads; echoes on every line; telephone background vocals; fade-out)
 
 - **Files:** `Baccdoor_master_v3_24bit.wav`, `Baccdoor_master_v3.mp3`, `Baccdoor_v2_vs_v3_0m30.mp3` (v2 then v3, same loudness, 0:30–0:50), `Baccdoor_leads_alone_raw_vs_v3_0m38.mp3` (the two lead stems exactly as exported, then the v3 leads, same loudness, 0:38–0:52), `Baccdoor_v3_ending_2m48.mp3` (the fade). Audio delivered in chat, not committed.

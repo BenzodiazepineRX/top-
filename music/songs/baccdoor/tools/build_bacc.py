@@ -47,7 +47,15 @@ SET = {
                plate_db={"A": -16.0, "drop 1": -12.0, "B": -15.0, "drop 2": -12.0, "C": -15.0, "intro": -16.0, "outro": -15.0},
                lufs=-12.0, ceiling=-1.0, beat_file="01_Beat.wav", chain="match", bus_shelf="9500:0", verb_lp=8000,
                echo_every_line=True, echo_first_db=-5.0, phone_bg=dict(bars=(16, 25), vs_mains=-8.0), fade_bars=(90, 97)),
-}[TAG]
+}
+# v4 (owner on v3: "Nearly PERFECT. just gotta get the harshness in the lead down and more clear a little more"):
+# v3 plus, on the leads, -3.5 dB at 2.5 kHz (the band where the lead stuck out over the beat most: +13.8 dB vs 8-10
+# elsewhere) and +2.5 dB at 5.5 kHz (consonants: v3 sat 4-8 dB under the beat there); and the beat's 3.2-6.5 kHz
+# ducked up to 5 dB on the leads' consonants (keyed by the leads' own 3.2-6.5 kHz band, over its 78th percentile), so
+# the words come through without making the voice brighter, and the beat is untouched the rest of the time
+SET["v4"] = dict(SET["v3"], lead_post_eq="equalizer=f=2500:t=q:w=1.4:g=-3.5,equalizer=f=5500:t=q:w=0.9:g=2.5",
+                 beat_carve=dict(band=(3200, 6500), depth_db=5.0, key_pct=78, attack_ms=5, release_ms=120))
+SET = SET[TAG]
 log = {"version": TAG}
 
 
@@ -151,6 +159,11 @@ beat = load(SET.get("beat_file", "01_Beat.wav"))   # v1: the beat as delivered (
 log["beat_file"] = SET.get("beat_file", "01_Beat.wav")
 FILES = {"deharsh": ("m1_9.wav", "m2_9.wav", "bg_9.wav", "bb_9.wav"),
          "match": ("m1_10.wav", "m2_10.wav", "bg_10.wav", "bb_10.wav")}.get(SET.get("chain"), ("m1_8.wav", "m2_8.wav", "bg_7.wav", "bb_7.wav"))
+if SET.get("lead_post_eq"):
+    for tag, f_in in (("m1", FILES[0]), ("m2", FILES[1])):
+        sh(f"{FF} -i {f_in} -af \"{SET['lead_post_eq']}\" -c:a pcm_f32le {tag}_11.wav", 0)
+    FILES = ("m1_11.wav", "m2_11.wav") + FILES[2:]
+    log["lead_post_eq"] = SET["lead_post_eq"]
 m1, m2, bg, bgbg = (load(f) for f in FILES)
 log["vocal_files"] = dict(zip(("lead 1", "lead 2", "background", "bg-of-bg"), FILES))
 
@@ -198,6 +211,19 @@ m2 *= (10 ** (curve / 20))[:, None]
 mains = m1 + m2
 log["mains_section_gain_db"] = {k_: round(v, 2) for k_, v in sec_gain.items()}
 Km = L.kweight(mains)
+
+# ---------------------------------------------------------------- 3b. v4: carve the beat under the words
+if SET.get("beat_carve"):
+    bc_ = SET["beat_carve"]
+    sos_cv = L.butter(2, list(bc_["band"]), "bandpass", fs=sr, output="sos")
+    band_ = L.sosfiltfilt(sos_cv, beat, axis=0)
+    key_cv = L.sosfiltfilt(sos_cv, L.mono(mains))          # the leads' own consonant band
+    lev_cv, _ = L.dt.block_level(key_cv, sr, 10)
+    thr_cv = float(np.percentile(lev_cv[lev_cv > max(-60, lev_cv.max() - 35)], bc_["key_pct"]))
+    gcv, _, pct_cv = L.dt.duck_gain(key_cv, sr, n, bc_["depth_db"], thr_cv, bc_["attack_ms"], bc_["release_ms"])
+    beat = beat - band_ * (1 - gcv)[:, None]    # zero-phase band: with no ducking the beat is exactly as delivered
+    log["beat_carve"] = dict(bc_, threshold_dbfs=round(thr_cv, 1), active_pct=round(pct_cv, 1))
+    print(f"beat carve {bc_['band']} Hz, up to {bc_['depth_db']} dB on the leads' consonants ({pct_cv:.0f}% of the time)")
 
 # ---------------------------------------------------------------- 4. the layer order, every 2 bars where both sing
 bg, rides_bg = L.ride_layer(bg, Km, lambda s: SET["bg_vs_mains"].get(s, -5.0), n)

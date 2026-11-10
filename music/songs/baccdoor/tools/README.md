@@ -7,9 +7,9 @@ Run from a work folder that holds the stems as 01_Beat.wav, 02_Main1.wav, 03_Mai
 2. `pitch_layers.py` - how in tune each vocal is against the key, and how the layers relate
 3. `prep_vocals.py` - retune each stem to the beat's tuning (re-aligned to the sample), gain stage, high-pass
 4. `check_retune.py` - the pitch moved by the planned cents and the timing did not move
-5. `build_bacc.py v3` (or v1, v2) - chains, layer order, echo throws, reverbs, progression, mix bus, master, export.
+5. `build_bacc.py v4` (or v1-v3) - chains, layer order, echo throws, reverbs, progression, mix bus, master, export.
    v3 also: mono leads, tone match, the telephone background vocals at the first lead lines, and the fade-out
-6. `verify_bacc.py v3` - echo timing, layer order (and the telephone background), gaps, mono (exits 1 on a failure)
+6. `verify_bacc.py v4` - echo timing, layer order (and the telephone background), gaps, mono (exits 1 on a failure)
 7. `harsh.py` - harshness (2-5 kHz), fizz (5-12 kHz) and grit at every step of the lead chain, against Driftin' Away
 8. `hnr.py` - harmonics-to-noise ratio (how clean the voice is) at each step of the lead chain
 
