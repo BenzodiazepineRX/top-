@@ -1,0 +1,455 @@
+[
+ {
+  "track": "Lead 1",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "the compressor thresholds are calibrated to this level"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "High-pass",
+  "type": "hpf",
+  "tool": "dsp_tools hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90,
+   "lowest_note_hz": 117
+  },
+  "why": "rumble and plosives out; the lowest sung notes are Bb2 (117 Hz) and B2 (123 Hz)"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Mono (the middle only)",
+  "type": "bus",
+  "tool": "numpy mid/side",
+  "settings": "side removed before the chain (it sat 18 dB under the middle)",
+  "why": "the lesson from Baccdoor: the leads sit dead centre and identical on phones; nothing audible is lost here"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Tone match toward the Baccdoor v4 lead",
+  "type": "eq",
+  "tool": "match_eq.py (linear-phase FIR, octave-wide bands)",
+  "settings": "90% of the way to the owner's Baccdoor v4 lead as mixed, clamped -12/+8 dB: 125 Hz +2.2, 250 Hz +0.3, 500 Hz -0.7, 1 kHz +0.6, 2 kHz +4.5, 4 kHz +6.2, 8 kHz -4.5 dB; then -3 dB at 350 Hz (Q 0.8) and +3.5 dB at 3 kHz (Q 1.2); curve saved in tools/match_l1.json",
+  "why": "the raw takes are dark and boomy: 8-11 dB less 1.6-3.5 kHz than the Baccdoor v4 lead, a deep dip at 4 kHz, S sounds 15-20 dB over the vowels above 8 kHz. After the match alone the leads still sat 11-15 dB over the beat at 250 Hz-1 kHz but 0-4 dB over it at 2.5-3.2 kHz (muffled), hence the two bells. Leads as mixed, against their own total: 200-400 Hz -5.3 dB, 1.6-2.5 kHz -11.7, 2.5-3.5 kHz -15.8, 5-7 kHz -30.7 (Baccdoor v4: -6.4, -13.0, -16.7, -35.6)"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Dynamic EQ on harsh moments",
+  "type": "dyneq",
+  "tool": "dsp_tools dyneq",
+  "settings": "3000 Hz, Q 1.2, threshold at the 96th percentile",
+  "measured": {
+   "pct_active": 24.3,
+   "avg_db": 1.2
+  },
+  "why": "only the loud, edgy syllables; rap is all transients, so the threshold sits at a high percentile (at the 90th it acted 53% of the time)"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools deess",
+  "settings": "5-11 kHz, threshold at the 97.5th percentile",
+  "measured": {
+   "pct_active": 19.7,
+   "avg_db": 1.7
+  },
+  "why": "the S sounds in these takes stand far over the vowels"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools comp2",
+  "settings": "peak 5:1 at -6 dB, smooth 2:1 at -20 dB",
+  "measured": {
+   "avg_gr_db": 3.6
+  },
+  "why": "gentle, so the grain is not pulled up (the lesson from Baccdoor); the phrase rider does the levelling"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "the compressor thresholds are calibrated to this level"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "High-pass",
+  "type": "hpf",
+  "tool": "dsp_tools hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90,
+   "lowest_note_hz": 117
+  },
+  "why": "rumble and plosives out; the lowest sung notes are Bb2 (117 Hz) and B2 (123 Hz)"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Mono (the middle only)",
+  "type": "bus",
+  "tool": "numpy mid/side",
+  "settings": "side removed before the chain (it sat 18 dB under the middle)",
+  "why": "the lesson from Baccdoor: the leads sit dead centre and identical on phones; nothing audible is lost here"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Tone match toward the Baccdoor v4 lead",
+  "type": "eq",
+  "tool": "match_eq.py (linear-phase FIR, octave-wide bands)",
+  "settings": "90% of the way to the owner's Baccdoor v4 lead as mixed, clamped -12/+8 dB: 125 Hz +2.0, 250 Hz -0.2, 500 Hz -0.8, 1 kHz +1.3, 2 kHz +4.4, 4 kHz +6.1, 8 kHz -3.8 dB; then -3 dB at 350 Hz (Q 0.8) and +3.5 dB at 3 kHz (Q 1.2); curve saved in tools/match_l2.json",
+  "why": "the raw takes are dark and boomy: 8-11 dB less 1.6-3.5 kHz than the Baccdoor v4 lead, a deep dip at 4 kHz, S sounds 15-20 dB over the vowels above 8 kHz. After the match alone the leads still sat 11-15 dB over the beat at 250 Hz-1 kHz but 0-4 dB over it at 2.5-3.2 kHz (muffled), hence the two bells. Leads as mixed, against their own total: 200-400 Hz -5.3 dB, 1.6-2.5 kHz -11.7, 2.5-3.5 kHz -15.8, 5-7 kHz -30.7 (Baccdoor v4: -6.4, -13.0, -16.7, -35.6)"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Dynamic EQ on harsh moments",
+  "type": "dyneq",
+  "tool": "dsp_tools dyneq",
+  "settings": "3000 Hz, Q 1.2, threshold at the 96th percentile",
+  "measured": {
+   "pct_active": 22.0,
+   "avg_db": 1.3
+  },
+  "why": "only the loud, edgy syllables; rap is all transients, so the threshold sits at a high percentile (at the 90th it acted 53% of the time)"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools deess",
+  "settings": "5-11 kHz, threshold at the 97.5th percentile",
+  "measured": {
+   "pct_active": 23.8,
+   "avg_db": 1.8
+  },
+  "why": "the S sounds in these takes stand far over the vowels"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools comp2",
+  "settings": "peak 5:1 at -6 dB, smooth 2:1 at -20 dB",
+  "measured": {
+   "avg_gr_db": 3.6
+  },
+  "why": "gentle, so the grain is not pulled up (the lesson from Baccdoor); the phrase rider does the levelling"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "the compressor thresholds are calibrated to this level"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "High-pass",
+  "type": "hpf",
+  "tool": "dsp_tools hpf",
+  "settings": "150 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 150
+  },
+  "why": "adlibs are cut higher on purpose so they sit behind the leads"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "Tone match (darker top)",
+  "type": "eq",
+  "tool": "match_eq.py",
+  "settings": "90% toward the Baccdoor v4 lead, clamped -14/+4 dB: 125 Hz +4.0, 250 Hz +0.1, 500 Hz -0.2, 1 kHz -0.4, 2 kHz +2.7, 4 kHz +1.2, 8 kHz -12.5 dB; then a 150 Hz high-pass (12 dB/oct) and -5 dB shelf above 6 kHz; curve saved in tools/match_a1.json",
+  "why": "the adlib takes were 8-12 dB brighter than the leads above 5 kHz (fizz), so they would have sounded sharper than the leads they answer"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "Dynamic EQ on harsh moments",
+  "type": "dyneq",
+  "tool": "dsp_tools dyneq",
+  "settings": "3500 Hz, Q 1.2, threshold at the 95th percentile",
+  "measured": {
+   "pct_active": 26.6,
+   "avg_db": 1.7
+  },
+  "why": "only the loud, edgy syllables; rap is all transients, so the threshold sits at a high percentile (at the 90th it acted 53% of the time)"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools deess",
+  "settings": "5-11 kHz, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 24.2,
+   "avg_db": 1.8
+  },
+  "why": "the S sounds in these takes stand far over the vowels"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools comp2",
+  "settings": "fast peak stage 10:1 at -18 dB (0.3 ms attack), smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 5.2
+  },
+  "why": "these takes are very spiky (peaks 22 dB over their loudness; after: 16 dB); a spike in a quiet layer makes the master limiter dip"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "the compressor thresholds are calibrated to this level"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "High-pass",
+  "type": "hpf",
+  "tool": "dsp_tools hpf",
+  "settings": "150 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 150
+  },
+  "why": "adlibs are cut higher on purpose so they sit behind the leads"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "Tone match (darker top)",
+  "type": "eq",
+  "tool": "match_eq.py",
+  "settings": "90% toward the Baccdoor v4 lead, clamped -14/+4 dB: 125 Hz +3.9, 250 Hz +0.0, 500 Hz -1.0, 1 kHz +1.9, 2 kHz +4.0, 4 kHz +1.8, 8 kHz -9.4 dB; then a 150 Hz high-pass (12 dB/oct) and -5 dB shelf above 6 kHz; curve saved in tools/match_a2.json",
+  "why": "the adlib takes were 8-12 dB brighter than the leads above 5 kHz (fizz), so they would have sounded sharper than the leads they answer"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "Dynamic EQ on harsh moments",
+  "type": "dyneq",
+  "tool": "dsp_tools dyneq",
+  "settings": "3500 Hz, Q 1.2, threshold at the 95th percentile",
+  "measured": {
+   "pct_active": 22.8,
+   "avg_db": 1.5
+  },
+  "why": "only the loud, edgy syllables; rap is all transients, so the threshold sits at a high percentile (at the 90th it acted 53% of the time)"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools deess",
+  "settings": "5-11 kHz, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 20.5,
+   "avg_db": 2.0
+  },
+  "why": "the S sounds in these takes stand far over the vowels"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools comp2",
+  "settings": "fast peak stage 10:1 at -18 dB (0.3 ms attack), smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 5.0
+  },
+  "why": "these takes are very spiky (peaks 22 dB over their loudness; after: 16 dB); a spike in a quiet layer makes the master limiter dip"
+ },
+ {
+  "track": "Leads",
+  "effect": "Phrase rider: every line at the same loudness",
+  "type": "balance",
+  "tool": "build_closure.py ride_phrases",
+  "request": "Even volume",
+  "settings": "one gain per line (K-weighted, gated), -18.8 LUFS = 0.5 dB under the beat's verse loudness; gains -3.7 to -0.8 dB (lead 1) and -3.2 to -0.8 dB (lead 2), moving only in the gaps between lines; the same absolute level in the drops",
+  "why": "owner: 'perfect volume all the way through'. Checked after: 50 lines, median -0.2 dB from the target, 90% within 0.5 dB, largest -0.7 dB; leads against the beat -0.55 / -0.51 / -0.84 dB in verses 1-3. 0.5 dB under the beat is the lead level he approved on Driftin' Away"
+ },
+ {
+  "track": "Leads",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "closure_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -5.8 dBFS (target + 13 dB): over 1 dB on 5.8% / 6.5% of the singing, 0.2 dB average",
+  "why": "the tallest consonant peaks, so they do not pull the master limiter down"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "Ridden every 2 bars to sit under the leads",
+  "type": "balance",
+  "tool": "build_closure.py ride_abs",
+  "request": "Even volume",
+  "settings": "each adlib track to -24.8 LUFS (6 dB under the leads' level) over its sung blocks, per 2-bar window, gains clamped to the median +-5 dB, 0.3 s ramps; median gain -8.5 dB after the chain",
+  "why": "owner: 'from lead to background/adlibs so the listener can hear absolutely everything'. Checked after (both tracks together against the leads, where both sing, 41 windows): median -4.2 dB, range -8.2 to -1.7; never within 1.5 dB of the leads, never more than 4 dB under the target"
+ },
+ {
+  "track": "Adlib 1 (left)",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "closure_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -12.8 dBFS (target + 12 dB): over 1 dB on 10.4% of the singing, 0.31 dB average",
+  "why": "no master limiter dips from this layer"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "Ridden every 2 bars to sit under the leads",
+  "type": "balance",
+  "tool": "build_closure.py ride_abs",
+  "request": "Even volume",
+  "settings": "each adlib track to -24.8 LUFS (6 dB under the leads' level) over its sung blocks, per 2-bar window, gains clamped to the median +-5 dB, 0.3 s ramps; median gain -8.5 dB after the chain",
+  "why": "owner: 'from lead to background/adlibs so the listener can hear absolutely everything'. Checked after (both tracks together against the leads, where both sing, 41 windows): median -4.2 dB, range -8.2 to -1.7; never within 1.5 dB of the leads, never more than 4 dB under the target"
+ },
+ {
+  "track": "Adlib 2 (right)",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "closure_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -12.8 dBFS (target + 12 dB): over 1 dB on 7.7% of the singing, 0.23 dB average",
+  "why": "no master limiter dips from this layer"
+ },
+ {
+  "track": "Leads",
+  "effect": "Echo throws on line endings",
+  "type": "delay",
+  "tool": "closure_lib.render_echoes",
+  "request": "Echo throws",
+  "settings": "49 throws: the last clearly sung word of every lead line (both leads). Verse lines: 3 echoes (-6, -10, -14 dB). Hook and drop lines and the lines before a real pause (6 of them, including the 1.65 s and 1.48 s pauses before bars 50 and 66): 4 echoes (-4 to -16 dB). Each echo starts on a main beat, darker each time, left/right; ducked 5 dB (5/120 ms) under the leads",
+  "measured": {
+   "note": "1/4",
+   "ms": 476.19,
+   "bpm": 126.0,
+   "ducked": true,
+   "repeats_on_grid_max_ms": 0.06
+  },
+  "why": "owner: 'perfectly timed delay/echos to fill in empty gaps'. The leads hand over with almost no gaps (2 real pauses), so each line ending answers with an echo that tucks under the next line. 176 echoes with the last line, all within 0.06 ms of a beat"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Fade-out throw on the last line",
+  "type": "delay",
+  "tool": "closure_lib.render_echoes",
+  "request": "Echo throws",
+  "settings": "last word of the final line (2:52.4): 8 half-note echoes, 4 dB under the word then 2.5 dB quieter each, to 2:59.5, over the piano outro",
+  "measured": {
+   "note": "1/2",
+   "ms": 952.38,
+   "bpm": 126.0,
+   "ducked": true
+  },
+  "why": "the song ends on the beat's own piano outro; the last word rings into it"
+ },
+ {
+  "track": "Leads",
+  "effect": "Reverse-reverb swells into the drops",
+  "type": "reverse",
+  "tool": "build_closure.py reverse_swell (hall 3.2 s)",
+  "request": "Reverse reverbs",
+  "settings": "the word that lands on the drop, reversed through a 3.2 s hall and reversed back, rising with a squared ramp: bar 8 -> the first word at 0:18.0 (3.71 s); bar 48 -> the word at 1:34.3 as the drums come back (3.82 s); bar 65 -> the hook's first word at 2:04.8 (1.89 s); bar 72 -> the word at 2:20.0 as the drums come back (3.79 s, +3 dB because it rises under the 808). Peak = the word's own peak",
+  "why": "owner: 'reverse reverbs at perfect build up into beat drop'. Checked: each starts within 0.04 ms of a downbeat and ends within 0.09 ms of its word's first sound; in its last half second each swell is as loud as or louder than the rest of the mix (the owner found Driftin' Away's first swells too quiet)"
+ },
+ {
+  "track": "Beat",
+  "effect": "Reverse-reverb risers into the drum entries",
+  "type": "reverse",
+  "tool": "build_closure.py reverse_swell",
+  "request": "Reverse reverbs",
+  "settings": "the drop's own first hit above 250 Hz (a whoosh, not a second 808), reversed through the same hall, one bar long, into bars 10, 50 and 74 (+3 dB into bar 74); peak = the hit's peak",
+  "why": "the build-up belongs to the beat as well as the voice. Checked: each ends within 0.09 ms of the kick's click, which sits 3.4 ms before the grid downbeat"
+ },
+ {
+  "track": "Beat",
+  "effect": "Room for the words (carve)",
+  "type": "dyneq",
+  "tool": "build_closure.py (zero-phase band, ducker keyed by the leads' own 3.2-6.5 kHz band)",
+  "settings": "beat's 3.2-6.5 kHz ducked up to 5 dB on the leads' consonants (key over its 84th percentile; 5/120 ms); the beat is exactly as delivered the rest of the time",
+  "measured": {
+   "pct_active": 28.2,
+   "avg_db": 5.0
+  },
+  "why": "clearer words without a brighter voice (from Baccdoor v4)"
+ },
+ {
+  "track": "Leads",
+  "effect": "Plate reverb that opens up in the hooks and drops",
+  "type": "reverb",
+  "tool": "closure_lib.reverb (dsp_tools make_ir)",
+  "request": "Reverb",
+  "settings": "plate, RT60 1.43 s (dotted half), pre-delay 29.76 ms (1/64), ducked 4 dB, send low-passed at 8 kHz; return -16 dB in the verses, -14 in hook 1 and the outro, -12 in the two drops (1-beat ramps)",
+  "measured": {
+   "predelay_ms": 29.76,
+   "decay_s": 1.4286,
+   "bpm": 126.0
+  },
+  "why": "dry enough for the words in the verses, wider where the drums leave"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Hall",
+  "type": "reverb",
+  "tool": "closure_lib.reverb",
+  "request": "Reverb",
+  "settings": "hall, RT60 1.90 s (1 bar), pre-delay 29.76 ms, ducked 2 dB, return -14 dB, send low-passed at 8 kHz",
+  "measured": {
+   "predelay_ms": 29.76,
+   "decay_s": 1.9048,
+   "bpm": 126.0
+  },
+  "why": "a little depth only: the adlib tracks carry their own ambience"
+ },
+ {
+  "track": "Echoes",
+  "effect": "Plate on the echoes",
+  "type": "reverb",
+  "tool": "closure_lib.reverb",
+  "request": "Reverb",
+  "settings": "plate 1.43 s, pre-delay 29.76 ms, return -9 dB",
+  "measured": {
+   "predelay_ms": 29.76,
+   "decay_s": 1.4286,
+   "bpm": 126.0
+  },
+  "why": "echoes melt into the space"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Section lift",
+  "type": "balance",
+  "tool": "build_closure.py",
+  "settings": "whole mix +0.3 dB in verse 2 and drop 2, +0.6 dB in verse 3 and the outro (1-beat ramps)",
+  "why": "the song grows a little as it goes"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Mono sub (no treble lift)",
+  "type": "bus",
+  "tool": "dsp_tools ms-bus",
+  "settings": "side high-pass 100 Hz (24 dB/oct, zero-phase); mid shelf 9.5 kHz at 0 dB",
+  "why": "the 808 stays centred; no added top end (the lesson from Baccdoor)"
+ },
+ {
+  "track": "Master",
+  "effect": "True-peak limiter for streaming",
+  "type": "limiter",
+  "tool": "render_master.py",
+  "request": "Streaming master",
+  "settings": "target -12.0 LUFS, ceiling -1.0 dBTP (result -12.1 LUFS, -1.2 dBTP WAV / -1.1 dBTP MP3, limiter 0.5 LU)",
+  "why": "streaming services play at about -14 LUFS; -1 dBTP leaves room for their encoders"
+ },
+ {
+  "track": "Ending",
+  "effect": "The beat's own piano outro kept",
+  "type": "keep",
+  "tool": "none",
+  "settings": "no fade: the beat ends by itself at 3:07; the last echoes end at 2:59.5",
+  "why": "the beat has a natural ending (Baccdoor's did not, so that one was faded)"
+ }
+]
