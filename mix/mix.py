@@ -4,8 +4,8 @@
 Stems are timeline-aligned 44.1 kHz stereo. The instrumental is a produced
 128 BPM record, so every delay is an exact note value of that tempo.
 
-  Lead vocals (Lead 1, Lead 2, Lead 3): one eighth-note delay.
-    The first repeat is the line said again, an eighth note later.
+  Lead vocals (Lead 1, Lead 2, Lead 3): one quiet eighth-note repeat.
+    The line is said again just after, without a trailing wash.
   Adlibs: dry, a little under the lead, with one quiet dotted-eighth repeat.
 
 Lead 3 is the Motorola section: narrowband, lightly overdriven, mono.
@@ -43,11 +43,11 @@ LEAD_PRESENCE_DB = 6.0
 ADLIB_UNDER_LEAD_DB = 10.0
 PHONE_UNDER_LEAD_DB = 1.0
 
-LEAD_SEND_DB = -6.0
+LEAD_SEND_DB = -12.5
 ADLIB_SEND_DB = -14.0
-LEAD_FEEDBACK = 0.32
+LEAD_FEEDBACK = 0.12
 ADLIB_FEEDBACK = 0.12
-LEAD_DUCK_DB = 3.0
+LEAD_DUCK_DB = 6.0
 ADLIB_DUCK_DB = 3.5
 
 
@@ -433,6 +433,7 @@ def process_lead(x: np.ndarray) -> np.ndarray:
     y = vocal_rider(y, max_boost_db=4.5, max_cut_db=3.2)
     y, gr = compressor(y, thresh_db=-18.0, ratio=2.6, attack_ms=14.0, release_ms=110.0, knee_db=8.0)
     y = match_active_rms(y, raw, mask)
+    y = trim_tail(y, open_db=-42.0, release_ms=110.0)
     print(f"    lead compressor average GR {gr:.2f} dB")
     return y
 
@@ -696,7 +697,9 @@ def render() -> None:
 
     lead_bus = (lead1 + lead2 + phone).astype(np.float32)
     print("delays")
-    lead_wet = comb_wet(mono(lead_bus), EIGHTH, LEAD_FEEDBACK, 220.0, 6200.0)
+    # One thinner repeat, an eighth note later. The band is narrowed so it
+    # does not bloom into a second vocal.
+    lead_wet = comb_wet(mono(lead_bus), EIGHTH, LEAD_FEEDBACK, 500.0, 4800.0)
     lead_duck = duck_gain(lead_bus, LEAD_DUCK_DB)
     lead_delay = np.stack([lead_wet, lead_wet], axis=1) * lin(LEAD_SEND_DB) * lead_duck[:, None]
 
