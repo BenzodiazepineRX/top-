@@ -1,0 +1,462 @@
+[
+ {
+  "track": "Lead 1",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-8.1 cents, re-aligned to the sample by envelope correlation (rubberband added 80 samples)",
+  "measured": {
+   "cents_planned": -8.1
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90,
+   "lowest_note_hz": 110
+  },
+  "why": "rumble out; lowest sung note stays"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3 kHz, Q 1.5, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 8.4,
+   "avg_db": 1.1
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Presence",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "+1.5 dB at 3.5 kHz, Q 1",
+  "why": "words clear on phones and earbuds"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-8.5 kHz band, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 10.7,
+   "avg_db": 3.2
+  },
+  "why": "S sounds only"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 4.9
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Saturation",
+  "type": "saturation",
+  "tool": "dsp_tools.py saturate",
+  "settings": "drive 6 dB, even 0.15, mix 0.3",
+  "why": "light warmth"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-7.7 cents, re-aligned to the sample by envelope correlation (rubberband added 36 samples)",
+  "measured": {
+   "cents_planned": -7.7
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90,
+   "lowest_note_hz": 98
+  },
+  "why": "rumble out; lowest sung note stays"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3 kHz, Q 1.5, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 8.1,
+   "avg_db": 1.1
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Presence",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "+1.5 dB at 3.5 kHz, Q 1",
+  "why": "words clear on phones and earbuds"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-8.5 kHz band, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 10.3,
+   "avg_db": 3.1
+  },
+  "why": "S sounds only"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 4.9
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Saturation",
+  "type": "saturation",
+  "tool": "dsp_tools.py saturate",
+  "settings": "drive 6 dB, even 0.15, mix 0.3",
+  "why": "light warmth"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-7.2 cents, re-aligned to the sample by envelope correlation (rubberband added 29 samples)",
+  "measured": {
+   "cents_planned": -7.2
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "150 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 150
+  },
+  "why": "rumble out; thinner so it sits behind"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3 kHz, Q 1.5, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 7.2,
+   "avg_db": 1.1
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Softer front",
+  "type": "eq",
+  "tool": "ffmpeg equalizer / highshelf",
+  "settings": "-1.5 dB at 3 kHz (Q 1), -1.5 dB shelf above 7 kHz",
+  "why": "sits behind the layer above"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-8.5 kHz band, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 10.3,
+   "avg_db": 3.3
+  },
+  "why": "S sounds only"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 5.5
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-7.9 cents, re-aligned to the sample by envelope correlation (rubberband added 65 samples)",
+  "measured": {
+   "cents_planned": -7.9
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Background of background",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "180 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 180
+  },
+  "why": "rumble out; thinner so it sits behind"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3 kHz, Q 1.5, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 7.7,
+   "avg_db": 1.1
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Softer front",
+  "type": "eq",
+  "tool": "ffmpeg equalizer / highshelf",
+  "settings": "-1.5 dB at 3 kHz (Q 1), -1.5 dB shelf above 7 kHz",
+  "why": "sits behind the layer above"
+ },
+ {
+  "track": "Background of background",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-8.5 kHz band, threshold at the 97th percentile",
+  "measured": {
+   "pct_active": 12.0,
+   "avg_db": 2.5
+  },
+  "why": "S sounds only"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 4.7
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Leads",
+  "effect": "Narrower stereo",
+  "type": "bus",
+  "tool": "numpy mid/side",
+  "settings": "side -6 dB on both lead stems",
+  "why": "the lead stems carried a lot of width (14% of moments out of phase); phones play mono. Master in mono: -0.4 dB, vocal band -0.5 dB"
+ },
+ {
+  "track": "Leads",
+  "effect": "Level by section",
+  "type": "balance",
+  "tool": "build_bacc.py",
+  "request": "Progression",
+  "settings": "the two leads together 0.3 dB over the beat in each full section (A -1.64, B -0.51, C -1.80 dB; drops follow the section before), 1-beat ramps",
+  "why": "the overlapping takes added up unevenly (A +1.6, B +0.5, C +1.8 dB over the beat before this); Driftin' Away showed +1 is too loud for the owner"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Under the leads, ridden every 2 bars",
+  "type": "balance",
+  "tool": "bacc_lib.ride_layer",
+  "request": "Layer order",
+  "settings": "6 dB under the leads in A, 5 in the drops and B, 4.5 in C (measured only where both sing; gains clamped to the median +-4 dB, 0.3 s ramps); checked after: -4.5 to -6.0 dB",
+  "why": "the owner's order: lead > background > background of background"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Under the background vocals, ridden every 2 bars",
+  "type": "balance",
+  "tool": "bacc_lib.ride_layer",
+  "request": "Layer order",
+  "settings": "4 dB under the background vocals (9 dB under the leads where the background is silent); checked after: median -4.1 dB, never above",
+  "why": "background vocals of the background vocals sit under them"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "bacc_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -13.03 dBFS (loudness + 10 dB): over 1 dB on 0.3% of the singing",
+  "why": "their peaks never pull the master limiter down"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "bacc_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -16.99 dBFS (loudness + 10 dB): over 1 dB on 5.2% of the singing",
+  "why": "their peaks never pull the master limiter down"
+ },
+ {
+  "track": "Leads",
+  "effect": "Plate reverb that opens up in the drops",
+  "type": "reverb",
+  "tool": "bacc_lib.reverb (dsp_tools make_ir)",
+  "request": "Reverb",
+  "settings": "plate, RT60 1.44 s (dotted half), pre-delay 30 ms (1/64), ducked 4 dB; return -16 dB in A, -15 in B and C, -12 in the drops (1-beat ramps)",
+  "measured": {
+   "predelay_ms": 30.0,
+   "decay_s": 1.44,
+   "bpm": 125.0
+  },
+  "why": "clear words in the full sections, more space when the beat drops"
+ },
+ {
+  "track": "Background layers",
+  "effect": "Hall",
+  "type": "reverb",
+  "tool": "bacc_lib.reverb",
+  "request": "Reverb",
+  "settings": "hall, RT60 1.92 s (1 bar), pre-delay 30 ms, ducked 2 dB, return -9 dB",
+  "measured": {
+   "predelay_ms": 30.0,
+   "decay_s": 1.92,
+   "bpm": 125.0
+  },
+  "why": "pushes the background layers back"
+ },
+ {
+  "track": "Leads",
+  "effect": "Echo throws on line endings",
+  "type": "delay",
+  "tool": "bacc_lib.render_echoes",
+  "request": "Echo throws",
+  "settings": "19 throws: the last sung word of every lead 1 line (3 echoes: -6, -10, -14 dB) and of every lead line in the two drops (4 echoes: -4 to -16 dB); each echo starts on a main beat, darker each time, left/right; ducked -3 dB (5/120 ms) under the leads",
+  "measured": {
+   "note": "1/4",
+   "ms": 480.0,
+   "bpm": 125.0,
+   "ducked": true,
+   "repeats_on_grid_max_ms": 0.04
+  },
+  "why": "the owner asked for echo throws perfectly timed; one throw per 4 bars in the full sections keeps them from crowding the overlapping takes, every line in the drops where there is room"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Fade-out throw on the last line",
+  "type": "delay",
+  "tool": "bacc_lib.render_echoes",
+  "request": "Echo throws",
+  "settings": "last sung word of the final line (2:51): 8 half-note echoes, 4 dB under the word then 2.5 dB quieter each",
+  "measured": {
+   "note": "1/2",
+   "ms": 960.0,
+   "bpm": 125.0,
+   "ducked": true
+  },
+  "why": "the song does not stop dead when the vocals end"
+ },
+ {
+  "track": "Echoes",
+  "effect": "Plate on the echoes",
+  "type": "reverb",
+  "tool": "bacc_lib.reverb",
+  "request": "Reverb",
+  "settings": "plate 1.44 s, pre-delay 30 ms, return -9 dB",
+  "measured": {
+   "predelay_ms": 30.0,
+   "decay_s": 1.44,
+   "bpm": 125.0
+  },
+  "why": "echoes melt into space"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Section lift",
+  "type": "balance",
+  "tool": "build_bacc.py",
+  "request": "Progression",
+  "settings": "whole mix +0.0 dB in A, +0.3 in B, +0.6 in C (1-beat ramps)",
+  "why": "the song grows: master -11.5 LUFS in A, -11.4 in B, -10.7 in C while the vocals last"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Mono sub and mid air",
+  "type": "bus",
+  "tool": "dsp_tools.py ms-bus",
+  "settings": "side high-pass 100 Hz; mid shelf +1.5 dB at 9.5 kHz (modest: the beat is a 160 kbps rip)",
+  "why": "centered low end, clear top"
+ },
+ {
+  "track": "Master",
+  "effect": "True-peak limiter for streaming",
+  "type": "limiter",
+  "tool": "render_master.py",
+  "request": "Streaming master",
+  "settings": "target -12.0 LUFS, ceiling -1.0 dBTP (result -12.1 LUFS, -1.2 dBTP WAV / -1.1 dBTP MP3, limiter 0.5 LU)",
+  "why": "room for AAC and Ogg encoders on streaming services"
+ }
+]
