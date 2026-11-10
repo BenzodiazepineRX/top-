@@ -43,11 +43,11 @@ LEAD_PRESENCE_DB = 6.0
 ADLIB_UNDER_LEAD_DB = 10.0
 PHONE_UNDER_LEAD_DB = 1.0
 
-LEAD_SEND_DB = -12.5
+LEAD_SEND_DB = -15.0
 ADLIB_SEND_DB = -14.0
-LEAD_FEEDBACK = 0.12
+LEAD_FEEDBACK = 0.08
 ADLIB_FEEDBACK = 0.12
-LEAD_DUCK_DB = 6.0
+LEAD_DUCK_DB = 7.0
 ADLIB_DUCK_DB = 3.5
 
 
@@ -716,12 +716,14 @@ def render() -> None:
         m = mono(stem)[mask]
         return db(float(np.sqrt(np.mean(m.astype(np.float64) ** 2) + 1e-20)))
 
-    delay_mask = active_mask(lead_delay, thresh_db=-36.0, win_ms=40.0, dilate_ms=30.0)
-    # Measure the echo where the adlib's repeat actually lands, one dotted eighth later.
+    # Measure the repeat an eighth note after the lead, even when it is quiet.
+    lead_at = np.zeros(len(m1), dtype=bool)
+    lead_sing = m1 | m2
+    lead_at[EIGHTH:] = lead_sing[:-EIGHTH]
     echo_at = np.zeros(len(ma), dtype=bool)
     echo_at[DOTTED_EIGHTH:] = ma[:-DOTTED_EIGHTH]
     print(f"    lead repeat vs dry lead: "
-          f"{masked_rms_db(lead_delay, delay_mask) - masked_rms_db(lead_bus, m1 | m2):+.1f} dB")
+          f"{masked_rms_db(lead_delay, lead_at) - masked_rms_db(lead_bus, lead_sing):+.1f} dB")
     print(f"    adlib echo vs dry adlib: "
           f"{masked_rms_db(ad_echo, echo_at) - masked_rms_db(adlib, ma):+.1f} dB")
 
