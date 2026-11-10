@@ -768,6 +768,20 @@ def render() -> None:
     g1 = phrase_end_gate(lead1)
     g2 = phrase_end_gate(lead2)
     g3 = phrase_end_gate(phone)
+    # From 1:40 to 2:03 the delay follows the whole vocal, not just the line ending.
+    n = len(lead1)
+    full = np.zeros(n, dtype=np.float32)
+    a = min(int(100.0 * SR), n)
+    b = min(int(123.0 * SR), n)
+    full[a:b] = 1.0
+    fade = int(0.04 * SR)
+    if b - a > fade * 2:
+        ramp = np.linspace(0.0, 1.0, fade, dtype=np.float32)
+        full[a:a + fade] *= ramp
+        full[b - fade:b] *= ramp[::-1]
+    g1 = np.maximum(g1, full)
+    g2 = np.maximum(g2, full)
+    g3 = np.maximum(g3, full)
     end_gate = np.maximum(np.maximum(g1, g2), g3)
     throw_src = mono(lead1) * g1 + mono(lead2) * g2 + mono(phone) * g3
     lead_wet = comb_wet(throw_src.astype(np.float32), EIGHTH, LEAD_FEEDBACK, 500.0, 4800.0)
