@@ -1,6 +1,22 @@
 # Satan's Casino — notes
 
-**Listen to v04.** v03 is the baseline Chex approved. v04 keeps that balance and adds delays. Nothing in v04 was listened to here. Peaks are not a sign-off.
+**Listen to v05.** v04 is not approved. v03 is still the dry mix that was liked. v05 was not listened to here. Peaks are not a sign-off.
+
+## v05
+
+Two separate parts, and nothing else new.
+
+The full line is repeated **once**, one bar later (1777.78 ms), quieter, with the telephone tone. There is no feedback loop. 48 lines. Six stretches longer than 6 seconds had no pause in the transcript, so they were not cut up into fake lines.
+
+Only the last word is echoed, and the copy starts after that word has finished. The step is a whole number of dotted eighths (333.33 ms), large enough that the echo is not still on top of the word. Levels drop by 5 dB each tap. The opening telephone line's last word, "alcohol", has its own echoes at 4.518, 5.518, 6.518 and 7.518 s.
+
+Alcohol on the lead is 17.740–18.620 s. The model ended it at 18.080 s, but the waveform is still loud until about 18.28 s and then falls. The next trusted word is at 19.66 s, so that extra time is the rest of the word, not the next line. Its one echo starts at 18.740 s.
+
+"15k" does not match one clean model window. The level before the model's start is louder than the start, and the model end is still in the last burst. The throw uses the last rise that decays into the pause (154.240–154.560 s) and the event is flagged. The model time was not treated as exact.
+
+Dry beat and dry vocal are the v03 buses, -8 dB and -6 dB. The reverse and the intro phone keep the small darkening from the hiss check. From 17–18.5 s, v03 is -20.77 dB RMS and v05 is -20.71 dB. Correlation 0.987. Peak -1.54 dBFS. No limiter.
+
+Detail is in `reports/v05.md` and `effects/v05-events.json`.
 
 ## v04
 
