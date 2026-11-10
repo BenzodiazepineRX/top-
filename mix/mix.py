@@ -4,8 +4,8 @@
 Stems are timeline-aligned 44.1 kHz stereo. The instrumental is a produced
 128 BPM record, so every delay is an exact note value of that tempo.
 
-  Lead vocals (Lead 1, Lead 2, Lead 3): one quiet eighth-note repeat.
-    The line is said again just after, without a trailing wash.
+  Lead vocals (Lead 1, Lead 2, Lead 3): one quiet eighth-note repeat
+    of only the last few words of each line.
   Adlibs: dry, a little under the lead, with one quiet dotted-eighth repeat.
 
 Lead 3 is the Motorola section: narrowband, lightly overdriven, mono.
@@ -438,6 +438,73 @@ def process_lead(x: np.ndarray) -> np.ndarray:
     return y
 
 
+def phrase_end_gate(x: np.ndarray, hold_s: float = 1.05, max_s: float = 1.45) -> np.ndarray:
+    """Open only for the last few words of each vocal line."""
+    m = mono(x) if x.ndim == 2 else x
+    hop = int(0.01 * SR)
+    nf = len(m) // hop
+    if nf < 10:
+        return np.zeros(len(m), dtype=np.float32)
+    power = np.add.reduceat(m[: nf * hop].astype(np.float64) ** 2, np.arange(0, nf * hop, hop)) / hop
+    level = 20.0 * np.log10(np.sqrt(power) + 1e-9)
+    level = uniform_filter1d(level, size=4)
+    active = level > -34.0
+    frames = np.zeros(nf, dtype=np.float32)
+    i = 0
+    gap = 16
+    phrases = 0
+    while i < nf:
+        if not active[i]:
+            i += 1
+            continue
+        start = i
+        while i < nf and active[i]:
+            i += 1
+        end = i
+        while i < nf:
+            j = i
+            while j < nf and not active[j]:
+                j += 1
+            if j < nf and (j - i) < gap:
+                i = j
+                while i < nf and active[i]:
+                    i += 1
+                end = i
+            else:
+                break
+        if (end - start) * 0.01 < 0.5:
+            continue
+        flux = np.diff(level[start:end], prepend=level[start])
+        onsets = []
+        last = -10
+        for k, v in enumerate(flux):
+            if v > 1.6 and k - last >= 8:
+                onsets.append(start + k)
+                last = k
+        hold = int(hold_s / 0.01)
+        cap = int(max_s / 0.01)
+        if len(onsets) >= 4:
+            begin = onsets[-4]
+        elif onsets:
+            begin = onsets[max(0, len(onsets) // 2)]
+        else:
+            begin = end - hold
+        begin = min(begin, end - hold)
+        begin = max(begin, end - cap, start)
+        frames[begin:end] = 1.0
+        phrases += 1
+    full = np.repeat(frames, hop)
+    if len(full) < len(m):
+        full = np.pad(full, (0, len(m) - len(full)))
+    full = full[: len(m)]
+    fade = max(1, int(0.025 * SR))
+    kern = np.ones(fade, dtype=np.float32) / fade
+    full = np.convolve(full, kern, mode="same").astype(np.float32)
+    open_pct = 100.0 * float(np.mean(full > 0.5))
+    print(f"    lead delay opens on {phrases} line endings ({open_pct:.1f}% of the song)")
+    return full
+
+
 def trim_tail(x: np.ndarray, open_db: float = -36.0, release_ms: float = 80.0) -> np.ndarray:
     """Close behind the word so a room tail does not hang into the next line."""
     level = envelope_db(x, attack_ms=2.0, release_ms=release_ms, hop=16)
@@ -697,9 +764,13 @@ def render() -> None:
 
     lead_bus = (lead1 + lead2 + phone).astype(np.float32)
     print("delays")
-    # One thinner repeat, an eighth note later. The band is narrowed so it
-    # does not bloom into a second vocal.
-    lead_wet = comb_wet(mono(lead_bus), EIGHTH, LEAD_FEEDBACK, 500.0, 4800.0)
+    # Each vocal only feeds the delay at the end of its own line.
+    g1 = phrase_end_gate(lead1)
+    g2 = phrase_end_gate(lead2)
+    g3 = phrase_end_gate(phone)
+    end_gate = np.maximum(np.maximum(g1, g2), g3)
+    throw_src = mono(lead1) * g1 + mono(lead2) * g2 + mono(phone) * g3
+    lead_wet = comb_wet(throw_src.astype(np.float32), EIGHTH, LEAD_FEEDBACK, 500.0, 4800.0)
     lead_duck = duck_gain(lead_bus, LEAD_DUCK_DB)
     lead_delay = np.stack([lead_wet, lead_wet], axis=1) * lin(LEAD_SEND_DB) * lead_duck[:, None]
 
@@ -719,11 +790,17 @@ def render() -> None:
     # Measure the repeat an eighth note after the lead, even when it is quiet.
     lead_at = np.zeros(len(m1), dtype=bool)
     lead_sing = m1 | m2
-    lead_at[EIGHTH:] = lead_sing[:-EIGHTH]
+    thrown = np.zeros(len(end_gate), dtype=bool)
+    thrown[EIGHTH:] = end_gate[:-EIGHTH] > 0.5
+    early = lead_sing.copy()
+    early[: len(end_gate)] &= end_gate < 0.2
+    early_at = np.zeros(len(early), dtype=bool)
+    early_at[EIGHTH:] = early[:-EIGHTH]
+    print(f"    end-word repeat vs those words: "
+          f"{masked_rms_db(lead_delay, thrown) - masked_rms_db(lead_bus, end_gate > 0.5):+.1f} dB")
+    print(f"    repeat during the rest of the line: {masked_rms_db(lead_delay, early_at):.1f} dBFS")
     echo_at = np.zeros(len(ma), dtype=bool)
     echo_at[DOTTED_EIGHTH:] = ma[:-DOTTED_EIGHTH]
-    print(f"    lead repeat vs dry lead: "
-          f"{masked_rms_db(lead_delay, lead_at) - masked_rms_db(lead_bus, lead_sing):+.1f} dB")
     print(f"    adlib echo vs dry adlib: "
           f"{masked_rms_db(ad_echo, echo_at) - masked_rms_db(adlib, ma):+.1f} dB")
 
