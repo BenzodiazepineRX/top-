@@ -1,6 +1,22 @@
 # Satan's Casino — notes
 
-v02 was rejected: the added vocal at the start was cut off and off the beat. **Listen to v03**, not v02. v03 has not been listened to here. Peaks are not a sign-off.
+**Listen to v04.** v03 is the baseline Chex approved. v04 keeps that balance and adds delays. Nothing in v04 was listened to here. Peaks are not a sign-off.
+
+## v04
+
+Baseline file: `renders/satans-casino-v03-review.wav`. Dry beat and dry vocal are those v03 buses, still -8 dB and -6 dB from sample 0.
+
+Hiss, measured before any treatment: in the quiet hole, 6–12 kHz is about -80 dB on the beat and the vocal. That is not a hiss floor, and the hats during the vocal were left alone. The extra brightness is 2–5 kHz on the reverse swell in that hole, and on the intro telephone. Those two buses only were darkened (reverse low-passed at 3.6 kHz, intro phone about 2.5 dB down above 3.2 kHz). No gate.
+
+A speech model (faster-whisper small) gave 770 words, 597 of them at probability 0.7 or higher. Throws use those words plus the decay into a measured gap, delayed by whole dotted eighths (333.33 ms). They are not 300 ms cuts, and the start is not moved onto a bar. Where the transcript start sat inside the previous syllable, the throw begins at the last dip-then-rise before the gap. Every measured gap got at least one repeat. The list is in `reports/v04.md`.
+
+The under-lead part is a telephone send of the whole vocal, same dotted-eighth delay, feedback 0.34, each repeat darker, and 6 dB down while the lead is singing. From 17.0–18.5 s the level is -20.8 dB RMS in v03 and -20.7 dB in v04. Correlation with v03 is 0.996.
+
+Candidate peak -1.54 dBFS. No limiter. No loudness match.
+
+## v03 correction
+
+v02 was rejected: the added vocal at the start was cut off and off the beat. v03 fixed that line. v04 does not rebuild it.
 
 ## v03 correction
 

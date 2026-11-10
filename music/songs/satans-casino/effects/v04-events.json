@@ -1,0 +1,458 @@
+{
+  "version": "v04",
+  "baseline": "satans-casino-v03-review.wav",
+  "baseline_commit_character": "v03 dry -8/-6, opening phone line, two reverses, two beat-stop builds",
+  "listening": "not performed",
+  "transcription": {
+    "tool": "faster-whisper small, int8, English, word timestamps",
+    "words": 770,
+    "probability_at_least_0.7": 597,
+    "note": "Timestamps are a speech model's, checked against the waveform before a throw is kept. They are not a listening pass."
+  },
+  "hiss": {
+    "before": {
+      "hole_reverse_2k5k": -57.43,
+      "intro_phone_2k5k": -55.47,
+      "hole_beat_6k12k": -80.53,
+      "hole_vocal_6k12k": -82.13,
+      "singing_beat_6k12k": -45.82
+    },
+    "after_selective_treatment": {
+      "hole_reverse_2k5k": -59.07,
+      "intro_phone_2k5k": -56.1
+    },
+    "reading": "6\u201312 kHz in the beat during the quiet hole is about -80 dB after the -8 dB fader. The vocal in that hole is about -79 dB up there. That is not a hiss floor. During the vocal, 6\u201312 kHz is the beat's hats. Those were left alone. The extra 2\u20135 kHz in the hole is the reverse swell. The extra 2\u20135 kHz in the intro is the telephone copy. Only those two buses were darkened. No gate."
+  },
+  "difference_vs_v03": {
+    "singing_17_18_rms_v03": -20.77,
+    "singing_17_18_rms_v04": -20.69,
+    "hole_rms_v03": -27.96,
+    "hole_rms_v04": -27.91,
+    "full_correlation": 0.9963,
+    "dry_vocal_unchanged": true,
+    "dry_beat_unchanged": true
+  },
+  "fx_trims_db": [],
+  "candidate_peak_dbfs": -1.54,
+  "delay_bed": {
+    "delay_samples": 14700,
+    "delay_ms": 333.33,
+    "feedback": 0.34,
+    "loop_lowpass_hz": 2100,
+    "duck_db": 6,
+    "static_gain_db": 0.312,
+    "band_hz": [
+      420,
+      2800
+    ]
+  },
+  "throws": [
+    {
+      "id": "throw-alcohol-17.720-r1",
+      "layer": "echo_throws",
+      "word": "alcohol",
+      "probability": 0.981,
+      "source_start_s": 17.72,
+      "source_end_s": 18.62,
+      "whisper_start_s": 17.74,
+      "whisper_end_s": 18.08,
+      "dest_start_s": 18.053333,
+      "dest_end_s": 18.953333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        18.782,
+        19.451
+      ],
+      "pre_db": -21.75,
+      "head_db": -18.8
+    },
+    {
+      "id": "throw-alcohol-17.720-r2",
+      "layer": "echo_throws",
+      "word": "alcohol",
+      "probability": 0.981,
+      "source_start_s": 17.72,
+      "source_end_s": 18.62,
+      "whisper_start_s": 17.74,
+      "whisper_end_s": 18.08,
+      "dest_start_s": 18.386667,
+      "dest_end_s": 19.286667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        18.782,
+        19.451
+      ],
+      "pre_db": -21.75,
+      "head_db": -18.8
+    },
+    {
+      "id": "throw-Adderall-21.290-r1",
+      "layer": "echo_throws",
+      "word": "Adderall",
+      "probability": 0.782,
+      "source_start_s": 21.29,
+      "source_end_s": 22.12,
+      "whisper_start_s": 21.3,
+      "whisper_end_s": 21.86,
+      "dest_start_s": 21.623333,
+      "dest_end_s": 22.453333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        22.254,
+        22.968
+      ],
+      "pre_db": -30.12,
+      "head_db": -18.19
+    },
+    {
+      "id": "throw-Adderall-21.290-r2",
+      "layer": "echo_throws",
+      "word": "Adderall",
+      "probability": 0.782,
+      "source_start_s": 21.29,
+      "source_end_s": 22.12,
+      "whisper_start_s": 21.3,
+      "whisper_end_s": 21.86,
+      "dest_start_s": 21.956667,
+      "dest_end_s": 22.786667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        22.254,
+        22.968
+      ],
+      "pre_db": -30.12,
+      "head_db": -18.19
+    },
+    {
+      "id": "throw-15k-70.620-r1",
+      "layer": "echo_throws",
+      "word": "15k",
+      "probability": 0.821,
+      "source_start_s": 70.62,
+      "source_end_s": 70.98,
+      "whisper_start_s": 70.08,
+      "whisper_end_s": 70.74,
+      "dest_start_s": 70.953333,
+      "dest_end_s": 71.313333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        71.173,
+        71.877
+      ],
+      "pre_db": -34.61,
+      "head_db": -23.4
+    },
+    {
+      "id": "throw-15k-70.620-r2",
+      "layer": "echo_throws",
+      "word": "15k",
+      "probability": 0.821,
+      "source_start_s": 70.62,
+      "source_end_s": 70.98,
+      "whisper_start_s": 70.08,
+      "whisper_end_s": 70.74,
+      "dest_start_s": 71.286667,
+      "dest_end_s": 71.646667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        71.173,
+        71.877
+      ],
+      "pre_db": -34.61,
+      "head_db": -23.4
+    },
+    {
+      "id": "throw-yours?-98.050-r1",
+      "layer": "echo_throws",
+      "word": "yours?",
+      "probability": 0.995,
+      "source_start_s": 98.05,
+      "source_end_s": 98.78,
+      "whisper_start_s": 98.08,
+      "whisper_end_s": 98.42,
+      "dest_start_s": 98.383333,
+      "dest_end_s": 99.113333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        98.925,
+        99.539
+      ],
+      "pre_db": -23.61,
+      "head_db": -17.22
+    },
+    {
+      "id": "throw-yours?-98.050-r2",
+      "layer": "echo_throws",
+      "word": "yours?",
+      "probability": 0.995,
+      "source_start_s": 98.05,
+      "source_end_s": 98.78,
+      "whisper_start_s": 98.08,
+      "whisper_end_s": 98.42,
+      "dest_start_s": 98.716667,
+      "dest_end_s": 99.446667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        98.925,
+        99.539
+      ],
+      "pre_db": -23.61,
+      "head_db": -17.22
+    },
+    {
+      "id": "throw-alcohol.-101.300-r1",
+      "layer": "echo_throws",
+      "word": "alcohol.",
+      "probability": 0.924,
+      "source_start_s": 101.3,
+      "source_end_s": 102.2,
+      "whisper_start_s": 101.3,
+      "whisper_end_s": 101.64,
+      "dest_start_s": 101.633333,
+      "dest_end_s": 102.533333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        102.322,
+        103.036
+      ],
+      "pre_db": -21.01,
+      "head_db": -23.46
+    },
+    {
+      "id": "throw-alcohol.-101.300-r2",
+      "layer": "echo_throws",
+      "word": "alcohol.",
+      "probability": 0.924,
+      "source_start_s": 101.3,
+      "source_end_s": 102.2,
+      "whisper_start_s": 101.3,
+      "whisper_end_s": 101.64,
+      "dest_start_s": 101.966667,
+      "dest_end_s": 102.866667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        102.322,
+        103.036
+      ],
+      "pre_db": -21.01,
+      "head_db": -23.46
+    },
+    {
+      "id": "throw-Adderall.-104.890-r1",
+      "layer": "echo_throws",
+      "word": "Adderall.",
+      "probability": 0.839,
+      "source_start_s": 104.89,
+      "source_end_s": 105.72,
+      "whisper_start_s": 104.9,
+      "whisper_end_s": 105.42,
+      "dest_start_s": 105.223333,
+      "dest_end_s": 106.053333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        105.849,
+        106.558
+      ],
+      "pre_db": -28.53,
+      "head_db": -16.87
+    },
+    {
+      "id": "throw-Adderall.-104.890-r2",
+      "layer": "echo_throws",
+      "word": "Adderall.",
+      "probability": 0.839,
+      "source_start_s": 104.89,
+      "source_end_s": 105.72,
+      "whisper_start_s": 104.9,
+      "whisper_end_s": 105.42,
+      "dest_start_s": 105.556667,
+      "dest_end_s": 106.386667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        105.849,
+        106.558
+      ],
+      "pre_db": -28.53,
+      "head_db": -16.87
+    },
+    {
+      "id": "throw-15k.-154.200-r2",
+      "layer": "echo_throws",
+      "word": "15k.",
+      "probability": 0.782,
+      "source_start_s": 154.2,
+      "source_end_s": 154.56,
+      "whisper_start_s": 153.66,
+      "whisper_end_s": 154.34,
+      "dest_start_s": 154.866667,
+      "dest_end_s": 155.226667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        154.928,
+        156.434
+      ],
+      "pre_db": -32.68,
+      "head_db": -25.91
+    },
+    {
+      "id": "throw-15k.-154.200-r3",
+      "layer": "echo_throws",
+      "word": "15k.",
+      "probability": 0.782,
+      "source_start_s": 154.2,
+      "source_end_s": 154.56,
+      "whisper_start_s": 153.66,
+      "whisper_end_s": 154.34,
+      "dest_start_s": 155.2,
+      "dest_end_s": 155.56,
+      "delay_samples": 44100,
+      "delay_ms": 1000.0,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        154.928,
+        156.434
+      ],
+      "pre_db": -32.68,
+      "head_db": -25.91
+    },
+    {
+      "id": "throw-yours.-169.260-r1",
+      "layer": "echo_throws",
+      "word": "yours.",
+      "probability": 0.989,
+      "source_start_s": 169.26,
+      "source_end_s": 169.92,
+      "whisper_start_s": 169.26,
+      "whisper_end_s": 169.6,
+      "dest_start_s": 169.593333,
+      "dest_end_s": 170.253333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        170.078,
+        170.652
+      ],
+      "pre_db": -18.53,
+      "head_db": -18.84
+    },
+    {
+      "id": "throw-yours.-169.260-r2",
+      "layer": "echo_throws",
+      "word": "yours.",
+      "probability": 0.989,
+      "source_start_s": 169.26,
+      "source_end_s": 169.92,
+      "whisper_start_s": 169.26,
+      "whisper_end_s": 169.6,
+      "dest_start_s": 169.926667,
+      "dest_end_s": 170.586667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        170.078,
+        170.652
+      ],
+      "pre_db": -18.53,
+      "head_db": -18.84
+    },
+    {
+      "id": "throw-it.-185.880-r1",
+      "layer": "echo_throws",
+      "word": "it.",
+      "probability": 0.997,
+      "source_start_s": 185.88,
+      "source_end_s": 186.32,
+      "whisper_start_s": 185.88,
+      "whisper_end_s": 186.1,
+      "dest_start_s": 186.213333,
+      "dest_end_s": 186.653333,
+      "delay_samples": 14700,
+      "delay_ms": 333.33,
+      "gain_db_on_raw_vocal": -16.0,
+      "gap_s": [
+        186.536,
+        188.68
+      ],
+      "pre_db": -14.76,
+      "head_db": -13.73
+    },
+    {
+      "id": "throw-it.-185.880-r2",
+      "layer": "echo_throws",
+      "word": "it.",
+      "probability": 0.997,
+      "source_start_s": 185.88,
+      "source_end_s": 186.32,
+      "whisper_start_s": 185.88,
+      "whisper_end_s": 186.1,
+      "dest_start_s": 186.546667,
+      "dest_end_s": 186.986667,
+      "delay_samples": 29400,
+      "delay_ms": 666.67,
+      "gain_db_on_raw_vocal": -21.0,
+      "gap_s": [
+        186.536,
+        188.68
+      ],
+      "pre_db": -14.76,
+      "head_db": -13.73
+    },
+    {
+      "id": "throw-it.-185.880-r3",
+      "layer": "echo_throws",
+      "word": "it.",
+      "probability": 0.997,
+      "source_start_s": 185.88,
+      "source_end_s": 186.32,
+      "whisper_start_s": 185.88,
+      "whisper_end_s": 186.1,
+      "dest_start_s": 186.88,
+      "dest_end_s": 187.32,
+      "delay_samples": 44100,
+      "delay_ms": 1000.0,
+      "gain_db_on_raw_vocal": -26.0,
+      "gap_s": [
+        186.536,
+        188.68
+      ],
+      "pre_db": -14.76,
+      "head_db": -13.73
+    }
+  ],
+  "throws_skipped": [],
+  "limitations": [
+    "No listening. Whisper word edges are not guaranteed phonetic on a rap vocal.",
+    "Gaps whose transcript end stayed loud, or whose start was louder than the attack, got no throw.",
+    "The under-lead telephone delay is a send of the whole vocal, not a stack of chopped words.",
+    "v03's opening phone line, reverses, and beat-stop builds remain. The reverse and the intro phone were darkened slightly.",
+    "This is not a final master and not a loudness pass."
+  ]
+}
