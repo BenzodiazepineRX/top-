@@ -6,7 +6,7 @@ Stems are timeline-aligned 44.1 kHz stereo. The instrumental is a produced
 
   Lead vocals (Lead 1, Lead 2, Lead 3): one eighth-note delay.
     The first repeat is the line said again, an eighth note later.
-  Adlibs: one dotted-eighth echo, quiet enough to sit behind the lead.
+  Adlibs: dry, a little under the lead, with one quiet dotted-eighth repeat.
 
 Lead 3 is the Motorola section: narrowband, lightly overdriven, mono.
 """
@@ -40,13 +40,13 @@ DOTTED_EIGHTH = int(round(SR * 60.0 / BPM * 0.75))
 # Leads sit this far in front of the beat in the 1.6–5 kHz clarity band.
 LEAD_PRESENCE_DB = 6.0
 # Adlibs and the telephone lead are then set from the lead's own loudness.
-ADLIB_UNDER_LEAD_DB = 8.5
+ADLIB_UNDER_LEAD_DB = 10.0
 PHONE_UNDER_LEAD_DB = 1.0
 
 LEAD_SEND_DB = -6.0
-ADLIB_SEND_DB = -8.0
+ADLIB_SEND_DB = -14.0
 LEAD_FEEDBACK = 0.32
-ADLIB_FEEDBACK = 0.25
+ADLIB_FEEDBACK = 0.12
 LEAD_DUCK_DB = 3.0
 ADLIB_DUCK_DB = 3.5
 
@@ -437,6 +437,14 @@ def process_lead(x: np.ndarray) -> np.ndarray:
     return y
 
 
+def trim_tail(x: np.ndarray, open_db: float = -36.0, release_ms: float = 80.0) -> np.ndarray:
+    """Close behind the word so a room tail does not hang into the next line."""
+    level = envelope_db(x, attack_ms=2.0, release_ms=release_ms, hop=16)
+    depth = np.clip((open_db - level) / 10.0, 0.0, 1.0)
+    gain = (10.0 ** ((-24.0 * depth) / 20.0)).astype(np.float32)
+    return (x * gain[:, None]).astype(np.float32)
+
+
 def process_adlib(x: np.ndarray) -> np.ndarray:
     raw = x
     mask = active_mask(x, -44.0)
@@ -455,6 +463,7 @@ def process_adlib(x: np.ndarray) -> np.ndarray:
     y = vocal_rider(y, max_boost_db=5.0, max_cut_db=3.0)
     y, gr = compressor(y, thresh_db=-20.0, ratio=2.8, attack_ms=10.0, release_ms=90.0, knee_db=6.0)
     y = match_active_rms(y, raw, mask)
+    y = trim_tail(y, open_db=-34.0, release_ms=70.0)
     print(f"    adlib compressor average GR {gr:.2f} dB")
     return y
 
@@ -694,8 +703,8 @@ def render() -> None:
     # One timed repeat of the adlib. The band stays wide enough to keep the
     # voice in the echo, and the level stays well behind the dry adlib.
     ad_wet = pingpong(mono(adlib), DOTTED_EIGHTH, ADLIB_FEEDBACK, 450.0, 4500.0)
-    ad_duck = duck_gain(lead_bus, ADLIB_DUCK_DB)
-    ad_self = duck_gain(adlib, 1.5)
+    ad_duck = duck_gain(lead_bus, 6.0)
+    ad_self = duck_gain(adlib, 2.0)
     ad_echo = ad_wet * lin(ADLIB_SEND_DB) * ad_duck[:, None] * ad_self[:, None]
 
     def masked_rms_db(stem: np.ndarray, mask: np.ndarray) -> float:
