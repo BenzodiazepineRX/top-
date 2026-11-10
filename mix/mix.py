@@ -6,7 +6,7 @@ Stems are timeline-aligned 44.1 kHz stereo. The instrumental is a produced
 
   Lead vocals (Lead 1, Lead 2, Lead 3): one eighth-note delay.
     The first repeat is the line said again, an eighth note later.
-  Adlibs: dotted-eighth ping-pong echoes with several repeats.
+  Adlibs: one dotted-eighth echo, quiet enough to sit behind the lead.
 
 Lead 3 is the Motorola section: narrowband, lightly overdriven, mono.
 """
@@ -40,15 +40,15 @@ DOTTED_EIGHTH = int(round(SR * 60.0 / BPM * 0.75))
 # Leads sit this far in front of the beat in the 1.6–5 kHz clarity band.
 LEAD_PRESENCE_DB = 6.0
 # Adlibs and the telephone lead are then set from the lead's own loudness.
-ADLIB_UNDER_LEAD_DB = 6.5
+ADLIB_UNDER_LEAD_DB = 8.5
 PHONE_UNDER_LEAD_DB = 1.0
 
 LEAD_SEND_DB = -6.0
-ADLIB_SEND_DB = -2.2
+ADLIB_SEND_DB = -8.0
 LEAD_FEEDBACK = 0.32
-ADLIB_FEEDBACK = 0.46
+ADLIB_FEEDBACK = 0.25
 LEAD_DUCK_DB = 3.0
-ADLIB_DUCK_DB = 2.0
+ADLIB_DUCK_DB = 3.5
 
 
 def db(x: float) -> float:
@@ -691,10 +691,11 @@ def render() -> None:
     lead_duck = duck_gain(lead_bus, LEAD_DUCK_DB)
     lead_delay = np.stack([lead_wet, lead_wet], axis=1) * lin(LEAD_SEND_DB) * lead_duck[:, None]
 
-    ad_wet = pingpong(mono(adlib), DOTTED_EIGHTH, ADLIB_FEEDBACK, 400.0, 5400.0)
+    # One timed repeat of the adlib. The band stays wide enough to keep the
+    # voice in the echo, and the level stays well behind the dry adlib.
+    ad_wet = pingpong(mono(adlib), DOTTED_EIGHTH, ADLIB_FEEDBACK, 450.0, 4500.0)
     ad_duck = duck_gain(lead_bus, ADLIB_DUCK_DB)
-    # A light self-duck keeps the first repeat just behind the dry adlib.
-    ad_self = duck_gain(adlib, 1.0)
+    ad_self = duck_gain(adlib, 1.5)
     ad_echo = ad_wet * lin(ADLIB_SEND_DB) * ad_duck[:, None] * ad_self[:, None]
 
     def masked_rms_db(stem: np.ndarray, mask: np.ndarray) -> float:
@@ -703,12 +704,14 @@ def render() -> None:
         m = mono(stem)[mask]
         return db(float(np.sqrt(np.mean(m.astype(np.float64) ** 2) + 1e-20)))
 
-    echo_mask = active_mask(ad_echo, thresh_db=-36.0, win_ms=40.0, dilate_ms=30.0)
     delay_mask = active_mask(lead_delay, thresh_db=-36.0, win_ms=40.0, dilate_ms=30.0)
+    # Measure the echo where the adlib's repeat actually lands, one dotted eighth later.
+    echo_at = np.zeros(len(ma), dtype=bool)
+    echo_at[DOTTED_EIGHTH:] = ma[:-DOTTED_EIGHTH]
     print(f"    lead repeat vs dry lead: "
           f"{masked_rms_db(lead_delay, delay_mask) - masked_rms_db(lead_bus, m1 | m2):+.1f} dB")
     print(f"    adlib echo vs dry adlib: "
-          f"{masked_rms_db(ad_echo, echo_mask) - masked_rms_db(adlib, ma):+.1f} dB")
+          f"{masked_rms_db(ad_echo, echo_at) - masked_rms_db(adlib, ma):+.1f} dB")
 
     print("vocal pocket on the beat")
     beat = duck_beat(beat, lead_bus, depth_db=1.6)
