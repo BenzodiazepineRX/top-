@@ -1,0 +1,216 @@
+[
+ {
+  "track": "Lead vocal",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS (+8.8 dB)",
+  "why": "working level the compressor settings expect"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90
+  },
+  "why": "remove rumble and plosive thumps"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Boxiness cut",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-2.6 dB at 229 Hz (Q 6), -1.5 dB at 320 Hz (Q 1)",
+  "why": "measured boxy buildup 230-320 Hz"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Dynamic EQ (harsh spot 1)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3529 Hz, Q 4, threshold -32 dBFS",
+  "measured": {
+   "pct_active": 3.4,
+   "avg_db": 1.4,
+   "max_db": 5.4
+  },
+  "why": "narrow harsh peak that flares on loud notes"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Dynamic EQ (harsh spot 2)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "4697 Hz, Q 4, threshold -33 dBFS",
+  "measured": {
+   "pct_active": 14.1,
+   "avg_db": 1.6,
+   "max_db": 6.0
+  },
+  "why": "narrow harsh peak that flares on loud notes"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Presence and air",
+  "type": "eq",
+  "tool": "ffmpeg equalizer / highshelf",
+  "settings": "+2 dB at 3 kHz (Q 0.9), +1.5 dB shelf at 10 kHz",
+  "why": "lyric clarity after the harsh cuts"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess (first-order subtraction)",
+  "settings": "5.5-8.5 kHz, threshold -25 dBFS, 4:1",
+  "measured": {
+   "pct_active": 15.6,
+   "avg_db": 1.7,
+   "max_db": 5.8
+  },
+  "why": "tame S, T and CH sounds only"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -22 dB",
+  "measured": {
+   "avg_gr_db": 4.9
+  },
+  "why": "steady level; the stem was already compressed, so kept moderate"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Parallel saturation",
+  "type": "saturation",
+  "tool": "dsp_tools.py saturate",
+  "settings": "drive 6 dB, even 0.15, mix 0.25",
+  "why": "light warmth and density"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Plate reverb",
+  "type": "reverb",
+  "tool": "dsp_tools.py reverb",
+  "settings": "plate, RT60 1.4 s, pre-delay 29.07 ms, ducked 4 dB, return -14 dB",
+  "measured": {
+   "predelay_ms": 29.07,
+   "decay_s": 1.4,
+   "bpm": 129
+  },
+  "why": "short glue space around the dry lead"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS (+10.4 dB)",
+  "why": "working level the compressor settings expect; the mix gain of -10.0 dB brings them back down"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "180 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 180
+  },
+  "why": "keep adlibs behind the lead"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "EQ",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-2 dB at 320 Hz, +1.5 dB at 3.2 kHz",
+  "why": "less mud, more cut"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess (first-order subtraction)",
+  "settings": "5.5-8.5 kHz, threshold -25 dBFS",
+  "measured": {
+   "pct_active": 2.4,
+   "avg_db": 1.0,
+   "max_db": 2.7
+  },
+  "why": "same threshold as the lead"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "smooth threshold -22 dB",
+  "measured": {
+   "avg_gr_db": 3.8
+  },
+  "why": "even out level jumps"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Ping-pong delay",
+  "type": "delay",
+  "tool": "dsp_tools.py delay",
+  "settings": "1/8 dotted, feedback 0.35, 300-6000 Hz loop, ducked -10 dB by the lead",
+  "measured": {
+   "note": "1/8d",
+   "ms": 348.84,
+   "bpm": 129,
+   "ducked": true
+  },
+  "why": "width and movement in the gaps"
+ },
+ {
+  "track": "Beat",
+  "effect": "Vocal pocket EQ",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-1 dB at 2.5 kHz (Q 1.5), -1 dB at 250 Hz",
+  "why": "room for the vocal"
+ },
+ {
+  "track": "Beat",
+  "effect": "808 peak control (below 120 Hz)",
+  "type": "low-end",
+  "tool": "ffmpeg acrossover + acompressor",
+  "settings": "crossover 120 Hz (LR4); low band 5:1 at -20 dB, attack 3 ms, release 90 ms, +2 dB makeup",
+  "why": "808 hits were triggering 5-7 dB limiter dips across the whole song"
+ },
+ {
+  "track": "Vocal FX stem",
+  "effect": "Previous engineer's reverb, delays and throws",
+  "type": "keep",
+  "tool": "printed stem, unchanged",
+  "settings": "0 dB",
+  "why": "protect the original vibe",
+  "issues": [
+   "timing of the printed delays can't be checked against 129 BPM from a printed stem; confirm by ear or get the session"
+  ]
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Mono sub and mid air",
+  "type": "bus",
+  "tool": "dsp_tools.py ms-bus",
+  "settings": "side high-pass 90 Hz (24 dB/oct); mid high shelf +2 dB at 9.5 kHz",
+  "why": "centered low end, open top"
+ },
+ {
+  "track": "Master",
+  "effect": "True-peak limiter",
+  "type": "limiter",
+  "tool": "render_master.py (alimiter, 4x oversampled)",
+  "settings": "target -11.5 LUFS, ceiling -0.5 dBTP, attack 5 ms, release 60 ms",
+  "why": "streaming-ready level without pumping"
+ }
+]

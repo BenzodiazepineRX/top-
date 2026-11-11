@@ -1,0 +1,352 @@
+[
+ {
+  "track": "Lead vocal",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS (+8.8 dB)",
+  "why": "working level the compressor settings expect"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90
+  },
+  "why": "remove rumble and plosive thumps"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Boxiness cut",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-2.6 dB at 229 Hz (Q 6), -1.5 dB at 320 Hz (Q 1)",
+  "why": "measured boxy buildup 230-320 Hz"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Dynamic EQ (harsh spot 1)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3529 Hz, Q 4, threshold -32 dBFS",
+  "measured": {
+   "pct_active": 3.4,
+   "avg_db": 1.4,
+   "max_db": 5.4
+  },
+  "why": "narrow harsh peak that flares on loud notes"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Dynamic EQ (harsh spot 2)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "4697 Hz, Q 4, threshold -33 dBFS",
+  "measured": {
+   "pct_active": 14.1,
+   "avg_db": 1.6,
+   "max_db": 6.0
+  },
+  "why": "narrow harsh peak that flares on loud notes"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Presence and air",
+  "type": "eq",
+  "tool": "ffmpeg equalizer / highshelf",
+  "settings": "+2 dB at 3 kHz (Q 0.9), +1.5 dB shelf at 10 kHz",
+  "why": "lyric clarity after the harsh cuts"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess (first-order subtraction)",
+  "settings": "5.5-8.5 kHz, threshold -25 dBFS, 4:1",
+  "measured": {
+   "pct_active": 15.6,
+   "avg_db": 1.7,
+   "max_db": 5.8
+  },
+  "why": "tame S, T and CH sounds only"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -22 dB",
+  "measured": {
+   "avg_gr_db": 4.9
+  },
+  "why": "steady level; the stem was already compressed, so kept moderate"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Parallel saturation",
+  "type": "saturation",
+  "tool": "dsp_tools.py saturate",
+  "settings": "drive 6 dB, even 0.15, mix 0.25",
+  "why": "light warmth and density"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Plate reverb",
+  "type": "reverb",
+  "tool": "dsp_tools.py reverb",
+  "settings": "plate, RT60 1.395 s (dotted half), pre-delay 29.07 ms (1/64), ducked 4 dB, return -14 dB",
+  "measured": {
+   "predelay_ms": 29.07,
+   "decay_s": 1.39535,
+   "bpm": 129.0
+  },
+  "why": "short glue space around the dry lead"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Quarter-note echoes on line endings (locked to the drums)",
+  "type": "delay",
+  "tool": "groove_delay.py",
+  "request": "Lead vocal delay",
+  "settings": "1/4 note ping-pong on the whole last word of each real line break, from its detected start (15 ms pre-roll) to 30 ms past its end: 34.11-34.43s, 37.88-38.17s, 41.59-41.89s, 75.95-76.25s, 77.80-78.14s, 87.91-88.18s, 105.72-106.00s, 107.56-107.89s, 117.65-117.93s; each repeat placed on the beat's drum hit nearest to 1/4 note after the word's attack (within 60 ms); feedback 0.32, 7 repeats, 500-4800 Hz loop, return 0 dB, ducked -3 dB; off at the end of verse 2",
+  "measured": {
+   "note": "1/4",
+   "ms": 465.12,
+   "bpm": 129,
+   "ducked": true
+  },
+  "why": "owner heard the verse echoes as late/early in v4 and again in v6, after v5 had made each echo exactly one beat. Measured against the real drum hits: the words sit up to ~45 ms off the drums (flow) and the beat swings, so fixed one-beat echoes landed up to 36 ms off the drums. Now every first echo lands within 0.3 ms of a drum hit (cross-correlation vs drum onsets); 31 of 63 repeats were moved more than 20 ms"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Half-note throw, last word of verse 1",
+  "type": "delay",
+  "tool": "groove_delay.py",
+  "request": "Lead vocal delay",
+  "settings": "1/2 note ping-pong on 1:00.25-1:00.65, each repeat on the drum hit nearest to 1/2 note later; feedback 0.5, 10 repeats, 350-4500 Hz loop, return +6 dB, ducked -3 dB",
+  "measured": {
+   "note": "1/2",
+   "ms": 930.23,
+   "bpm": 129.0,
+   "ducked": true
+  },
+  "why": "the one wide-open spot in the vocal (no adlibs, old FX quiet): echoes ring into the instrumental break; locked to the drums from v7 (8 of 10 repeats moved more than 20 ms)"
+ },
+ {
+  "track": "Lead vocal",
+  "effect": "Hall on the verse-1 throw",
+  "type": "reverb",
+  "tool": "dsp_tools.py reverb",
+  "request": "Lead vocal delay",
+  "settings": "hall, decay 1 bar, pre-delay 1/64, return -10 dB",
+  "measured": {
+   "predelay_ms": 29.07,
+   "decay_s": 1.86047,
+   "bpm": 129.0
+  },
+  "why": "lets the throw bloom into the break"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS (+10.4 dB)",
+  "why": "working level the compressor settings expect; the mix gain of -10.0 dB brings them back down"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "180 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 180
+  },
+  "why": "keep adlibs behind the lead (backing parts are cut at 150-250 Hz on purpose)"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "EQ",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-2 dB at 320 Hz, +1.5 dB at 3.2 kHz",
+  "why": "less mud, more cut"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess (first-order subtraction)",
+  "settings": "5.5-8.5 kHz, threshold -29.5 dBFS",
+  "measured": {
+   "pct_active": 11.4,
+   "avg_db": 1.8,
+   "max_db": 6.0
+  },
+  "why": "adlibs carry as much sibilance as the lead (loudest 5%: -4.6 dB vs -5.7 dB band-to-full), so matched the lead's treatment (v2 caught only 2.4%)"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "smooth threshold -22 dB",
+  "measured": {
+   "avg_gr_db": 3.8
+  },
+  "why": "even out level jumps"
+ },
+ {
+  "track": "Adlibs",
+  "effect": "Ping-pong delay (locked to the drums)",
+  "type": "delay",
+  "tool": "groove_delay.py",
+  "settings": "1/8 dotted, every adlib phrase in the verses (37 phrases), each repeat on the drum hit nearest to 1/8 dotted later; feedback 0.35, 7 repeats, 300-6000 Hz loop, return -8 dB, ducked -6 dB (release 150 ms)",
+  "measured": {
+   "note": "1/8d",
+   "ms": 348.84,
+   "bpm": 129.0,
+   "ducked": true
+  },
+  "why": "width and movement in the gaps; locked to the drums from v7: with a fixed delay half the adlib echoes were more than 20 ms off the drums, now the first echoes sit within 0.6 ms (median, none over 5 ms)"
+ },
+ {
+  "track": "Beat",
+  "effect": "Vocal pocket EQ",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-1 dB at 2.5 kHz (Q 1.5), -1 dB at 250 Hz",
+  "why": "room for the vocal"
+ },
+ {
+  "track": "Beat",
+  "effect": "808 peak control (below 120 Hz)",
+  "type": "low-end",
+  "tool": "ffmpeg acrossover + acompressor",
+  "settings": "crossover 120 Hz (LR4); low band 5:1 at -20 dB, attack 3 ms, release 90 ms, +2 dB makeup",
+  "why": "808 hits were triggering 5-7 dB limiter dips across the whole song"
+ },
+ {
+  "track": "Beat",
+  "effect": "Fade-out",
+  "type": "gain",
+  "tool": "numpy gain ramp",
+  "request": "Song fade-out",
+  "settings": "0 to -10 dB from 2:30.7 (bar 82) to the beat's stop at 2:39.2",
+  "why": "owner asked for the song to fade out under the last calls; the beat stem itself stops dead at 2:39.2"
+ },
+ {
+  "track": "Vocal FX stem",
+  "effect": "Previous engineer's reverb, delays and throws",
+  "type": "keep",
+  "tool": "printed stem, unchanged",
+  "settings": "0 dB, same -10 dB fade as the beat from 2:30.7",
+  "why": "protect the original vibe",
+  "issues": [
+   "timing of the printed delays can't be checked against 129 BPM from a printed stem; confirm by ear or get the session"
+  ]
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Line layout (A, B, A, B with a bar of space)",
+  "type": "keep",
+  "tool": "numpy (copied from the processed lead)",
+  "request": "Phone-call outro",
+  "settings": "line A = 0:30.88-0:34.41, line B = 0:34.78-0:38.15; L1 = line A moved 56 bars (135.05-138.75s, gain +0.0 dB); L2 = line B moved 57 bars (140.83-144.27s, gain +0.0 dB); L3 = line A moved 62 bars (146.21-149.91s, gain -1.5 dB); L4 = line B moved 63 bars (151.99-155.43s, gain -1.5 dB)",
+  "why": "owner wanted real stutters (3-4 repeats before the word) and a delay answering each line; back-to-back lines leave no room, so each line gets about one bar (2 s) of space, moved by whole bars so every line keeps its original pickup beat. Ends on line B ('...pushing the interstate')",
+  "issues": [
+   "lines were found by vocal shape, not by listening; owner to confirm line A and line B are the right words"
+  ]
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Telephone-line effect",
+  "type": "eq",
+  "tool": "ffmpeg filters + dsp_tools.py saturate",
+  "request": "Phone-call outro",
+  "settings": "high-pass 420 Hz and low-pass 3.2 kHz (24 dB/oct each), +4 dB at 1.8 kHz, resampled to 8 kHz and back, mono, saturation drive 14 dB mix 0.7, 6:1 compression; last line low-passed at 2.8 kHz; line hiss at -34 dB under the lines and stutters",
+  "why": "real phone bandwidth and crunch"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Stutter edits",
+  "type": "keep",
+  "tool": "numpy (slices of the phone vocal, 2 ms in / 12 ms out fades)",
+  "request": "Outro stutters",
+  "settings": "L1 (line A): first 75 ms of a 109 ms first syllable, repeated 4x on 16th notes (116.3 ms apart) from 134.614s, whole word at 135.079s; L2 (line B): first 75 ms of a 96 ms first syllable, repeated 4x on 16th notes (116.3 ms apart) from 140.364s, whole word at 140.829s; L3 (line A): first 75 ms of a 108 ms first syllable, repeated 4x on 16th notes (116.3 ms apart) from 145.777s, whole word at 146.242s; L4 (line B): first 75 ms of a 95 ms first syllable, repeated 4x on 16th notes (116.3 ms apart) from 151.527s, whole word at 151.992s",
+  "why": "owner: 'the first half part of a syllable or word repeats 3-4 times before the whole thing gets said'. 75 ms keeps the vowel ('si', 'I'), not just the consonant; repeats rise -1.5 to 0 dB into the word"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Pitched phone delay (whole outro)",
+  "type": "delay",
+  "tool": "ffmpeg rubberband + dsp_tools.py delay",
+  "request": "Outro echoes, pitched up",
+  "settings": "send = all four outro lines pitched up 3 semitones (rubberband, 6 ms smear compensated); 1/4 note ping-pong, feedback 0.38, 450-3600 Hz loop, return -2 dB, ducked only -3 dB (5/120 ms); 1-bar hall at -12 dB on the echoes",
+  "measured": {
+   "note": "1/4",
+   "ms": 465.12,
+   "bpm": 129,
+   "ducked": true
+  },
+  "why": "owner: 'as the bars play a delay plays after what's being said that's perfect timed'. Echo sits 8-9 dB under each line and 10-12 dB under it in the open bars; lag measured 465.42 ms by cross-correlation. Stutters stay dry so they read clearly"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Half-note ring-out on the last word (pitched up)",
+  "type": "delay",
+  "tool": "dsp_tools.py delay + ffmpeg rubberband",
+  "request": "Song fade-out",
+  "settings": "1/2 note on L4's last word (2:34.96-2:35.45), feedback 0.76, 300-3600 Hz loop, return +4 dB, ducked -3 dB; pitched up 3 semitones after the delay (6 ms compensation)",
+  "measured": {
+   "note": "1/2",
+   "ms": 930.23,
+   "bpm": 129,
+   "ducked": true
+  },
+  "why": "'interstate' keeps echoing about 7.5 s past the beat's hard stop at 2:39.2"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Halls",
+  "type": "reverb",
+  "tool": "dsp_tools.py reverb",
+  "request": "Phone-call outro",
+  "settings": "hall on all lines (1 bar, pre-delay 1/64, -14 dB, ducked 3 dB); longer hall on lines 3-4 (1.5 bars, -9 dB); 1.5-bar hall on the ring-out (-8 dB)",
+  "measured": {
+   "predelay_ms": 29.07,
+   "decay_s": 1.86047,
+   "bpm": 129
+  },
+  "why": "phone voice in a real space, moving farther away"
+ },
+ {
+  "track": "Outro vocal",
+  "effect": "Outro level",
+  "type": "balance",
+  "tool": "dsp_tools.py mix",
+  "request": "Phone-call outro",
+  "settings": "+3.9 dB bus gain (1.5 dB under the first outro draft)",
+  "why": "owner request"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Mono sub and mid air",
+  "type": "bus",
+  "tool": "dsp_tools.py ms-bus",
+  "settings": "side high-pass 90 Hz (24 dB/oct); mid high shelf +2 dB at 9.5 kHz",
+  "why": "centered low end, open top"
+ },
+ {
+  "track": "Master",
+  "effect": "True-peak limiter",
+  "type": "limiter",
+  "tool": "render_master.py (alimiter, 4x oversampled)",
+  "settings": "target -11.5 LUFS, ceiling -0.5 dBTP, attack 5 ms, release 60 ms; mix trimmed 0.5 s after the last sound, 2 s fade on the very end of the tail",
+  "why": "streaming-ready level without pumping"
+ }
+]

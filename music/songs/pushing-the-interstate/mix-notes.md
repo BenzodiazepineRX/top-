@@ -8,6 +8,105 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 ## Version log
 
+### 2026-11-09 — v14-master (the printed stem's own echoes moved onto the drums)
+
+- **Files:** `Pushing_the_Interstate_master_v14_24bit.wav`, `Pushing_the_Interstate_master_v14.mp3`, `v7_vs_v14_0m40.mp3` (0:40-0:50 before and after). Audio delivered in chat, not committed.
+- **What changed (from v7, and nothing else):** the echoes printed in the old effects stem were moved onto the beat's real drum hits. 216 copies moved (lead words one quarter note after the word, about 23 dB under it; adlib phrases at half, one, three and four quarter notes, about 14 dB under); copies already within 1 ms of a hit, or with no hit within 60 ms (about 11 quiet lead copies), stay as printed. Reverb, reverse reverb and build-ups are untouched. The line-end echoes, throw, adlib echoes, reverb and outro are exactly v7's. No extra word echoes and no extra reverb on the lead.
+- **Why:** owner on v12: "way too much delay... it distracts the listener", and "you also added more reverb to the main vocals". Earlier: echoes "off from 0:43 onward". The owner also said the version closest to 10:40 PM (v4) had the right effects. Measured, the off-beat echoes were never my drum-locked ones: the stem prints exact-note copies of the dry vocals, so each sits as far off the drums as its word (median 16.9 ms, 153 of 216 over 10 ms). Layering drum-locked echoes over them (v7 to v13) could not fix that.
+- **Checks:** median distance of the moved copies to the nearest drum hit 16.9 ms before, 1.1 ms after (16 still over 10 ms: loud adlib runs where neighbouring shifts are limited to 15 ms so no echo is cut or doubled). Correlation of each dry word with the stem at its old echo time fell from 0.53 to 0.17, the floor of the measurement (0.16), so no ghost echo is left. Build-ups unchanged (at most 0.02 dB). Rebuilding v7's recipe with the stem as printed matches `mix_v7.wav` to -82 dBFS rms (the largest difference, -63 dBFS in one quarter second and 43 dB under the mix, sits inside the line-end echo tails), so v14 differs from v7 only through the moved copies, and only between 0:31 and 2:14.
+- **Loudness:** -11.6 LUFS integrated, -0.7 dBTP (WAV) / -0.5 dBTP (MP3), loudness range 7.9 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v14.json`, `reports/v14.md` (60 passed, 3 to check, 0 failed; the 3 are the intended mid boost from the phone outro and the outro words to confirm). Retime log: `effects/v14_retime_log.json`. Scripts: `tools/retime_stem.py`, `tools/validate_retime.py`, `tools/build_v14.py`.
+- **Lesson:** I first moved only whole multi-word segments and found about half of the copies (the check against the first scan's 69 clearly echoed words caught it). Judge each word on its own, against a control floor, and measure coverage with a second, independent detector before trusting a "moved" count. Also: a loud adlib echo cut into pieces that are shifted by different amounts overlaps or drops out; limit the shift difference between neighbours.
+- **Naming:** v14 is Claude's numbering. The Cursor agent has its own v8-v13 on PR #3 (different files).
+- **Listening check:** pending owner on v14.
+- **Sign-off:** stays on v4 until the owner approves a later version.
+
+### 2026-11-09 — v8-v13 (Claude's drafts, not signed off, superseded by v14)
+
+- Exploratory builds sent to the owner in chat, not reproduced in this repo. They tried: v3's adlib delay and reverb back on the v7 mix (v8), a hall reverb on the lead (v10 and v12), echo layers re-rendered to be audible (v11) and one echo per sung word the stem echoed (v12), then a windows-based version (v13, never sent). Owner's verdicts: v11 echoes inaudible; v12 "way too much delay... distracts the listener" plus unwanted extra reverb on the lead.
+- What they taught: the problem was the stem's printed copies, not the echoes I was adding. v14 removes the added layers and fixes the printed copies instead.
+
+### 2026-11-09 — v7-master (verse echoes locked to the drums)
+
+- **Files:** `Pushing_the_Interstate_master_v7_24bit.wav`, `Pushing_the_Interstate_master_v7.mp3`, `v6_vs_v7_verse_0m33.mp3`, `v6_vs_v7_verse_1m52.mp3`. Audio delivered in chat, not committed.
+- **What changed:** the verse echoes (lead line-end echoes, the verse-1 throw, every adlib echo) are rendered with the new `groove_delay.py`, which puts each repeat on the beat's real drum hit nearest to the musical note value after the word's attack. Outro unchanged from v6.
+- **Why:** owner, on headphones, on v6: the verse echoes are "off again", late or early. v5 had already made every echo exactly one beat after its word (465.3–465.5 ms). Measured against the actual drum onsets: the words sit up to ~45 ms ahead of or behind the drums, and the beat swings, so tempo-exact echoes landed up to 36 ms off the drums (lead) and half the adlib echoes more than 20 ms off. Alone in the gaps, that reads as late or early. Now the first lead echoes land within 0.3 ms of a drum hit and the adlib echoes within 0.6 ms (median), checked by cross-correlation of each word with its echo against independently detected drum hits.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.5 dBTP (MP3), limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v7.json`, `reports/v7.md`.
+- **Lesson:** "on the tempo" is not "on the beat". Echoes heard on their own must land on the drums; three earlier fixes (tempo, ducking, exact lag) each perfected a number that wasn't the problem. Check echoes against the drum hits, not the grid.
+- **Listening check:** pending owner on v7.
+
+### 2026-11-08 — v6-master (real stutters, delay through the whole outro)
+
+- **Files:** `Pushing_the_Interstate_master_v6_24bit.wav`, `Pushing_the_Interstate_master_v6.mp3` (2:53), `Outro_preview_v6.mp3` (2:08 to end). Audio delivered in chat, not committed.
+- **What changed (outro only; verses as v5):**
+  - *Owner's correction on v5:* the stutters wanted are "where the first half part of a syllable or word repeats 3-4 times before the whole things gets said", not repeats after a word; and the outro delay should play "as the bars play… after what's being said", perfectly timed, not only in a few spots.
+  - *Layout:* four lines, A, B, A, B, each moved by whole bars (56, 57, 62 and 63 bars) so every line keeps its original pickup beat, with about one bar (2 s) of space before each. Back-to-back lines (v4/v5) left no room for 3-4 repeats on the beat. Ends on line B.
+  - *Stutters:* the first 75 ms of each line's first syllable ("si", "I"), repeated 4 times on 16th notes (116.28 ms apart) right before the whole word, rising −1.5 to 0 dB.
+  - *Delay:* all four lines sent through a pitched (+3 semitones) quarter-note ping-pong delay with light ducking: 8–9 dB under each line, 10–12 dB under it in the open bars, lag 465.42 ms by cross-correlation. Stutters stay dry.
+  - *Ending:* half-note ring-out on the last "interstate" (feedback 0.76), pitched up, about 7.5 s past the beat's hard stop; ending check passes (largest sudden drop 18.7 dB).
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.5 dBTP (MP3), loudness range 7.9 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v6.json`, `reports/v6.md`: ⚠️ close, 59 passed, 4 to check, 0 failed (mids from the phone outro, intended; old FX stem; outro line words to confirm).
+- **Listening check:** pending owner on v6.
+- **Next:** owner listens; if approved, the sign-off moves to v6.
+
+### 2026-11-08 — v5-master (echo timing fix, pitched outro echoes, stutters)
+
+- **Files:** `Pushing_the_Interstate_master_v5_24bit.wav`, `Pushing_the_Interstate_master_v5.mp3` (2:51), `Outro_preview_v5.mp3`, `v4_vs_v5_echoes_0m33.mp3`, `v4_vs_v5_echoes_1m14.mp3`. Audio delivered in chat, not committed.
+- **What changed:**
+  - *Verse echoes:* owner, on headphones after the v4 sign-off: echoes "a bit off track", in the verses, landing late or early. Measured: the delay time was exact, but heavy ducking (−8 dB, 300 ms release) pushed each echo's start under the next line, so it surfaced 15–36 ms late, and a fixed 0.30 s window could clip the start of the word. Now each echo carries the whole last word from its detected start, with ducking cut to −3 dB (5 ms attack, 120 ms release); cross-correlation puts every echo 465.3–465.5 ms after its word (one beat at 129, within 0.5 ms). Adlib echo ducking lightened to −6 dB / 150 ms for the same reason.
+  - *Outro echoes, pitched up:* owner asked for echoes in the outro with the delay vocal "a little more high pitched". The always-on phone echo is replaced by echoes of the last word of block 1's two lines, pitched up 3 semitones (rubberband; its 6 ms early smear compensated, aligned within 1 ms), plus the two "interstate" throws now pitched up the same way. Echo lag measured 465.4 ms.
+  - *Stutters:* owner asked for stutters in the outro. "I-I-I-I'm" (three 1/32 repeats) in the 0.22 s gap before line B in blocks 2 and 3, and "-state-state-state-state" (four 1/16 repeats fading −2 to −8 dB) after the final word as the beat fades. Only free space is used, so no lyric is cut; block 2/3 line-A echoes are dropped so they don't muddy the stutters.
+- **Why:** owner requests (brief: "Outro echoes, pitched up", "Outro stutters") and the owner's headphone check.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.4 dBTP (MP3), loudness range 7.5 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v5.json`, `reports/v5.md`: ⚠️ close, 63 passed, 4 to check, 0 failed (mids up from the phone outro, intended; old FX stem; outro line words to confirm).
+- **Key note:** I first told the owner the +3 semitone echo "fits F minor"; F minor is the next song's key. This song measured F major. The rap is spoken, so a third-up echo reads as a higher voice; +5 or +12 semitones are the in-key options if it ever sounds wrong.
+- **Lesson:** heavy ducking on a delay makes echoes sound late, because the listener hears the echo when it surfaces, not when it starts. For dense rap, echo whole line-end words with light, fast ducking and verify the lag by cross-correlation.
+- **Listening check:** pending owner on v5.
+- **Next:** owner listens on headphones; if approved, the sign-off moves from v4 to v5.
+
+### 2026-11-08 — v4-master (phone-call outro, line-end echoes, fade-out)
+
+- **Files:** `Pushing_the_Interstate_master_v4_24bit.wav`, `Pushing_the_Interstate_master_v4.mp3` (2:51), `Outro_preview_v4.mp3` (2:08 to end), `Lead_echo_preview_v4.mp3` (0:30–1:03). Audio delivered in chat, not committed.
+- **What changed:**
+  - *Phone-call outro:* line A (0:30.88–0:34.41) and line B (0:34.78–0:38.15) alternate in three 4-bar blocks at bars 73, 77 and 81, moved by whole bars at 129 BPM (104.186, 111.628, 119.070 s) so each keeps its pickup beat. Telephone effect: 420 Hz–3.2 kHz band, +4 dB at 1.8 kHz, 8 kHz resample, saturation, 6:1 compression, line hiss at −34 dB; block 3 darker (2.6 kHz). Quarter-note echoes in the gaps, half-note throws on "interstate" at the end of blocks 2 and 3, halls of 1 and 1.5 bars. Outro bus 1.5 dB under the first draft, as asked.
+  - *Lead vocal echoes:* only on the last word of each real line ending (9 spots, 1/4 note = 465.12 ms), silent everywhere else and off at the end of verse 2; plus a half-note throw (930.23 ms) on the last word of verse 1 into the instrumental break.
+  - *Fade-out:* beat and old FX stem fade −10 dB over bar 82 to the beat's hard stop at 2:39.2; the last "interstate" echoes past the stop to silence.
+- **Detour, logged so it isn't repeated:** the owner heard the first lead delay (always on, ducked) as "not perfectly timed". I wrongly blamed the tempo: a 16th-grid fit on the hats and snare said 128.71 BPM, and I rebuilt everything at 128.71. The owner then heard the outro go off beat. A direct test settled it: the beat's own drum pattern repeats at shifts of 104.186, 107.906 and 111.628 s for 56, 58 and 60 bars, exactly 129 BPM; the grid fit had locked onto a false nearby tempo (its error wrapped in a sawtooth instead of drifting). Everything is back at 129 and the `tempo_key.py` change was reverted. The real echo problem was the always-on delay: ducking let fragments of words from a beat earlier surface at random points, so echoes now repeat only the word just said. **Lesson:** check a tempo by matching the drums against themselves bars apart, and trust the owner's ears over a fit.
+- **Why:** owner requests in the brief's Creative effects table (phone-call outro, lead vocal delay, song fade-out).
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.5 dBTP (MP3), loudness range 7.6 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v4.json`, `reports/v4.md` (counts in the report). Mid and upper-mid up about 3–4 dB vs the original because the phone outro is all midrange, intended. Outro line choice: found by vocal shape, owner to confirm the words.
+- **Creative effects acknowledged:** phone-call outro (outro vocal, bars 73–86 plus ring-out, no plugin named); lead vocal delay (lead, line endings in both verses, off at the end of verse 2); song fade-out (whole mix, bars 82–86). All three built.
+- **Delay times used:** 1/4 = 465.12 ms, 1/2 = 930.23 ms, 1/8 dotted = 348.84 ms, pre-delay 1/64 = 29.07 ms, decays dotted half 1.395 s, 1 bar 1.860 s, 1.5 bars 2.791 s, all at 129 BPM.
+- **Listening check:** owner on the first v4 draft: "It is literally ALMOST perfect", lead echoes not perfectly timed; on the 128.71 rebuild: "the outro is off beat now". Both addressed here.
+- **Next:** owner confirms the echoes and outro timing, and that the outro lines are the right words.
+
+### 2026-11-08 — v3-master
+
+- **Files:** `Pushing_the_Interstate_master_v3_24bit.wav`, `Pushing_the_Interstate_master_v3.mp3`, `v2_vs_v3_hook.mp3` (loudness-matched A/B, 1:59–2:14). Audio delivered in chat, not committed.
+- **What changed:** adlib de-esser threshold −25 → −29.5 dBFS (active 2.4% → 11.4%, avg 1.8 dB). Everything else as v2.
+- **Why:** the v2 review report flagged the adlib de-esser as barely working. Measured: the adlibs' loudest sibilance sits at −4.6 dB band-to-full, as hot as the lead's (−5.7 dB), so they get matching treatment.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.4 dBTP (MP3), loudness range 7.1 LU, limiter loss 0.7 LU.
+- **Effects log and review report:** `effects/v3.json`, `reports/v3.md`: ⚠️ close, 46 passed, 1 to check, 0 failed. The one ⚠️ is the previous engineer's printed vocal FX stem, whose delay timing can't be measured against 129 BPM from a printed file; it stays until the owner confirms by ear or the original session is available. Brief still has 6 missing facts.
+- **Listening check:** pending owner. Owner on v2: "Absolute fucking masterpiece."
+- **Feedback:** pending on v2 vs v3.
+- **Creative effects acknowledged:** none requested for this song yet.
+- **Delay times used:** 1/8 dotted = 348.84 ms, pre-delay 1/64 = 29.07 ms, reverb decay ≈ dotted half (1.395 s), all at 129 BPM.
+- **Next:** owner picks v2 or v3; fill in the brief's missing facts.
+
+### 2026-11-08 — v2-master
+
+- **Files:** `Pushing_the_Interstate_master_v2_24bit.wav`, `Pushing_the_Interstate_master_v2.mp3`, `v1_vs_v2_hook.mp3`.
+- **What changed:**
+  - *Beat:* new 808 peak control: Linkwitz-Riley crossover at 120 Hz, low band compressed 5:1 at −20 dB (attack 3 ms, release 90 ms, +2 dB makeup). 808 peaks down about 4 dB; overall tone within 0.2 dB of v1.
+  - *Master:* target −10.5 → −11.5 LUFS.
+  - *Vocals:* lead and adlibs re-rendered with the fixed de-esser (first-order subtraction, no +1.2 dB boost next to the S band).
+- **Why:** owner heard the song "going quiet" at points. Measured: in v1 the limiter pulled the whole mix down 5–7 dB on 808 hits (54 seconds of the song had dips over 4.5 dB). Tested four fixes; a mix-bus glue compressor and a soft clipper each added their own pumping, so only the 808 control was kept. Owner also asked whether the gain should come down: −11.5 LUFS removes the remaining big dips, and streaming normalization (around −14 LUFS) means it won't play quieter there.
+- **Loudness:** −11.6 LUFS integrated, −0.7 dBTP (WAV) / −0.4 dBTP (MP3), limiter loss 2.3 → 0.7 LU. Dips over 4.5 dB: 54 s → 0 s; worst dip −6.9 → −4.4 dB.
+- **Effects log and review report:** `effects/v2.json`, `reports/v2.md`: ⚠️ close, 2 to check (adlib de-esser barely active, fixed in v3; printed vocal FX stem timing).
+- **Listening check:** owner, on phone: "Absolute fucking masterpiece."
+- **Next:** v3 (adlib de-esser).
+
 ### 2026-11-08 — v1-master
 
 - **Files:** `Song_master_v1_24bit.wav` (24-bit / 44.1 kHz) and `Song_master_v1.mp3` (320 kbps), plus `Before_After_hook.mp3` (loudness-matched A/B of the hook, 1:59–2:14). Audio was delivered in chat, not committed here.
@@ -36,20 +135,24 @@ Say what you changed and why in plain English. Include settings only when a futu
 
 Use this only for the master you believe is finished. Leave every box unchecked until that item is actually true. The song is still in progress until the owner signs.
 
-- [ ] All creative effects from the brief are in place, on the right track or mix bus, in the right spot, and the right length
-- [ ] Echo, delay, pre-delay, and decay times match this song's BPM, and the math was checked
-- [ ] Earbuds check passed
-- [ ] Phone speaker check passed
-- [ ] Car check passed
-- [ ] Studio monitors check passed
-- [ ] Loudness and true peak meet this song's targets
-  - Integrated LUFS:
-  - True peak:
-  - Target used (platform and number):
-- [ ] Compared against the reference tracks in the brief
-- [ ] Owner sign-off on the final master
+- [x] All creative effects from the brief are in place, on the right track or mix bus, in the right spot, and the right length (phone-call outro, lead vocal delay, song fade-out; confirmed in `reports/v4.md`)
+- [x] Echo, delay, pre-delay, and decay times match this song's BPM, and the math was checked (129 BPM; outro placement confirmed by matching the drums against themselves)
+- [ ] Earbuds check passed (not reported separately)
+- [ ] Phone speaker check passed (not reported separately)
+- [ ] Car check passed (not reported separately)
+- [ ] Studio monitors check passed (owner has no monitors yet)
+- [x] Loudness and true peak meet this song's targets
+  - Integrated LUFS: −11.6
+  - True peak: −0.7 dBTP (WAV), −0.5 dBTP (MP3)
+  - Target used (platform and number): −11.5 LUFS / −0.5 dBTP, chosen to remove limiter pumping; streaming platforms normalize to around −14 LUFS. No platform named in the brief.
+- [ ] Compared against the reference tracks in the brief (no reference tracks given)
+- [x] Owner sign-off on the final master
 
-**Master version:**
-**Date:**
+The owner approved the master as finished. The unchecked boxes are recorded as not done rather than assumed; they don't block the owner's sign-off.
+
+**Master version:** v4 (`Pushing_the_Interstate_master_v4_24bit.wav`, 129 BPM build)
+
+> v5, v6 and v7 (verse echo fixes, pitched outro delay, stutters) were made after this sign-off at the owner's request; v7 is awaiting the owner's approval. Until then, v4 is the approved master.
+**Date:** 2026-11-08
 **Owner:** Chex
-**Owner's words:** (Chex writes "approved" here, or an agent copies Chex's exact sign-off)
+**Owner's words:** "My boy….. it's beautiful" — then, asked whether that counts as final approval: "Yessss sirrrrr"
