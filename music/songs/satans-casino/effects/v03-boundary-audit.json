@@ -1,0 +1,487 @@
+{
+  "v02": [
+    {
+      "id": "reverse-first-entry",
+      "layer": "reverse_swells",
+      "source_start_s": 15.959728,
+      "source_end_s": 16.409728,
+      "level_before_db": -60.22,
+      "level_at_end_db": -29.23,
+      "level_after_db": -20.14,
+      "chopped_head": false,
+      "chopped_tail": true,
+      "interior_of_longer_line": true,
+      "grid_snapped": false,
+      "v03": "omitted",
+      "why": "the slice ends while the line is still going; slice sits inside 15.954-18.693s instead of using that whole span; reverse send was a short cut of a longer line"
+    },
+    {
+      "id": "reverse-into-return",
+      "layer": "reverse_swells",
+      "source_start_s": 156.438458,
+      "source_end_s": 156.888458,
+      "level_before_db": -60.04,
+      "level_at_end_db": -27.77,
+      "level_after_db": -17.66,
+      "chopped_head": false,
+      "chopped_tail": true,
+      "interior_of_longer_line": true,
+      "grid_snapped": false,
+      "v03": "omitted",
+      "why": "the slice ends while the line is still going; slice sits inside 156.434-169.934s instead of using that whole span; reverse send was a short cut of a longer line"
+    },
+    {
+      "id": "throw-p00-r1",
+      "layer": "delay_throws",
+      "source_start_s": 18.262857,
+      "source_end_s": 18.562857,
+      "level_before_db": -15.98,
+      "level_at_end_db": -37.5,
+      "level_after_db": -40.38,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 15.954-18.693s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p00-r2",
+      "layer": "delay_throws",
+      "source_start_s": 18.262857,
+      "source_end_s": 18.562857,
+      "level_before_db": -15.98,
+      "level_at_end_db": -37.5,
+      "level_after_db": -40.38,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 15.954-18.693s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p01-r1",
+      "layer": "delay_throws",
+      "source_start_s": 21.749932,
+      "source_end_s": 22.049932,
+      "level_before_db": -17.57,
+      "level_at_end_db": -36.68,
+      "level_after_db": -38.93,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 19.451-22.140s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p18-r1",
+      "layer": "delay_throws",
+      "source_start_s": 70.65941,
+      "source_end_s": 70.893923,
+      "level_before_db": -25.78,
+      "level_at_end_db": -36.96,
+      "level_after_db": -38.31,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 42.184-71.128s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p18-r2",
+      "layer": "delay_throws",
+      "source_start_s": 70.65941,
+      "source_end_s": 70.893923,
+      "level_before_db": -25.78,
+      "level_at_end_db": -36.96,
+      "level_after_db": -38.31,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 42.184-71.128s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p29-r1",
+      "layer": "delay_throws",
+      "source_start_s": 98.355828,
+      "source_end_s": 98.655828,
+      "level_before_db": -16.45,
+      "level_at_end_db": -36.97,
+      "level_after_db": -38.5,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 71.882-98.776s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p30-r1",
+      "layer": "delay_throws",
+      "source_start_s": 101.847891,
+      "source_end_s": 102.147891,
+      "level_before_db": -15.96,
+      "level_at_end_db": -37.42,
+      "level_after_db": -40.31,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 99.539-102.283s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p31-r1",
+      "layer": "delay_throws",
+      "source_start_s": 105.344943,
+      "source_end_s": 105.644943,
+      "level_before_db": -17.37,
+      "level_at_end_db": -37.29,
+      "level_after_db": -39.4,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 103.036-105.810s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p31-r2",
+      "layer": "delay_throws",
+      "source_start_s": 105.344943,
+      "source_end_s": 105.644943,
+      "level_before_db": -17.37,
+      "level_at_end_db": -37.29,
+      "level_after_db": -39.4,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 103.036-105.810s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p48-r1",
+      "layer": "delay_throws",
+      "source_start_s": 154.244422,
+      "source_end_s": 154.478957,
+      "level_before_db": -25.72,
+      "level_at_end_db": -36.86,
+      "level_after_db": -38.54,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 125.769-154.713s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p48-r2",
+      "layer": "delay_throws",
+      "source_start_s": 154.244422,
+      "source_end_s": 154.478957,
+      "level_before_db": -25.72,
+      "level_at_end_db": -36.86,
+      "level_after_db": -38.54,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 125.769-154.713s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p52-r1",
+      "layer": "delay_throws",
+      "source_start_s": 169.504127,
+      "source_end_s": 169.804127,
+      "level_before_db": -16.66,
+      "level_at_end_db": -36.49,
+      "level_after_db": -38.2,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 156.434-169.934s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p57-r1",
+      "layer": "delay_throws",
+      "source_start_s": 185.789093,
+      "source_end_s": 186.251746,
+      "level_before_db": -21.45,
+      "level_at_end_db": -36.31,
+      "level_after_db": -39.79,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p57-r2",
+      "layer": "delay_throws",
+      "source_start_s": 185.789093,
+      "source_end_s": 186.251746,
+      "level_before_db": -21.45,
+      "level_at_end_db": -36.31,
+      "level_after_db": -39.79,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p57-r3",
+      "layer": "delay_throws",
+      "source_start_s": 185.789093,
+      "source_end_s": 186.251746,
+      "level_before_db": -21.45,
+      "level_at_end_db": -36.31,
+      "level_after_db": -39.79,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "throw-p57-r4",
+      "layer": "delay_throws",
+      "source_start_s": 185.789093,
+      "source_end_s": 186.251746,
+      "level_before_db": -21.45,
+      "level_at_end_db": -36.31,
+      "level_after_db": -39.79,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "phone-intro",
+      "layer": "telephone_bgv",
+      "source_start_s": 16.103401,
+      "source_end_s": 18.562857,
+      "level_before_db": -20.07,
+      "level_at_end_db": -37.5,
+      "level_after_db": -40.38,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 15.954-18.693s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    },
+    {
+      "id": "phone-outro",
+      "layer": "telephone_bgv",
+      "source_start_s": 184.651746,
+      "source_end_s": 186.251746,
+      "level_before_db": -17.97,
+      "level_at_end_db": -36.31,
+      "level_after_db": -39.79,
+      "chopped_head": true,
+      "chopped_tail": false,
+      "interior_of_longer_line": true,
+      "grid_snapped": true,
+      "v03": "omitted",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset"
+    }
+  ],
+  "v03_events": [
+    {
+      "id": "phone-opening-line",
+      "layer": "telephone_bgv",
+      "source_start_s": 15.913741,
+      "source_end_s": 18.692517,
+      "source_start_sample": 701796,
+      "source_end_sample": 824340,
+      "onset_s": 15.953741,
+      "onset_offset_vs_downbeat_ms": -46.26,
+      "downbeat_s": 16.0,
+      "dest_start_s": 1.691519,
+      "dest_end_s": 4.470295,
+      "dest_start_sample": 74596,
+      "dest_end_sample": 197140,
+      "shift_samples": -627200,
+      "shift_bars": -8,
+      "gain_db": -15.571,
+      "attack_db_lost_to_bandlimit": 0.83,
+      "band_hz": [
+        300,
+        3600
+      ],
+      "why": "The whole opening line, from the silence before it through the tail. Moved exactly eight bars earlier, so it still anticipates the downbeat by the same amount. The start is not a cut, and it is not snapped to the bar."
+    },
+    {
+      "id": "reverse-into-opening",
+      "layer": "reverse_swells",
+      "source_start_s": 15.953741,
+      "source_end_s": 18.692517,
+      "source_start_sample": 703560,
+      "source_end_sample": 824340,
+      "dest_start_s": 14.175964,
+      "dest_end_s": 15.953741,
+      "dest_start_sample": 625160,
+      "dest_end_sample": 703560,
+      "gain_db": -42.968,
+      "target_peak_dbfs": -18.0,
+      "fade_in_ms": 592.6,
+      "why": "Reversed reverb of the whole opening line. The swell ends on the real onset, including its early entry. It is not a dry chopped word."
+    },
+    {
+      "id": "reverse-into-return",
+      "layer": "reverse_swells",
+      "source_start_s": 156.434467,
+      "source_end_s": 169.933787,
+      "source_start_sample": 6898760,
+      "source_end_sample": 7494080,
+      "dest_start_s": 155.484467,
+      "dest_end_s": 156.434467,
+      "dest_start_sample": 6856865,
+      "dest_end_sample": 6898760,
+      "gain_db": -41.583,
+      "target_peak_dbfs": -18.0,
+      "fade_in_ms": 316.7,
+      "why": "Reversed reverb of the line that starts after the quiet hole. Ends on that onset. The hole measured about 154.93-156.43 s."
+    },
+    {
+      "id": "beat-stop-bar-40",
+      "layer": "beat_stop",
+      "source_start_s": 69.333333,
+      "source_end_s": 71.111111,
+      "dest_start_s": 69.333333,
+      "dest_end_s": 71.111111,
+      "dest_end_sample": 3136000,
+      "gain_db": -0.54,
+      "why": "Measured hat dropout. Vocal is not chopped. One-bar riser into the downbeat."
+    },
+    {
+      "id": "beat-stop-bar-80",
+      "layer": "beat_stop",
+      "source_start_s": 140.444444,
+      "source_end_s": 142.222222,
+      "dest_start_s": 140.444444,
+      "dest_end_s": 142.222222,
+      "dest_end_sample": 6272000,
+      "gain_db": -6.12,
+      "why": "Second hat dropout. Vocal stays in the lead, so the riser is lower."
+    },
+    {
+      "id": "lead-reverb",
+      "layer": "lead_reverb",
+      "gain_db": -43.26,
+      "predelay_ms": 27.78,
+      "decay_s": 1.33333,
+      "why": "Send of the full dry vocal. Not a sliced phrase."
+    },
+    {
+      "id": "phone-reverb",
+      "layer": "telephone_reverb",
+      "gain_db": -38.332,
+      "predelay_ms": 27.78,
+      "decay_s": 0.88889,
+      "why": "Reverb of the telephone bus only."
+    }
+  ],
+  "omitted": [
+    {
+      "id": "throw-p00-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 15.954-18.693s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p00-r2",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 15.954-18.693s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p01-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 19.451-22.140s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p18-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 42.184-71.128s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p18-r2",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 42.184-71.128s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p29-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 71.882-98.776s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p30-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 99.539-102.283s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p31-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 103.036-105.810s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p31-r2",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 103.036-105.810s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p48-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 125.769-154.713s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p48-r2",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 125.769-154.713s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p52-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 156.434-169.934s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p57-r1",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p57-r2",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p57-r3",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "throw-p57-r4",
+      "layer": "delay_throws",
+      "why": "loud audio in the 180 ms before the slice was left out; slice sits inside 170.657-186.486s instead of using that whole span; the slice was moved onto a grid line instead of keeping the singer's offset The whole line is longer than the gap after it, so no repeat was made."
+    },
+    {
+      "id": "phone-outro",
+      "layer": "telephone_bgv",
+      "why": "The 1.6 s outro slice began inside the closing line. That line is not bounded by a silence at the slice point, so it was not copied."
+    }
+  ]
+}

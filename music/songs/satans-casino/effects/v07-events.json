@@ -1,0 +1,1395 @@
+{
+  "version": "v07",
+  "baseline": "v03 buses, beat -8 dB and vocal -6 dB from sample 0, plus the same reverse lowpass and intro-phone high cut",
+  "listening": "not performed. Peaks and these checks are not musical approval.",
+  "mastering": "none. No limiter, no loudness pass, no positive gain on a quiet word.",
+  "lyric_source": "lyrics/chex-supplied.txt, stored as supplied. spite and forth were not rewritten.",
+  "alignment": "effects/lyrics_alignment.json. Line and word times used here are MMS CTC unless timestamp_kinds names a transcript token or an RMS decay.",
+  "full_line_repeat_count_each": 1,
+  "full_line_shift_samples": 78400,
+  "echo_interval_samples": 14700,
+  "hiss_before": {
+    "hole_reverse_2k5k": -57.43,
+    "intro_phone_2k5k": -55.47
+  },
+  "hiss_after": {
+    "hole_reverse_2k5k": -59.07,
+    "intro_phone_2k5k": -56.1
+  },
+  "difference_vs_v03": {
+    "singing_rms_v03": -20.77,
+    "singing_rms_v07": -20.77,
+    "correlation": 0.9931
+  },
+  "peak_dbfs": -1.534,
+  "trims_db_on_new_buses_only": [],
+  "full_lines": [
+    {
+      "id": "L02-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "And I haven\u2019t ate, haven\u2019t slept cause I been off the Adderall.",
+      "line_id": "L02",
+      "occurrence": 1,
+      "source_start_s": 19.457,
+      "source_end_s": 22.128,
+      "ctc_line_start_s": 19.457,
+      "ctc_line_end_s": 21.908,
+      "dest_start_s": 21.234778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.355,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L05-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I\u2019m getting so tired of me losing",
+      "line_id": "L05",
+      "occurrence": 1,
+      "source_start_s": 29.173,
+      "source_end_s": 30.889,
+      "ctc_line_start_s": 29.173,
+      "ctc_line_end_s": 30.809,
+      "dest_start_s": 30.950778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.441,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L07-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I\u2019m drinking on alcohol like it\u2019s water",
+      "line_id": "L07",
+      "occurrence": 1,
+      "source_start_s": 32.051,
+      "source_end_s": 34.308,
+      "ctc_line_start_s": 32.051,
+      "ctc_line_end_s": 34.268,
+      "dest_start_s": 33.828778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.35,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L09-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I\u2019m rolling dice and I gamble my life with the Devil.",
+      "line_id": "L09",
+      "occurrence": 2,
+      "source_start_s": 35.133,
+      "source_end_s": 38.108,
+      "ctc_line_start_s": 35.133,
+      "ctc_line_end_s": 38.108,
+      "dest_start_s": 36.910778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.501,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L10-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I\u2019m at the Satans casino, doing drugs with his demons for pleasure.",
+      "line_id": "L10",
+      "occurrence": 2,
+      "source_start_s": 38.011,
+      "source_end_s": 41.809,
+      "ctc_line_start_s": 38.011,
+      "ctc_line_end_s": 41.729,
+      "dest_start_s": 39.788778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.556,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L11-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I got my life on the line rolling dice if I crap out then that\u2019s when I lose it",
+      "line_id": "L11",
+      "occurrence": 1,
+      "source_start_s": 42.274,
+      "source_end_s": 45.4,
+      "ctc_line_start_s": 42.274,
+      "ctc_line_end_s": 45.268,
+      "dest_start_s": 44.051778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.401,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L13-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Most of the time I be snoozing",
+      "line_id": "L13",
+      "occurrence": 1,
+      "source_start_s": 49.316,
+      "source_end_s": 50.627,
+      "ctc_line_start_s": 49.316,
+      "ctc_line_end_s": 50.627,
+      "dest_start_s": 51.093778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.288,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L14-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I wake up and get active at night and I take all the P\u2019s that I got and I move it.",
+      "line_id": "L14",
+      "occurrence": 2,
+      "source_start_s": 50.511,
+      "source_end_s": 55.048,
+      "ctc_line_start_s": 50.511,
+      "ctc_line_end_s": 54.928,
+      "dest_start_s": 52.288778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.408,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L16-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Money not buy you no happiness but it can buy it for me.",
+      "line_id": "L16",
+      "occurrence": 1,
+      "source_start_s": 57.712,
+      "source_end_s": 60.3,
+      "ctc_line_start_s": 57.712,
+      "ctc_line_end_s": 60.067,
+      "dest_start_s": 59.489778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.476,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L17-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Flipping hoes it was never my thing I would rather go out and go flip me a P",
+      "line_id": "L17",
+      "occurrence": 1,
+      "source_start_s": 60.553,
+      "source_end_s": 63.929,
+      "ctc_line_start_s": 60.553,
+      "ctc_line_end_s": 63.729,
+      "dest_start_s": 62.330778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.613,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L18-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Told the plug I\u2019ll be back in a week, it ain\u2019t take me a week I came back in 2 days.",
+      "line_id": "L18",
+      "occurrence": 1,
+      "source_start_s": 64.133,
+      "source_end_s": 67.66,
+      "ctc_line_start_s": 64.133,
+      "ctc_line_end_s": 67.468,
+      "dest_start_s": 65.910778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.554,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L19-o1",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Use to think that 2 bands was a lot til I start touching my first 15K",
+      "line_id": "L19",
+      "occurrence": 1,
+      "source_start_s": 67.751,
+      "source_end_s": 70.98,
+      "ctc_line_start_s": 67.751,
+      "ctc_line_end_s": 70.647,
+      "dest_start_s": 69.528778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.58,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L16-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Money not buy you no happiness but it can buy it for me.",
+      "line_id": "L16",
+      "occurrence": 2,
+      "source_start_s": 71.932,
+      "source_end_s": 74.52,
+      "ctc_line_start_s": 71.932,
+      "ctc_line_end_s": 74.287,
+      "dest_start_s": 73.709778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.508,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L17-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Flipping hoes it was never my thing I would rather go out and go flip me a P",
+      "line_id": "L17",
+      "occurrence": 2,
+      "source_start_s": 74.793,
+      "source_end_s": 78.169,
+      "ctc_line_start_s": 74.793,
+      "ctc_line_end_s": 77.969,
+      "dest_start_s": 76.570778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.573,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L18-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Told the plug I\u2019ll be back in a week, it ain\u2019t take me a week I came back in 2 days.",
+      "line_id": "L18",
+      "occurrence": 2,
+      "source_start_s": 78.351,
+      "source_end_s": 81.88,
+      "ctc_line_start_s": 78.351,
+      "ctc_line_end_s": 81.668,
+      "dest_start_s": 80.128778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.506,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L19-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Use to think that 2 bands was a lot til I start touching my first 15K",
+      "line_id": "L19",
+      "occurrence": 2,
+      "source_start_s": 81.971,
+      "source_end_s": 85.2,
+      "ctc_line_start_s": 81.971,
+      "ctc_line_end_s": 84.867,
+      "dest_start_s": 83.748778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.539,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L23-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I made music for fun for a couple of months how it take off before yours.",
+      "line_id": "L23",
+      "occurrence": 2,
+      "source_start_s": 95.232,
+      "source_end_s": 98.768,
+      "ctc_line_start_s": 95.232,
+      "ctc_line_end_s": 98.548,
+      "dest_start_s": 97.009778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.585,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L02-o3",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "And I haven\u2019t ate, haven\u2019t slept cause I been off the Adderall.",
+      "line_id": "L02",
+      "occurrence": 3,
+      "source_start_s": 103.032,
+      "source_end_s": 105.708,
+      "ctc_line_start_s": 103.032,
+      "ctc_line_end_s": 105.488,
+      "dest_start_s": 104.809778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.413,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L05-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I\u2019m getting so tired of me losing",
+      "line_id": "L05",
+      "occurrence": 2,
+      "source_start_s": 112.752,
+      "source_end_s": 114.469,
+      "ctc_line_start_s": 112.752,
+      "ctc_line_end_s": 114.389,
+      "dest_start_s": 114.529778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.461,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L09-o5",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I\u2019m rolling dice and I gamble my life with the Devil.",
+      "line_id": "L09",
+      "occurrence": 5,
+      "source_start_s": 118.713,
+      "source_end_s": 121.788,
+      "ctc_line_start_s": 118.713,
+      "ctc_line_end_s": 121.688,
+      "dest_start_s": 120.490778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.508,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L10-o4",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I\u2019m at the Satans casino, doing drugs with his demons for pleasure.",
+      "line_id": "L10",
+      "occurrence": 4,
+      "source_start_s": 122.251,
+      "source_end_s": 125.409,
+      "ctc_line_start_s": 122.251,
+      "ctc_line_end_s": 125.309,
+      "dest_start_s": 124.028778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.499,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L11-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I got my life on the line rolling dice if I crap out then that\u2019s when I lose it",
+      "line_id": "L11",
+      "occurrence": 2,
+      "source_start_s": 125.852,
+      "source_end_s": 128.988,
+      "ctc_line_start_s": 125.852,
+      "ctc_line_end_s": 128.868,
+      "dest_start_s": 127.629778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.408,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L13-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Most of the time I be snoozing",
+      "line_id": "L13",
+      "occurrence": 2,
+      "source_start_s": 132.893,
+      "source_end_s": 134.51,
+      "ctc_line_start_s": 132.893,
+      "ctc_line_end_s": 134.51,
+      "dest_start_s": 134.670778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.31,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L14-o4",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I wake up and get active at night and I take all the P\u2019s that I got and I move it.",
+      "line_id": "L14",
+      "occurrence": 4,
+      "source_start_s": 133.632,
+      "source_end_s": 137.728,
+      "ctc_line_start_s": 133.632,
+      "ctc_line_end_s": 137.728,
+      "dest_start_s": 135.409778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.441,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L15-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I get it all gone call the plug to reup and then after that then I redo it",
+      "line_id": "L15",
+      "occurrence": 2,
+      "source_start_s": 136.49,
+      "source_end_s": 141.65,
+      "ctc_line_start_s": 136.49,
+      "ctc_line_end_s": 141.65,
+      "dest_start_s": 138.267778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.375,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L16-o3",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Money not buy you no happiness but it can buy it for me.",
+      "line_id": "L16",
+      "occurrence": 3,
+      "source_start_s": 141.312,
+      "source_end_s": 143.9,
+      "ctc_line_start_s": 141.312,
+      "ctc_line_end_s": 143.647,
+      "dest_start_s": 143.089778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.512,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L17-o3",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Flipping hoes it was never my thing I would rather go out and go flip me a P",
+      "line_id": "L17",
+      "occurrence": 3,
+      "source_start_s": 144.131,
+      "source_end_s": 147.508,
+      "ctc_line_start_s": 144.131,
+      "ctc_line_end_s": 147.308,
+      "dest_start_s": 145.908778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.602,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L18-o3",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Told the plug I\u2019ll be back in a week, it ain\u2019t take me a week I came back in 2 days.",
+      "line_id": "L18",
+      "occurrence": 3,
+      "source_start_s": 147.712,
+      "source_end_s": 151.248,
+      "ctc_line_start_s": 147.712,
+      "ctc_line_end_s": 151.048,
+      "dest_start_s": 149.489778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.495,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L19-o3",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Use to think that 2 bands was a lot til I start touching my first 15K",
+      "line_id": "L19",
+      "occurrence": 3,
+      "source_start_s": 151.331,
+      "source_end_s": 154.56,
+      "ctc_line_start_s": 151.331,
+      "ctc_line_end_s": 154.227,
+      "dest_start_s": 153.108778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.563,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L20-o4",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I take the bigger risk cause it come with a way bigger reward",
+      "line_id": "L20",
+      "occurrence": 4,
+      "source_start_s": 156.513,
+      "source_end_s": 159.168,
+      "ctc_line_start_s": 156.513,
+      "ctc_line_end_s": 158.988,
+      "dest_start_s": 158.290778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.656,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L21-o2",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Got my packs flipping just like gymnastics the judges they giving me 10s cross the board.",
+      "line_id": "L21",
+      "occurrence": 2,
+      "source_start_s": 159.251,
+      "source_end_s": 162.748,
+      "ctc_line_start_s": 159.251,
+      "ctc_line_end_s": 162.548,
+      "dest_start_s": 161.028778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.408,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L23-o4",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I made music for fun for a couple of months how it take off before yours.",
+      "line_id": "L23",
+      "occurrence": 4,
+      "source_start_s": 166.391,
+      "source_end_s": 169.928,
+      "ctc_line_start_s": 166.391,
+      "ctc_line_end_s": 169.688,
+      "dest_start_s": 168.168778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.602,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L11-o4",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I got my life on the line rolling dice if I crap out then that\u2019s when I lose it",
+      "line_id": "L11",
+      "occurrence": 4,
+      "source_start_s": 170.753,
+      "source_end_s": 173.868,
+      "ctc_line_start_s": 170.753,
+      "ctc_line_end_s": 173.748,
+      "dest_start_s": 172.530778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.431,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L13-o3",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "Most of the time I be snoozing",
+      "line_id": "L13",
+      "occurrence": 3,
+      "source_start_s": 177.773,
+      "source_end_s": 179.389,
+      "ctc_line_start_s": 177.773,
+      "ctc_line_end_s": 179.389,
+      "dest_start_s": 179.550778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.312,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L14-o6",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I wake up and get active at night and I take all the P\u2019s that I got and I move it.",
+      "line_id": "L14",
+      "occurrence": 6,
+      "source_start_s": 178.512,
+      "source_end_s": 182.608,
+      "ctc_line_start_s": 178.512,
+      "ctc_line_end_s": 182.608,
+      "dest_start_s": 180.289778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.457,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    },
+    {
+      "id": "L15-o3",
+      "layer": "full_line_once",
+      "repeat_count": 1,
+      "text": "I get it all gone call the plug to reup and then after that then I redo it",
+      "line_id": "L15",
+      "occurrence": 3,
+      "source_start_s": 181.953,
+      "source_end_s": 186.328,
+      "ctc_line_start_s": 181.953,
+      "ctc_line_end_s": 186.128,
+      "dest_start_s": 183.730778,
+      "shift_samples": 78400,
+      "shift_ms": 1777.78,
+      "gain_db_on_raw_vocal": -16.0,
+      "mean_ctc": 0.46,
+      "boundary_status": "supplied line, MMS CTC bounds, tail extended only while the level is still falling"
+    }
+  ],
+  "last_word_echoes": [
+    {
+      "id": "lastword-L02-o1",
+      "layer": "last_word_echoes",
+      "word": "Adderall.",
+      "line_id": "L02",
+      "ctc_start_s": 21.346,
+      "ctc_end_s": 21.908,
+      "ctc_score": 0.354,
+      "speech_model_token": {
+        "start": 21.3,
+        "end": 21.86,
+        "raw": "Adderall",
+        "timestamp_kind": "speech_model_token"
+      },
+      "source_start_s": 21.3,
+      "source_end_s": 22.128,
+      "model_end_before_decay_s": 21.908,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "rms_decay"
+      ],
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 22.3,
+          "dest_end_s": 22.968,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.19,
+          "gain_db": -14.0
+        }
+      ],
+      "flags": [
+        "MMS is a speech aligner. These times are not a musical approval.",
+        "mean line CTC 0.355"
+      ]
+    },
+    {
+      "id": "lastword-L19-o1",
+      "layer": "last_word_echoes",
+      "word": "15K",
+      "line_id": "L19",
+      "ctc_start_s": 70.184,
+      "ctc_end_s": 70.647,
+      "ctc_score": 0.753,
+      "speech_model_token": {
+        "start": 70.08,
+        "end": 70.74,
+        "raw": "15k 15k",
+        "timestamp_kind": "speech_model_token"
+      },
+      "source_start_s": 70.08,
+      "source_end_s": 70.98,
+      "model_end_before_decay_s": 70.74,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "speech_model_token_end",
+        "rms_decay"
+      ],
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 71.08,
+          "dest_end_s": 71.88,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.13,
+          "gain_db": -14.0
+        }
+      ],
+      "flags": [
+        "MMS is a speech aligner. These times are not a musical approval.",
+        "mean line CTC 0.58"
+      ]
+    },
+    {
+      "id": "lastword-L23-o2",
+      "layer": "last_word_echoes",
+      "word": "yours.",
+      "line_id": "L23",
+      "ctc_start_s": 98.227,
+      "ctc_end_s": 98.548,
+      "ctc_score": 0.797,
+      "speech_model_token": {
+        "start": 98.08,
+        "end": 98.42,
+        "raw": "yours?",
+        "timestamp_kind": "speech_model_token"
+      },
+      "source_start_s": 98.08,
+      "source_end_s": 98.768,
+      "model_end_before_decay_s": 98.548,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "rms_decay"
+      ],
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 99.08,
+          "dest_end_s": 99.528,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.27,
+          "gain_db": -14.0
+        }
+      ],
+      "flags": [
+        "MMS is a speech aligner. These times are not a musical approval.",
+        "mean line CTC 0.585"
+      ]
+    },
+    {
+      "id": "lastword-L02-o3",
+      "layer": "last_word_echoes",
+      "word": "Adderall.",
+      "line_id": "L02",
+      "ctc_start_s": 104.944,
+      "ctc_end_s": 105.488,
+      "ctc_score": 0.343,
+      "speech_model_token": {
+        "start": 104.9,
+        "end": 105.42,
+        "raw": "Adderall.",
+        "timestamp_kind": "speech_model_token"
+      },
+      "source_start_s": 104.9,
+      "source_end_s": 105.708,
+      "model_end_before_decay_s": 105.488,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "rms_decay"
+      ],
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 105.9,
+          "dest_end_s": 106.568,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.17,
+          "gain_db": -14.0
+        }
+      ],
+      "flags": [
+        "MMS is a speech aligner. These times are not a musical approval.",
+        "mean line CTC 0.413"
+      ]
+    },
+    {
+      "id": "lastword-L19-o3",
+      "layer": "last_word_echoes",
+      "word": "15K",
+      "line_id": "L19",
+      "ctc_start_s": 153.764,
+      "ctc_end_s": 154.227,
+      "ctc_score": 0.759,
+      "speech_model_token": {
+        "start": 153.66,
+        "end": 154.34,
+        "raw": "15k. 15k.",
+        "timestamp_kind": "speech_model_token"
+      },
+      "source_start_s": 153.66,
+      "source_end_s": 154.56,
+      "model_end_before_decay_s": 154.34,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "speech_model_token_end",
+        "rms_decay"
+      ],
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 154.66,
+          "dest_end_s": 155.56,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -14.0
+        },
+        {
+          "n": 6,
+          "dest_start_s": 155.66,
+          "dest_end_s": 156.42,
+          "delay_samples": 88200,
+          "delay_ms": 2000.0,
+          "fade_out_s": 0.17,
+          "gain_db": -19.0
+        }
+      ],
+      "flags": [
+        "MMS is a speech aligner. These times are not a musical approval.",
+        "mean line CTC 0.563"
+      ]
+    },
+    {
+      "id": "lastword-L23-o4",
+      "layer": "last_word_echoes",
+      "word": "yours.",
+      "line_id": "L23",
+      "ctc_start_s": 169.366,
+      "ctc_end_s": 169.688,
+      "ctc_score": 0.832,
+      "speech_model_token": {
+        "start": 169.26,
+        "end": 169.6,
+        "raw": "yours.",
+        "timestamp_kind": "speech_model_token"
+      },
+      "source_start_s": 169.26,
+      "source_end_s": 169.928,
+      "model_end_before_decay_s": 169.688,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "rms_decay"
+      ],
+      "taps": [
+        {
+          "n": 2,
+          "dest_start_s": 169.926667,
+          "dest_end_s": 170.594667,
+          "delay_samples": 29400,
+          "delay_ms": 666.67,
+          "fade_out_s": 0.04,
+          "gain_db": -14.0
+        }
+      ],
+      "flags": [
+        "MMS is a speech aligner. These times are not a musical approval.",
+        "mean line CTC 0.602"
+      ]
+    },
+    {
+      "id": "lastword-L15-o3",
+      "layer": "last_word_echoes",
+      "word": "it",
+      "line_id": "L15",
+      "ctc_start_s": 186.028,
+      "ctc_end_s": 186.128,
+      "ctc_score": 0.986,
+      "speech_model_token": {
+        "start": 185.88,
+        "end": 186.1,
+        "raw": "it.",
+        "timestamp_kind": "speech_model_token"
+      },
+      "source_start_s": 185.88,
+      "source_end_s": 186.328,
+      "model_end_before_decay_s": 186.128,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "rms_decay"
+      ],
+      "taps": [
+        {
+          "n": 2,
+          "dest_start_s": 186.546667,
+          "dest_end_s": 186.994667,
+          "delay_samples": 29400,
+          "delay_ms": 666.67,
+          "fade_out_s": 0.04,
+          "gain_db": -14.0
+        },
+        {
+          "n": 4,
+          "dest_start_s": 187.213333,
+          "dest_end_s": 187.661333,
+          "delay_samples": 58800,
+          "delay_ms": 1333.33,
+          "fade_out_s": 0.04,
+          "gain_db": -19.0
+        },
+        {
+          "n": 6,
+          "dest_start_s": 187.88,
+          "dest_end_s": 188.328,
+          "delay_samples": 88200,
+          "delay_ms": 2000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -24.0
+        }
+      ],
+      "flags": [
+        "MMS is a speech aligner. These times are not a musical approval.",
+        "mean line CTC 0.46"
+      ]
+    },
+    {
+      "id": "opening-telephone-last-word",
+      "layer": "opening_telephone_last_word_echoes",
+      "word": "alcohol.",
+      "source_start_s": 17.74,
+      "source_end_s": 18.629,
+      "ctc_start_s": 17.807,
+      "ctc_end_s": 18.269,
+      "ctc_score": 0.228,
+      "speech_model_token": {
+        "start": 17.74,
+        "end": 18.08,
+        "raw": "alcohol",
+        "timestamp_kind": "speech_model_token"
+      },
+      "intro_word_start_s": 3.517778,
+      "intro_word_end_s": 4.406778,
+      "intro_shift_samples": -627200,
+      "timestamp_kinds": [
+        "mms_ctc",
+        "speech_model_token_start",
+        "rms_decay"
+      ],
+      "model_end_before_decay_s": 18.269,
+      "taps": [
+        {
+          "n": 3,
+          "dest_start_s": 4.517778,
+          "dest_end_s": 5.406778,
+          "delay_samples": 44100,
+          "delay_ms": 1000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -14.0
+        },
+        {
+          "n": 6,
+          "dest_start_s": 5.517778,
+          "dest_end_s": 6.406778,
+          "delay_samples": 88200,
+          "delay_ms": 2000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -19.0
+        },
+        {
+          "n": 9,
+          "dest_start_s": 6.517778,
+          "dest_end_s": 7.406778,
+          "delay_samples": 132300,
+          "delay_ms": 3000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -24.0
+        },
+        {
+          "n": 12,
+          "dest_start_s": 7.517778,
+          "dest_end_s": 8.406778,
+          "delay_samples": 176400,
+          "delay_ms": 4000.0,
+          "fade_out_s": 0.04,
+          "gain_db": -29.0
+        }
+      ],
+      "flags": [
+        "Line mean CTC 0.286 and alcohol token 0.228 are low. Sung phones do not fit the speech model.",
+        "The echo is still placed because the supplied last word, the transcript token, and the CTC span are the same word and overlap. This is not musical approval.",
+        "The full opening line was not given a new backing copy. Its CTC bounds miss the 15.95 s attack. The v03 telephone line is unchanged."
+      ]
+    }
+  ],
+  "skipped_echoes": [
+    {
+      "line_id": "L05",
+      "occurrence": 1,
+      "word": "losing",
+      "why": "No gap after 30.889s before the next vocal at 30.929s."
+    },
+    {
+      "line_id": "L07",
+      "occurrence": 1,
+      "word": "water",
+      "why": "No gap after 34.308s before the next vocal at 34.348s."
+    },
+    {
+      "line_id": "L09",
+      "occurrence": 2,
+      "word": "Devil.",
+      "why": "No gap after 38.108s before the next vocal at 38.011s."
+    },
+    {
+      "line_id": "L10",
+      "occurrence": 2,
+      "word": "pleasure.",
+      "why": "No dotted-eighth multiple starts after the word and lands in the gap."
+    },
+    {
+      "line_id": "L11",
+      "occurrence": 1,
+      "word": "it",
+      "why": "No gap after 45.400s before the next vocal at 45.640s."
+    },
+    {
+      "line_id": "L13",
+      "occurrence": 1,
+      "word": "snoozing",
+      "why": "No gap after 50.627s before the next vocal at 50.511s."
+    },
+    {
+      "line_id": "L14",
+      "occurrence": 2,
+      "word": "it.",
+      "why": "Last word 'it.' score 0.216 is under 0.30 for an echo. The line copy does not depend on this."
+    },
+    {
+      "line_id": "L16",
+      "occurrence": 1,
+      "word": "me.",
+      "why": "No gap after 60.300s before the next vocal at 60.553s."
+    },
+    {
+      "line_id": "L17",
+      "occurrence": 1,
+      "word": "P",
+      "why": "No gap after 63.929s before the next vocal at 64.133s."
+    },
+    {
+      "line_id": "L18",
+      "occurrence": 1,
+      "word": "days.",
+      "why": "No gap after 67.660s before the next vocal at 67.700s."
+    },
+    {
+      "line_id": "L16",
+      "occurrence": 2,
+      "word": "me.",
+      "why": "No gap after 74.520s before the next vocal at 74.793s."
+    },
+    {
+      "line_id": "L17",
+      "occurrence": 2,
+      "word": "P",
+      "why": "No gap after 78.169s before the next vocal at 78.351s."
+    },
+    {
+      "line_id": "L18",
+      "occurrence": 2,
+      "word": "days.",
+      "why": "No gap after 81.880s before the next vocal at 81.920s."
+    },
+    {
+      "line_id": "L19",
+      "occurrence": 2,
+      "word": "15K",
+      "why": "No gap after 85.200s before the next vocal at 85.280s."
+    },
+    {
+      "line_id": "L05",
+      "occurrence": 2,
+      "word": "losing",
+      "why": "No gap after 114.469s before the next vocal at 114.509s."
+    },
+    {
+      "line_id": "L09",
+      "occurrence": 5,
+      "word": "Devil.",
+      "why": "No dotted-eighth multiple starts after the word and lands in the gap."
+    },
+    {
+      "line_id": "L10",
+      "occurrence": 4,
+      "word": "pleasure.",
+      "why": "No dotted-eighth multiple starts after the word and lands in the gap."
+    },
+    {
+      "line_id": "L11",
+      "occurrence": 2,
+      "word": "it",
+      "why": "No gap after 128.988s before the next vocal at 129.228s."
+    },
+    {
+      "line_id": "L13",
+      "occurrence": 2,
+      "word": "snoozing",
+      "why": "No gap after 134.510s before the next vocal at 133.632s."
+    },
+    {
+      "line_id": "L14",
+      "occurrence": 4,
+      "word": "it.",
+      "why": "No gap after 137.728s before the next vocal at 136.490s."
+    },
+    {
+      "line_id": "L15",
+      "occurrence": 2,
+      "word": "it",
+      "why": "No gap after 141.650s before the next vocal at 141.312s."
+    },
+    {
+      "line_id": "L16",
+      "occurrence": 3,
+      "word": "me.",
+      "why": "No gap after 143.900s before the next vocal at 144.131s."
+    },
+    {
+      "line_id": "L17",
+      "occurrence": 3,
+      "word": "P",
+      "why": "No gap after 147.508s before the next vocal at 147.712s."
+    },
+    {
+      "line_id": "L18",
+      "occurrence": 3,
+      "word": "days.",
+      "why": "No gap after 151.248s before the next vocal at 151.288s."
+    },
+    {
+      "line_id": "L20",
+      "occurrence": 4,
+      "word": "reward",
+      "why": "No gap after 159.168s before the next vocal at 159.251s."
+    },
+    {
+      "line_id": "L21",
+      "occurrence": 2,
+      "word": "board.",
+      "why": "No gap after 162.748s before the next vocal at 162.848s."
+    },
+    {
+      "line_id": "L11",
+      "occurrence": 4,
+      "word": "it",
+      "why": "No gap after 173.868s before the next vocal at 174.108s."
+    },
+    {
+      "line_id": "L13",
+      "occurrence": 3,
+      "word": "snoozing",
+      "why": "No gap after 179.389s before the next vocal at 178.512s."
+    },
+    {
+      "line_id": "L14",
+      "occurrence": 6,
+      "word": "it.",
+      "why": "No gap after 182.608s before the next vocal at 181.953s."
+    }
+  ],
+  "not_rendered": [
+    {
+      "line_id": "L01",
+      "text": "I pop 2 Xanax and then I wash it down with alcohol.",
+      "why": "99.592-101.848s: Mean CTC score 0.261 is below 0.30.; alcohol 101.385-101.848s score 0.182",
+      "ctc_window": [
+        99.25,
+        102.09
+      ],
+      "mean_ctc": 0.261
+    },
+    {
+      "line_id": "L03",
+      "text": "It ain\u2019t no escaping what I be running from it be catching up",
+      "why": "20.430-25.389s: Search anchor only. The ordered transcript did not place this copy, so the forced-alignment score is not used as a timing.; escaping 23.422-23.823s score 0.553; catching 24.847-25.229s score 0.480; up 25.269-25.389s score 0.038",
+      "ctc_window": [
+        20.39,
+        25.51
+      ],
+      "mean_ctc": 0.414
+    },
+    {
+      "line_id": "L04",
+      "text": "Just when I think something going right for me, I always find a way to mess it up.",
+      "why": "25.753-28.909s: Final word 'up.' CTC score 0.002 does not establish the end of the line.; up 28.808-28.909s score 0.002 | 109.352-112.488s: Final word 'up.' CTC score 0.004 does not establish the end of the line.; up 112.388-112.488s score 0.004",
+      "ctc_window": [
+        25.15,
+        29.21
+      ],
+      "mean_ctc": 0.381
+    },
+    {
+      "line_id": "L06",
+      "text": "Taking prescription pills, I abuse em",
+      "why": "mean token score 0.167 is too low to place | mean token score 0.165 is too low to place",
+      "ctc_window": [
+        30.19,
+        32.61
+      ],
+      "mean_ctc": 0.167
+    },
+    {
+      "line_id": "L08",
+      "text": "Risking my chance on seeing tomorrow.",
+      "why": "34.052-35.888s: Mean CTC score 0.271 is below 0.30.; tomorrow 35.384-35.888s score 0.226 | 117.793-119.549s: Overlaps L09 occurrence 5 (118.71-121.69s), which scored higher.; tomorrow 118.984-119.549s score 0.304",
+      "ctc_window": [
+        117.53,
+        119.63
+      ],
+      "mean_ctc": 0.301
+    },
+    {
+      "line_id": "L12",
+      "text": "I don\u2019t wanna think drop 3 cans in a spite & the forth one I took it and chewed it.",
+      "why": "43.650-48.330s: Ordered transcript window 43.82-47.90s, mean CTC 0.244. The line end did not hold, so it was not rendered.; spite 47.024-47.306s score 0.634; forth 47.486-47.707s score 0.506 | 127.230-131.810s: Ordered transcript window 127.40-131.36s, mean CTC 0.222. The line end did not hold, so it was not rendered.; spite 130.605-130.886s score 0.652; forth 131.067-131.288s score 0.553 | 172.110-176.690s: Ordered transcript window 172.30-176.24s, mean CTC 0.218. The line end did not hold, so it was not rendered.; spite 175.485-175.766s score 0.632; forth 175.947-176.148s score 0.531",
+      "ctc_window": [
+        43.57,
+        48.35
+      ],
+      "mean_ctc": 0.244
+    },
+    {
+      "line_id": "L22",
+      "text": "Started doing what niggas ain\u2019t think I can do then they start hating me for it.",
+      "why": "91.631-94.948s: Final word 'it.' CTC score 0.188 does not establish the end of the line. | 162.791-166.088s: Final word 'it.' CTC score 0.124 does not establish the end of the line.",
+      "ctc_window": [
+        91.39,
+        95.43
+      ],
+      "mean_ctc": 0.436
+    }
+  ],
+  "repeats_located_but_not_used": [
+    {
+      "line_id": "L07",
+      "occurrence": 2,
+      "start": 115.892,
+      "end": 117.989,
+      "why": "Mean CTC score 0.268 is below 0.30."
+    },
+    {
+      "line_id": "L09",
+      "occurrence": 3,
+      "start": 38.011,
+      "end": 43.49,
+      "why": "Final word 'Devil.' CTC score 0.041 does not establish the end of the line."
+    },
+    {
+      "line_id": "L09",
+      "occurrence": 6,
+      "start": 122.291,
+      "end": 127.09,
+      "why": "Token 'and' was stretched across 0.92s, so this line swallowed the audio around it."
+    },
+    {
+      "line_id": "L15",
+      "occurrence": 1,
+      "start": 52.893,
+      "end": 58.07,
+      "why": "Token 'get' was stretched across 1.49s, so this line swallowed the audio around it."
+    },
+    {
+      "line_id": "L20",
+      "occurrence": 1,
+      "start": 83.291,
+      "end": 87.829,
+      "why": "Token 'the' was stretched across 1.02s, so this line swallowed the audio around it."
+    }
+  ],
+  "opening_telephone_last_word": {
+    "id": "opening-telephone-last-word",
+    "layer": "opening_telephone_last_word_echoes",
+    "word": "alcohol.",
+    "source_start_s": 17.74,
+    "source_end_s": 18.629,
+    "ctc_start_s": 17.807,
+    "ctc_end_s": 18.269,
+    "ctc_score": 0.228,
+    "speech_model_token": {
+      "start": 17.74,
+      "end": 18.08,
+      "raw": "alcohol",
+      "timestamp_kind": "speech_model_token"
+    },
+    "intro_word_start_s": 3.517778,
+    "intro_word_end_s": 4.406778,
+    "intro_shift_samples": -627200,
+    "timestamp_kinds": [
+      "mms_ctc",
+      "speech_model_token_start",
+      "rms_decay"
+    ],
+    "model_end_before_decay_s": 18.269,
+    "taps": [
+      {
+        "n": 3,
+        "dest_start_s": 4.517778,
+        "dest_end_s": 5.406778,
+        "delay_samples": 44100,
+        "delay_ms": 1000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -14.0
+      },
+      {
+        "n": 6,
+        "dest_start_s": 5.517778,
+        "dest_end_s": 6.406778,
+        "delay_samples": 88200,
+        "delay_ms": 2000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -19.0
+      },
+      {
+        "n": 9,
+        "dest_start_s": 6.517778,
+        "dest_end_s": 7.406778,
+        "delay_samples": 132300,
+        "delay_ms": 3000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -24.0
+      },
+      {
+        "n": 12,
+        "dest_start_s": 7.517778,
+        "dest_end_s": 8.406778,
+        "delay_samples": 176400,
+        "delay_ms": 4000.0,
+        "fade_out_s": 0.04,
+        "gain_db": -29.0
+      }
+    ],
+    "flags": [
+      "Line mean CTC 0.286 and alcohol token 0.228 are low. Sung phones do not fit the speech model.",
+      "The echo is still placed because the supplied last word, the transcript token, and the CTC span are the same word and overlap. This is not musical approval.",
+      "The full opening line was not given a new backing copy. Its CTC bounds miss the 15.95 s attack. The v03 telephone line is unchanged."
+    ]
+  },
+  "opening_note": "Placed from the overlapping alcohol spans, with the low CTC score kept as a flag."
+}
