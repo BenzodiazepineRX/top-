@@ -109,6 +109,10 @@ Echo timing has cost more versions than everything else combined. These rules ar
 | A track's role taken from its name | Satan's Casino v1 and v2 | Two versions built on the wrong picture | Send solo previews and ask (`tools/stem_intake.py`) |
 | A "moved" count from one detector | Interstate v14 | Half the echo copies were missed | Confirm coverage with a second, independent detector |
 | Word times from a speech model on sung lines | Satan's Casino, second workspace | Low-confidence boundaries | Ask the owner for the lyric sheet; flag low scores |
+| An echo's "gap" measured only to the next voice that starts | What I'm Posed To Do, first build | When two rappers trade lines back to back, 107 of 121 repeats landed on the other one's words | Treat the gap as zero if any other voice is already singing when the words end; then one repeat only |
+| A fixed longest length for the echoed words | What I'm Posed To Do, first build | 10 of 44 cuts began mid-word | Start at the deepest dip inside the window, and let the copy be shorter |
+| De-esser placed before the compressor | What I'm Posed To Do, first build | 9 to 16 kHz came back up 3 to 4 dB | Compress first, de-ess last, and cap the cut at 6 dB |
+| Work kept only in a session's scratch folder | What I'm Posed To Do | The first build and its reviews were lost when the session hit its limit | Commit the build script and notes as soon as a version renders |
 
 ## Sources: ask for the cleanest files first
 
