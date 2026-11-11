@@ -1,0 +1,8 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Audio renders and working files stay out of the repo
+*.wav
+*.mp3
+*.settings.json
