@@ -13,6 +13,8 @@ The job right now is music mixing and mastering. Every song is different, so eve
 
 ```text
 README.md                      what this workspace is, and the rules
+AGENTS.md                      the short rules every agent reads first
+music/LESSONS.md               what every song so far taught: approvals, rejections, echo rules, traps
 agents/music_engineer.md       base playbook for mixing and mastering agents
 music/README.md                the steps for taking a song from brief to master
 music/checklist.md             questions to answer while mixing and mastering
@@ -28,7 +30,10 @@ music/tools/                   the audio processing toolkit (Python + ffmpeg)
   render_master.py             master to a loudness target with a true-peak ceiling
   export_master.py             24-bit WAV + MP3 exports, checked
   ab_match.py                  loudness-matched before/after clips for the owner to judge
-  groove_delay.py              echoes locked to the beat's real drum hits
+  groove_delay.py              echoes locked to the beat's real drum hits (rejected by the owner: see LESSONS.md)
+  stem_intake.py               run first: file health, grid, solo previews and questions for the owner
+  vocal_rider.py               evens a supporting vocal and keeps it under the main track
+  timing_check.py              is a supporting vocal consistently early or late?
   song_report.py               the review report for every version of a song
 music/songs/_template/         copy this folder when a new song starts
   brief.md                     facts, goals, effect requests, and delay times
@@ -39,6 +44,7 @@ When a real song starts, copy `_template` to a new folder such as `music/songs/s
 
 ## Rules for agents
 
+- Read `AGENTS.md` and `music/LESSONS.md` first. They hold what the owner approved and rejected on earlier songs.
 - Read the relevant song brief before doing anything on that song.
 - Before mixing, read `agents/music_engineer.md`. It is the base playbook for any mixing or mastering agent. It never overrides that song's brief. Loudness numbers in the playbook are starting targets, chosen for this song and checked against its reference track.
 - Work to the standard in `music/engineering-standards.md`: a top-tier professional mix and mastering engineer for world-famous artists. The craft is at that level. The choices still come from this song's brief.

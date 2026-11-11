@@ -1,5 +1,9 @@
 # Music engineer playbook
 
+> **Read `music/LESSONS.md` before this page.** It records what the owner approved and rejected on every song so
+> far. Where this page says "listen", no agent can: send the owner a loudness-matched comparison and wait for
+> his words.
+
 Every song is different. Read this before mixing. Then think, listen, and decide like a top professional engineer who mixes for the world's biggest artists.
 
 There is no house preset. There is no chain to copy from the last song. A frequency, a ratio, a LUFS number, or a delay time in this page is a starting point. Confirm it by listening to this song, by measuring it, and by comparing it with this song's reference track. If the number and the song disagree, the song wins.

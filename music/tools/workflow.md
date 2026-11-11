@@ -1,5 +1,9 @@
 # Song Mix & Master: the processing toolkit
 
+> **Read `music/LESSONS.md` first.** It records what the owner approved and rejected on every song. Three
+> defaults on this page were rejected on real songs and are marked below: placing echoes on single drum hits,
+> the presence lift with saturation on vocals that are already bright, and the +2 dB bus shelf.
+
 This page is the "hands" of the workspace. `agents/music_engineer.md` and the song's `brief.md` decide **what** a song needs; the tools here **do** it on the Linux machine with measurable DSP, and print what they measured and changed so every step can be logged in `mix-notes.md`.
 
 The song brief always wins. Every number below (EQ frequencies, compression ratios, the −10.5 LUFS / −0.5 dBTP master target) is a starting point used only when the brief does not name its own. Delay times come from the brief's BPM table; `tempo_key.py` prints the same table so the two can be checked against each other.
@@ -77,7 +81,7 @@ $T resonances v2.wav
 ffmpeg -i v2.wav -af "equalizer=f=280:t=q:w=4:g=-3" -c:a pcm_f32le v3.wav   # cut
 # cp v2.wav v3.wav                                                          # bypass (no fixed ring found)
 $T dyneq v3.wav v4.wav --freq 3500 --q 2
-# optional broad presence lift: run ONE of these two lines so v5.wav always exists
+# optional broad presence lift, ONLY if the vocal measures darker than an approved lead (see music/LESSONS.md): run ONE of these two lines so v5.wav always exists
 ffmpeg -i v4.wav -af "equalizer=f=3200:t=q:w=1.0:g=2" -c:a pcm_f32le v5.wav  # lift
 # cp v4.wav v5.wav                                                          # bypass (presence already fine)
 $T deess v5.wav v6.wav --low 5500 --high 8500
@@ -101,7 +105,7 @@ $T delay adlibs_processed.wav adlib_delay.wav --bpm 92 --note 1/8d --feedback 0.
 $T delay v7.wav lead_throws.wav --bpm 92 --note 1/4 --throws "31.2-32.0,58.5-59.1" --duck-by v7.wav
 ```
 
-**Lock echoes to the drums, not just the tempo.** A delay repeats a word exactly N beats after it; if the word sat ahead of or behind the drums (normal in rap) or the beat swings, the echo lands 20–40 ms off the drums, and alone in a gap that sounds late or early (Pushing the Interstate: lead echoes up to 36 ms off, half the adlib echoes over 20 ms off; two fixes that only perfected the delay time did not help). Render echo throws and adlib echoes with `groove_delay.py --drums beat.wav`, and check them by cross-correlating each word with its echo and comparing the result to the nearest drum hit.
+**Out of date: do not place single echoes on single drum hits.** This was tried on Pushing the Interstate v7 and the owner rejected it. What was accepted on later songs: the last word only, starting on a main beat of a grid measured from the song's own drums (see the echo rules in `music/LESSONS.md`). The rest of this paragraph is kept as the record of that attempt. A delay repeats a word exactly N beats after it; if the word sat ahead of or behind the drums (normal in rap) or the beat swings, the echo lands 20–40 ms off the drums, and alone in a gap that sounds late or early (Pushing the Interstate: lead echoes up to 36 ms off, half the adlib echoes over 20 ms off; two fixes that only perfected the delay time did not help). Render echo throws and adlib echoes with `groove_delay.py --drums beat.wav`, and check them by cross-correlating each word with its echo and comparing the result to the nearest drum hit.
 
 **A printed effects stem has echoes too.** If the owner supplies a printed FX stem (reverb, delays and throws bounced together), it can already hold exact-note copies of the dry vocals. They sit as far off the drums as the words do, and drum-locked echoes laid over them add a second, different echo that no new delay setting fixes (Pushing the Interstate: the echoes heard as "off from 0:43" were the stem's own, about 23 dB under lead words and about 14 dB under adlibs). Find them word by word: correlate each dry word with the stem at the note lags (500-4500 Hz, within 4 ms), with a control floor measured at lags where no copy can be. Then move each copy rather than delete it: estimate it from the dry word with a short least-squares filter, subtract it where it sits, add it back so its attack lands on the nearest drum hit (within 60 ms), and keep neighbouring shifts within about 15 ms on loud copies so no echo is cut or doubled. Verify by measurement: correlation at the old time falls to the control floor, the build-ups keep their level, and the copies sit about 1 ms from a hit.
 
@@ -112,7 +116,7 @@ Defaults: ping-pong stereo, a 300–6000 Hz loop filter so each repeat sits dark
 ### 4. Spatial reverb and saturation
 
 ```bash
-$T saturate v7.wav v8.wav --drive 6 --even 0.15 --mix 0.3
+$T saturate v7.wav v8.wav --drive 6 --even 0.15 --mix 0.3   # skip on bright or grainy vocals: use `cp v7.wav v8.wav`
 # at 92 BPM: pre-delay 1/64 = 40.76 ms, decay 1/2 note = 1.30435 s (both printed by tempo_key.py)
 $T reverb v8.wav vocal_verb.wav --type plate --decay 1.30435 --predelay 40.76 --duck-by v8.wav --duck-depth 4
 ```
@@ -128,7 +132,7 @@ Resample every file to 44.1 kHz first if it isn't already (`ffmpeg -i in.wav -af
 $T mix mix_v1.wav --track instrumental.wav:0 --track v8.wav:1 --track adlibs_processed.wav:-3 \
    --track adlib_delay.wav:0 --track lead_throws.wav:0 --track vocal_verb.wav:0
 # every wet return rendered in steps 3-4 goes into the mix; leave lead_throws.wav out only if step 3 skipped throws
-$T ms-bus mix_v1.wav mix_v1_ms.wav --side-hp 90 --mid-shelf 9500:2.0
+$T ms-bus mix_v1.wav mix_v1_ms.wav --side-hp 90 --mid-shelf 9500:0   # 9500:0 = no shelf. Leaving --mid-shelf out adds +2 dB; a shelf was rejected as harsh on bright vocals
 python3 music/tools/render_master.py mix_v1_ms.wav master_v1.wav --target-lufs -10.5 --ceiling -0.5
 ```
 
