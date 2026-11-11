@@ -1,0 +1,531 @@
+[
+ {
+  "track": "Lead 1",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-8.1 cents, re-aligned to the sample by envelope correlation (rubberband added 80 samples)",
+  "measured": {
+   "cents_planned": -8.1
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90,
+   "lowest_note_hz": 110
+  },
+  "why": "rumble out; lowest sung note stays"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Mono (the middle only)",
+  "type": "bus",
+  "tool": "numpy mid/side",
+  "settings": "side removed before the chain (v1/v2: side -6 dB)",
+  "why": "owner on v2: 'still very harsh, amplifying, and scratchy. Not clear'. Measured on the raw stems: the stereo part is the grittiest (harmonics-to-noise 10.2/9.4 dB vs 14.8/14.0 in the middle; more 2-5 kHz, more grit) and only 45-48% correlated left/right in 1-4 kHz, like a stereo effect baked into the export"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Tone match toward the Driftin' Away lead",
+  "type": "eq",
+  "tool": "match_eq.py (linear-phase FIR, 1/3-octave curve)",
+  "settings": "85% of the way to the owner's Driftin' Away lead as mixed (l_8), clamped -10/+4 dB: 125 Hz -3.7, 250 Hz -0.6, 500 Hz +2.0, 1 kHz -4.0, 2 kHz +0.3, 4 kHz -6.3, 8 kHz -10.0 dB; curve saved in tools/match_m1.json",
+  "why": "against Driftin' Away (never called harsh) these takes had 8-11 dB more 3.5-5 kHz, 12-19 dB more 5-14 kHz, 6 dB more 100-200 Hz and 2-4 dB less of the 1.6-3.5 kHz word-clarity range; v2's treble cut left 3.5-5 kHz untouched. Leads as mixed: grit 0.013 (v2 0.048), fizz -34.4 dB (v2 -29.9), 3.5-5 kHz -34.6 dB (v2 -32.0), 1.6-3.5 kHz up 1.6-3.1 dB"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "4 kHz, Q 1.2, threshold at the 90th percentile",
+  "measured": {
+   "pct_active": 24.1,
+   "avg_db": 1.5
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-11 kHz (S sounds and fizz), threshold at the 95th percentile",
+  "measured": {
+   "pct_active": 21.6,
+   "avg_db": 2.2
+  },
+  "why": "S sounds and the scratchy fizz of these recordings"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -8 dB, smooth 2:1 at -22 dB (v2: -10 dB, 2.5:1 at -24 dB)",
+  "measured": {
+   "avg_gr_db": 2.9
+  },
+  "why": "steady level with less squeeze, so the grain is not pulled up (v2: 4.8 dB average); phrase-to-phrase loudness still within 2.2 dB (p90-p10)"
+ },
+ {
+  "track": "Lead 1",
+  "effect": "Edge cut and consonant lift",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-3.5 dB at 2.5 kHz (Q 1.4), +2.5 dB at 5.5 kHz (Q 0.9), after the compression",
+  "why": "owner on v3: 'get the harshness in the lead down and more clear a little more'. Measured in v3: at 2.5 kHz the leads sat 14.6 dB over the beat (8-10 dB in the other bands), the band the ear is most sensitive to; at 4-6 kHz (consonants) they sat 3-7 dB under the beat. v4 leads: 2-3.5 kHz edge -2.4 dB (median) and -2.6 dB on the loud moments; grit 0.023 (v3 0.013, v2 0.048, Driftin' Away lead 0.032)"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-7.7 cents, re-aligned to the sample by envelope correlation (rubberband added 36 samples)",
+  "measured": {
+   "cents_planned": -7.7
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "90 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 90,
+   "lowest_note_hz": 98
+  },
+  "why": "rumble out; lowest sung note stays"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Mono (the middle only)",
+  "type": "bus",
+  "tool": "numpy mid/side",
+  "settings": "side removed before the chain (v1/v2: side -6 dB)",
+  "why": "owner on v2: 'still very harsh, amplifying, and scratchy. Not clear'. Measured on the raw stems: the stereo part is the grittiest (harmonics-to-noise 10.2/9.4 dB vs 14.8/14.0 in the middle; more 2-5 kHz, more grit) and only 45-48% correlated left/right in 1-4 kHz, like a stereo effect baked into the export"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Tone match toward the Driftin' Away lead",
+  "type": "eq",
+  "tool": "match_eq.py (linear-phase FIR, 1/3-octave curve)",
+  "settings": "85% of the way to the owner's Driftin' Away lead as mixed (l_8), clamped -10/+4 dB: 125 Hz -2.8, 250 Hz -0.5, 500 Hz +1.4, 1 kHz -4.0, 2 kHz +1.0, 4 kHz -4.1, 8 kHz -10.0 dB; curve saved in tools/match_m2.json",
+  "why": "against Driftin' Away (never called harsh) these takes had 8-11 dB more 3.5-5 kHz, 12-19 dB more 5-14 kHz, 6 dB more 100-200 Hz and 2-4 dB less of the 1.6-3.5 kHz word-clarity range; v2's treble cut left 3.5-5 kHz untouched. Leads as mixed: grit 0.013 (v2 0.048), fizz -34.4 dB (v2 -29.9), 3.5-5 kHz -34.6 dB (v2 -32.0), 1.6-3.5 kHz up 1.6-3.1 dB"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "4 kHz, Q 1.2, threshold at the 90th percentile",
+  "measured": {
+   "pct_active": 25.0,
+   "avg_db": 1.5
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-11 kHz (S sounds and fizz), threshold at the 95th percentile",
+  "measured": {
+   "pct_active": 19.7,
+   "avg_db": 2.4
+  },
+  "why": "S sounds and the scratchy fizz of these recordings"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -8 dB, smooth 2:1 at -22 dB (v2: -10 dB, 2.5:1 at -24 dB)",
+  "measured": {
+   "avg_gr_db": 3.0
+  },
+  "why": "steady level with less squeeze, so the grain is not pulled up (v2: 4.8 dB average); phrase-to-phrase loudness still within 2.2 dB (p90-p10)"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Edge cut and consonant lift",
+  "type": "eq",
+  "tool": "ffmpeg equalizer",
+  "settings": "-3.5 dB at 2.5 kHz (Q 1.4), +2.5 dB at 5.5 kHz (Q 0.9), after the compression",
+  "why": "owner on v3: 'get the harshness in the lead down and more clear a little more'. Measured in v3: at 2.5 kHz the leads sat 14.6 dB over the beat (8-10 dB in the other bands), the band the ear is most sensitive to; at 4-6 kHz (consonants) they sat 3-7 dB under the beat. v4 leads: 2-3.5 kHz edge -2.4 dB (median) and -2.6 dB on the loud moments; grit 0.023 (v3 0.013, v2 0.048, Driftin' Away lead 0.032)"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-7.2 cents, re-aligned to the sample by envelope correlation (rubberband added 29 samples)",
+  "measured": {
+   "cents_planned": -7.2
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "150 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 150
+  },
+  "why": "rumble out; thinner so it sits behind"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3.5 kHz, Q 1.2, threshold at the 90th percentile",
+  "measured": {
+   "pct_active": 21.4,
+   "avg_db": 1.5
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Tone match (cuts only)",
+  "type": "eq",
+  "tool": "match_eq.py",
+  "settings": "70% toward the Driftin' Away background as mixed (b_7), boosts held to +0.5 dB: 125 Hz -2.7, 250 Hz -3.2, 500 Hz -1.6, 1 kHz -0.7, 2 kHz +0.5, 4 kHz -0.7, 8 kHz -9.7 dB",
+  "why": "same move as the leads (less boom and fizz) without lifting presence, so the layer stays behind"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-11 kHz (S sounds and fizz), threshold at the 93rd percentile",
+  "measured": {
+   "pct_active": 26.4,
+   "avg_db": 2.2
+  },
+  "why": "S sounds and the scratchy fizz of these recordings"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 4.7
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Retune to the beat's tuning",
+  "type": "pitch",
+  "tool": "ffmpeg rubberband (formants preserved, quality mode)",
+  "settings": "-7.9 cents, re-aligned to the sample by envelope correlation (rubberband added 65 samples)",
+  "measured": {
+   "cents_planned": -7.9
+  },
+  "why": "the autotune is aimed at A4 = 440 and the beat at 438.3 Hz; measured after: every stem's tuning centre within 1 cent of the beat's. No notes moved (held notes already 8 cents median from the key, 1% over 30 cents)"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Gain staging",
+  "type": "gain",
+  "tool": "dsp_tools.py gain-stage",
+  "settings": "active RMS to -18 dBFS",
+  "why": "working level"
+ },
+ {
+  "track": "Background of background",
+  "effect": "High-pass filter",
+  "type": "hpf",
+  "tool": "dsp_tools.py hpf",
+  "settings": "180 Hz, 18 dB/oct",
+  "measured": {
+   "freq_hz": 180
+  },
+  "why": "rumble out; thinner so it sits behind"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Dynamic EQ (harsh zone)",
+  "type": "dyneq",
+  "tool": "dsp_tools.py dyneq",
+  "settings": "3.5 kHz, Q 1.2, threshold at the 90th percentile",
+  "measured": {
+   "pct_active": 25.6,
+   "avg_db": 1.4
+  },
+  "why": "only the loud, harsh moments"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Tone match (cuts only)",
+  "type": "eq",
+  "tool": "match_eq.py",
+  "settings": "70% toward the Driftin' Away background as mixed (b_7), boosts held to +0.5 dB: 125 Hz -2.0, 250 Hz -3.3, 500 Hz -0.9, 1 kHz -1.2, 2 kHz +0.5, 4 kHz -3.6, 8 kHz -9.6 dB",
+  "why": "same move as the leads (less boom and fizz) without lifting presence, so the layer stays behind"
+ },
+ {
+  "track": "Background of background",
+  "effect": "De-esser",
+  "type": "deess",
+  "tool": "dsp_tools.py deess",
+  "settings": "5-11 kHz (S sounds and fizz), threshold at the 93rd percentile",
+  "measured": {
+   "pct_active": 28.4,
+   "avg_db": 2.0
+  },
+  "why": "S sounds and the scratchy fizz of these recordings"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Two-stage compression",
+  "type": "comp",
+  "tool": "dsp_tools.py comp2",
+  "settings": "peak 5:1 at -10 dB, smooth 2.5:1 at -24 dB",
+  "measured": {
+   "avg_gr_db": 4.2
+  },
+  "why": "steady level"
+ },
+ {
+  "track": "Beat",
+  "effect": "Room for the words (carve)",
+  "type": "dyneq",
+  "tool": "build_bacc.py (zero-phase band, ducker keyed by the leads' own 3.2-6.5 kHz band)",
+  "settings": "beat's 3.2-6.5 kHz ducked up to 5 dB on the leads' consonants (key: the leads' 3.2-6.5 kHz band over its 78th percentile; attack 5 ms, release 120 ms); the beat is exactly as delivered the rest of the time",
+  "measured": {
+   "pct_active": 28.0,
+   "avg_db": 5.0
+  },
+  "why": "clearer words without a brighter voice. On the leads' consonant moments (their 3.2-6.5 kHz in the top 30%) the leads over the beat: 3.2-4.5 kHz +9.6 -> +12.5 dB, 4.5-6.5 kHz +1.3 -> +4.0 dB. A first version keyed by the leads' overall level acted 68% of the time (the two leads overlap almost everywhere), which is a static cut in practice; keyed by the consonants it acts 28% of the time for the same gain"
+ },
+ {
+  "track": "Leads",
+  "effect": "Level by section",
+  "type": "balance",
+  "tool": "build_bacc.py",
+  "request": "Progression",
+  "settings": "the two leads together 0.5 dB under the beat in each full section (A -1.09, B -0.22, C -1.58 dB including the v4 EQ; drops follow the section before), 1-beat ramps",
+  "why": "owner on v2: 'amplifying'; -0.5 dB under the beat is the lead level he approved on Driftin' Away (v1/v2 here: +0.3)"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Under the leads, ridden every 2 bars",
+  "type": "balance",
+  "tool": "bacc_lib.ride_layer",
+  "request": "Layer order",
+  "settings": "6 dB under the leads in A, 5 in the drops and B, 4.5 in C (measured only where both sing; gains clamped to the median +-4 dB, 0.3 s ramps); checked after: -4.5 to -6.0 dB",
+  "why": "the owner's order: lead > background > background of background"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Under the background vocals, ridden every 2 bars",
+  "type": "balance",
+  "tool": "bacc_lib.ride_layer",
+  "request": "Layer order",
+  "settings": "4 dB under the background vocals (9 dB under the leads where the background is silent); checked after: median -4.1 dB, never above",
+  "why": "background vocals of the background vocals sit under them"
+ },
+ {
+  "track": "Background vocals",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "bacc_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -13.5 dBFS (loudness + 10 dB): over 1 dB on 0.4% of the singing",
+  "why": "their peaks never pull the master limiter down"
+ },
+ {
+  "track": "Background of background",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "bacc_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -17.7 dBFS (loudness + 10 dB): over 1 dB on 7.1% of the singing",
+  "why": "their peaks never pull the master limiter down"
+ },
+ {
+  "track": "Background vocals (bars 16-25)",
+  "effect": "Telephone sound",
+  "type": "eq",
+  "tool": "ffmpeg",
+  "request": "Telephone background vocals",
+  "settings": "420 Hz-3.2 kHz band (24 dB/oct each side), +4 dB at 1.8 kHz, through an 8 kHz line, 6:1 compression; no drive or clipping. Replaces the plain background vocals from the first lead line (0:31.7) through bar 25, then an equal-power crossfade back over bar 26 (0:49.5-0:51.4)",
+  "why": "owner: 'add background vocals to the start of the song's lead vocals ... that sit behind with nice dreamy reverb telephone effect'. The background take is used (not a copy of the leads), so nothing stacks on the leads in the same band and sounds honky; smooth on purpose, since he hears grit as scratchy"
+ },
+ {
+  "track": "Background vocals (bars 16-25)",
+  "effect": "Dreamy hall",
+  "type": "reverb",
+  "tool": "bacc_lib.reverb",
+  "request": "Telephone background vocals",
+  "settings": "hall, RT60 2.88 s (1.5 bars), pre-delay 60 ms (1/32), send 300 Hz-5 kHz, 2 dB under the dry telephone",
+  "measured": {
+   "predelay_ms": 60.0,
+   "decay_s": 2.88,
+   "bpm": 125.0
+  },
+  "why": "dreamy, wide, behind the leads"
+ },
+ {
+  "track": "Background vocals (bars 16-25)",
+  "effect": "Under the leads",
+  "type": "balance",
+  "tool": "build_bacc.py",
+  "request": "Layer order",
+  "settings": "8 dB under the leads where both sing (normal background vocals: 6 in A); checked: -7.4 to -8.8 dB, median -8.1",
+  "why": "sits behind, below the lead, as asked"
+ },
+ {
+  "track": "Background vocals (bars 16-25)",
+  "effect": "Peak catcher",
+  "type": "limiter",
+  "tool": "bacc_lib.peak_catch",
+  "settings": "lookahead 5 ms, release 60 ms, ceiling -18.1 dBFS (loudness + 10 dB): over 1 dB on 0.2% of the singing",
+  "why": "no master limiter dips from this layer"
+ },
+ {
+  "track": "Leads",
+  "effect": "Plate reverb that opens up in the drops",
+  "type": "reverb",
+  "tool": "bacc_lib.reverb (dsp_tools make_ir)",
+  "request": "Reverb",
+  "settings": "plate, RT60 1.44 s (dotted half), pre-delay 30 ms (1/64), ducked 4 dB; return -16 dB in A, -15 in B and C, -12 in the drops (1-beat ramps); send low-passed at 8 kHz (v1: 12 kHz)",
+  "measured": {
+   "predelay_ms": 30.0,
+   "decay_s": 1.44,
+   "bpm": 125.0
+  },
+  "why": "clear words in the full sections, more space when the beat drops"
+ },
+ {
+  "track": "Background layers",
+  "effect": "Hall",
+  "type": "reverb",
+  "tool": "bacc_lib.reverb",
+  "request": "Reverb",
+  "settings": "hall, RT60 1.92 s (1 bar), pre-delay 30 ms, ducked 2 dB, return -9 dB; send low-passed at 8 kHz (v1: 12 kHz)",
+  "measured": {
+   "predelay_ms": 30.0,
+   "decay_s": 1.92,
+   "bpm": 125.0
+  },
+  "why": "pushes the background layers back"
+ },
+ {
+  "track": "Leads",
+  "effect": "Echo throws on line endings",
+  "type": "delay",
+  "tool": "bacc_lib.render_echoes",
+  "request": "Echo throws",
+  "settings": "31 throws: the last sung word of EVERY lead line, both leads (3 echoes: -5, -9, -13 dB) and every lead line in the two drops (4 echoes: -4 to -16 dB); each echo starts on a main beat, darker each time, left/right; ducked -3 dB (5/120 ms) under the leads",
+  "measured": {
+   "note": "1/4",
+   "ms": 480.0,
+   "bpm": 125.0,
+   "ducked": true,
+   "repeats_on_grid_max_ms": 0.04
+  },
+  "why": "owner: 'fill in quiet gaps with echos/delay perfectly timed making the song pop'. The two leads overlap, so the song has no silent gaps in the vocals; every line ending now answers with an echo (v2: lead 1 lines only, 20 throws). 32 throws in all with the last line, 108 echoes, all within 0.04 ms of a beat"
+ },
+ {
+  "track": "Lead 2",
+  "effect": "Fade-out throw on the last line",
+  "type": "delay",
+  "tool": "bacc_lib.render_echoes",
+  "request": "Echo throws",
+  "settings": "last sung word of the final line (2:51): 8 half-note echoes, 4 dB under the word then 2.5 dB quieter each",
+  "measured": {
+   "note": "1/2",
+   "ms": 960.0,
+   "bpm": 125.0,
+   "ducked": true
+  },
+  "why": "the last word rides down into the fade-out"
+ },
+ {
+  "track": "Echoes",
+  "effect": "Plate on the echoes",
+  "type": "reverb",
+  "tool": "bacc_lib.reverb",
+  "request": "Reverb",
+  "settings": "plate 1.44 s, pre-delay 30 ms, return -9 dB; send low-passed at 8 kHz (v1: 12 kHz)",
+  "measured": {
+   "predelay_ms": 30.0,
+   "decay_s": 1.44,
+   "bpm": 125.0
+  },
+  "why": "echoes melt into space"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Section lift",
+  "type": "balance",
+  "tool": "build_bacc.py",
+  "request": "Progression",
+  "settings": "whole mix +0.0 dB in A, +0.3 in B, +0.6 in C (1-beat ramps)",
+  "why": "the song grows: master -11.5 LUFS in A, -11.4 in B, -10.7 in C while the vocals last"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Fade-out",
+  "type": "balance",
+  "tool": "build_bacc.py",
+  "request": "Fade-out",
+  "settings": "from the downbeat of bar 90 (2:52.3, right after the last line) to silence on the downbeat of bar 97 (3:05.8), cosine curve; the song now ends at 3:05.7 (was 3:19.7)",
+  "why": "owner: 'yes I wanna fade the song out'; the last line's 8 half-note echoes ride down with the beat"
+ },
+ {
+  "track": "Mix bus",
+  "effect": "Mono sub (no treble lift)",
+  "type": "bus",
+  "tool": "dsp_tools.py ms-bus",
+  "settings": "side high-pass 100 Hz; mid shelf 0 dB (v1: +1.5 dB at 9.5 kHz)",
+  "why": "owner on v1: very harsh; the top is not lifted"
+ },
+ {
+  "track": "Master",
+  "effect": "True-peak limiter for streaming",
+  "type": "limiter",
+  "tool": "render_master.py",
+  "request": "Streaming master",
+  "settings": "target -12.0 LUFS, ceiling -1.0 dBTP (result -12.1 LUFS, -1.2 dBTP WAV / -1.2 dBTP MP3, limiter 0.6 LU)",
+  "why": "room for AAC and Ogg encoders on streaming services"
+ }
+]
