@@ -1,0 +1,77 @@
+[
+  {
+    "track": "Lead vocal",
+    "effect": "Quarter-note echoes on line endings",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "request": "Lead vocal delay",
+    "settings": "1/4 note ping-pong on the whole last word of each line ending (33.95-34.45, 37.68-38.18, 41.41-41.90, 75.82-76.25, 77.71-78.13, 87.68-88.18, 105.57-106.00, 107.45-107.88, 117.66-118.16), 12 ms fade in, 40 ms fade out; feedback 0.35, 450-5000 Hz, return -6.8 dB so the first tap is about 12 dB under the dry word, ducked 4 dB, attack 5 ms, release 80 ms",
+    "measured": {"note": "1/4", "ms": 465.12, "bpm": 129.0, "ducked": true},
+    "why": "v4's fixed 0.30 s slice started mid-word and cut five of the endings. The lag stays v4's quarter note. Three repeats fade out. They sit under the vocal."
+  },
+  {
+    "track": "Lead vocal",
+    "effect": "Half-note throw, last word of verse 1",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "request": "Lead vocal delay",
+    "settings": "1/2 note ping-pong on 60.16-60.66, feedback 0.35, 350-4500 Hz, return -8.1 dB, ducked 4 dB, attack 5 ms, release 80 ms",
+    "measured": {"note": "1/2", "ms": 930.23, "bpm": 129.0, "ducked": true},
+    "why": "same half-note lag as v4, pulled down so it does not sit on top of the break"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Ping-pong delay",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "settings": "1/8 dotted, feedback 0.35, 300-6000 Hz, return -9.8 dB, ducked 4 dB by the lead, attack 5 ms, release 80 ms",
+    "measured": {"note": "1/8d", "ms": 348.84, "bpm": 129.0, "ducked": true},
+    "why": "same dotted-eighth delay and feedback as v4. The level is about 12 dB under the adlib. The duck lets go in 80 ms so the repeat does not sound late."
+  },
+  {
+    "track": "Vocal FX stem",
+    "effect": "Off-beat printed throws muted",
+    "type": "gain",
+    "tool": "numpy fade",
+    "settings": "muted 35.50-35.90, 39.20-39.60, 42.95-43.55, 46.90-47.45, 54.55-54.90, 60.90-61.45; 134.95-135.35 turned down 6 dB",
+    "why": "those printed throws land on the and of the beat. 58.2 starts 10 ms from the quarter and was left. The 135 s spot is a one-beat copy and a two-beat copy on top of each other; 6 dB down leaves one."
+  },
+  {
+    "track": "Outro vocal",
+    "effect": "Pitched phone delay",
+    "type": "delay",
+    "tool": "ffmpeg rubberband + dsp_tools.py delay",
+    "request": "Outro echoes, pitched up",
+    "settings": "+3 semitones, aligned within 0 ms after a 7 ms rubberband shift; 1/4 note, feedback 0.35, 400-3500 Hz, return -11.6 dB, ducked 4 dB, attack 5 ms, release 80 ms. The last word of block 3 is left out of this delay.",
+    "measured": {"note": "1/4", "ms": 465.12, "bpm": 129.0, "ducked": true},
+    "why": "a higher echo after what is said, a few repeats, under the phone vocal"
+  },
+  {
+    "track": "Outro vocal",
+    "effect": "Half-note ring on the last interstate",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "request": "Song fade-out",
+    "settings": "1/2 note on the pitched last word, feedback 0.35, return -11.4 dB, ducked 4 dB, release 80 ms",
+    "measured": {"note": "1/2", "ms": 930.23, "bpm": 129.0, "ducked": true},
+    "why": "one ring on the last word, not a second copy on top of the quarter-note delay"
+  },
+  {
+    "track": "Outro vocal",
+    "effect": "Stutter edits",
+    "type": "keep",
+    "tool": "numpy",
+    "request": "Outro stutters",
+    "settings": "first 75 ms of the first syllable, 16th-note spacing (116.28 ms), 4 repeats before the first line, 3 before each I'm line, 1 before the later since lines, levels from -6 dB up to -1.5 dB",
+    "why": "the first bit of the word repeats into the real word, which stays where v4 put it. Tight gaps only hold one repeat."
+  },
+  {
+    "track": "Outro vocal",
+    "effect": "Phone-call layout, halls and fade",
+    "type": "keep",
+    "tool": "v4 settings",
+    "request": "Phone-call outro",
+    "settings": "same line placement, telephone effect, halls and fade as v4",
+    "why": "the phone ending Chex signed off stays put"
+  }
+]
