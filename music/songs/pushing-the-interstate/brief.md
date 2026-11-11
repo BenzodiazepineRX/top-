@@ -37,7 +37,8 @@ The stems are lossy MP3. WAV stems would give the next pass more detail to work 
 ## What's working
 
 - Owner on v2: "Absolute fucking masterpiece." Owner on v3: "I LOVED v3." Keep the v3 vocal sound, balance and loudness.
-- The previous engineer's vocal FX stem, kept as printed.
+- The previous engineer's vocal FX stem, kept as printed, except that from v14 its echo copies are moved onto the drum hits (see Problem areas).
+- Owner on v4: "it's beautiful" (the signed-off master until a later version is approved). Owner on v12: far too much delay, and extra reverb on the main vocal was not wanted; keep the v3 reverb on the lead.
 
 ## Problem areas
 
@@ -45,6 +46,7 @@ Measured on the summed stems (not yet confirmed by the owner's ears):
 
 - Lead vocal: boxy buildup around 230–320 Hz; narrow harsh peaks at about 3.5 kHz and 4.7 kHz.
 - Whole mix: energy weighted heavily to sub and bass, dark in the upper mids and air.
+- The printed FX stem (`04`) holds its own echoes: exact copies of the dry vocals one note later. Lead words are echoed one quarter note later (465 ms, about 23 dB under the word, usually one repeat, about 120 words); adlib phrases are echoed one half, one, three and four quarter notes later (about 14 dB under the adlib, loudest near 1:31 and 1:38). Because each copy is exact, it sits as far off the drums as the word does (10-50 ms), which is what the owner heard as echoes "off from 0:43". From v14 the copies are moved onto the nearest drum hit (`tools/retime_stem.py`). Do not lay new echoes over the same words without checking them against these copies.
 - The beat stem stops dead at 2:39.2 while still loud. From v4 the owner asked for a fade-out, so the beat fades over bars 82–86 and the outro echoes ring past the stop.
 
 ## Creative effects requests

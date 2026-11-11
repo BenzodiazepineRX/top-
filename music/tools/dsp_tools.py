@@ -569,6 +569,19 @@ def cmd_ms_bus(a):
     x, sr = read(a.input)
     if x.shape[1] != 2:
         sys.exit("ms-bus needs a stereo file")
+    nyq = sr / 2
+    if a.side_hp < 0 or a.side_hp >= nyq:
+        sys.exit(f"ms-bus: --side-hp {a.side_hp:g} Hz must be 0 (off) or below half the sample rate ({nyq:g} Hz)")
+    shelf = None
+    if a.mid_shelf:
+        try:
+            f0, gdb = (float(v) for v in a.mid_shelf.split(":"))
+        except ValueError:
+            sys.exit("ms-bus: --mid-shelf must look like FREQ_HZ:GAIN_DB, for example 9500:2.0")
+        if not 0 < f0 < nyq:  # a shelf above Nyquist gives an unstable filter whose output grows without limit
+            sys.exit(f"ms-bus: --mid-shelf frequency {f0:g} Hz must be above 0 and below half the sample rate "
+                     f"({nyq:g} Hz); this file is {sr} Hz")
+        shelf = (f0, gdb)
     M, S = (x[:, 0] + x[:, 1]) / 2, (x[:, 0] - x[:, 1]) / 2
     side_low_before = None
     if a.side_hp > 0:
@@ -576,8 +589,8 @@ def cmd_ms_bus(a):
         side_low_before = float(db(np.sqrt((sosfilt(lp, S) ** 2).mean())))
         # zero-phase: forward+backward 2nd-order = 24 dB/oct, no phase shift between mid and side
         S = sosfiltfilt(butter(2, a.side_hp, btype="highpass", fs=sr, output="sos"), S)
-    if a.mid_shelf:
-        f0, gdb = (float(v) for v in a.mid_shelf.split(":"))
+    if shelf:
+        f0, gdb = shelf
         bb, aa = rbj("highshelf", f0, sr, gdb / 2, 0.7071)
         M = lfilter(bb, aa, lfilter(bb, aa, M)[::-1])[::-1]  # zero-phase, half gain each pass = full gain
     y = np.stack((M + S, M - S), 1)
