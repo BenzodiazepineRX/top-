@@ -1,0 +1,57 @@
+[
+  {
+    "track": "Adlibs",
+    "effect": "Ping-pong delay, a little louder",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "settings": "1/8 dotted 348.84 ms, feedback 0.35, return -6.8 dB (+3 dB on the v16 repeats), duck 4 dB, release 80 ms. Phrase endings on the send fade over 100 ms.",
+    "measured": {"note": "1/8d", "ms": 348.84, "bpm": 129.0, "ducked": true},
+    "why": "the repeats were hard to hear, and one of them cut off at 2:14.7"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Short plate on the delay repeats only",
+    "type": "reverb",
+    "tool": "dsp_tools.py reverb",
+    "settings": "plate, decay 1.2 s, pre-delay 29.07 ms, 400-5000 Hz, return -8 dB, ducked 3 dB. The dry adlib is not sent.",
+    "measured": {"predelay_ms": 29.07, "decay_s": 1.2, "bpm": 129.0},
+    "why": "the repeats should bloom a little and stay clear"
+  },
+  {
+    "track": "Lead vocal",
+    "effect": "Quarter-note echoes, three repeats",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "request": "Lead vocal delay",
+    "settings": "feedback 0.5, return -6.8 dB so the first tap stays about 12 dB under, 100 ms fade on each copy, copies trimmed to 0.42 s",
+    "measured": {"note": "1/4", "ms": 465.12, "bpm": 129.0, "ducked": true},
+    "why": "0.35 gave one clear repeat. Copies longer than a beat were overlapping, and a couple of repeats were cutting off."
+  },
+  {
+    "track": "Outro vocal",
+    "effect": "Phone vocal level",
+    "type": "gain",
+    "request": "Phone-call outro",
+    "settings": "-8 dB on the phone voice. Before: +1.2 dB against the beat. Verse vocal: -7.0 dB against the beat. After: -5.6 dB against the beat.",
+    "why": "a 4 dB cut would still have left the phone about 4 dB hotter than the verses"
+  },
+  {
+    "track": "Outro vocal",
+    "effect": "Pitched phone delay",
+    "type": "delay",
+    "tool": "ffmpeg rubberband + dsp_tools.py delay",
+    "request": "Outro echoes, pitched up",
+    "settings": "+3 semitones, phone tone, 465.12 ms, feedback 0.35, first tap about 12 dB under the line, three repeats",
+    "measured": {"note": "1/4", "ms": 465.12, "bpm": 129.0, "ducked": true},
+    "why": "the v16 echo was too quiet to register behind the lines"
+  },
+  {
+    "track": "Outro vocal",
+    "effect": "Stutters, most of the first word",
+    "type": "keep",
+    "tool": "numpy",
+    "request": "Outro stutters",
+    "settings": "chops 233-290 ms, on the eighth or the quarter, the real word unmoved",
+    "why": "the v16 chops were too short to hear the word"
+  }
+]
