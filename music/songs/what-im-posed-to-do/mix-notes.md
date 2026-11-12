@@ -65,7 +65,14 @@ No agent here can hear. Everything below is measurement; the owner's words are t
     echoing only the first 0.86 s of a held word ("still creates the 'cut early' complaint") — adopted as the
     whole word; its suggestion of a one-bar delay for those was not taken, so that every echo keeps the same
     half-note rhythm. It asked for a check of doubled consonants at the tuner's re-timing points.
-  - *Independent checker:* CHECKER_RESULT
+  - *Independent checker:* **did not finish.** It was cut off twice by usage limits (once at the five-hour limit,
+    once at the Fable limit) before it reported anything, so v3 went out without its second opinion. The one
+    check Grok asked for was run by hand instead (`checks/tuner_double_bursts.py`, strong 2–8 kHz bursts on 1 ms
+    steps, 0:40–2:55): Lead 1 raw 347, v2 tuned 518, v3 tuned 348; Lead 2 raw 350, v2 510, v3 349. Pairs of
+    bursts 4–16 ms apart: Lead 1 raw 183, v2 290, v3 176; Lead 2 raw 178, v2 277, v3 179. So the v1/v2 tuner
+    added about half as many extra sibilant bursts as the raw take had, and v3 adds none. **Not checked by
+    anyone else:** echo starts against an independent onset detector, repeat timing, the beat treatment.
+    Measured by me: every first repeat is 4.6–8.2 dB under its own words (none over), 51 of 51.
 - **Not known:** whether he will hear "amped" as fixed. Two causes were measured and removed; no third was found.
 - **Feedback:** none yet.
 - **Next:** wait for his words. Change only what he names.
