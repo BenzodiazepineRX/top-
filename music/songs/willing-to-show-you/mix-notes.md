@@ -4,6 +4,18 @@
 
 ## Version log
 
+### 2026-11-12 — v4 quieter and softer main vocals
+
+- **Latest owner feedback:** “It’s still loud and sounds kinda ‘boxy’ like treble turned up alot or something.” V3 is rejected for voice level and tone.
+- **Main level:** another-3.5 dB versus v3 on the same frozen active windows, after dynamics/makeup. Actual changes are-3.500000 dB on each lead; their difference remains0.074737 dB. This correction is independent of the overall quieter master target.
+- **Tone:** rebuilt from pre-EQ working-level sources. Removed the+2.2 dB/2600 Hz presence lift and+1 dB/6500 Hz shelf. New broad350 Hz Q1/-3 dB cut, gentle-1 dB/5500 Hz shelf and75 Hz high-pass. No positive tonal boosts. The measured harmonic-spaced peaks do not justify surgical notches. New compression averages4.1 dB per lead; de-essing remains selective. No extra old EQ/dynamics chain was stacked onto v3.
+- **Measured softer top:** normalized dry-lead2–4.5 kHz decreases1.4–1.5 dB and5.5–10 kHz1.6–1.8 dB, beyond the common3.5 dB reduction. Broad normalized300–650 Hz share is nearly unchanged; do not claim that a meter proves boxiness eliminated.
+- **Support/space:** adlibs and their delay another-2.5 dB to stay below the now-quieter main; new main delay/plate return-30 dB,400 Hz wet high-pass. Timing stays135 BPM:1/16delay111.111 ms,1/64predelay27.778 ms,1/4nominal decay0.444444 s. Original phrase placement is preserved.
+- **Exports:** `exports/Willing_To_Show_You_Master_v4_24bit.wav`, `exports/Willing_To_Show_You_Master_v4.mp3`. Both44.1 kHz stereo,6,256,560 decoded frames;24-bit WAV and320 kbpsMP3. Each measures-12.5 LUFS/-1.5 dBTP. Final hashes and decoded verification are in `measurements/v4-delivery-verification.json`.
+- **Comparison:** `exports/Willing_To_Show_You_v3_then_v4_AB.mp3` is v3first,0.8-second gap,v4second over0:42–0:57, passage-loudness matched. The full v4 master is also quieter overall by about1 dB; use the matched preview to judge balance/tone without that difference.
+- **Review:** `effects/v4.json`, raw `reports/v4.md`, and `reports/v4-engineer-review.md`. The same genericLRA exception remains: source beat2.0LU,v4premaster2.2LU,master2.0LU,limiterloss0.2LU. This source/style range is explicitly accepted under the brief-first rule, with the raw failure preserved; no all-pass claim. Source vocal body/recording character, reference audition and listening/translation approval remain open.
+- **Status:** rendered revision for owner review. No claim of perfect balance, heard improvement or final sign-off. Older versions remain intact.
+
 ### 2026-11-12 — v3 main-vocal balance correction
 
 - **Owner feedback:** “The main vocals are entirely too loud. This needs to be evened out perfectly.” V2 is rejected for lead/beat balance; its earlier forward-vocal proposal is superseded.
@@ -68,7 +80,7 @@ This is a work in progress. Leave all final-delivery boxes unchecked until valid
 - [ ] Compared audibly with FDO at matched listening level
 - [ ] Owner sign-off on the final master
 
-**Master version:** pending final approval; current review version v3
+**Master version:** pending final approval; current review version v4
 **Date:** pending
 **Owner:** Chex
 **Owner's words:** pending — no final approval received

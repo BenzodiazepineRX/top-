@@ -14,3 +14,5 @@ The driver verifies source hashes, keeps common timeline starts, pads/sums in fl
 The repository dependency is the music-workflow branch from PR #1. This song's review PR targets that branch; it does not merge or modify the workspace setup PR. No real-system listening or reference matching is claimed. The owner must approve the final master.
 
 Latest listening revision is **v3**: `render_v3.py` rebuilds the blend from v2 caches with both main leads and their wet returns down 4 dB. Read `reports/v3-engineer-review.md` alongside the unmodified automatic report; its single generic LRA exception is explicitly documented. Use the v3 export filenames in `mix-notes.md`.
+
+Latest revision is **v4**: `render_v4.py` rebuilds the main tone without the previous presence/treble boosts, reduces both main takes another3.5 dB after processing, lowers support/ambience and exports at-12.5 LUFS. See `reports/v4-engineer-review.md` and the v4 filenames in `mix-notes.md`.

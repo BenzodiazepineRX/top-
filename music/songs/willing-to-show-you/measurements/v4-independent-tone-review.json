@@ -1,0 +1,86 @@
+{
+  "method": "50ms channel-energy mask fixed from old dry at max(-60dBFS,max-35dB); all power measurements use exactly those blocks; spectra Hann FFT per active50ms block, channel powers averaged, relative to85-16000Hz; old dry contribution gain=-6dB",
+  "Lead 1": {
+    "sr_match": true,
+    "source_frames": 5764071,
+    "old_frames": 5764071,
+    "new_frames": 5764071,
+    "active_blocks": 1446,
+    "old_v3_active_dbfs": -27.15097148657266,
+    "new_v4_active_dbfs": -30.650971640397948,
+    "change_from_v3_db": -3.5000001538252867,
+    "bands_hz": [
+      [
+        300,
+        650
+      ],
+      [
+        2000,
+        4500
+      ],
+      [
+        5500,
+        10000
+      ]
+    ],
+    "old_normalized_band_db": [
+      -4.179830941167364,
+      -15.653321283203603,
+      -18.510070963105672
+    ],
+    "new_normalized_band_db": [
+      -4.267658543894919,
+      -17.0607714569573,
+      -20.322915921811976
+    ],
+    "normalized_band_change_db": [
+      -0.08782760272755485,
+      -1.4074501737536984,
+      -1.8128449587063038
+    ],
+    "highmid_to_lowmid_change_db": -1.3196225710261427,
+    "treble_to_lowmid_change_db": -1.7250173559787498
+  },
+  "Lead 2": {
+    "sr_match": true,
+    "source_frames": 5606674,
+    "old_frames": 5606674,
+    "new_frames": 5606674,
+    "active_blocks": 1389,
+    "old_v3_active_dbfs": -27.225708427358207,
+    "new_v4_active_dbfs": -30.725708466693156,
+    "change_from_v3_db": -3.5000000393349495,
+    "bands_hz": [
+      [
+        300,
+        650
+      ],
+      [
+        2000,
+        4500
+      ],
+      [
+        5500,
+        10000
+      ]
+    ],
+    "old_normalized_band_db": [
+      -4.276017990007645,
+      -15.934726730177584,
+      -16.758920715099737
+    ],
+    "new_normalized_band_db": [
+      -4.288004489803886,
+      -17.39884951727823,
+      -18.394002462749047
+    ],
+    "normalized_band_change_db": [
+      -0.011986499796241112,
+      -1.4641227871006457,
+      -1.6350817476493091
+    ],
+    "highmid_to_lowmid_change_db": -1.4521362873044055,
+    "treble_to_lowmid_change_db": -1.623095247853069
+  },
+  "v4_lead1_minus_lead2_db": 0.07473682629520795
+}

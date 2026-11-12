@@ -1,0 +1,28 @@
+{
+  "Willing_To_Show_You_Master_v4_24bit.wav": {
+    "sha256": "e36fff30073c1101c1bdf1e0a8012bd369d96a43ab4a58ce65145f8d9e9806d2",
+    "decoded_frames": 6256560,
+    "sample_rate": 44100,
+    "sample_peak_dbfs": -1.4991989226546645
+  },
+  "Willing_To_Show_You_Master_v4.mp3": {
+    "sha256": "939d6af5b5e2df5e1a54c13a739500889ce9dc55ee7e7b00a6dbfa240afdc4a4",
+    "decoded_frames": 6256560,
+    "sample_rate": 44100,
+    "sample_peak_dbfs": -1.4733315988421771
+  },
+  "Willing_To_Show_You_v3_then_v4_AB.mp3": {
+    "sha256": "c7a4232bc9c8f14f4845a74f089101ab42937c87444cb74dad5daf2002116367",
+    "decoded_frames": 1358280,
+    "sample_rate": 44100,
+    "sample_peak_dbfs": -2.989421885328003,
+    "loudness": {
+      "integrated_lufs": -13.7,
+      "loudness_range_lu": 1.1,
+      "max_short_term_lufs": -13.1,
+      "max_momentary_lufs": -10.5,
+      "true_peak_dbtp": -3.0,
+      "sample_peak_dbfs": -3.0
+    }
+  }
+}

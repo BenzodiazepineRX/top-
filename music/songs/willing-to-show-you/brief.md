@@ -33,15 +33,15 @@ Four stereo 44.1 kHz / 16-bit WAV sources from the Dropbox folder “Willing To 
 - Preserve the beat's bass-led character; original LRA about 2 LU by the workspace EBU R128 measurement and low-frequency correlation is high.
 - These are measured/proposed preservation choices, not listening judgments.
 
-## Latest owner feedback — priority for v3
+## Latest owner feedback — priority for v4
 
-“The main vocals are entirely too loud. This needs to be evened out perfectly.”
+“It’s still loud and sounds kinda ‘boxy’ like treble turned up alot or something.”
 
-This listening feedback overrides the earlier proposal to push the leads forward. V3 lowers both alternating primary leads by 4 dB relative to v2, together with their lead-only wet returns, preserving take handoffs and the beat/adlib balance. Do not restore the rejected vocal level by normalizing the lead bus. Judge the voice/beat relationship with a loudness-matched v2/v3 comparison. No subjective perfection is claimed from meter readings.
+The owner rejected v3 for both vocal loudness and tone. V4 removes the old +2.2 dB/2.6 kHz presence boost and +1 dB/6.5 kHz shelf. It uses a broad 350 Hz/Q1/-3 dB adjustment and a gentle -1 dB/5.5 kHz shelf, with a lower 75 Hz rumble cut to retain body. Measurements show harmonic-spaced low-mid peaks, so no deep room-resonance notch is assumed. Both main takes are set another 3.5 dB below v3 on identical active windows AFTER makeup/peak control. Support is down another 2.5 dB, main ambience is quieter/less low-mid-heavy, and the overall provisional target is -12.5 LUFS. Original timing and all earlier versions remain intact. These are measured changes guided by owner listening, not a claim of subjective perfection.
 
 ## Problem areas
 
-- Source vocal active RMS is about 8 dB below the beat's overall RMS; improve relative vocal level and control isolated transients without peak-normalizing the alternating leads differently.
+- Earlier meter-based proposals to raise the voice are superseded by the owner's listening feedback. Keep the primary leads lower and softer, with both takes equally prioritized. Do not use broadband RMS against a sub-heavy beat as proof that the vocal needs more level.
 - Lead 2 reaches full scale briefly near 44.1643 and 58.2343 s; adlibs near 60.0039 s. Full-scale samples are measured; audible damage is unverified.
 - The earlier local v1 used free-time slap/early-reflection settings before repository access. Replace that wet path in v2 with calculated, ducked timing. Retain the mild tonal proposal and equal priority of the two leads; rebuild dynamics with the toolkit and use a slightly more beat-forward provisional balance for owner comparison.
 - Vocal fundamentals and exact vocal tonal problems remain unverified without listening; the inherited mild EQ is a first-pass choice, not a proven resonance repair.
@@ -78,10 +78,10 @@ Used: slap 1/16 = 111.111111 ms (nearest sample); plate pre-delay 1/64 = 27.7777
 
 - **Release services:** unknown; ask Chex before final distribution export. No broadcast target assumed.
 - Working delivery: 44.1 kHz / 24-bit stereo WAV plus 320 kbps MP3.
-- Provisional target: -11.5 LUFS integrated, WAV/decoded MP3 no higher than -1.0 dBTP; master limiter ceiling set -1.3 dBTP for extra encoding margin. This is the engineer's starting choice, not a measured FDO match or platform mandate.
+- Provisional target: -12.5 LUFS integrated, WAV/decoded MP3 no higher than -1.0 dBTP; master limiter ceiling set -1.3 dBTP for extra encoding margin. This is the engineer's starting choice, not a measured FDO match or platform mandate.
 - Earbuds, phone, car and studio-monitor checks remain pending with the owner; numerical mono checks are not listening tests.
 
 ## Deadline
 
 - **Needed by:** unknown; no date supplied.
-- **What this pass should deliver:** reviewed vocal-balance revision v3, private local WAV/MP3, matched A/B, reproducible settings, effects log and report in the workspace. No final sign-off is implied.
+- **What this pass should deliver:** reviewed quieter/softer vocal revision v4, private local WAV/MP3, matched A/B, reproducible settings, effects log and report in the workspace. No final sign-off is implied.
