@@ -6,6 +6,70 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
+### 2026-11-12 — v3 (leads no longer rebuilt by the tuner or clamped by the limiter; echoes start on words)
+
+- **Owner on v2 (his words):** "The echos aren't even playing sometimes it like they don't wanna get though. It's
+  like they aren't catching the words or something also they lead main vocals sound very robotic like almost
+  amped like"
+- **Files (sent in chat):** `1_WIPTD_v2_then_v3_1m55.mp3` (v2 then v3, loudness-matched, 1:55–2:10),
+  `What_Im_Posed_To_Do_v3.mp3`, `What_Im_Posed_To_Do_v3_24bit.wav`. Built by `build_v3.py` with `v3lib.py`
+  and word timing from `word_timing.py`; echo list `v3-echo-cues.json`. Built from the stems again.
+- **What was measured on v2 before anything was changed** (scripts in `checks/`):
+  - *Robotic.* Raw leads: pitch moves a median 9.2 and 8.5 cents every 10 ms; 20% of frames move under 3 cents.
+    After the v1/v2 tuner: 2.9 cents, and 51% of frames nearly still. The tuner (PSOLA fed a pitch line from
+    pYIN, which comes in 10-cent steps, then snapped and median-filtered) replaced the voice's own pitch
+    movement with a stepped line. Strength had nothing to do with it. PSOLA with the pitch left untouched also
+    does not null against the raw voice, so every voiced frame was being rebuilt.
+  - *Amped.* The leads' peaks stood 19–21 dB over their own level. At the mix's 40 largest peaks in a full
+    section the lead supplied 51% of the amplitude and the 808 27%. Measured with a quiet 3 kHz probe tone, the
+    final limiter (5 ms attack, 60 ms release, +6.8 dB into it) pulled the vocal range down 3.2 dB (p90), 6.1 dB
+    (p99) and 9.9 dB at the deepest, with drops of more than 2 dB inside 5 ms nine times a second. No stage
+    clipped (every file is float; peaks over 0 dBFS inside the chain were carried, not cut).
+  - *Echoes.* Against everything else playing, in 400–3600 Hz: 11 of 51 first repeats within 6 dB (clear), 10
+    more than 10 dB under. 14 copies were shorter than 0.45 s (about one syllable) and 20 started where there
+    was no break. Lead 2 ends many lines on a word held longer than the 0.86 s window ("graveyard", "all",
+    "raw", "adderall"), so the copy began in the middle of the held vowel.
+- **What changed, and only for those three things:**
+  - *Tuner (`v3lib.tune_natural`).* No resynthesis. Praat pitch every 5 ms; the slow centre of each note is
+    compared with the nearest D minor note; 60% of that distance is corrected, and nothing while the pitch
+    glides faster than 900 cents a second. Applied as a tiny speed change and re-timed with a 6 ms crossfade at
+    the next quiet point. Pitch movement after: 9.6 and 8.9 cents per 10 ms, 20% and 21% nearly still (raw 9.2,
+    8.5, 20%). Held notes within 15 cents of the key: Lead 1 62% → 83%, Lead 2 51% → 73%, the 2:10 voices
+    30% → 55% and 37% → 59%. Largest shift 60 cents; largest timing offset 6.1 ms.
+  - *Voice peaks (`v3lib.hold_limiter`).* Each voice's peaks may stand 12 dB over its level. The gain is held
+    15 ms and released at 40 dB a second, so it cannot follow single pitch periods. Reduces more than 1 dB for
+    5–6% of the singing, more than 3 dB for 1–2%.
+  - *Beat.* Below 150 Hz the tips of the loudest 808 notes are rounded by 4 dB (active 2.1% of the time, bass
+    level −0.7 dB, overtones added 20 dB under the bass). Above 150 Hz the sharpest hits are held 4 dB (more
+    than 1 dB for 2.8% of the time). Nothing else in the beat is touched.
+  - *Master.* **−14.0 LUFS, −1.3 dBTP, on purpose 2 dB quieter than his other songs.** Limiter with 8 ms
+    look-ahead, 30 ms hold, 30 dB a second release. In full sections it now takes 0.8–1.3 dB (p90), 3.4 dB
+    (p99), 4.7 dB at the deepest, with 0.2–0.35 sudden drops a second. The same treatment at −13 LUFS measured
+    3.1 dB (p90) and 5.1 dB (p99); at −12 the limiter was no better than v2. This beat has long soft parts and
+    very large 808 notes, so −12 can only be reached by clamping the whole song on every hit.
+  - *Echoes.* Every copy starts at the start of a word: word times from a local speech model (`small.en`, run
+    on this machine; nothing was uploaded), moved to the nearest dip in level. 35 take the last words that fit
+    in 0.86 s; 16 take the whole long last word (0.97–1.6 s). Each repeat is the words exactly a half note
+    (888.89 ms) later. First repeat 2.5 dB under its own words in 400–3600 Hz, raised where it lands on
+    something loud, never over its words; for a quietly sung last word, at least 6 and never less than 4 dB
+    under the line. No ducking. Panned left and right in turn. Two repeats when the next voice is in, three or
+    four in gaps, 5 dB apart. Measured: median 4.8 dB under everything else (v2 7.7), 34 clear (v2 11), 4 more
+    than 10 dB under (v2 10) — the same word, "enough", in four places, which ends on a long "f". Broadband,
+    first repeats sit 4.6–8.2 dB under their words. Echo is sounding 27.5% of 0:42–3:50 (v2 16.8%, v1 8%).
+  - Unchanged from v2: the cuts at 2.8 kHz and above 9 kHz, 2:1 compressor, de-esser, phrase leveler, lead
+    plate at −15 dB, the 2:10 voices 1.5 dB under the leads, the arrangement.
+- **Balance, measured:** leads −0.6, −0.7, −0.2, −0.6 dB against the full beat. 2-bar lines within 1.2 dB.
+- **The team:**
+  - *Grok, round 3:* agreed the frozen pitch line was the main cause of "robotic", that the limiter and the
+    19–21 dB peaks fit "amped" better than saturation, and that −14 LUFS is the right call. It disagreed with
+    echoing only the first 0.86 s of a held word ("still creates the 'cut early' complaint") — adopted as the
+    whole word; its suggestion of a one-bar delay for those was not taken, so that every echo keeps the same
+    half-note rhythm. It asked for a check of doubled consonants at the tuner's re-timing points.
+  - *Independent checker:* CHECKER_RESULT
+- **Not known:** whether he will hear "amped" as fixed. Two causes were measured and removed; no third was found.
+- **Feedback:** none yet.
+- **Next:** wait for his words. Change only what he names.
+
 ### 2026-11-12 — v2 (lighter autotune, softer leads, telephone background repeats, gaps filled)
 
 - **Owner on v1 (his words):** "Auto tune, lighter please. I want background vocals for the lead to be telephone
