@@ -1,0 +1,71 @@
+{
+  "Willing_To_Show_You_Master_v2_24bit.wav": {
+    "format": {
+      "codec": "pcm_s24le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "channel_layout": "stereo",
+      "sample_fmt": "s32",
+      "bit_depth": 24,
+      "bit_rate_kbps": 2117,
+      "duration_s": 141.872,
+      "lossy": false
+    },
+    "loudness": {
+      "integrated_lufs": -11.5,
+      "loudness_range_lu": 3.2,
+      "max_short_term_lufs": -10.4,
+      "max_momentary_lufs": -8.7,
+      "true_peak_dbtp": -1.5,
+      "sample_peak_dbfs": -1.5
+    },
+    "decoded_frames": 6256560,
+    "sha256": "af1439efc6c918c8d05f7aa959f927cc6c20f4b1d2f371f7275631879fec90d6"
+  },
+  "Willing_To_Show_You_Master_v2.mp3": {
+    "format": {
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "channel_layout": "stereo",
+      "sample_fmt": "fltp",
+      "bit_depth": null,
+      "bit_rate_kbps": 320,
+      "duration_s": 141.923,
+      "lossy": true
+    },
+    "loudness": {
+      "integrated_lufs": -11.5,
+      "loudness_range_lu": 3.2,
+      "max_short_term_lufs": -10.4,
+      "max_momentary_lufs": -8.7,
+      "true_peak_dbtp": -1.4,
+      "sample_peak_dbfs": -1.4
+    },
+    "decoded_frames": 6256560,
+    "sha256": "60e90ced11c50daff7d854d2a48a3c2f4141e40e568b7f9bc7becc333507a30a"
+  },
+  "Willing_To_Show_You_Source_then_v2_AB.mp3": {
+    "format": {
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "channel_layout": "stereo",
+      "sample_fmt": "fltp",
+      "bit_depth": null,
+      "bit_rate_kbps": 320,
+      "duration_s": 30.851,
+      "lossy": true
+    },
+    "loudness": {
+      "integrated_lufs": -14.2,
+      "loudness_range_lu": 0.9,
+      "max_short_term_lufs": -13.5,
+      "max_momentary_lufs": -11.1,
+      "true_peak_dbtp": -2.2,
+      "sample_peak_dbfs": -2.2
+    },
+    "decoded_frames": 1358280,
+    "sha256": "da8a33bc98bb098b2ae3907b96d12b30c0a36a60dca03bc6a94c56f7c911591f"
+  }
+}

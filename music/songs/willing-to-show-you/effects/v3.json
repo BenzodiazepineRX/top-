@@ -1,0 +1,480 @@
+[
+  {
+    "track": "Lead 1",
+    "effect": "Active-level gain staging",
+    "type": "gain",
+    "tool": "dsp_tools.py gain-stage",
+    "settings": "target gated RMS -18 dBFS",
+    "why": "Comparable working levels for alternating primary leads and support processing",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Rumble high-pass",
+    "type": "hpf",
+    "tool": "dsp_tools.py hpf",
+    "settings": "85 Hz, order 2",
+    "why": "Retain v1's low-cut choice; higher support cutoff reduces low-mid overlap",
+    "measured": {
+      "freq_hz": 85
+    },
+    "issues": [
+      "Lowest vocal fundamental and subjective chest/body preservation remain unverified"
+    ],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Centered dry image",
+    "type": "bus",
+    "tool": "FFmpeg extrastereo",
+    "settings": "side multiplier 0.35, clipping disabled",
+    "why": "Both alternating leads remain primary and near center",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=350:t=q:w=1:g=-2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=2600:t=q:w=0.7:g=2.2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "treble=g=1:f=6500",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Limited split-band de-essing",
+    "type": "deess",
+    "tool": "dsp_tools.py deess",
+    "settings": "5500\u20138500 Hz; auto percentile 99; ratio 3; max 3 dB",
+    "why": "Control only upper-band outliers while limiting maximum tonal change",
+    "measured": {
+      "pct_active": 8.5,
+      "avg_db": 1.3
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Serial peak and phrase control",
+    "type": "comp",
+    "tool": "dsp_tools.py comp2",
+    "settings": "peak -12 dB/5:1/2 ms/60 ms; smooth -22 dB/2.5:1/10 ms/200 ms; automatic makeup",
+    "why": "Control recording spikes and phrase level in a dense rap arrangement",
+    "measured": {
+      "avg_gr_db": 4.5
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Post-makeup peak control",
+    "type": "limiter",
+    "tool": "FFmpeg alimiter",
+    "settings": "-9 dBFS; 2 ms attack; 60 ms release; auto-level off; latency compensated",
+    "why": "Contain post-makeup peaks before summing; workload is measured, and audible compression still requires owner review",
+    "measured": {
+      "average_gr_db": 1.1607785345506687,
+      "p95_gr_db": 3.447458169562647,
+      "worst_50ms_gr_db": 6.39472362488894,
+      "active_pct_over_1db": 46.17543859649123
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Active-level gain staging",
+    "type": "gain",
+    "tool": "dsp_tools.py gain-stage",
+    "settings": "target gated RMS -18 dBFS",
+    "why": "Comparable working levels for alternating primary leads and support processing",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Rumble high-pass",
+    "type": "hpf",
+    "tool": "dsp_tools.py hpf",
+    "settings": "85 Hz, order 2",
+    "why": "Retain v1's low-cut choice; higher support cutoff reduces low-mid overlap",
+    "measured": {
+      "freq_hz": 85
+    },
+    "issues": [
+      "Lowest vocal fundamental and subjective chest/body preservation remain unverified"
+    ],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Centered dry image",
+    "type": "bus",
+    "tool": "FFmpeg extrastereo",
+    "settings": "side multiplier 0.35, clipping disabled",
+    "why": "Both alternating leads remain primary and near center",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=350:t=q:w=1:g=-2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=2600:t=q:w=0.7:g=2.2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "treble=g=1:f=6500",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Limited split-band de-essing",
+    "type": "deess",
+    "tool": "dsp_tools.py deess",
+    "settings": "5500\u20138500 Hz; auto percentile 99; ratio 3; max 3 dB",
+    "why": "Control only upper-band outliers while limiting maximum tonal change",
+    "measured": {
+      "pct_active": 8.8,
+      "avg_db": 1.2
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Serial peak and phrase control",
+    "type": "comp",
+    "tool": "dsp_tools.py comp2",
+    "settings": "peak -12 dB/5:1/2 ms/60 ms; smooth -22 dB/2.5:1/10 ms/200 ms; automatic makeup",
+    "why": "Control recording spikes and phrase level in a dense rap arrangement",
+    "measured": {
+      "avg_gr_db": 4.5
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Post-makeup peak control",
+    "type": "limiter",
+    "tool": "FFmpeg alimiter",
+    "settings": "-9 dBFS; 2 ms attack; 60 ms release; auto-level off; latency compensated",
+    "why": "Contain post-makeup peaks before summing; workload is measured, and audible compression still requires owner review",
+    "measured": {
+      "average_gr_db": 1.2552429639737224,
+      "p95_gr_db": 3.7220180052761274,
+      "worst_50ms_gr_db": 7.810631955546906,
+      "active_pct_over_1db": 48.446745562130175
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Active-level gain staging",
+    "type": "gain",
+    "tool": "dsp_tools.py gain-stage",
+    "settings": "target gated RMS -18 dBFS",
+    "why": "Comparable working levels for alternating primary leads and support processing",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Rumble high-pass",
+    "type": "hpf",
+    "tool": "dsp_tools.py hpf",
+    "settings": "150 Hz, order 2",
+    "why": "Retain v1's low-cut choice; higher support cutoff reduces low-mid overlap",
+    "measured": {
+      "freq_hz": 150
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=350:t=q:w=1:g=-2.5",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=2400:t=q:w=0.8:g=1.5",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Limited split-band de-essing",
+    "type": "deess",
+    "tool": "dsp_tools.py deess",
+    "settings": "5500\u20138500 Hz; auto percentile 99; ratio 3; max 3 dB",
+    "why": "Control only upper-band outliers while limiting maximum tonal change",
+    "measured": {
+      "pct_active": 6.0,
+      "avg_db": 1.4
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Serial peak and phrase control",
+    "type": "comp",
+    "tool": "dsp_tools.py comp2",
+    "settings": "peak -12 dB/5:1/2 ms/60 ms; smooth -22 dB/2.5:1/10 ms/200 ms; automatic makeup",
+    "why": "Control recording spikes and phrase level in a dense rap arrangement",
+    "measured": {
+      "avg_gr_db": 3.3
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Post-makeup peak control",
+    "type": "limiter",
+    "tool": "FFmpeg alimiter",
+    "settings": "-9 dBFS; 2 ms attack; 60 ms release; auto-level off; latency compensated",
+    "why": "Contain post-makeup peaks before summing; workload is measured, and audible compression still requires owner review",
+    "measured": {
+      "average_gr_db": 0.9483123143387258,
+      "p95_gr_db": 4.132868514182077,
+      "worst_50ms_gr_db": 10.026184817186373,
+      "active_pct_over_1db": 31.60270880361174
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Beat",
+    "effect": "Gentle subsonic cut",
+    "type": "hpf",
+    "tool": "FFmpeg highpass",
+    "settings": "25 Hz, one pole",
+    "why": "Remove subsonic energy with minimal change to the stereo beat",
+    "measured": {
+      "freq_hz": 25
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Beat",
+    "effect": "Instrumental balance",
+    "type": "gain",
+    "tool": "FFmpeg volume",
+    "settings": "-4 dB",
+    "why": "Make relative room for the leads without separately altering unavailable drum/808 stems",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead bus",
+    "effect": "Equal lead balance",
+    "type": "gain",
+    "tool": "dsp_tools.py mix",
+    "settings": "both leads -2 dB; both start at zero",
+    "why": "Alternating phrases receive equal priority",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Supporting balance",
+    "type": "gain",
+    "tool": "dsp_tools.py mix",
+    "settings": "-8 dB after working-level processing",
+    "why": "Keep adlibs behind both primary leads",
+    "measured": {},
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead bus",
+    "effect": "Quiet timed density delay",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "settings": "1/16; feedback .25; 3 repeats; 300\u20134200 Hz; return -27 dB; 3 dB duck; attack 5 ms/release 1/16",
+    "why": "Replace free-time ambience without introducing prominent line-end throws",
+    "measured": {
+      "note": "1/16",
+      "ms": 111.11111111111111,
+      "bpm": 135.0,
+      "ducked": true
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Quiet timed density delay",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "settings": "1/16; feedback .25; 3 repeats; 300\u20134200 Hz; return -31 dB; 3 dB duck; attack 5 ms/release 1/16",
+    "why": "Replace free-time ambience without introducing prominent line-end throws",
+    "measured": {
+      "note": "1/16",
+      "ms": 111.11111111111111,
+      "bpm": 135.0,
+      "ducked": true
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Lead bus",
+    "effect": "Short ducked plate",
+    "type": "reverb",
+    "tool": "dsp_tools.py reverb",
+    "settings": "plate; pre-delay 1/64; nominal decay 1/4; width .7; return -27 dB; duck 3 dB",
+    "why": "Understated space consistent with the proposed dry vocal direction",
+    "measured": {
+      "bpm": 135.0,
+      "predelay_ms": 27.77777777777778,
+      "decay_s": 0.4444444444444444
+    },
+    "issues": [],
+    "provenance": "Inherited unchanged from v2; source settings and measurements remain in effects/v2.json"
+  },
+  {
+    "track": "Both primary leads and their lead-only wet returns",
+    "effect": "Owner-requested vocal balance reduction",
+    "type": "gain",
+    "tool": "dsp_tools.py mix",
+    "settings": "Dry Lead_bus -4 dB; its delay -4 dB; its plate -4 dB relative to v2. Both individual leads total -6 dB after their cached working-level processing.",
+    "measured": {
+      "lead_to_beat_change_db": -4.0
+    },
+    "why": "Owner heard the main vocals as entirely too loud; the same correction preserves their alternating-take balance. Beat/adlib gains stay unchanged."
+  },
+  {
+    "track": "Mix bus",
+    "effect": "DC blocking, edges and headroom",
+    "type": "bus",
+    "tool": "FFmpeg",
+    "settings": "5 Hz order2 HP; 3 ms opening/.8 s ending fade; uniform trim -2.526763 dB; 6256560 frames",
+    "why": "Keep the earlier duration and edge treatment with fresh headroom."
+  },
+  {
+    "track": "Mix bus",
+    "effect": "Sub-side cleanup",
+    "type": "low-end",
+    "tool": "dsp_tools.py ms-bus",
+    "settings": "90 Hz side high-pass; mid shelf off",
+    "why": "Retain the earlier low-end routing."
+  },
+  {
+    "track": "Master",
+    "effect": "Master limiting",
+    "type": "limiter",
+    "tool": "render_master.py",
+    "settings": "4x; attack5/release100ms; target -11.5 LUFS, ceiling -1.3 dBTP; compensated latency, auto-level off",
+    "measured": {
+      "input": "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Premaster_v3.wav",
+      "output": "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Master_v3_float.wav",
+      "sample_rate": 44100,
+      "chain": "",
+      "full_filtergraph": "volume=9.000dB,aresample=176400:resampler=soxr,alimiter=limit=-1.500dB:attack=5.0:release=100.0:level=disabled:latency=true,aresample=44100:resampler=soxr,ebur128=peak=true",
+      "gain_into_limiter_db": 9.0,
+      "limiter": {
+        "limit_db": -1.5,
+        "attack_ms": 5.0,
+        "release_ms": 100.0,
+        "oversampling": 4
+      },
+      "target_lufs": -11.5,
+      "ceiling_dbtp": -1.3,
+      "measured_before_limiter": {
+        "integrated_lufs": -19.8,
+        "loudness_range_lu": 2.8,
+        "true_peak_dbtp": -5.9
+      },
+      "measured_output": {
+        "integrated_lufs": -11.6,
+        "loudness_range_lu": 2.1,
+        "true_peak_dbtp": -1.5
+      },
+      "limiter_loudness_reduction_lu": 0.8
+    },
+    "why": "Keep comparable overall loudness while preserving the revised voice/beat ratio."
+  },
+  {
+    "track": "Delivery",
+    "effect": "WAV and MP3 export",
+    "type": "bus",
+    "tool": "export_master.py",
+    "settings": "44.1 kHz stereo; 24-bit TPDF WAV; 320 kbps MP3; decoded peak ceiling -1 dBTP",
+    "why": "Create new versioned files; keep v2 available for comparison."
+  }
+]

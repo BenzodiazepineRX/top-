@@ -1,0 +1,50 @@
+[
+  {
+    "file": "BACKGROUNDADLIBS.wav",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration_s": 78.22532879818594,
+    "sample_peak_dbfs": 0.0,
+    "rms_dbfs": -36.87439973401871,
+    "samples_at_fullscale": 14,
+    "left_right_correlation": 0.9428961774581632,
+    "first_100ms_block_above_minus50dbfs_s": 31.5,
+    "last_100ms_block_above_minus50dbfs_s": 75.8
+  },
+  {
+    "file": "LEAD 1.wav",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration_s": 130.70455782312925,
+    "sample_peak_dbfs": -4.5664062848121425,
+    "rms_dbfs": -26.384534387597952,
+    "samples_at_fullscale": 0,
+    "left_right_correlation": 0.9450876765883444,
+    "first_100ms_block_above_minus50dbfs_s": 28.2,
+    "last_100ms_block_above_minus50dbfs_s": 129.0
+  },
+  {
+    "file": "LEAD 2.wav",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration_s": 127.13546485260771,
+    "sample_peak_dbfs": -0.00026507636037961915,
+    "rms_dbfs": -26.56387103405791,
+    "samples_at_fullscale": 18,
+    "left_right_correlation": 0.9408298753633042,
+    "first_100ms_block_above_minus50dbfs_s": 31.9,
+    "last_100ms_block_above_minus50dbfs_s": 125.4
+  },
+  {
+    "file": "Y2Mateis__FREE_Big_Scarr_x_Pooh_Shiesty_Type_Beat__Catch_A_OppPjA305Y70LA160k1659790065786.wav",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration_s": 141.8721088435374,
+    "sample_peak_dbfs": -4.2411892169265855,
+    "rms_dbfs": -14.093739799477053,
+    "samples_at_fullscale": 0,
+    "left_right_correlation": 0.989939525555485,
+    "first_100ms_block_above_minus50dbfs_s": 0.0,
+    "last_100ms_block_above_minus50dbfs_s": 141.8
+  }
+]

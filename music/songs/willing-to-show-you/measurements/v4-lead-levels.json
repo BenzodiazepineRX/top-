@@ -1,0 +1,20 @@
+{
+  "Lead 1": {
+    "baseline_v2_cache_sha256": "8a2c775d0e1e4dc3e9b09b713c04b3faf4724bae75878e5826ce45cead2421c0",
+    "stage_cache_sha256": "6e66b8043a772b7bec4daa33fa1c8d6a325e1801761cb24dddd4f32b27304bf8",
+    "old_v3_active_dbfs": -27.15097148657266,
+    "new_v4_active_dbfs": -30.650971640397948,
+    "change_from_v3_db": -3.5000001538252867,
+    "post_processing_gain_db": -9.372067613031803,
+    "mask": "unchanged v2 dry50ms channel-energy blocks above max(-60, max-35)"
+  },
+  "Lead 2": {
+    "baseline_v2_cache_sha256": "549e7bc2e09a565b46c621012a4fe29c22f3750134afb3970e2cb5513c149862",
+    "stage_cache_sha256": "2e5f878121c950ee08bbf0cc6968c5c1a3221741084aeaaa0cd99ade097d5224",
+    "old_v3_active_dbfs": -27.225708427358207,
+    "new_v4_active_dbfs": -30.725708466693156,
+    "change_from_v3_db": -3.5000000393349495,
+    "post_processing_gain_db": -9.352387845768767,
+    "mask": "unchanged v2 dry50ms channel-energy blocks above max(-60, max-35)"
+  }
+}

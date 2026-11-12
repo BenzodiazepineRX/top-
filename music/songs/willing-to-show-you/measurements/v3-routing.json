@@ -1,0 +1,38 @@
+{
+  "feedback": "The main vocals are entirely too loud. This needs to be evened out perfectly",
+  "revision": "Both primary leads and their lead-only effects -4 dB relative to v2; beat and adlibs retain v2 balance",
+  "sample_rate": 44100,
+  "frames": 6256560,
+  "inputs": {
+    "Beat.wav": {
+      "sha256": "4444f5b88ae0293f78ab9a50b2c7e7fffb25f61ba828267ff33972489b1b9e70",
+      "gain_db": 0.0,
+      "frames": 6256560
+    },
+    "Lead_bus.wav": {
+      "sha256": "6af100dba199bf4d30a7edd668f81985e67375488ea41f2114dc626a4de36791",
+      "gain_db": -4.0,
+      "frames": 5764071
+    },
+    "Adlibs_dry.wav": {
+      "sha256": "6506241b43d17adda093f6f66a1efb6a9031b059a24dfefbc6f6799d8456c95b",
+      "gain_db": -8.0,
+      "frames": 3449737
+    },
+    "Lead_bus_delay.wav": {
+      "sha256": "31c703b6f91e8603e86248d06f2c8c5a1beb905b1e15863216e00ba1ef463886",
+      "gain_db": -4.0,
+      "frames": 5778771
+    },
+    "Adlibs_delay.wav": {
+      "sha256": "8c623ea42057f9c1a78e21ab9484e14ce0214f3e29fe6a578b07f031de5a2d0e",
+      "gain_db": 0.0,
+      "frames": 3464437
+    },
+    "Lead_plate.wav": {
+      "sha256": "b1a60c36f7b43113bb5a26165389d2e56fb725e9f38abab9b17977cd61436889",
+      "gain_db": -4.0,
+      "frames": 5790775
+    }
+  }
+}

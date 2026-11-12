@@ -1,0 +1,30 @@
+{
+  "outputs": {
+    "Willing_To_Show_You_Master_v3_24bit.wav": {
+      "sha256": "25a45a0100b38ab693b7ff4facbaf4a491e95225e63d9a25a9a0e931b753d1d0",
+      "decoded_frames": 6256560,
+      "sample_peak_dbfs": -1.4980091031580491
+    },
+    "Willing_To_Show_You_Master_v3.mp3": {
+      "sha256": "4e648dc644d537300439ef38f0d45a6201ace1d91a3e35ccf790efbf74b9337f",
+      "decoded_frames": 6256560,
+      "sample_peak_dbfs": -1.452738225699536
+    },
+    "Willing_To_Show_You_v2_then_v3_AB.mp3": {
+      "sha256": "13b38389a3a49b8288cdd60ed8e52af1fe76ae8c9f1e269bfc502d683e65c7fe",
+      "decoded_frames": 1358280,
+      "sample_peak_dbfs": -2.937404911585734,
+      "loudness": {
+        "integrated_lufs": -12.8,
+        "loudness_range_lu": 1.0,
+        "max_short_term_lufs": -12.3,
+        "max_momentary_lufs": -10.0,
+        "true_peak_dbtp": -2.9,
+        "sample_peak_dbfs": -2.9
+      }
+    }
+  },
+  "cache_hashes_unchanged": true,
+  "mix_routing_relative_rms_error": 2.285165555839221e-08,
+  "dry_and_wet_main_lead_change_db": -4
+}

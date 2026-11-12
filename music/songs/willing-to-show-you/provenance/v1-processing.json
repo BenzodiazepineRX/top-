@@ -1,0 +1,223 @@
+{
+  "status": "First pass; listening review pending",
+  "reference": "FDO by Pooh Shiesty; stylistic direction only, reference audio unavailable",
+  "sample_rate": 44100,
+  "sources_preserved": true,
+  "processing": {
+    "Lead_1": {
+      "source": "source/LEAD 1.wav",
+      "filter_chain": "extrastereo=m=0.35:c=false,highpass=f=85:p=2,equalizer=f=350:t=q:w=1:g=-2,equalizer=f=2600:t=q:w=0.7:g=2.2,treble=g=1:f=6500,acompressor=threshold=0.070795:ratio=3:attack=10:release=90:makeup=1.412538:knee=2.828427:link=maximum:detection=rms,deesser=i=0.12:m=0.25:f=0.55,alimiter=limit=0.398107:attack=2:release=70:level=false:latency=true",
+      "original_frames": 5764071,
+      "start_offset_frames": 0,
+      "active_mask": "original mono 100ms RMS > -35 dBFS",
+      "gain_after_chain_db": 6.150915701361008,
+      "post_level_peak_control": "alimiter=limit=0.354813389:attack=2:release=60:level=false:latency=true",
+      "active_rms_before_peak_control_dbfs": -18,
+      "active_rms_dbfs": -19.938850961907765,
+      "active_seconds": 49.7,
+      "alignment_checks": [
+        {
+          "source_time_s": 28.2,
+          "lag_samples": -5
+        },
+        {
+          "source_time_s": 49.1,
+          "lag_samples": -2
+        },
+        {
+          "source_time_s": 69.6,
+          "lag_samples": -5
+        },
+        {
+          "source_time_s": 89.8,
+          "lag_samples": -5
+        },
+        {
+          "source_time_s": 110.3,
+          "lag_samples": -6
+        }
+      ]
+    },
+    "Lead_2": {
+      "source": "source/LEAD 2.wav",
+      "filter_chain": "extrastereo=m=0.35:c=false,highpass=f=85:p=2,equalizer=f=350:t=q:w=1:g=-2,equalizer=f=2600:t=q:w=0.7:g=2.2,treble=g=1:f=6500,acompressor=threshold=0.070795:ratio=3:attack=10:release=90:makeup=1.412538:knee=2.828427:link=maximum:detection=rms,deesser=i=0.12:m=0.25:f=0.55,alimiter=limit=0.398107:attack=2:release=70:level=false:latency=true",
+      "original_frames": 5606674,
+      "start_offset_frames": 0,
+      "active_mask": "original mono 100ms RMS > -35 dBFS",
+      "gain_after_chain_db": 6.12699466030595,
+      "post_level_peak_control": "alimiter=limit=0.354813389:attack=2:release=60:level=false:latency=true",
+      "active_rms_before_peak_control_dbfs": -18,
+      "active_rms_dbfs": -19.968073306779964,
+      "active_seconds": 46.4,
+      "alignment_checks": [
+        {
+          "source_time_s": 31.9,
+          "lag_samples": -2
+        },
+        {
+          "source_time_s": 46.6,
+          "lag_samples": -4
+        },
+        {
+          "source_time_s": 65.7,
+          "lag_samples": -5
+        },
+        {
+          "source_time_s": 86.4,
+          "lag_samples": -4
+        },
+        {
+          "source_time_s": 106.9,
+          "lag_samples": -3
+        }
+      ]
+    },
+    "Adlibs": {
+      "source": "source/BACKGROUNDADLIBS.wav",
+      "filter_chain": "highpass=f=150:p=2,equalizer=f=350:t=q:w=1:g=-2.5,equalizer=f=2400:t=q:w=0.8:g=1.5,acompressor=threshold=0.039811:ratio=2.5:attack=6:release=90:makeup=1.258925:knee=2.828427:link=maximum:detection=rms,deesser=i=0.12:m=0.25:f=0.55,alimiter=limit=0.354813:attack=2:release=70:level=false:latency=true",
+      "original_frames": 3449737,
+      "start_offset_frames": 0,
+      "active_mask": "original mono 100ms RMS > -35 dBFS",
+      "gain_after_chain_db": 6.235683506315127,
+      "post_level_peak_control": "alimiter=limit=0.177827941:attack=2:release=60:level=false:latency=true",
+      "active_rms_before_peak_control_dbfs": -24,
+      "active_rms_dbfs": -25.705288383815144,
+      "active_seconds": 6.9,
+      "alignment_checks": [
+        {
+          "source_time_s": 31.5,
+          "lag_samples": -14
+        },
+        {
+          "source_time_s": 35.4,
+          "lag_samples": -6
+        },
+        {
+          "source_time_s": 47.7,
+          "lag_samples": -8
+        },
+        {
+          "source_time_s": 60.1,
+          "lag_samples": -14
+        },
+        {
+          "source_time_s": 64.2,
+          "lag_samples": -7
+        }
+      ]
+    },
+    "Beat": {
+      "source": "source/Y2Mateis__FREE_Big_Scarr_x_Pooh_Shiesty_Type_Beat__Catch_A_OppPjA305Y70LA160k1659790065786.wav",
+      "filter_chain": "highpass=f=25:p=1,volume=-4dB",
+      "original_frames": 6256560,
+      "start_offset_frames": 0
+    },
+    "Vocal_FX": {
+      "bandpass_hz": [
+        300,
+        4200
+      ],
+      "slap_delays_ms": [
+        85,
+        115
+      ],
+      "lead_slap_gain_db": -27,
+      "adlib_slap_gain_db": -23,
+      "early_reflection_taps_ms_and_left_right_gains": [
+        [
+          37,
+          0.02,
+          0.011
+        ],
+        [
+          53,
+          -0.013,
+          0.018
+        ],
+        [
+          79,
+          0.011,
+          -0.014
+        ],
+        [
+          101,
+          -0.008,
+          0.009
+        ],
+        [
+          149,
+          0.006,
+          -0.005
+        ],
+        [
+          211,
+          -0.003,
+          0.004
+        ]
+      ],
+      "note": "No tempo detected/assumed; short slap and room reflections only"
+    },
+    "Master": {
+      "input_gain_db": 10.73,
+      "oversampling_rate": 176400,
+      "limiter_ceiling_dbfs_at_4x": -1.4,
+      "limiter_attack_ms": 5,
+      "limiter_release_ms": 100,
+      "limiter_auto_level": false,
+      "limiter_latency_compensation": true,
+      "target_lufs_i": -10.5,
+      "delivered_true_peak_ceiling_dbtp": -1.0
+    }
+  },
+  "outputs": {
+    "Willing_To_Show_You_Master_v1_24bit.wav": {
+      "input_i": -10.58,
+      "input_tp": -1.31,
+      "input_lra": 3.4,
+      "input_thresh": -21.18,
+      "target_offset": -0.3,
+      "frames": 6256560,
+      "sample_peak_dbfs": -1.397261142730713,
+      "sha256": "5fd5b00c27cda4b34f488c5c9c78725428a8bd8d20f55122061920813bccb322"
+    },
+    "Willing_To_Show_You_Premaster_v1_24bit.wav": {
+      "input_i": -20.36,
+      "input_tp": -6.0,
+      "input_lra": 4.3,
+      "input_thresh": -31.04,
+      "target_offset": 0.3,
+      "frames": 6256560,
+      "sample_peak_dbfs": -6.000000953674316,
+      "sha256": "b886cba6993d90a320a13eb863e4ee41199f7ee5f69f98fddca4ff737fb0fc69"
+    },
+    "Willing_To_Show_You_Master_v1_320kbps.mp3": {
+      "input_i": -10.58,
+      "input_tp": -1.13,
+      "input_lra": 3.4,
+      "input_thresh": -21.18,
+      "target_offset": -0.3,
+      "encoding_input_trim_db": 0.0,
+      "decoded_frames": 6256560,
+      "sha256": "0e122c0f048cb1f2bd5a405d47f9d398807eb93a0c10ff251b94132a46d97e5a"
+    }
+  },
+  "frames": 6256560,
+  "duration_seconds": 141.8721088435374,
+  "mix_bus_trim_db": -5.136786937713623,
+  "edge_fades_seconds": {
+    "start": 0.003,
+    "end": 0.8
+  },
+  "premaster_measurements": {
+    "input_i": -20.36,
+    "input_tp": -6.0,
+    "input_lra": 4.3,
+    "input_thresh": -31.04,
+    "target_offset": 0.3,
+    "frames": 6256560,
+    "sample_peak_dbfs": -6.000000953674316,
+    "sha256": "b886cba6993d90a320a13eb863e4ee41199f7ee5f69f98fddca4ff737fb0fc69"
+  },
+  "master_mono_fold_rms_change_db": -0.035816775978552214,
+  "master_below120hz_lr_correlation": 0.999082172474071
+}

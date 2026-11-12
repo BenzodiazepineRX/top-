@@ -1,0 +1,110 @@
+{
+  "file": "/workspace/top-music/music/songs/willing-to-show-you/source/Y2Mateis__FREE_Big_Scarr_x_Pooh_Shiesty_Type_Beat__Catch_A_OppPjA305Y70LA160k1659790065786.wav",
+  "duration_s": 141.87,
+  "key": {
+    "key": "A minor",
+    "score": 0.564,
+    "confidence": "low",
+    "relative": "C major",
+    "runner_up": "C minor",
+    "runner_up_score": 0.389,
+    "tuning_a4_hz": 442.3,
+    "tuning_cents": 9.1,
+    "chroma": {
+      "C": 0.116,
+      "C#": 0.069,
+      "D": 0.076,
+      "Eb": 0.084,
+      "E": 0.081,
+      "F": 0.076,
+      "F#": 0.073,
+      "G": 0.063,
+      "Ab": 0.082,
+      "A": 0.094,
+      "Bb": 0.085,
+      "B": 0.1
+    }
+  },
+  "delay_bpm": 135.0,
+  "delay_ms": [
+    {
+      "note": "1/1 whole",
+      "ms": 1777.78,
+      "formula": "240000/BPM"
+    },
+    {
+      "note": "1/2 half",
+      "ms": 888.89,
+      "formula": "120000/BPM"
+    },
+    {
+      "note": "1/2 dotted",
+      "ms": 1333.33,
+      "formula": "180000/BPM"
+    },
+    {
+      "note": "1/4 quarter",
+      "ms": 444.44,
+      "formula": "60000/BPM"
+    },
+    {
+      "note": "1/4 dotted",
+      "ms": 666.67,
+      "formula": "90000/BPM"
+    },
+    {
+      "note": "1/4 triplet",
+      "ms": 296.3,
+      "formula": "40000/BPM"
+    },
+    {
+      "note": "1/8 eighth",
+      "ms": 222.22,
+      "formula": "30000/BPM"
+    },
+    {
+      "note": "1/8 dotted",
+      "ms": 333.33,
+      "formula": "45000/BPM"
+    },
+    {
+      "note": "1/8 triplet",
+      "ms": 148.15,
+      "formula": "20000/BPM"
+    },
+    {
+      "note": "1/16 sixteenth",
+      "ms": 111.11,
+      "formula": "15000/BPM"
+    },
+    {
+      "note": "1/16 dotted",
+      "ms": 166.67,
+      "formula": "22500/BPM"
+    },
+    {
+      "note": "1/32",
+      "ms": 55.56,
+      "formula": "7500/BPM"
+    },
+    {
+      "note": "1/64",
+      "ms": 27.78,
+      "formula": "3750/BPM"
+    },
+    {
+      "note": "1/128",
+      "ms": 13.89,
+      "formula": "1875/BPM"
+    }
+  ],
+  "predelay": {
+    "note": "1/64",
+    "ms": 27.78
+  },
+  "decay_s": {
+    "1/2": 0.88889,
+    "1/2 dotted": 1.33333,
+    "1 bar": 1.77778
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "dropbox_folder_title": "Willing To Show You",
+  "requested_workspace": "Benzodiazepine (not attached)",
+  "files": [
+    {
+      "path": "source/BACKGROUNDADLIBS.wav",
+      "bytes": 13798992,
+      "sha256": "c832e60dc00e5822692b83629984505998e00ccbb5460fcdf1706f2ca0ce8e4b"
+    },
+    {
+      "path": "source/LEAD 1.wav",
+      "bytes": 23056328,
+      "sha256": "4e22c75f2bcecaf31a6b778b21454a4847d0711700e54313cfb8d2358ba2dfc8"
+    },
+    {
+      "path": "source/LEAD 2.wav",
+      "bytes": 22426740,
+      "sha256": "e792f99404fc097c7b052c9551b0d0b53b95e44a944490991c50c4f5c65ae453"
+    },
+    {
+      "path": "source/Y2Mateis__FREE_Big_Scarr_x_Pooh_Shiesty_Type_Beat__Catch_A_OppPjA305Y70LA160k1659790065786.wav",
+      "bytes": 25026284,
+      "sha256": "4dd02c87789302b58d27974420fbaac24cb9fcf99718df2662a2d1af39f204f9"
+    }
+  ],
+  "audio_modified": false,
+  "alignment_confirmed": true,
+  "alignment_confirmation": "User confirmed all four files use common timeline start and folder is intended song."
+}

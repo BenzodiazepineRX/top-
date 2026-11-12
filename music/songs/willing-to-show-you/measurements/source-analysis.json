@@ -1,0 +1,278 @@
+{
+  "results": [
+    {
+      "file": "/workspace/top-music/music/songs/willing-to-show-you/source/LEAD 1.wav",
+      "format": {
+        "codec": "pcm_s16le",
+        "sample_rate": 44100,
+        "channels": 2,
+        "channel_layout": null,
+        "sample_fmt": "s16",
+        "bit_depth": 16,
+        "bit_rate_kbps": 1411,
+        "duration_s": 130.705,
+        "lossy": false
+      },
+      "loudness": {
+        "integrated_lufs": -20.3,
+        "loudness_range_lu": 15.7,
+        "max_short_term_lufs": -18.9,
+        "max_momentary_lufs": -17.0,
+        "true_peak_dbtp": -4.6,
+        "sample_peak_dbfs": -4.6,
+        "peak_to_loudness_ratio_db": 15.7
+      },
+      "samples": {
+        "decoded_frames": 5764071,
+        "decode_errors": null,
+        "sample_peak_dbfs_per_channel": [
+          -4.57,
+          -4.57
+        ],
+        "samples_above_full_scale": 0,
+        "samples_at_or_near_full_scale": 0,
+        "clip_runs_3plus_samples": 0,
+        "rms_dbfs_per_channel": [
+          -26.38,
+          -26.39
+        ],
+        "crest_factor_db": 21.82,
+        "dc_offset_per_channel": [
+          -0.00016,
+          -0.00016
+        ],
+        "leading_silence_s": 28.277,
+        "trailing_silence_s": 0.864,
+        "last_100ms_rms_dbfs": -77.3,
+        "stereo_correlation": 0.945,
+        "min_window_correlation": -0.749,
+        "pct_windows_negative_correlation": 18.8,
+        "lr_balance_db": 0.0,
+        "mono_fold_change_db": -0.12,
+        "side_to_mid_db": -15.49,
+        "band_share_db": {
+          "sub": -32.3,
+          "bass": -5.4,
+          "low-mid": -3.6,
+          "mid": -5.9,
+          "upper-mid": -19.3,
+          "high": -24.7,
+          "air": -35.4
+        },
+        "content_up_to_khz": 16.1
+      },
+      "notes": [
+        "Very little content above ~16.1 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.",
+        "18.8% of moments have negative correlation: parts may vanish in mono.",
+        "28.3 s of silence at the start."
+      ]
+    },
+    {
+      "file": "/workspace/top-music/music/songs/willing-to-show-you/source/LEAD 2.wav",
+      "format": {
+        "codec": "pcm_s16le",
+        "sample_rate": 44100,
+        "channels": 2,
+        "channel_layout": null,
+        "sample_fmt": "s16",
+        "bit_depth": 16,
+        "bit_rate_kbps": 1411,
+        "duration_s": 127.135,
+        "lossy": false
+      },
+      "loudness": {
+        "integrated_lufs": -20.4,
+        "loudness_range_lu": 15.4,
+        "max_short_term_lufs": -19.0,
+        "max_momentary_lufs": -16.8,
+        "true_peak_dbtp": 0.1,
+        "sample_peak_dbfs": -0.0,
+        "peak_to_loudness_ratio_db": 20.5
+      },
+      "samples": {
+        "decoded_frames": 5606674,
+        "decode_errors": null,
+        "sample_peak_dbfs_per_channel": [
+          -0.0,
+          -0.0
+        ],
+        "samples_above_full_scale": 0,
+        "samples_at_or_near_full_scale": 18,
+        "clip_runs_3plus_samples": 4,
+        "rms_dbfs_per_channel": [
+          -26.56,
+          -26.56
+        ],
+        "crest_factor_db": 26.56,
+        "dc_offset_per_channel": [
+          -0.00012,
+          -0.00012
+        ],
+        "leading_silence_s": 31.956,
+        "trailing_silence_s": 0.078,
+        "last_100ms_rms_dbfs": -75.9,
+        "stereo_correlation": 0.941,
+        "min_window_correlation": -0.747,
+        "pct_windows_negative_correlation": 19.7,
+        "lr_balance_db": -0.0,
+        "mono_fold_change_db": -0.13,
+        "side_to_mid_db": -15.16,
+        "band_share_db": {
+          "sub": -34.0,
+          "bass": -5.8,
+          "low-mid": -3.9,
+          "mid": -5.1,
+          "upper-mid": -19.4,
+          "high": -22.5,
+          "air": -33.7
+        },
+        "content_up_to_khz": 16.1
+      },
+      "notes": [
+        "Very little content above ~16.1 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.",
+        "Clipping signs: 4 runs of 3+ samples at full scale, 0 decoded samples above 0 dBFS. Listen for crackle in loud parts.",
+        "True peak +0.1 dBTP is above -1 dBTP: MP3/AAC encoding of this file may distort.",
+        "Peak-to-loudness ratio 20.5 dB with -20.4 LUFS: quite dynamic and quiet; there is room for gentle mastering.",
+        "19.7% of moments have negative correlation: parts may vanish in mono.",
+        "32.0 s of silence at the start."
+      ]
+    },
+    {
+      "file": "/workspace/top-music/music/songs/willing-to-show-you/source/BACKGROUNDADLIBS.wav",
+      "format": {
+        "codec": "pcm_s16le",
+        "sample_rate": 44100,
+        "channels": 2,
+        "channel_layout": null,
+        "sample_fmt": "s16",
+        "bit_depth": 16,
+        "bit_rate_kbps": 1411,
+        "duration_s": 78.225,
+        "lossy": false
+      },
+      "loudness": {
+        "integrated_lufs": -27.4,
+        "loudness_range_lu": 11.8,
+        "max_short_term_lufs": -28.2,
+        "max_momentary_lufs": -21.5,
+        "true_peak_dbtp": 0.0,
+        "sample_peak_dbfs": 0.0,
+        "peak_to_loudness_ratio_db": 27.4
+      },
+      "samples": {
+        "decoded_frames": 3449737,
+        "decode_errors": null,
+        "sample_peak_dbfs_per_channel": [
+          0.0,
+          0.0
+        ],
+        "samples_above_full_scale": 0,
+        "samples_at_or_near_full_scale": 14,
+        "clip_runs_3plus_samples": 2,
+        "rms_dbfs_per_channel": [
+          -36.88,
+          -36.87
+        ],
+        "crest_factor_db": 36.87,
+        "dc_offset_per_channel": [
+          -2e-05,
+          -2e-05
+        ],
+        "leading_silence_s": 31.562,
+        "trailing_silence_s": 0.832,
+        "last_100ms_rms_dbfs": -80.2,
+        "stereo_correlation": 0.943,
+        "min_window_correlation": -0.727,
+        "pct_windows_negative_correlation": 32.7,
+        "lr_balance_db": -0.01,
+        "mono_fold_change_db": -0.13,
+        "side_to_mid_db": -15.32,
+        "band_share_db": {
+          "sub": -32.7,
+          "bass": -5.1,
+          "low-mid": -3.1,
+          "mid": -7.3,
+          "upper-mid": -19.1,
+          "high": -23.9,
+          "air": -36.0
+        },
+        "content_up_to_khz": 16.1
+      },
+      "notes": [
+        "Very little content above ~16.1 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.",
+        "Clipping signs: 2 runs of 3+ samples at full scale, 0 decoded samples above 0 dBFS. Listen for crackle in loud parts.",
+        "True peak +0.0 dBTP is above -1 dBTP: MP3/AAC encoding of this file may distort.",
+        "Peak-to-loudness ratio 27.4 dB with -27.4 LUFS: quite dynamic and quiet; there is room for gentle mastering.",
+        "32.7% of moments have negative correlation: parts may vanish in mono.",
+        "31.6 s of silence at the start."
+      ]
+    },
+    {
+      "file": "/workspace/top-music/music/songs/willing-to-show-you/source/Y2Mateis__FREE_Big_Scarr_x_Pooh_Shiesty_Type_Beat__Catch_A_OppPjA305Y70LA160k1659790065786.wav",
+      "format": {
+        "codec": "pcm_s16le",
+        "sample_rate": 44100,
+        "channels": 2,
+        "channel_layout": null,
+        "sample_fmt": "s16",
+        "bit_depth": 16,
+        "bit_rate_kbps": 1411,
+        "duration_s": 141.872,
+        "lossy": false
+      },
+      "loudness": {
+        "integrated_lufs": -13.8,
+        "loudness_range_lu": 2.0,
+        "max_short_term_lufs": -12.8,
+        "max_momentary_lufs": -10.1,
+        "true_peak_dbtp": -4.2,
+        "sample_peak_dbfs": -4.2,
+        "peak_to_loudness_ratio_db": 9.6
+      },
+      "samples": {
+        "decoded_frames": 6256560,
+        "decode_errors": null,
+        "sample_peak_dbfs_per_channel": [
+          -4.26,
+          -4.24
+        ],
+        "samples_above_full_scale": 0,
+        "samples_at_or_near_full_scale": 0,
+        "clip_runs_3plus_samples": 0,
+        "rms_dbfs_per_channel": [
+          -14.1,
+          -14.09
+        ],
+        "crest_factor_db": 9.84,
+        "dc_offset_per_channel": [
+          -4e-05,
+          -3e-05
+        ],
+        "leading_silence_s": 0.0,
+        "trailing_silence_s": 0.019,
+        "last_100ms_rms_dbfs": -53.9,
+        "stereo_correlation": 0.99,
+        "min_window_correlation": 0.067,
+        "pct_windows_negative_correlation": 0.0,
+        "lr_balance_db": -0.02,
+        "mono_fold_change_db": -0.02,
+        "side_to_mid_db": -22.96,
+        "band_share_db": {
+          "sub": -2.5,
+          "bass": -4.0,
+          "low-mid": -16.7,
+          "mid": -19.7,
+          "upper-mid": -24.9,
+          "high": -30.9,
+          "air": -38.9
+        },
+        "content_up_to_khz": 16.6
+      },
+      "notes": [
+        "Very little content above ~16.6 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.",
+        "Loudness range 2.0 LU: very little contrast between sections."
+      ]
+    }
+  ],
+  "reference": null
+}

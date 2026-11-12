@@ -1,0 +1,202 @@
+{
+  "results": [
+    {
+      "file": "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v4_24bit.wav",
+      "format": {
+        "codec": "pcm_s24le",
+        "sample_rate": 44100,
+        "channels": 2,
+        "channel_layout": "stereo",
+        "sample_fmt": "s32",
+        "bit_depth": 24,
+        "bit_rate_kbps": 2117,
+        "duration_s": 141.872,
+        "lossy": false
+      },
+      "loudness": {
+        "integrated_lufs": -12.5,
+        "loudness_range_lu": 2.0,
+        "max_short_term_lufs": -11.5,
+        "max_momentary_lufs": -9.0,
+        "true_peak_dbtp": -1.5,
+        "sample_peak_dbfs": -1.5,
+        "peak_to_loudness_ratio_db": 11.0
+      },
+      "samples": {
+        "decoded_frames": 6256560,
+        "decode_errors": null,
+        "sample_peak_dbfs_per_channel": [
+          -1.5,
+          -1.5
+        ],
+        "samples_above_full_scale": 0,
+        "samples_at_or_near_full_scale": 0,
+        "clip_runs_3plus_samples": 0,
+        "rms_dbfs_per_channel": [
+          -13.19,
+          -13.18
+        ],
+        "crest_factor_db": 11.68,
+        "dc_offset_per_channel": [
+          -6e-05,
+          -6e-05
+        ],
+        "leading_silence_s": 0.001,
+        "trailing_silence_s": 0.099,
+        "last_100ms_rms_dbfs": -72.6,
+        "stereo_correlation": 0.986,
+        "min_window_correlation": 0.302,
+        "pct_windows_negative_correlation": 0.0,
+        "lr_balance_db": -0.02,
+        "mono_fold_change_db": -0.03,
+        "side_to_mid_db": -21.61,
+        "band_share_db": {
+          "sub": -3.1,
+          "bass": -3.7,
+          "low-mid": -13.2,
+          "mid": -15.6,
+          "upper-mid": -22.7,
+          "high": -27.3,
+          "air": -36.4
+        },
+        "content_up_to_khz": 16.6
+      },
+      "notes": [
+        "Very little content above ~16.6 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.",
+        "Loudness range 2.0 LU: very little contrast between sections."
+      ]
+    },
+    {
+      "file": "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v4.mp3",
+      "format": {
+        "codec": "mp3",
+        "sample_rate": 44100,
+        "channels": 2,
+        "channel_layout": "stereo",
+        "sample_fmt": "fltp",
+        "bit_depth": null,
+        "bit_rate_kbps": 320,
+        "duration_s": 141.923,
+        "lossy": true
+      },
+      "loudness": {
+        "integrated_lufs": -12.5,
+        "loudness_range_lu": 2.0,
+        "max_short_term_lufs": -11.5,
+        "max_momentary_lufs": -9.0,
+        "true_peak_dbtp": -1.5,
+        "sample_peak_dbfs": -1.5,
+        "peak_to_loudness_ratio_db": 11.0
+      },
+      "samples": {
+        "decoded_frames": 6256560,
+        "decode_errors": null,
+        "sample_peak_dbfs_per_channel": [
+          -1.47,
+          -1.48
+        ],
+        "samples_above_full_scale": 0,
+        "samples_at_or_near_full_scale": 0,
+        "clip_runs_3plus_samples": 0,
+        "rms_dbfs_per_channel": [
+          -13.19,
+          -13.18
+        ],
+        "crest_factor_db": 11.7,
+        "dc_offset_per_channel": [
+          -6e-05,
+          -6e-05
+        ],
+        "leading_silence_s": 0.001,
+        "trailing_silence_s": 0.099,
+        "last_100ms_rms_dbfs": -72.6,
+        "stereo_correlation": 0.986,
+        "min_window_correlation": 0.302,
+        "pct_windows_negative_correlation": 0.0,
+        "lr_balance_db": -0.02,
+        "mono_fold_change_db": -0.03,
+        "side_to_mid_db": -21.6,
+        "band_share_db": {
+          "sub": -3.1,
+          "bass": -3.7,
+          "low-mid": -13.2,
+          "mid": -15.6,
+          "upper-mid": -22.7,
+          "high": -27.3,
+          "air": -36.4
+        },
+        "content_up_to_khz": 20.0
+      },
+      "notes": [
+        "Lossy source (mp3, ~320 kbps): work in WAV to avoid further loss, but conversion cannot restore what encoding removed.",
+        "Loudness range 2.0 LU: very little contrast between sections."
+      ]
+    }
+  ],
+  "reference": {
+    "file": "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3_24bit.wav",
+    "format": {
+      "codec": "pcm_s24le",
+      "sample_rate": 44100,
+      "channels": 2,
+      "channel_layout": "stereo",
+      "sample_fmt": "s32",
+      "bit_depth": 24,
+      "bit_rate_kbps": 2117,
+      "duration_s": 141.872,
+      "lossy": false
+    },
+    "loudness": {
+      "integrated_lufs": -11.6,
+      "loudness_range_lu": 2.1,
+      "max_short_term_lufs": -10.6,
+      "max_momentary_lufs": -8.4,
+      "true_peak_dbtp": -1.5,
+      "sample_peak_dbfs": -1.5,
+      "peak_to_loudness_ratio_db": 10.1
+    },
+    "samples": {
+      "decoded_frames": 6256560,
+      "decode_errors": null,
+      "sample_peak_dbfs_per_channel": [
+        -1.5,
+        -1.5
+      ],
+      "samples_above_full_scale": 0,
+      "samples_at_or_near_full_scale": 0,
+      "clip_runs_3plus_samples": 0,
+      "rms_dbfs_per_channel": [
+        -12.54,
+        -12.52
+      ],
+      "crest_factor_db": 11.02,
+      "dc_offset_per_channel": [
+        -0.00021,
+        -0.00021
+      ],
+      "leading_silence_s": 0.001,
+      "trailing_silence_s": 0.085,
+      "last_100ms_rms_dbfs": -71.6,
+      "stereo_correlation": 0.982,
+      "min_window_correlation": 0.302,
+      "pct_windows_negative_correlation": 0.0,
+      "lr_balance_db": -0.02,
+      "mono_fold_change_db": -0.04,
+      "side_to_mid_db": -20.44,
+      "band_share_db": {
+        "sub": -3.4,
+        "bass": -3.9,
+        "low-mid": -11.1,
+        "mid": -13.4,
+        "upper-mid": -20.6,
+        "high": -24.0,
+        "air": -33.8
+      },
+      "content_up_to_khz": 16.5
+    },
+    "notes": [
+      "Very little content above ~16.5 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.",
+      "Loudness range 2.1 LU: very little contrast between sections."
+    ]
+  }
+}

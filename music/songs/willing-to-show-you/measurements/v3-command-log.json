@@ -1,0 +1,210 @@
+[
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/top-music/music/tools/dsp_tools.py",
+      "mix",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Mix_v3.wav",
+      "--track",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/Beat.wav:0.0",
+      "--track",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/Lead_bus.wav:-4.0",
+      "--track",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/Adlibs_dry.wav:-8.0",
+      "--track",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/Lead_bus_delay.wav:-4.0",
+      "--track",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/Adlibs_delay.wav:0.0",
+      "--track",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/Lead_plate.wav:-4.0"
+    ],
+    "exit_code": 0,
+    "output": "Mixed 6 tracks at 44100 Hz, 141.87 s: /workspace/top-music/music/songs/willing-to-show-you/work/Beat.wav +0 dB, /workspace/top-music/music/songs/willing-to-show-you/work/Lead_bus.wav -4 dB, /workspace/top-music/music/songs/willing-to-show-you/work/Adlibs_dry.wav -8 dB, /workspace/top-music/music/songs/willing-to-show-you/work/Lead_bus_delay.wav -4 dB, /workspace/top-music/music/songs/willing-to-show-you/work/Adlibs_delay.wav +0 dB, /workspace/top-music/music/songs/willing-to-show-you/work/Lead_plate.wav -4 dB\nMix: -17.2 LUFS, true peak -3.5 dBTP, sample peak -3.5 dBFS (float, no clipping)\n"
+  },
+  {
+    "argv": [
+      "ffmpeg",
+      "-hide_banner",
+      "-nostdin",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Mix_v3.wav",
+      "-af",
+      "highpass=f=5:p=2,afade=t=in:d=0.003,afade=t=out:st=141.0721088435374:d=0.8,volume=-2.5267630472312637dB",
+      "-c:a",
+      "pcm_f32le",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Mix_edges_v3.wav"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/top-music/music/tools/dsp_tools.py",
+      "ms-bus",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Mix_edges_v3.wav",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Premaster_v3.wav",
+      "--side-hp",
+      "90",
+      "--mid-shelf",
+      ""
+    ],
+    "exit_code": 0,
+    "output": "M/S bus: side high-pass 90 Hz (24 dB/oct, zero-phase): side energy below 90 Hz -60.1 -> -68.5 dBFS, so the sub-bass is mono\n"
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/top-music/music/tools/render_master.py",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Premaster_v3.wav",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Master_v3_float.wav",
+      "--target-lufs",
+      "-11.5",
+      "--ceiling",
+      "-1.3",
+      "--attack",
+      "5",
+      "--release",
+      "100",
+      "--max-limiter-db",
+      "2"
+    ],
+    "exit_code": 0,
+    "output": "Chain alone: -19.8 LUFS, true peak -5.9 dBTP, LRA 2.8 LU\n  pass 1: gain +8.30 dB, limit -1.50 dB -> -12.00 LUFS, true peak -1.50 dBTP\n  pass 2: gain +8.80 dB, limit -1.50 dB -> -11.70 LUFS, true peak -1.50 dBTP\n  pass 3: gain +9.00 dB, limit -1.50 dB -> -11.60 LUFS, true peak -1.50 dBTP\n\nResult: -11.6 LUFS integrated, true peak -1.5 dBTP, loudness range 2.1 LU (was 2.8), peak-to-loudness 10.1 dB\nLimiter took about 0.8 LU of loudness off the peaks (gain into limiter +9.0 dB).\nWrote /workspace/top-music/music/songs/willing-to-show-you/work/v3/Master_v3_float.wav and /workspace/top-music/music/songs/willing-to-show-you/work/v3/Master_v3_float.wav.settings.json\n"
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/top-music/music/tools/export_master.py",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Master_v3_float.wav",
+      "--name",
+      "Willing_To_Show_You_Master_v3",
+      "--outdir",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports",
+      "--rate",
+      "44100",
+      "--mp3",
+      "320",
+      "--mp3-max-tp",
+      "-1"
+    ],
+    "exit_code": 0,
+    "output": "Source master: pcm_f32le, 44100 Hz, 2 ch, 141.872 s\n  Willing_To_Show_You_Master_v3_24bit.wav  pcm_s24le  44100 Hz  24-bit  141.872 s  37.5 MB  -11.6 LUFS  TP -1.5 dBTP  OK\n  Willing_To_Show_You_Master_v3.mp3        mp3        44100 Hz          141.923 s  5.7 MB  -11.6 LUFS  TP -1.4 dBTP  OK\nAll exports decoded and verified.\n"
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/top-music/music/tools/analyze_audio.py",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3_24bit.wav",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3.mp3",
+      "--reference",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v2_24bit.wav",
+      "--json",
+      "/workspace/top-music/music/songs/willing-to-show-you/measurements/v3-analysis.json"
+    ],
+    "exit_code": 0,
+    "output": "\n=== /workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3_24bit.wav\nFormat      pcm_s24le, 44100 Hz, 24-bit, 2 ch (stereo), 141.872 s, 2117 kbps\nLoudness    -11.6 LUFS integrated | loudest 3 s: -10.6 LUFS | range: 2.1 LU\nPeaks       true peak -1.5 dBTP | sample peak -1.5 dBFS | peak-to-loudness 10.1 dB | crest 11.0 dB\nClipping    0 runs of 3+ full-scale samples, 0 samples above 0 dBFS\nStereo      correlation 0.982 (min moment 0.302, 0.0% negative) | mono fold -0.0 dB | L-R balance -0.0 dB | side vs mid -20.4 dB\nEdges       start silence 0.001 s | end silence 0.085 s | last 0.1 s at -71.6 dBFS | DC [-0.00021, -0.00021]\nTone (dB share of total energy)  sub -3.4  bass -3.9  low-mid -11.1  mid -13.4  upper-mid -20.6  high -24.0  air -33.8\nBandwidth   content reaches ~16.5 kHz\nNotes\n  - Very little content above ~16.5 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.\n  - Loudness range 2.1 LU: very little contrast between sections.\n\n=== /workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3.mp3\nFormat      mp3, 44100 Hz, fltp, 2 ch (stereo), 141.923 s, 320 kbps\nLoudness    -11.6 LUFS integrated | loudest 3 s: -10.6 LUFS | range: 2.1 LU\nPeaks       true peak -1.4 dBTP | sample peak -1.5 dBFS | peak-to-loudness 10.2 dB | crest 11.1 dB\nClipping    0 runs of 3+ full-scale samples, 0 samples above 0 dBFS\nStereo      correlation 0.982 (min moment 0.302, 0.0% negative) | mono fold -0.0 dB | L-R balance -0.0 dB | side vs mid -20.4 dB\nEdges       start silence 0.001 s | end silence 0.085 s | last 0.1 s at -71.6 dBFS | DC [-0.00021, -0.00021]\nTone (dB share of total energy)  sub -3.4  bass -3.9  low-mid -11.1  mid -13.4  upper-mid -20.6  high -24.0  air -33.8\nBandwidth   content reaches ~20.1 kHz\nNotes\n  - Lossy source (mp3, ~320 kbps): work in WAV to avoid further loss, but conversion cannot restore what encoding removed.\n  - Loudness range 2.1 LU: very little contrast between sections.\n\n=== /workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v2_24bit.wav\nFormat      pcm_s24le, 44100 Hz, 24-bit, 2 ch (stereo), 141.872 s, 2117 kbps\nLoudness    -11.5 LUFS integrated | loudest 3 s: -10.4 LUFS | range: 3.2 LU\nPeaks       true peak -1.5 dBTP | sample peak -1.5 dBFS | peak-to-loudness 10.0 dB | crest 11.5 dB\nClipping    0 runs of 3+ full-scale samples, 0 samples above 0 dBFS\nStereo      correlation 0.982 (min moment 0.302, 0.0% negative) | mono fold -0.0 dB | L-R balance -0.0 dB | side vs mid -20.4 dB\nEdges       start silence 0.001 s | end silence 0.099 s | last 0.1 s at -73.0 dBFS | DC [-0.00017, -0.00017]\nTone (dB share of total energy)  sub -4.2  bass -4.0  low-mid -9.0  mid -11.2  upper-mid -19.1  high -21.7  air -31.9\nBandwidth   content reaches ~16.3 kHz\nNotes\n  - Very little content above ~16.3 kHz: typical of lossy encoding or AI generation. A gentle high shelf can add sparkle, but it cannot recreate missing detail.\n\n=== Compared with reference: /workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v2_24bit.wav\n  Integrated LUFS        song  -11.6   ref  -11.5   diff -0.1\n  Loudness range LU      song    2.1   ref    3.2   diff -1.1\n  True peak dBTP         song   -1.5   ref   -1.5   diff +0.0\n  Peak-to-loudness dB    song   10.1   ref   10.0   diff +0.1\n  RMS dBFS (loudest ch)  song  -12.5   ref  -13.0   diff +0.4\n  Sample peak dBFS       song   -1.5   ref   -1.5   diff +0.0\n  Stereo correlation     song   0.98   ref   0.98   diff +0.00\n  Mono fold dB           song  -0.04   ref  -0.04   diff +0.00\n  Tonal balance (song minus reference, dB). Positive = song has relatively more energy there:\n   sub +0.8  bass +0.1  low-mid -2.1  mid -2.2  upper-mid -1.5  high -2.3  air -1.9\n  Differences under ~1.5 dB are usually minor; genre and arrangement explain many differences.\n\n=== Compared with reference: /workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v2_24bit.wav\n  Integrated LUFS        song  -11.6   ref  -11.5   diff -0.1\n  Loudness range LU      song    2.1   ref    3.2   diff -1.1\n  True peak dBTP         song   -1.4   ref   -1.5   diff +0.1\n  Peak-to-loudness dB    song   10.2   ref   10.0   diff +0.2\n  RMS dBFS (loudest ch)  song  -12.5   ref  -13.0   diff +0.4\n  Sample peak dBFS       song   -1.4   ref   -1.5   diff +0.1\n  Stereo correlation     song   0.98   ref   0.98   diff +0.00\n  Mono fold dB           song  -0.04   ref  -0.04   diff +0.00\n  Tonal balance (song minus reference, dB). Positive = song has relatively more energy there:\n   sub +0.8  bass +0.1  low-mid -2.1  mid -2.2  upper-mid -1.5  high -2.3  air -1.9\n  Differences under ~1.5 dB are usually minor; genre and arrangement explain many differences.\n\nSaved JSON to /workspace/top-music/music/songs/willing-to-show-you/measurements/v3-analysis.json\n"
+  },
+  {
+    "argv": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-nostdin",
+      "-y",
+      "-ss",
+      "42",
+      "-i",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v2_24bit.wav",
+      "-t",
+      "15",
+      "-c:a",
+      "pcm_f32le",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/AB_V2.wav"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-nostdin",
+      "-y",
+      "-ss",
+      "42",
+      "-i",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3_24bit.wav",
+      "-t",
+      "15",
+      "-c:a",
+      "pcm_f32le",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/AB_V3.wav"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/top-music/music/tools/ab_match.py",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/AB_V2.wav",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/AB_V3.wav",
+      "--outdir",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/comparison-v3",
+      "--snippet",
+      "0",
+      "15",
+      "--no-full"
+    ],
+    "exit_code": 0,
+    "output": "A: /workspace/top-music/music/songs/willing-to-show-you/work/v3/AB_V2.wav  -11.0 LUFS  true peak -1.5 dBTP  -> gain -0.3 dB\nB: /workspace/top-music/music/songs/willing-to-show-you/work/v3/AB_V3.wav  -11.3 LUFS  true peak -1.5 dBTP  -> gain +0.0 dB\nBoth now play at about -11.3 LUFS. B was -0.3 LU louder than A before matching.\nSnippet: A (0s-15s), 0.8s pause, then B.\nwrote /workspace/top-music/music/songs/willing-to-show-you/exports/comparison-v3/AB_snippet.wav\n"
+  },
+  {
+    "argv": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-nostdin",
+      "-y",
+      "-i",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/comparison-v3/AB_snippet.wav",
+      "-af",
+      "volume=-1.5dB",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "320k",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_v2_then_v3_AB.mp3"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/top-music/music/tools/song_report.py",
+      "/workspace/top-music/music/songs/willing-to-show-you",
+      "--version",
+      "v3",
+      "--master",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3_24bit.wav",
+      "--mp3",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v3.mp3",
+      "--pre-limiter",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Premaster_v3.wav",
+      "--settings",
+      "/workspace/top-music/music/songs/willing-to-show-you/work/v3/Master_v3_float.wav.settings.json",
+      "--previous",
+      "/workspace/top-music/music/songs/willing-to-show-you/exports/Willing_To_Show_You_Master_v2_24bit.wav",
+      "--effects",
+      "/workspace/top-music/music/songs/willing-to-show-you/effects/v3.json"
+    ],
+    "exit_code": 0,
+    "output": "Wrote /workspace/top-music/music/songs/willing-to-show-you/reports/v3.md\n\u274c Not ready: 1 problem(s) to fix before the owner listens.  (53 passed, 2 to check, 1 failed)\n"
+  }
+]
