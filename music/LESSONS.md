@@ -109,6 +109,18 @@ Echo timing has cost more versions than everything else combined. These rules ar
 | A track's role taken from its name | Satan's Casino v1 and v2 | Two versions built on the wrong picture | Send solo previews and ask (`tools/stem_intake.py`) |
 | A "moved" count from one detector | Interstate v14 | Half the echo copies were missed | Confirm coverage with a second, independent detector |
 | Word times from a speech model on sung lines | Satan's Casino, second workspace | Low-confidence boundaries | Ask the owner for the lyric sheet; flag low scores |
+| An echo's "gap" measured only to the next voice that starts | What I'm Posed To Do, first build | When two rappers trade lines back to back, 107 of 121 repeats landed on the other one's words | Treat the gap as zero if any other voice is already singing when the words end; then one repeat only |
+| A fixed longest length for the echoed words | What I'm Posed To Do, first build | 10 of 44 cuts began mid-word | Start at the deepest dip inside the window, and let the copy be shorter |
+| An echo copy moved so that it starts on a beat line | What I'm Posed To Do v1 | "The echos are a bit off bit or they cut early" | Delay the words by a whole note value from where they were sung, and follow the last word's tail to its end |
+| Autotune strength 0.85 on raw rap takes | What I'm Posed To Do v1 | "Auto tune, lighter please", asked twice; leads "a bit harsh and scratchy" | Start at 0.60 and send a light-then-strong clip |
+| A tuner that rebuilds the voice from a detected pitch line (PSOLA fed pYIN, snapped and smoothed) | What I'm Posed To Do v1, v2 | "Very robotic". Half the voiced frames had a nearly frozen pitch, at any strength | Measure pitch movement per 10 ms, raw against tuned, before sending. Use `songs/what-im-posed-to-do/v3lib.py` `tune_natural`: speed changes on held notes only |
+| The final limiter left to deal with the voice's own peaks | What I'm Posed To Do v1, v2 | "Harsh and scratchy", then "almost amped". The lead was half of every big peak; the limiter dropped the vocal range up to 10 dB, nine jolts a second | Find who makes the mix's largest peaks (`checks/who_hits_the_limiter.py`), read the limiter with a probe tone (`checks/limiter_probe.py`), and hold each voice's peaks on the voice |
+| −12 LUFS forced onto a beat with long soft parts and very large 808 notes | What I'm Posed To Do v1, v2 | The limiter clamped the whole song on every hit | Test several loudness targets and take the loudest one where the limiter stays under about 1.5 dB (p90) and 3.5 dB (p99) in the loud sections. Say the loudness and why |
+| An echo window shorter than a held last word | What I'm Posed To Do v2 | "They aren't catching the words": copies began mid-vowel, 14 were one syllable | Start every copy at a word start (local speech model, then the nearest dip) and take the whole held word |
+| Echo level checked only against its own words | What I'm Posed To Do v2 | "The echos aren't even playing sometimes": 10 of 51 sat more than 10 dB under everything else | Measure each repeat against everything else playing, in the echo's own band (`checks/echo_audibility.py`) |
+| A version sent without the team's check | What I'm Posed To Do v2 | It missed on both things it was meant to fix | Run the checks before sending, every version |
+| De-esser placed before the compressor | What I'm Posed To Do, first build | 9 to 16 kHz came back up 3 to 4 dB | Compress first, de-ess last, and cap the cut at 6 dB |
+| Work kept only in a session's scratch folder | What I'm Posed To Do | The first build and its reviews were lost when the session hit its limit | Commit the build script and notes as soon as a version renders |
 
 ## Sources: ask for the cleanest files first
 
