@@ -6,7 +6,7 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
-### 2026-11-12 — v7 (vocals lined up with the beat; echoes as a true delay)
+### 2026-11-12 — v7 (vocals lined up with the beat; echoes as a true delay) — REJECTED
 
 - **Owner on v6 (his words):** "The delay/echos are so entirely off beat idk even know what to say to get you to fix it anymore"
 - **Files (sent in chat):** `1_WIPTD_v6_then_v7_0m50.mp3` (v6 then v7, same loudness, from 0:49.5),
@@ -40,7 +40,9 @@ No agent here can hear. Everything below is measurement; the owner's words are t
   two separate methods.
 - **Ask him:** whether his main vocal feels more on the beat, which echo option (A or B) feels right, and whether he can export the beat
   from the same app as the vocals, which would settle the timing for good.
-- **Feedback:** none yet.
+- **Feedback (his words):** "Version 7 is worse than all of them nearly." So lining the vocals up with the beat file was wrong for
+  how he hears the song: the measured "slide" is probably how the vocals sit with the beat in his own app. Rejected; do not build on v7.
+  Next step: ask for a rough mix exported from his app (beat and vocals together, as it plays there) and match its timing exactly.
 
 ### 2026-11-12 — v6 (echoes on the half-time pulse, louder than the line, clearer; vocals less dull)
 

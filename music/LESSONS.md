@@ -74,9 +74,8 @@ Echo timing has cost more versions than everything else combined. These rules ar
    mid-word and ended early (Interstate v4 to v15; Satan's Casino v02 in the second workspace).
 3. **Keep each copy under one beat long.** Longer copies cover the next beat (Interstate v15, v17).
 4. **Start the first echo after the word has finished, on a main beat** (Interstate v10 and v15). In a half-time beat
-   (the snare or clap only on beat 3) the main beats are 1 and 3. But first check that the vocal files sit on the beat at all
-   (the trap "vocal files slide against the beat file" below). Once they do, make the echo a true delay: the words repeat a
-   whole number of beats after they were sung. Never snap a word's first sound onto a beat line: that sound is often a
+   (the snare or clap only on beat 3) the main beats are 1 and 3. Not yet settled on What I'm Posed To Do: snapping (v5, v6) and
+   a true delay on re-timed vocals (v7) were both rejected; get his app's rough mix before the next try. Never snap a word's first sound onto a beat line: that sound is often a
    consonant, so the vowel lands late (What I'm Posed To Do v1, v5, v6, all "off beat").
 5. **Take the grid from this song's drums, not from 0:00 of the file.** The grid began 38 ms into
    Driftin' Away, 17 ms into Baccdoor and 0.955 s into Don't Need Closure.
@@ -127,7 +126,7 @@ Echo timing has cost more versions than everything else combined. These rules ar
 | Judging a cut by "grit" (spectral flatness 3-8 kHz) alone | What I'm Posed To Do v4 draft | The 2.8 kHz bell seemed to raise grit 29%, so it was removed; the independent check showed the reading follows the tone's slope, and removing the bell raised 1.5-3.5 kHz 1-1.6 dB against v3 | Judge scratch by fizz (5-12 kHz against the body) and the 1.5-3.5 kHz band; a -6 dB shelf at 4.5 kHz took fizz to the approved -34.5 dB. Keep a cut only if those numbers say so |
 | Echoes landed on the next beat line of any kind in a half-time beat | What I'm Posed To Do v5 | "Still off beat": 23 of 51 first echoes fell on beats 2 and 4, between the felt pulses, and dotted-half spacing moved later repeats off too | Find where the snare or clap falls before placing echoes. In half-time, land on beats 1 and 3 only and space repeats a half note or a bar. Check every repeat with `songs/what-im-posed-to-do/checks/pulse_check.py` |
 | Echoes raised over their line with the master unchanged | What I'm Posed To Do v6 (caught before sending) | 24 echo starts made the final limiter dip the whole song, beat included, by over 1 dB; the worst was 4.5 dB | Run `checks/echo_limiter_push.py` after any echo level change. Lower only the few echoes that cause a dip over 2 dB, by at most 2 dB. Plan B (Grok): duck the beat 1.5-2 dB under echo starts, but listen for lost kick punch |
-| **Vocal files that slide against the beat file**: the beat was the original YouTube download, the vocals came out of the owner's recording app | What I'm Posed To Do v1-v6 | Six versions of "off beat" echoes. The vocals drifted a full 8th note over the song (96 ms early at 0:56, 125 ms late at 2:21). An echo that copied his timing inherited the slide, and an echo snapped to the grid fought the vocal | At intake, measure the vocal syllables against the beat's 8th grid in 8-bar windows (`songs/what-im-posed-to-do/align/drift_map.py`), and compare repeated hooks by cross-correlation. If the vocals slide, ask for the beat exported from the same app, or line them up (`align/apply_align.py`) and send him a before/after |
+| **Moving the vocals against the beat on a measurement alone**: the vocal syllables' 8th grid seemed to slide a full 8th note against the beat file (96 ms early at 0:56, 125 ms late at 2:21) | What I'm Posed To Do v7 | "Version 7 is worse than all of them nearly." Lining the vocals up with the beat broke the timing he knows from his own app | Never re-time his vocals against the beat. If the timing looks odd (`songs/what-im-posed-to-do/align/drift_map.py`), ask for a rough mix exported from his app (beat and vocals together, as it plays there) and match that |
 | A check that reads the voice without the build's copied sections | What I'm Posed To Do v7 | 43 repeats in the copied bars looked 65 ms off | Map copied bars back to their source before comparing (`checks/delay_check.py`) |
 | A compressor on a phone-recorded rap lead | What I'm Posed To Do v1–v3 | Fizz +2.6 dB and grit +18% (it presses the vowels, not the s and breath noise), with no gain in word-to-word evenness (15.9 dB vs 15.7 dB spread) | Leave it out; even the lines with a 2-bar ride to the median line level instead, and hold peaks on each voice |
 | A 1 ms envelope made by taking every 44th sample (`SR//1000`), read with `int(t*1000)` | What I'm Posed To Do v4 checks | Each step is 0.9977 ms, so the reading drifts 0.5 s by 3:40. It produced a false "pasted sections are 324 ms late" alarm and fake silent lead-ins on every echo plot | Slice by samples (`int(t*SR)`) first, or sample at `np.round(np.arange(0, n, SR/1000.0))`. Test any time-indexed check with a click at a known late time |
@@ -144,8 +143,8 @@ Echo timing has cost more versions than everything else combined. These rules ar
 - Beats are often YouTube rips with nothing above 15.6 to 16.6 kHz. Do not boost the top. Ask for the
   producer's WAV, and note that a free beat usually needs a lease or credit before release.
 - Ask for the beat exported from the same app and session as the vocals, not the original download. The app can run the project at
-  a slightly different tempo or adjust the beat to fit, so the original file slides against the vocals (What I'm Posed To Do: a full
-  8th note over the song).
+  a slightly different tempo or adjust the beat to fit. Also ask for a rough mix from the app (beat and vocals together, as it
+  plays there): it is the only reliable reference for how his vocals sit on the beat (What I'm Posed To Do v7).
 - Vocal exports often carry effects from the recording app: a stereo effect (Baccdoor leads), a long
   reverb (Don't Need Closure adlibs), panning (Satan's Casino adlibs). Ask for an export with only the
   autotune on.
