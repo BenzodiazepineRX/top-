@@ -6,6 +6,22 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
+### 2026-11-12 — v5 (echoes on the beat, as loud as the rule allows)
+
+- **Owner on v4 (his words):** "You did all that work and it's still messed up" … "Echo still off beat & not getting through"
+- **Files (sent in chat):** `1_WIPTD_v4_then_v5_0m50.mp3` (v4 then v5, same loudness, from 0:49.5), `What_Im_Posed_To_Do_v5.mp3`,
+  `What_Im_Posed_To_Do_v5_24bit.wav`. Built by `build_v5.py` (= `build_v4c_draft.py` plus the two changes below) from v4's cleaned voices.
+- **Cause of "off beat":** since v2 each echo was the words a fixed note value after he sang them, so it copied the rap's loose timing. The echo's
+  first sound sat a median 136 ms (v3) / 74 ms (v4) from the nearest beat line; only 18-19 of 51 within 30 ms.
+- **What changed:** the first sound of each echoed word now lands on the next beat line after the words end (LESSONS echo rule 4): median 6 ms
+  from the beat, 50 of 51 within 30 ms, none over 100 ms. Echo level up to level with its words in the louder ear (loud part -2.8 dB in band,
+  mono; v4 -3.7). Also from the v4c draft: no echoes lowered for headroom, the lift only on voiced sound, peak hold 13 dB, shared lines in the
+  phrase gains, later repeats of long words spaced so they never overlap.
+- **Measured:** master -14.5 LUFS, -1.3 dBTP; final limiter p99 3.0 / 2.0 / 3.0 dB in the full sections (v3 3.4/3.3/3.4).
+- **Not better, honestly:** on the beat the echo's start meets the drum hit and the next line, so start-vs-mix is -5.7 dB (v4 -4.8). The echoes
+  cannot go louder without exceeding their own words. Not checked by the independent checkers (sent at once; the owner is low on limit).
+- **Feedback:** none yet.
+
 ### 2026-11-12 — v4 (lighter autotune, less fizz, echo starts lifted)
 
 - **Owner on v3 (his words):** "Please fix the background echos, they are lagging in as if it's not loud enough in the beginning of them to
