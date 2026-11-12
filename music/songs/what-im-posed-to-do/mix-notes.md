@@ -6,6 +6,42 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
+### 2026-11-12 — v7 (vocals lined up with the beat; echoes as a true delay)
+
+- **Owner on v6 (his words):** "The delay/echos are so entirely off beat idk even know what to say to get you to fix it anymore"
+- **Files (sent in chat):** `1_WIPTD_v6_then_v7_0m50.mp3` (v6 then v7, same loudness, from 0:49.5),
+  `2_WIPTD_echo_A_1beat_then_B_2beats_1m06.mp3` (echo option A then B, both v7, from 1:06.5), `What_Im_Posed_To_Do_v7.mp3`,
+  `What_Im_Posed_To_Do_v7_24bit.wav` (option B). Built by `align/drift_map.py`, then `align/apply_align.py`, then `build_v7.py`
+  (`DELAY_BEATS=2`; option A was `DELAY_BEATS=1`). Echo list `v7-echo-cues.json`.
+- **Cause found:** the vocal files slide against the beat file. In 8-bar windows the syllables lock tightly onto an 8th-note grid
+  (clustering 0.62-0.92), but that grid moves against the beat's grid: about 96 ms early at 0:56, on it at 1:38, and 125 ms late at
+  2:21. Both rappers slide the same way, so it is the files, not the rapping. A second method agrees: the hook at bars 66-73 sits 150 ms
+  later against the beat than the same hook at bars 34-41, and bars 90-97 sit 160 ms later than bars 42-49. The beat file is the
+  original YouTube download; the vocals came out of his recording app, which probably ran the project at a slightly different tempo
+  or adjusted the beat. The beat file itself is steady: the hats sit within 4 ms of the 135 BPM grid from start to end. This explains
+  every echo verdict so far. An echo that copied his timing (v2-v4) inherited the slide; an echo snapped to the beat (v1, v5, v6) fought
+  the vocal. v6 also snapped each word's first sound (often a consonant) onto beat 1 or 3, which puts the vowel late.
+- **What changed (timing only; the sound is v6's):**
+  1. The vocal files are lined up with the beat by a smooth speed change of at most 0.49% (about 8 cents, not audible). The word
+     timings are moved to match. The lead moves -102 ms (later) at the start and up to +125 ms (earlier) by 2:21.
+  2. Each echo is a true delay: the copied words repeat exactly a whole number of beats after he sang them. Option B (sent as the
+     full song) uses 2 beats, with repeats 2 or 4 beats apart. Option A uses 1 beat, with repeats 1-4 beats apart.
+- **Measured (B; A in brackets):**
+  - Vocals against the beat's 8ths: within 7 ms in every 20-second stretch, clustering 0.84 over the song (0.29 as recorded).
+  - Echo timing: every repeat is a whole number of beats after its words, median 0 ms and worst 10 ms, across 104 [109] repeats
+    (`checks/delay_check.py`; v6 had 89 of 107 off by a median 75 ms).
+  - Echo against its own words: median +0.4 dB, as v6.
+  - Echo against the live mix: audible within a median 33 ms [37] (v6 65 ms); 48 of 51 within 120 ms (v6 34). In its first 100 ms the
+    echo sits +0.5 dB [+0.1] over the mix (v6 -4.2 dB).
+  - The final limiter dips the whole song by over 1 dB at 9 [18] echo starts (v6 24); the worst dip is 2.5 dB (v6 3.7). It lowered 2 [10]
+    echoes for headroom.
+  - Master: -14.5 LUFS, -1.3 dBTP. Lead 0.5-0.6 dB under the beat, as before.
+- **Not checked by the independent checker agents** (his limit). The checks above are this agent's own, and the drift was confirmed by
+  two separate methods.
+- **Ask him:** whether his main vocal feels more on the beat, which echo option (A or B) feels right, and whether he can export the beat
+  from the same app as the vocals, which would settle the timing for good.
+- **Feedback:** none yet.
+
 ### 2026-11-12 — v6 (echoes on the half-time pulse, louder than the line, clearer; vocals less dull)
 
 - **Owner on v5 (his answers to four questions):** echo timing "Still off beat"; echo level "Too quiet: make louder", choosing "Let the
