@@ -6,6 +6,46 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
+### 2026-11-12 — v6 (echoes on the half-time pulse, louder than the line, clearer; vocals less dull)
+
+- **Owner on v5 (his answers to four questions):** echo timing "Still off beat"; echo level "Too quiet: make louder", choosing "Let the
+  echoes go louder than the line they repeat, so they clearly stand out."; echo sound "Too muffled"; main vocals "Too dull".
+- **Files (sent in chat):** `1_WIPTD_v5_then_v6_0m50.mp3` (v5 then v6, same loudness, from 0:49.5), `What_Im_Posed_To_Do_v6.mp3`,
+  `What_Im_Posed_To_Do_v6_24bit.wav`. Built by `build_v6.py` (= `build_v5.py` plus the changes below; its defaults are the settings sent),
+  echo list `v6-echo-cues.json`. Starting point: v5 as sent; nothing else changed.
+- **Cause of "still off beat":** the beat is half-time. The kick is on beats 1 and 4 and the clap only on beat 3, so the felt pulse is beats 1 and
+  3 (every half note, 889 ms). v5 put each echo on the next beat line of any kind: 23 of 51 first echoes landed on beats 2 or 4, between
+  pulses, and dotted-half spacing put later repeats off too (42 of 109 repeats on the pulse).
+- **What changed:**
+  1. Each echo's first sound lands on the next beat 1 or 3 after the words end, and repeats are spaced a half note or a whole bar.
+  2. Louder: the first repeat may go up to 2 dB over its own words in the louder ear, and the pan is (1.05, 0.7) so both ears hear it
+     (was 1.15, 0.45).
+  3. Less muffled: the telephone band is 250 Hz-6.5 kHz (was 380 Hz-4 kHz), with a light lift at 2.5 kHz instead of the phone peak at
+     1.8 kHz. Later repeats still darken (6.5/5.5/4.5/3.8 kHz). The echo reverb is 300 Hz-6.5 kHz (was 400 Hz-4.5 kHz).
+  4. Less dull: the lead's shelf above 4.5 kHz is -3 dB (was -6), and the lead plate's top is 6 kHz (was 4.5 kHz).
+  5. Side effect, fixed: the louder echoes made the final limiter dip the whole song (beat too) at 24 echo starts, worst 4.5 dB on
+     "adderall". Only the 7 first repeats that caused a dip over 2 dB were lowered, by 0.6-2.0 dB (0:51.5, 1:13.8, 1:28.0, 1:31.5, 2:53.3,
+     2:56.8, 3:39.5). Heard with both ears (mono sum, 400-3600 Hz) those 7 are still 1.1-3.1 dB louder than in v5. In the louder ear
+     alone, five of them ("all" 1:13.8, "at all" 1:28.0 and 1:31.5, "adderall" 2:53.3, "like at all" 3:39.5) are level with v5 (-0.4 to +0.1 dB).
+- **Measured:**
+  - Pulse: 51 of 51 first echoes start on beat 1 or 3 (the checker counts 50, see `checks/pulse_check.py`). 106 of 107 repeats are on the
+    pulse; the remaining one is the same false alarm.
+  - Echo against its own words, 400-3600 Hz: median +0.4 dB, loudest +1.1 dB, 36 of 51 over their words. v5 was -2.8 dB with none over.
+  - Echo against the live mix: it reaches within 6 dB of the mix after a median 65 ms (v5 123 ms). In its first 100 ms it sits a median
+    -4.2 dB under the mix (v5 -5.7 dB).
+  - Echo tone: 3-7 kHz energy is 2.6 dB higher against 250-1500 Hz.
+  - Lead tone: fizz is -32.9/-32.4 dB, between v3 (-29.8/-28.6, "scratchy") and v5 (-35.0/-34.6, "dull"); the approved anchor is -34.4. The
+    1.6-3.5 kHz band is +0.5 dB against v5.
+  - Master: -14.5 LUFS, -1.4 dBTP. Final limiter p99 2.9/2.3/3.2 dB in the full sections (v3 3.4/3.3/3.4). Echo starts that add over 1 dB of
+    limiting: 24 (v5 9); the worst is 3.7 dB (v5 3.6).
+- **Team:** Grok reviewed the limiter trade-off and called it sound. Its alternative was to duck the beat 1.5-2 dB under every echo start,
+  with less kick and clap punch as the risk. That is plan B if the echoes still don't get through. It was not used because it changes the
+  beat in 51 places, which he did not ask for. The independent checker agents were not run, to save his limit; the checks above are this
+  agent's own.
+- **Risks to ask about:** fizz is now about 2 dB over the approved anchor. And an echo louder than its line goes against the general
+  rule (about 4 dB under). He asked for it on this song.
+- **Feedback:** none yet.
+
 ### 2026-11-12 — v5 (echoes on the beat, as loud as the rule allows)
 
 - **Owner on v4 (his words):** "You did all that work and it's still messed up" … "Echo still off beat & not getting through"

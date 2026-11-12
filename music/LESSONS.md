@@ -34,7 +34,7 @@ Use these as the starting point on a new song. They are one artist's taste on se
 | Lead tone | Match toward an approved lead: the Driftin' Away lead, the Baccdoor v4 lead, or Pushing the Interstate v3 | Baccdoor matched 85% toward Driftin' Away and went from "scratchy" to "Nearly PERFECT". Don't Need Closure matched 90% toward Baccdoor v4 and got "W" |
 | Lead level | About 0.5 dB under the beat, K-weighted, measured while singing | Driftin' Away v2 onward, Baccdoor v3, Don't Need Closure |
 | Adlibs and background vocals | 6 to 6.5 dB under the leads, measured only where both sing, bar by bar | Don't Need Closure v2 ("W"). Old Motorola settled on the same figure after its fixes |
-| A repeat of a line | About 4 dB under the line it repeats, never over it | Driftin' Away v5 |
+| A repeat of a line | About 4 dB under the line it repeats, never over it. One exception on record: on What I'm Posed To Do he asked for the echoes to go louder than the line (his answer on v5). Ask per song | Driftin' Away v5 |
 | Layer order | Lead, then background vocals, then their repeats | The owner's rule, Driftin' Away v5 |
 | Sections | Verse and later sections within about 1 dB of each other | Driftin' Away v2 to v6 |
 | Master | -11.5 to -12.1 LUFS, true peak -0.7 to -1.2 dBTP | Every accepted version |
@@ -73,7 +73,9 @@ Echo timing has cost more versions than everything else combined. These rules ar
 2. **Cut the word from its real start to its real end, with a short fade.** A fixed 0.30 s slice began
    mid-word and ended early (Interstate v4 to v15; Satan's Casino v02 in the second workspace).
 3. **Keep each copy under one beat long.** Longer copies cover the next beat (Interstate v15, v17).
-4. **Start the first echo after the word has finished, on a main beat** (Interstate v10 and v15).
+4. **Start the first echo after the word has finished, on a main beat** (Interstate v10 and v15). In a half-time beat
+   (the snare or clap only on beat 3) the main beats are 1 and 3: land there, and space the repeats a half note or a whole
+   bar. Beats 2 and 4 sit between the pulses (What I'm Posed To Do v5: "Still off beat").
 5. **Take the grid from this song's drums, not from 0:00 of the file.** The grid began 38 ms into
    Driftin' Away, 17 ms into Baccdoor and 0.955 s into Don't Need Closure.
 6. **Do not move single echoes onto single drum hits.** That was Interstate v7, and the owner rejected
@@ -121,6 +123,8 @@ Echo timing has cost more versions than everything else combined. These rules ar
 | A version sent without the team's check | What I'm Posed To Do v2 | It missed on both things it was meant to fix | Run the checks before sending, every version |
 | Echoes made as a true delay of the rapped words (a note value after they were sung) | What I'm Posed To Do v2-v4 | "Echo still off beat": rap is not on the grid, so the echo copied the looseness; first sounds sat 74-136 ms (median) from a beat | Land the echoed word's first sound on a beat line of the song's grid (rule 4), and measure the distance to the nearest beat for every echo |
 | Judging a cut by "grit" (spectral flatness 3-8 kHz) alone | What I'm Posed To Do v4 draft | The 2.8 kHz bell seemed to raise grit 29%, so it was removed; the independent check showed the reading follows the tone's slope, and removing the bell raised 1.5-3.5 kHz 1-1.6 dB against v3 | Judge scratch by fizz (5-12 kHz against the body) and the 1.5-3.5 kHz band; a -6 dB shelf at 4.5 kHz took fizz to the approved -34.5 dB. Keep a cut only if those numbers say so |
+| Echoes landed on the next beat line of any kind in a half-time beat | What I'm Posed To Do v5 | "Still off beat": 23 of 51 first echoes fell on beats 2 and 4, between the felt pulses, and dotted-half spacing moved later repeats off too | Find where the snare or clap falls before placing echoes. In half-time, land on beats 1 and 3 only and space repeats a half note or a bar. Check every repeat with `songs/what-im-posed-to-do/checks/pulse_check.py` |
+| Echoes raised over their line with the master unchanged | What I'm Posed To Do v6 (caught before sending) | 24 echo starts made the final limiter dip the whole song, beat included, by over 1 dB; the worst was 4.5 dB | Run `checks/echo_limiter_push.py` after any echo level change. Lower only the few echoes that cause a dip over 2 dB, by at most 2 dB. Plan B (Grok): duck the beat 1.5-2 dB under echo starts, but listen for lost kick punch |
 | A compressor on a phone-recorded rap lead | What I'm Posed To Do v1–v3 | Fizz +2.6 dB and grit +18% (it presses the vowels, not the s and breath noise), with no gain in word-to-word evenness (15.9 dB vs 15.7 dB spread) | Leave it out; even the lines with a 2-bar ride to the median line level instead, and hold peaks on each voice |
 | A 1 ms envelope made by taking every 44th sample (`SR//1000`), read with `int(t*1000)` | What I'm Posed To Do v4 checks | Each step is 0.9977 ms, so the reading drifts 0.5 s by 3:40. It produced a false "pasted sections are 324 ms late" alarm and fake silent lead-ins on every echo plot | Slice by samples (`int(t*SR)`) first, or sample at `np.round(np.arange(0, n, SR/1000.0))`. Test any time-indexed check with a click at a known late time |
 | An echo whose own start is soft (a "y", a quiet "like") placed under a live line | What I'm Posed To Do v3, v4 | "Lagging in ... not loud enough in the beginning to produce the word, then it just cuts in late" | Lift only the voiced start of the echoed word, never the hiss before it. Do not move a long word's echo later: v3's half-note placement measured clearer. Judge every echo change against the live mix at the word's true onset, before and after, not by the echo's own shape |
