@@ -1,0 +1,430 @@
+[
+  {
+    "track": "Lead 1",
+    "effect": "Active-level gain staging",
+    "type": "gain",
+    "tool": "dsp_tools.py gain-stage",
+    "settings": "target gated RMS -18 dBFS",
+    "why": "Comparable working levels for alternating primary leads and support processing",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Rumble high-pass",
+    "type": "hpf",
+    "tool": "dsp_tools.py hpf",
+    "settings": "85 Hz, order 2",
+    "why": "Retain v1's low-cut choice; higher support cutoff reduces low-mid overlap",
+    "measured": {
+      "freq_hz": 85
+    },
+    "issues": [
+      "Lowest vocal fundamental and subjective chest/body preservation remain unverified"
+    ]
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Centered dry image",
+    "type": "bus",
+    "tool": "FFmpeg extrastereo",
+    "settings": "side multiplier 0.35, clipping disabled",
+    "why": "Both alternating leads remain primary and near center",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=350:t=q:w=1:g=-2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=2600:t=q:w=0.7:g=2.2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "treble=g=1:f=6500",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Limited split-band de-essing",
+    "type": "deess",
+    "tool": "dsp_tools.py deess",
+    "settings": "5500\u20138500 Hz; auto percentile 99; ratio 3; max 3 dB",
+    "why": "Control only upper-band outliers while limiting maximum tonal change",
+    "measured": {
+      "pct_active": 8.5,
+      "avg_db": 1.3
+    },
+    "issues": []
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Serial peak and phrase control",
+    "type": "comp",
+    "tool": "dsp_tools.py comp2",
+    "settings": "peak -12 dB/5:1/2 ms/60 ms; smooth -22 dB/2.5:1/10 ms/200 ms; automatic makeup",
+    "why": "Control recording spikes and phrase level in a dense rap arrangement",
+    "measured": {
+      "avg_gr_db": 4.5
+    },
+    "issues": []
+  },
+  {
+    "track": "Lead 1",
+    "effect": "Post-makeup peak control",
+    "type": "limiter",
+    "tool": "FFmpeg alimiter",
+    "settings": "-9 dBFS; 2 ms attack; 60 ms release; auto-level off; latency compensated",
+    "why": "Contain post-makeup peaks before summing; workload is measured, and audible compression still requires owner review",
+    "measured": {
+      "average_gr_db": 1.1607785345506687,
+      "p95_gr_db": 3.447458169562647,
+      "worst_50ms_gr_db": 6.39472362488894,
+      "active_pct_over_1db": 46.17543859649123
+    },
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Active-level gain staging",
+    "type": "gain",
+    "tool": "dsp_tools.py gain-stage",
+    "settings": "target gated RMS -18 dBFS",
+    "why": "Comparable working levels for alternating primary leads and support processing",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Rumble high-pass",
+    "type": "hpf",
+    "tool": "dsp_tools.py hpf",
+    "settings": "85 Hz, order 2",
+    "why": "Retain v1's low-cut choice; higher support cutoff reduces low-mid overlap",
+    "measured": {
+      "freq_hz": 85
+    },
+    "issues": [
+      "Lowest vocal fundamental and subjective chest/body preservation remain unverified"
+    ]
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Centered dry image",
+    "type": "bus",
+    "tool": "FFmpeg extrastereo",
+    "settings": "side multiplier 0.35, clipping disabled",
+    "why": "Both alternating leads remain primary and near center",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=350:t=q:w=1:g=-2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=2600:t=q:w=0.7:g=2.2",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "treble=g=1:f=6500",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Limited split-band de-essing",
+    "type": "deess",
+    "tool": "dsp_tools.py deess",
+    "settings": "5500\u20138500 Hz; auto percentile 99; ratio 3; max 3 dB",
+    "why": "Control only upper-band outliers while limiting maximum tonal change",
+    "measured": {
+      "pct_active": 8.8,
+      "avg_db": 1.2
+    },
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Serial peak and phrase control",
+    "type": "comp",
+    "tool": "dsp_tools.py comp2",
+    "settings": "peak -12 dB/5:1/2 ms/60 ms; smooth -22 dB/2.5:1/10 ms/200 ms; automatic makeup",
+    "why": "Control recording spikes and phrase level in a dense rap arrangement",
+    "measured": {
+      "avg_gr_db": 4.5
+    },
+    "issues": []
+  },
+  {
+    "track": "Lead 2",
+    "effect": "Post-makeup peak control",
+    "type": "limiter",
+    "tool": "FFmpeg alimiter",
+    "settings": "-9 dBFS; 2 ms attack; 60 ms release; auto-level off; latency compensated",
+    "why": "Contain post-makeup peaks before summing; workload is measured, and audible compression still requires owner review",
+    "measured": {
+      "average_gr_db": 1.2552429639737224,
+      "p95_gr_db": 3.7220180052761274,
+      "worst_50ms_gr_db": 7.810631955546906,
+      "active_pct_over_1db": 48.446745562130175
+    },
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Active-level gain staging",
+    "type": "gain",
+    "tool": "dsp_tools.py gain-stage",
+    "settings": "target gated RMS -18 dBFS",
+    "why": "Comparable working levels for alternating primary leads and support processing",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Rumble high-pass",
+    "type": "hpf",
+    "tool": "dsp_tools.py hpf",
+    "settings": "150 Hz, order 2",
+    "why": "Retain v1's low-cut choice; higher support cutoff reduces low-mid overlap",
+    "measured": {
+      "freq_hz": 150
+    },
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=350:t=q:w=1:g=-2.5",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Provisional tonal EQ",
+    "type": "eq",
+    "tool": "FFmpeg",
+    "settings": "equalizer=f=2400:t=q:w=0.8:g=1.5",
+    "why": "Retain v1's mild broad tone proposal; source spectrum is concentrated in low mids; not a verified ringing repair",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Limited split-band de-essing",
+    "type": "deess",
+    "tool": "dsp_tools.py deess",
+    "settings": "5500\u20138500 Hz; auto percentile 99; ratio 3; max 3 dB",
+    "why": "Control only upper-band outliers while limiting maximum tonal change",
+    "measured": {
+      "pct_active": 6.0,
+      "avg_db": 1.4
+    },
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Serial peak and phrase control",
+    "type": "comp",
+    "tool": "dsp_tools.py comp2",
+    "settings": "peak -12 dB/5:1/2 ms/60 ms; smooth -22 dB/2.5:1/10 ms/200 ms; automatic makeup",
+    "why": "Control recording spikes and phrase level in a dense rap arrangement",
+    "measured": {
+      "avg_gr_db": 3.3
+    },
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Post-makeup peak control",
+    "type": "limiter",
+    "tool": "FFmpeg alimiter",
+    "settings": "-9 dBFS; 2 ms attack; 60 ms release; auto-level off; latency compensated",
+    "why": "Contain post-makeup peaks before summing; workload is measured, and audible compression still requires owner review",
+    "measured": {
+      "average_gr_db": 0.9483123143387258,
+      "p95_gr_db": 4.132868514182077,
+      "worst_50ms_gr_db": 10.026184817186373,
+      "active_pct_over_1db": 31.60270880361174
+    },
+    "issues": []
+  },
+  {
+    "track": "Beat",
+    "effect": "Gentle subsonic cut",
+    "type": "hpf",
+    "tool": "FFmpeg highpass",
+    "settings": "25 Hz, one pole",
+    "why": "Remove subsonic energy with minimal change to the stereo beat",
+    "measured": {
+      "freq_hz": 25
+    },
+    "issues": []
+  },
+  {
+    "track": "Beat",
+    "effect": "Instrumental balance",
+    "type": "gain",
+    "tool": "FFmpeg volume",
+    "settings": "-4 dB",
+    "why": "Make relative room for the leads without separately altering unavailable drum/808 stems",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead bus",
+    "effect": "Equal lead balance",
+    "type": "gain",
+    "tool": "dsp_tools.py mix",
+    "settings": "both leads -2 dB; both start at zero",
+    "why": "Alternating phrases receive equal priority",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Supporting balance",
+    "type": "gain",
+    "tool": "dsp_tools.py mix",
+    "settings": "-8 dB after working-level processing",
+    "why": "Keep adlibs behind both primary leads",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Lead bus",
+    "effect": "Quiet timed density delay",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "settings": "1/16; feedback .25; 3 repeats; 300\u20134200 Hz; return -27 dB; 3 dB duck; attack 5 ms/release 1/16",
+    "why": "Replace free-time ambience without introducing prominent line-end throws",
+    "measured": {
+      "note": "1/16",
+      "ms": 111.11111111111111,
+      "bpm": 135.0,
+      "ducked": true
+    },
+    "issues": []
+  },
+  {
+    "track": "Adlibs",
+    "effect": "Quiet timed density delay",
+    "type": "delay",
+    "tool": "dsp_tools.py delay",
+    "settings": "1/16; feedback .25; 3 repeats; 300\u20134200 Hz; return -31 dB; 3 dB duck; attack 5 ms/release 1/16",
+    "why": "Replace free-time ambience without introducing prominent line-end throws",
+    "measured": {
+      "note": "1/16",
+      "ms": 111.11111111111111,
+      "bpm": 135.0,
+      "ducked": true
+    },
+    "issues": []
+  },
+  {
+    "track": "Lead bus",
+    "effect": "Short ducked plate",
+    "type": "reverb",
+    "tool": "dsp_tools.py reverb",
+    "settings": "plate; pre-delay 1/64; nominal decay 1/4; width .7; return -27 dB; duck 3 dB",
+    "why": "Understated space consistent with the proposed dry vocal direction",
+    "measured": {
+      "bpm": 135.0,
+      "predelay_ms": 27.77777777777778,
+      "decay_s": 0.4444444444444444
+    },
+    "issues": []
+  },
+  {
+    "track": "Mix bus",
+    "effect": "DC blocking",
+    "type": "hpf",
+    "tool": "FFmpeg highpass",
+    "settings": "5 Hz, order 2, before mastering",
+    "why": "Remove measured mix DC offset before master gain",
+    "measured": {
+      "freq_hz": 5
+    },
+    "issues": []
+  },
+  {
+    "track": "Mix bus",
+    "effect": "Headroom and edge fades",
+    "type": "gain",
+    "tool": "FFmpeg",
+    "settings": "-4.709053 dB; 3 ms opening / .8 s ending edge fade; exactly 6256560 frames",
+    "why": "Preserve arrangement duration and leave uniform mix headroom",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Mix bus",
+    "effect": "Sub-side cleanup",
+    "type": "low-end",
+    "tool": "dsp_tools.py ms-bus",
+    "settings": "90 Hz side high-pass, zero phase; mid shelf bypassed",
+    "why": "Keep the already-centered sub stable; avoid an unrequested global brightness lift",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Master",
+    "effect": "Oversampled master limiting",
+    "type": "limiter",
+    "tool": "render_master.py",
+    "settings": "4x; 5 ms attack/100 ms release; -11.5 LUFS target; -1.3 dBTP ceiling",
+    "why": "Back off the first attempt's -10.5 target to preserve contrast and reduce limiting; not a claimed reference match",
+    "measured": {},
+    "issues": []
+  },
+  {
+    "track": "Delivery",
+    "effect": "24-bit dither and MP3 encoding",
+    "type": "bus",
+    "tool": "export_master.py",
+    "settings": "44.1 kHz/24-bit TPDF WAV; 320 kbps MP3, decoded ceiling -1 dBTP",
+    "why": "Final integer quantization once; independently decode both delivery formats",
+    "measured": {},
+    "issues": []
+  }
+]

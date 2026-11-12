@@ -1,0 +1,27 @@
+{
+  "input": "/workspace/top-music/music/songs/willing-to-show-you/work/Premaster_v2.wav",
+  "output": "/workspace/top-music/music/songs/willing-to-show-you/work/Master_v2_float.wav",
+  "sample_rate": 44100,
+  "chain": "",
+  "full_filtergraph": "volume=9.800dB,aresample=176400:resampler=soxr,alimiter=limit=-1.500dB:attack=5.0:release=100.0:level=disabled:latency=true,aresample=44100:resampler=soxr,ebur128=peak=true",
+  "gain_into_limiter_db": 9.8,
+  "limiter": {
+    "limit_db": -1.5,
+    "attack_ms": 5.0,
+    "release_ms": 100.0,
+    "oversampling": 4
+  },
+  "target_lufs": -11.5,
+  "ceiling_dbtp": -1.3,
+  "measured_before_limiter": {
+    "integrated_lufs": -20.7,
+    "loudness_range_lu": 3.6,
+    "true_peak_dbtp": -5.9
+  },
+  "measured_output": {
+    "integrated_lufs": -11.5,
+    "loudness_range_lu": 3.2,
+    "true_peak_dbtp": -1.5
+  },
+  "limiter_loudness_reduction_lu": 0.6
+}
