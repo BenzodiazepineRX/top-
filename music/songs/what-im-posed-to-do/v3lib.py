@@ -25,10 +25,10 @@ def runs_of(mask):
     d = np.diff(np.r_[0, mask.astype(int), 0]); return list(zip(np.where(d == 1)[0], np.where(d == -1)[0]))
 
 
-def correction_curve(ts, f, strength, a4=439.5, step=0.005):
+def correction_curve(ts, f, strength, a4=439.5, step=0.005, full_below=100.0, none_above=160.0):
     """Cents to add at each pitch frame. Only steady (held) pitch is corrected; glides and short blips are left alone."""
     c = 6900 + 1200 * np.log2(f / a4)
-    corr = np.zeros(len(f)); info = dict(frames_voiced=int(np.sum(~np.isnan(f))), frames_corrected=0)
+    corr = np.zeros(len(f)); info = dict(frames_voiced=int(np.sum(~np.isnan(f))), frames_corrected=0, steady_frames_left_alone_off_scale=0)
     dev_before = []; dev_after = []
     for a, b in runs_of(~np.isnan(f)):
         if b - a < 10: continue                                           # under 50 ms: leave it
@@ -42,12 +42,13 @@ def correction_curve(ts, f, strength, a4=439.5, step=0.005):
         slope = np.abs(np.gradient(s)) / step                             # cents per second
         slope = uniform_filter1d(slope, 9, mode="nearest")
         w = np.clip((900.0 - slope) / 600.0, 0, 1)                        # steady: full correction; gliding fast: none
-        w *= np.clip((160.0 - np.abs(d)) / 60.0, 0, 1)                    # far from any note (octave slip, noise): none
+        w *= np.clip((none_above - np.abs(d)) / (none_above - full_below), 0, 1)   # far from any scale note (a note sung on purpose off the scale, a slip): none
         cr = -strength * d * w
         e = min(6, (b - a) // 3); ramp = np.ones(b - a); ramp[:e] = np.linspace(0, 1, e); ramp[-e:] = np.linspace(1, 0, e)
         cr = uniform_filter1d(cr, 9, mode="nearest") * ramp               # no steps, and nothing at the edges of the sound
         corr[a:b] = cr
         st = w > 0.7
+        info["steady_frames_left_alone_off_scale"] += int(np.sum((np.clip((900.0 - slope) / 600.0, 0, 1) > 0.7) & (np.abs(d) >= none_above)))
         dev_before += list(np.abs(d[st])); dev_after += list(np.abs(d[st] + cr[st]))
         info["frames_corrected"] += int(np.sum(np.abs(cr) > 3))
     db_, da_ = np.array(dev_before), np.array(dev_after)
@@ -58,10 +59,10 @@ def correction_curve(ts, f, strength, a4=439.5, step=0.005):
     return corr, info
 
 
-def tune_natural(x, sr, strength=0.6, step=0.005):
+def tune_natural(x, sr, strength=0.6, step=0.005, full_below=100.0, none_above=160.0):
     """Pitch correction by tiny speed changes on held notes, re-timed at the next quiet moment. No resynthesis."""
     ts, f = praat_pitch(x, sr, step)
-    corr, info = correction_curve(ts, f, strength, step=step)
+    corr, info = correction_curve(ts, f, strength, step=step, full_below=full_below, none_above=none_above)
     n = len(x); idx = np.arange(n)
     cs = np.interp(idx / sr, ts, corr, left=0, right=0)
     r = 2.0 ** (cs / 1200.0) - 1.0
