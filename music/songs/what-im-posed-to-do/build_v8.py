@@ -1,5 +1,5 @@
-# What I'm Posed To Do - version 6 build (v5 plus the owner's four answers: on the pulse, louder echoes, less muffled echoes, vocals less dull). Based on the version 4 build (v3 plus the three things asked for after v3: lighter autotune, less scratch, echoes that start audibly). Run from a folder holding src/ (the five stems, beat renamed Beat.wav),
-# words/ (word timing per vocal, from words/transcribe.py) and v3lib.py:   W=work_v3 python3 build_v3.py
+# What I'm Posed To Do - version 8 build: v6's sound and the vocals exactly as recorded; the last word repeats one beat apart, copied from where he sang it (a true delay); v7's re-timing of the vocals is off (SRC_DIR=src). Built from: What I'm Posed To Do - version 6 build (v5 plus the owner's four answers: on the pulse, louder echoes, less muffled echoes, vocals less dull). Based on the version 4 build (v3 plus the three things asked for after v3: lighter autotune, less scratch, echoes that start audibly). Run from a folder holding src/ (the five stems, beat renamed Beat.wav),
+# words/ (word timing per vocal, from words/transcribe.py) and v3lib.py:   W=work_v8 python3 build_v8.py (v8 as sent)
 # Changes against v3 are marked "v4:"; changes made after the independent checks (before anything was sent) are marked "v4 check:".
 # Run: W=work_v4b python3 build_v4.py   (FAST=1 reuses the cleaned voices).
 import os, subprocess, json, sys
