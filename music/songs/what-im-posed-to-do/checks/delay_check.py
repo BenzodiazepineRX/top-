@@ -1,6 +1,8 @@
 """For a delay-mode build: is every echo repeat an exact number of beats after the words it copies? Checked two ways: from the cue list,
 and from the audio (envelope cross-correlation of each repeat in throws_raw against the voice it was cut from).
-Also: where the voice's syllables sit on the beat's 8th grid. usage: delay_check.py WORKDIR SRC_DIR"""
+usage: delay_check.py WORKDIR SRC_DIR
+Limit: a copy of a held vowel has a nearly flat envelope, so its lag reads up to ~40 ms off (v8: 8 of 113, all held words);
+confirm those from the cue list ((first_echo_s - words_from_s) / beat is a whole number, within the 0.01 s rounding)."""
 import sys, json, numpy as np, soundfile as sf
 from scipy.signal import butter, sosfiltfilt
 SR=44100; Q=60/135; G0=0.004

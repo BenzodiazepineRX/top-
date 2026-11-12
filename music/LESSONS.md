@@ -75,7 +75,9 @@ Echo timing has cost more versions than everything else combined. These rules ar
 3. **Keep each copy under one beat long.** Longer copies cover the next beat (Interstate v15, v17).
 4. **Start the first echo after the word has finished, on a main beat** (Interstate v10 and v15). In a half-time beat
    (the snare or clap only on beat 3) the main beats are 1 and 3. Not yet settled on What I'm Posed To Do: snapping (v5, v6) and
-   a true delay on re-timed vocals (v7) were both rejected; get his app's rough mix before the next try. Never snap a word's first sound onto a beat line: that sound is often a
+   a true delay on re-timed vocals (v7) were both rejected. Asked directly, he chose "One beat apart" ("yours ... yours ...
+   yours"), which no version had tried: v8 is the last word, copied from where he sang it, repeating every beat. Ask how the
+   repeats should be spaced before the first version, with an example for each choice. Never snap a word's first sound onto a beat line: that sound is often a
    consonant, so the vowel lands late (What I'm Posed To Do v1, v5, v6, all "off beat").
 5. **Take the grid from this song's drums, not from 0:00 of the file.** The grid began 38 ms into
    Driftin' Away, 17 ms into Baccdoor and 0.955 s into Don't Need Closure.

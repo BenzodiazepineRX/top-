@@ -6,6 +6,33 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
+### 2026-11-12 — v8 (vocals as recorded; the last word repeats one beat apart)
+
+- **Owner's answers after v7 (his choices):**
+  - Does his rap sit on the beat in his own app? "Yes, on beat there".
+  - Can he export a rough mix from the app? "Can't do that".
+  - Which version had the echoes closest to right? "None were close".
+  - How should the echo repeat? "One beat apart" (the option read: "Each repeat a steady beat after the last: 'yours ... yours ...
+    yours'").
+- **Files (sent in chat):** `1_WIPTD_v6_then_v8_0m50.mp3` (v6 then v8, same loudness, from 0:49.5), `What_Im_Posed_To_Do_v8.mp3`,
+  `What_Im_Posed_To_Do_v8_24bit.wav`. Built by `build_v8.py` (= `build_v7.py` with the vocals as recorded and the changes below);
+  echo list `v8-echo-cues.json`.
+- **Starting point:** v6. Its sound (louder, brighter echoes; lead shelf -3 dB) drew no comment; only its echo timing was rejected. The
+  vocals are as recorded (sample-checked identical to v6). v7's re-timing is not used.
+- **What changed (echo timing only):** each echo is the last word, or the last words that fit in one beat (copy at most 0.41 s; a held
+  word is cut there with a 120 ms fade). The copy repeats exactly one beat (444 ms) apart, starting at the first whole beat after the
+  word has ended (1-4 beats after it began), so it follows his own timing. There are 3 repeats, 2 where the next line starts within
+  0.3 s, and 4 on the last line. No dotted, half-note or bar spacing anywhere; v1-v7 never spaced repeats one beat apart.
+- **Measured:**
+  - All 51 echoes repeat 444 ms apart. Every first echo is a whole number of beats after its word (within the 0.01 s rounding of the
+    cue list). `checks/delay_check.py` reads a median 9 ms; its 8 readings over 15 ms are all held words (see its note).
+  - Echo against its own words: median -0.2 dB (v6 +0.4).
+  - Echo against the live mix: audible within 120 ms for 44 of 51 (v6 34), median 30 ms. In its first 100 ms it sits 0.0 dB against
+    the mix (v6 -4.2).
+  - The final limiter dips the whole song by over 1 dB at 20 echo starts (v6 24); the worst is 3.0 dB (v6 3.7).
+  - Master: -14.5 LUFS, -1.3 dBTP. Lead 0.5-0.7 dB under the beat, as v6.
+- **Feedback:** none yet.
+
 ### 2026-11-12 — v7 (vocals lined up with the beat; echoes as a true delay) — REJECTED
 
 - **Owner on v6 (his words):** "The delay/echos are so entirely off beat idk even know what to say to get you to fix it anymore"
