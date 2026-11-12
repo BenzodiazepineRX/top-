@@ -6,6 +6,39 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
+### 2026-11-12 — v4 (lighter autotune, less fizz, echo starts lifted)
+
+- **Owner on v3 (his words):** "Please fix the background echos, they are lagging in as if it's not loud enough in the beginning of them to
+  produce the word then it just cuts in late. Also lower the auto tune a bit more lets get the main vocals not so scratchy"
+- **Files (sent in chat):** `1_WIPTD_v3_then_v4_0m50.mp3` (v3 then v4, loudness-matched, from 0:49.5), `What_Im_Posed_To_Do_v4.mp3`,
+  `What_Im_Posed_To_Do_v4_24bit.wav`, and a before/after picture of the "yours" echo. Built by `build_v4.py` + `v3lib.py` into `work_v4b`;
+  echo list `v4-echo-cues.json`; checks in `checks/`. Sent early at the owner's request ("I'm running low on limit. Send it now").
+- **What changed:** autotune strength 0.60 -> 0.45, and held notes 40-60+ cents off every scale note are left alone (he sang them). Lead chain:
+  gain, high-pass, v3's -3 dB bell at 2.8 kHz, a -6 dB shelf above 4.5 kHz, de-esser; the 2:1 compressor and the dynamic EQ removed (the
+  compressor raised fizz 2.6 dB). Per-voice peak hold at 15 dB. A fixed level trim per rapper (L1 +0.2, L2 -0.9 dB) plus phrase gains switched
+  only in silences. Echoes: copies start in the gap after the previous word; soft starts lifted toward the live mix (never above the echo's own
+  loud part); long held words echoed after they end (dotted half or a bar); pan (1.15, 0.45); older repeats that would sit on a newer echo
+  dropped; each echo's peaks held 9 dB over its loud part with its level restored; 9 first repeats lowered 0.8-4.0 dB where they pushed the
+  final limiter. Master -14.5 LUFS (v3 -14.0), -1.3 dBTP.
+- **Measured (and confirmed by two rounds of independent checks):** lead fizz -34.7/-34.3 dB (v3 -29.8/-28.6; approved anchor -34.4);
+  1.6-3.5 kHz 0.5-0.9 dB under v3; 4-8 kHz 5.6-6.3 dB under v3 (clarity: ask). Tuner: shift on held notes median 3.2/3.3 cents (v3 5.6/6.5),
+  no off-scale note moved, no clicks, timing drift under 0.5 ms. Peak hold acts on 3-4% of the singing. Lines: p5-p95 0.86 dB (v3 1.25).
+  Final limiter p90/p99 below v3 in all full sections. Copies no longer start inside another word (v3: 6 did).
+- **Known and not fixed in this version (the second check, before sending):** against the mix, echo starts are no clearer than v3 on the
+  median (-0.4 dB; 16 clearer, 13 weaker). The long-word echoes moved later ("raw", "all", "graveyard") are 0.7-4.7 dB weaker than v3 at
+  their start; v3's half-note placement measured clearer, so the hypothesis behind moving them was wrong. The 9 echoes lowered for headroom
+  work against his request. On "yours" the lift raised a 25 ms hiss before the word, not the word. Peak hold at 15 dB lets lead peaks cause
+  limiter hits at 1:55.6 (5.1 dB) and 3:45.4; the "it off" echo at 1:38.0 pulls the mix 3.6 dB at 1:38.3. The shared line at 1:41.3 and 3:06.7
+  sits 1.2 dB under the median.
+- **Ready for the next version, not built or checked:** `build_v4c_draft.py`: first echo back at a half note (later repeats spaced so they do
+  not overlap), no headroom lowering, the lift only on voiced sound, peak hold 13 dB, shared lines included in the phrase gains.
+- **The team:** Grok (round 4) agreed on the scratch diagnosis and the -14.5 LUFS call, and preferred raising weak echoes over moving them.
+  Three independent checkers (two rounds) found the problems listed above; their scripts are in the session scratchpad, not stored.
+- **A measuring mistake, recorded:** a 1 ms envelope taken every 44th sample drifts 0.5 s by 3:40. It produced a false "pasted sections are
+  324 ms late" alarm and fake silent lead-ins on the echo plots. Fixed in every check script (see `music/LESSONS.md`).
+- **Feedback:** none yet.
+- **Next:** wait for his words. If the echoes still lag in, start from `build_v4c_draft.py` and check it the same way.
+
 ### 2026-11-12 — v3 (leads no longer rebuilt by the tuner or clamped by the limiter; echoes start on words)
 
 - **Owner on v2 (his words):** "The echos aren't even playing sometimes it like they don't wanna get though. It's
