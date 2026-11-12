@@ -12,3 +12,5 @@ Work-in-progress song session based on the owner's four original stems and FDO b
 The driver verifies source hashes, keeps common timeline starts, pads/sums in float, uses calculated ducked effects, renders the premaster separately, masters at 4x oversampling, exports 24-bit/MP3, creates a passage-specific matched A/B and requires a review with zero failed checks. It uses cached source/tempo measurements only after verifying the unchanged source hashes. Intermediate audio is float; integer dither occurs on final master export.
 
 The repository dependency is the music-workflow branch from PR #1. This song's review PR targets that branch; it does not merge or modify the workspace setup PR. No real-system listening or reference matching is claimed. The owner must approve the final master.
+
+Latest listening revision is **v3**: `render_v3.py` rebuilds the blend from v2 caches with both main leads and their wet returns down 4 dB. Read `reports/v3-engineer-review.md` alongside the unmodified automatic report; its single generic LRA exception is explicitly documented. Use the v3 export filenames in `mix-notes.md`.

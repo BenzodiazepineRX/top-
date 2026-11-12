@@ -33,6 +33,12 @@ Four stereo 44.1 kHz / 16-bit WAV sources from the Dropbox folder “Willing To 
 - Preserve the beat's bass-led character; original LRA about 2 LU by the workspace EBU R128 measurement and low-frequency correlation is high.
 - These are measured/proposed preservation choices, not listening judgments.
 
+## Latest owner feedback — priority for v3
+
+“The main vocals are entirely too loud. This needs to be evened out perfectly.”
+
+This listening feedback overrides the earlier proposal to push the leads forward. V3 lowers both alternating primary leads by 4 dB relative to v2, together with their lead-only wet returns, preserving take handoffs and the beat/adlib balance. Do not restore the rejected vocal level by normalizing the lead bus. Judge the voice/beat relationship with a loudness-matched v2/v3 comparison. No subjective perfection is claimed from meter readings.
+
 ## Problem areas
 
 - Source vocal active RMS is about 8 dB below the beat's overall RMS; improve relative vocal level and control isolated transients without peak-normalizing the alternating leads differently.
@@ -78,4 +84,4 @@ Used: slap 1/16 = 111.111111 ms (nearest sample); plate pre-delay 1/64 = 27.7777
 ## Deadline
 
 - **Needed by:** unknown; no date supplied.
-- **What this pass should deliver:** reviewed work-in-progress v2, private local WAV/MP3, matched A/B, reproducible settings, effects log and report in the workspace. No final sign-off is implied.
+- **What this pass should deliver:** reviewed vocal-balance revision v3, private local WAV/MP3, matched A/B, reproducible settings, effects log and report in the workspace. No final sign-off is implied.

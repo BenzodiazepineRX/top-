@@ -4,6 +4,18 @@
 
 ## Version log
 
+### 2026-11-12 — v3 main-vocal balance correction
+
+- **Owner feedback:** “The main vocals are entirely too loud. This needs to be evened out perfectly.” V2 is rejected for lead/beat balance; its earlier forward-vocal proposal is superseded.
+- **Change:** main lead bus -4 dB relative to v2, with its lead delay and plate also -4 dB. Individual main leads now total -6 dB after their cached working-level processing. Beat/adlib gains remain as v2. No new tuning, EQ, compression or timing edits were applied to the takes.
+- **Evenness:** existing processed lead active RMS at v2 faders is -22.64 / -22.71 dBFS, only 0.07 dB apart. The matched reduction retains that relationship. Phrase measurements showed no systematic lead-to-lead offset, so no unrelated gain rides were added. Adlibs were about 7.9 dB below the leads and remain about 3.9 dB below after the correction.
+- **Exports:** `exports/Willing_To_Show_You_Master_v3_24bit.wav` and `exports/Willing_To_Show_You_Master_v3.mp3`. New 44.1 kHz / 24-bit WAV and 320 kbps preview. Both decode to 6,256,560 frames. Measured -11.6 LUFS integrated, WAV -1.5 dBTP, MP3 -1.4 dBTP.
+- **Comparison:** `exports/Willing_To_Show_You_v2_then_v3_AB.mp3`: v2 first, 0.8-second pause, v3 second, each over 0:42–0:57 and matched by passage loudness. Master target remains -11.5 LUFS to keep overall playback comparable without reversing the 4 dB voice/beat change.
+- **Provenance:** `render_v3.py` consumes validated v2 caches; rerun `render_v2.py` from the originals first when rebuilding. Routing/cache hashes in `measurements/v3-routing.json`; exact new master settings and final verification in `measurements/v3-master-settings.json` and `measurements/v3-delivery-verification.json`.
+- **Review:** `effects/v3.json`, raw `reports/v3.md`, and `reports/v3-engineer-review.md`. Raw report: 53 passes, 2 warnings, 1 generic LRA failure. The source beat itself has LRA 2.0 LU; the quieter-vocal v3 has 2.1 LU, and limiting workload is only about 0.8 LU. This is an explicit song-specific exception under the playbook's brief-first rule; do not restore the rejected loud vocals or invent section dynamics to satisfy a generic range threshold. Full rationale is in the engineering review. The raw report and its failed row are retained, not represented as all-passing.
+- **Listening:** the owner supplied the v2 listening feedback above. V3 auditory balance, reference comparison and playback-system checks still await listening; no claim of perfect balance is made from measurements.
+- **Creative effects/timing:** no new request or effect; existing 135 BPM ambience timing is retained. Only the level of main-lead effects changes.
+
 ### 2026-11-10 — v2 workspace work in progress
 
 - **Files:** `exports/Willing_To_Show_You_Master_v2_24bit.wav` and `exports/Willing_To_Show_You_Master_v2.mp3`; 44.1 kHz stereo, 24-bit WAV and 320 kbps MP3. Audio stays private/local and is ignored by Git, as this repository requires. Sources are unchanged in `source/`.
@@ -56,7 +68,7 @@ This is a work in progress. Leave all final-delivery boxes unchecked until valid
 - [ ] Compared audibly with FDO at matched listening level
 - [ ] Owner sign-off on the final master
 
-**Master version:** pending final approval; current review version v2
+**Master version:** pending final approval; current review version v3
 **Date:** pending
 **Owner:** Chex
 **Owner's words:** pending — no final approval received
