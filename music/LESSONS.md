@@ -111,6 +111,8 @@ Echo timing has cost more versions than everything else combined. These rules ar
 | Word times from a speech model on sung lines | Satan's Casino, second workspace | Low-confidence boundaries | Ask the owner for the lyric sheet; flag low scores |
 | An echo's "gap" measured only to the next voice that starts | What I'm Posed To Do, first build | When two rappers trade lines back to back, 107 of 121 repeats landed on the other one's words | Treat the gap as zero if any other voice is already singing when the words end; then one repeat only |
 | A fixed longest length for the echoed words | What I'm Posed To Do, first build | 10 of 44 cuts began mid-word | Start at the deepest dip inside the window, and let the copy be shorter |
+| An echo copy moved so that it starts on a beat line | What I'm Posed To Do v1 | "The echos are a bit off bit or they cut early" | Delay the words by a whole note value from where they were sung, and follow the last word's tail to its end |
+| Autotune strength 0.85 on raw rap takes | What I'm Posed To Do v1 | "Auto tune, lighter please", asked twice; leads "a bit harsh and scratchy" | Start at 0.60 and send a light-then-strong clip |
 | De-esser placed before the compressor | What I'm Posed To Do, first build | 9 to 16 kHz came back up 3 to 4 dB | Compress first, de-ess last, and cap the cut at 6 dB |
 | Work kept only in a session's scratch folder | What I'm Posed To Do | The first build and its reviews were lost when the session hit its limit | Commit the build script and notes as soon as a version renders |
 

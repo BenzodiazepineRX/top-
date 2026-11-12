@@ -6,6 +6,41 @@ No agent here can hear. Everything below is measurement; the owner's words are t
 
 ## Version log
 
+### 2026-11-12 — v2 (lighter autotune, softer leads, telephone background repeats, gaps filled)
+
+- **Owner on v1 (his words):** "Auto tune, lighter please. I want background vocals for the lead to be telephone
+  and reverb but clear repeating the last few works with echo/echo throws. 3, set them slightly louder when the
+  vocals end, I want parts added back to the empty parts of the song to fill the space , the main vocals are a
+  bit harsh and scratchy, and j would like a tad bit more reverb on them and again, the auto tunes needs to be
+  lighter. Also the echos are a bit off bit or they cut early"
+- **Files (sent in chat):** `1_WIPTD_v1_then_v2_1m55.mp3` (v1 then v2, both −12.0 LUFS, 1:55–2:10),
+  `What_Im_Posed_To_Do_v2.mp3`, `What_Im_Posed_To_Do_v2_24bit.wav`. Built by `build_v2.py`; echo list
+  `v2-echo-cues.json`. Built from the stems again, not on top of v1's audio.
+- **What changed, one line per thing he named:**
+  - *Autotune lighter:* strength 0.85 → 0.60. Voiced frames within 15 cents: Lead 1 52% (v1 68%), Lead 2 55%
+    (v1 78%).
+  - *Harsh and scratchy leads:* a 3 dB cut at 2.8 kHz and 2.5 dB off above 9 kHz on every voice, and a gentler
+    compressor (2:1, was 2.5:1). Cuts only. The lighter autotune also reshapes less of the voice.
+  - *More reverb on the leads:* plate return −17 → −15 dB, ducked 3 dB instead of 4.
+  - *Background vocals as a clear telephone repeat:* the plain wide double is gone. The telephone repeats are
+    the background vocal: first repeat 5 dB under its words (was 7), band 380–3600 Hz (was 420–3200), ducked
+    1.5 dB (was 2), its plate −10 dB (was −12), two repeats even when the next voice is in (was one), three
+    or four where a gap follows. 51 cues.
+  - *Echoes off beat:* v1 started each copy on the next beat line, which moved the words off their own
+    rhythm. Now each copy is the words exactly a half note (888.89 ms) later, like a real delay.
+  - *Echoes cut early:* v1 ended each copy 40 ms after the level fell under the line threshold. Now the copy
+    follows the word's tail down to 28 dB under the words (20–170 ms more), with a 40 ms fade.
+  - *The 2:10 voices louder:* 3 dB under the leads → 1.5 dB under.
+  - *Empty parts filled:* the first six bars of verse 1 (bars 25–30) pasted into the empty 2:25–2:38 (bars
+    83–88). The outro after 3:49 has a four-repeat telephone echo of the last words. The 41-second intro is
+    still beat only; asked.
+- **Measured:** master −12.0 LUFS, −1.2 dBTP (MP3 −1.1). Leads −0.5, −0.7, −0.3, −0.6 dB against the full
+  beat. 2-bar lines within 1.3 dB, largest to smallest (v1 0.8). First repeat 7.2 dB under its own words
+  (median). Echo sounding 16.8% of 0:42–3:50 (v1 8%). Limiter over 3 dB on 11.4% of blocks in full sections.
+- **Not re-run:** the two checkers and Grok did not review v2. 20 echo cuts still start at a shallow dip.
+- **Feedback:** none yet.
+- **Next:** wait for his words. Change only what he names.
+
 ### 2026-11-11 — v1 (first full mix and master; not heard by the owner yet)
 
 - **Files (sent in chat, not stored here):** `1_WIPTD_before_then_v1_1m55.mp3` (raw stems summed, then v1,
