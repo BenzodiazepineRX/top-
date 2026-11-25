@@ -2,7 +2,8 @@
 
 # Notes for Claude Code
 
-The rules for this workspace are in `AGENTS.md` (imported above). Read it first, then `music/LESSONS.md`.
+The rules for this workspace are in `AGENTS.md` (imported above). Read it first, then the full
+standard in `.claude/skills/pro-mix-master/SKILL.md`, then `deliveries/LEARNINGS.md`.
 
 - The toolkit is in `music/tools/` (start with `workflow.md`). A new container needs
   `pip install numpy scipy soundfile pyloudnorm` again; ffmpeg is preinstalled.
