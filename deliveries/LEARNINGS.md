@@ -24,10 +24,22 @@ Song facts: 128.00 BPM (detected from hats and kick; Kenshin did not know it), D
 
 ## Welcome 2 the Wild Side (2026-11-25; Pro Mix & Master Agents Alpha and Beta)
 
+82.5 BPM (file tagged 110). 2-track beat plus one 16-bar lead with reverb printed in.
+
+- **Pocket is per song.** The standard's 0 to +0.5 LU note did not hold: Kenshin heard the lead at -0.4 LU under the beat as "too loud, not clean enough". v9 put it at about -1.6 LU. His ears win.
+- **"Not clean" = printed reverb pulled up.** Compression and riding lifted the printed reverb about 3.4 dB between phrases. A gentle downward expander on the tails, timed to a 1/16 note, brought it back to within about 1 dB of the raw take. (Same cause as ATL's "too much reverb".)
+- **Loudness ceiling came from vocal peaks on 808 hits** (62% vocal, 32% 808). 808-only changes gained 0.4 LU or less.
+- **Mix-bus clipping to reach -12 added about 16 dB more distortion in the vocal's 2-8 kHz**, the harsh, ampy sound he hates. Measure 2-8 kHz distortion against the previous version before going louder.
 - **Landing just under -14 LUFS can beat pushing past it.** At -14.31 LUFS with a -1.4 dBTP ceiling the master had more usable level than going past -14 at -2.0 dBTP, which needed about twice the limiting on the 808 hits.
 - **AAC encoding added about 0.14-0.20 dB of true peak.** Leave that much margin under the ceiling.
-- **The vocal pocket is per song.** The standard's note that Kenshin likes the lead 0 to +0.5 LU over the beat did not hold here: he heard -0.4 LU as too loud and not clean enough. His ears win.
-- v9 measured 4.47 dB of limiting on the loudest 1% of 808 hits, over the 3-4 dB limit, so it is a draft, not final.
+- **Analysis-stage loudness estimates ran 3 LU too optimistic.** Always measure limiter gain reduction on the real mix.
+- **Lowering the lead after mastering:** a 1.5 dB cut only moved the lead 1.2 LU because master gain rose to hold loudness. Over-correct a little.
+- **Source limit:** lossy beat (stops at 16.5 kHz), no separate 808. Ask for trackouts.
+- v9 measured 4.47 dB of limiting on the loudest 1% of 808 hits, over the 3-4 dB limit, so it is a draft, not final. Files were never pushed and were lost in a computer refresh; being redone from Kenshin's Dropbox originals.
+
+## Process rule (2026-11-25, all agents)
+
+- **Push every version as soon as it is rendered:** notes, `mix_config.json` and QC results go to the repo right away, not when the song is done. Agent computers get refreshed; ATL v1-v4 and Wild Side v1-v9 working files were lost that way.
 
 ---
 
@@ -66,12 +78,12 @@ Use these as the starting point on a new song. They are one artist's taste on se
 | What | Starting point | Where it was approved |
 |---|---|---|
 | Lead tone | Match toward an approved lead: the Driftin' Away lead, the Baccdoor v4 lead, or Pushing the Interstate v3 | Baccdoor matched 85% toward Driftin' Away and went from "scratchy" to "Nearly PERFECT". Don't Need Closure matched 90% toward Baccdoor v4 and got "W" |
-| Lead level | About 0.5 dB under the beat, K-weighted, measured while singing | Driftin' Away v2 onward, Baccdoor v3, Don't Need Closure |
-| Adlibs and background vocals | 6 to 6.5 dB under the leads, measured only where both sing, bar by bar | Don't Need Closure v2 ("W"). Old Motorola settled on the same figure after its fixes |
+| Lead level | About 0.5 dB under the beat, K-weighted, measured while singing | Driftin' Away v2 onward, Baccdoor v3, Don't Need Closure | **(SUPERSEDED 2026-11-25: per-song values only, see Standing rules at the top)**
+| Adlibs and background vocals | 6 to 6.5 dB under the leads, measured only where both sing, bar by bar | Don't Need Closure v2 ("W"). Old Motorola settled on the same figure after its fixes | **(SUPERSEDED 2026-11-25: per-song values only, see Standing rules at the top)**
 | A repeat of a line | About 4 dB under the line it repeats, never over it | Driftin' Away v5 |
 | Layer order | Lead, then background vocals, then their repeats | The owner's rule, Driftin' Away v5 |
 | Sections | Verse and later sections within about 1 dB of each other | Driftin' Away v2 to v6 |
-| Master | -11.5 to -12.1 LUFS, true peak -0.7 to -1.2 dBTP | Every accepted version |
+| Master | -11.5 to -12.1 LUFS, true peak -0.7 to -1.2 dBTP | Every accepted version | **(SUPERSEDED 2026-11-25: per-song values only, see Standing rules at the top)**
 | Lead reverb | Plate, about a dotted half or one bar long, return about 17 dB under the lead | Driftin' Away v2; not raised again |
 | Adlib reverb | Little or none added | Don't Need Closure v2 |
 
@@ -98,6 +110,8 @@ were rejected. **Measure the vocal against an approved lead first, then lift onl
 cut only what is in excess.**
 
 ## Echo rules
+
+> **SUPERSEDED 2026-11-25:** there is no default echo approach, including "last word only". Ask Kenshin how he wants echoes on every song. The rules below are past evidence, not defaults.
 
 Echo timing has cost more versions than everything else combined. These rules are what survived.
 
